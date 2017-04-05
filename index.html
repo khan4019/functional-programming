@@ -56,10 +56,23 @@
 			<!-- Example of nested vertical slides -->
 			<section>
 				<section>
-					<h2>Functional Programming</h2>
-					<p>Slides can be nested inside of each other.</p>
-					<p>Use the <em>Space</em> key to navigate through all slides.</p>
+					<h1>What</h1>
+				</section>
+				<section>
+					<h2>What the Func?</h2>
+					<ul>
+						<li class="fragment">Is this only a hype?</li>
+						<li class="fragment">Why it's called functional?</li>
+						<li class="fragment">Is everything else is dysfunctional?</li>
+						<li class="fragment">XXXX</li>
+						<li class="fragment">Why am I sitting here?</li>
+						<li class="fragment">Btw, What would be served in the lunch?</li>
+					</ul>
 					<br>
+				</section>
+				<section>
+					<h2>Functional Programming</h2>
+					<p class="fragment highlight-red">Find a definition</p>
 				</section>
 				<section>
 					<h2>pieces of Functional Programming</h2>
@@ -76,71 +89,196 @@
 					</ul>
 				</section>
 				<section>
-					<h2>Basement Level 2</h2>
+					<h2>Some more about definition</h2>
 					<p>That's it, time to go back up.</p>
 					<br>
-					<a href="#/2">
-						<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-					</a>
 				</section>
 			</section>
 			<section>
-				<h2>Slides</h2>
-				<p>
-					Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com"
-					 target="_blank">http://slides.com</a>.
-				</p>
+				<section>
+					<h1>Section header</h1>
+				</section>
+				<section>
+					<h2>Back to Basic</h2>
+					<pre class="fragment"><code class="hljs" data-trim contenteditable>
+							function double(x){
+							   return 2*x;
+							}
+						</code></pre>
+					<pre class="fragment"><code class="hljs" data-trim>
+							var double = function(x){
+								return 2*x;
+							}
+						</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>constrast with OOP</h1>
+				</section>
+				<section>
+					<h2>Point of View</h2>
+					<ul>
+						<li class="fragment">Pomisese less side affect</li>
+						<li class="fragment">Use immutable data</li>
+						<li class="fragment">Use pure function</li>
+						<li class="fragment">Prefers declerative style</li>
+						<li class="fragment">Write programming in a way to describing</li>
+						<li class="fragment">Implementation detail packaged away</li>
+						<li class="fragment">Promises cleaner, readerable code</li>
+						<li class="fragment">Easier to reason about</li>
+						<li class="fragment"></li>
+					</ul>
+					<br>
+					<br>
+					<br>
+					<p><a href="">refernces</a></p>
+					<aside class="notes">
+						<p><strong>Side effects:</strong> minimize the number of changes to a programmer's state</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Touch Optimized</h2>
+					<p>
+						OOP and FP are not mutually exclusive
+					</p>
+				</section>
+				<section>
+					<h2>Minimize side effect</h2>
+					<ul>
+						<li class="fragment">Side effect is a change that is not local to the function that cuased it</li>
+						<li class="fragment"></li>
+					</ul>
+					<pre class="fragment"><code class="hljs" data-trim>
+					const x = 10;
+
+					const myFunc = function (y){
+						x = x + y;
+					}	
+
+					myFunc(3);
+					console.log(x); //13
+
+					myFunc(3);
+					console.log(x); //16
+					</code></pre>
+				</section>
+				<section>
+					<h2></h2>
+					<p>When a function produces a side effect you have to know more than just its inputs and output</p>
+					<p>to understand waht that function does</p>
+					<ul>
+						<li>you have to know the context and the history</li>
+						<li class="fragment">It makes function harder and unpredictable</li>
+						<li class="fragment">harder to test and could produce bug</li>
+						<li class="fragment">Minimizing side effects is a fundamental principle of FP</li>
+					</ul>
+				</section>
+			</section>
+			
+
+			<section>
+				<section>
+					<h2>Immutable</h2>
+				</section>
+				<section>
+					<h2>Treat data as Immutable</h2>
+					<ul>
+						<li class="fragment">Immutable is not Mutatable</li>
+						<li class="fragment">number, string, boolean are immutable</li>
+						<li class="fragment">Objects, arrays are mutable</li>
+						<li class="fragment"></li>
+					</ul>
+					<aside class="notes">
+						<p>Ask who can tell the definition of immutable will get a prize. and then reveal the first line</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Why you would like to avoid mutation</h2>
+					<ul>
+						<li class="fragment">Mutation has side effect</li>
+						<li class="fragment">Less changes means less things to keep track</li>
+						<li class="fragment"><code>Object.freeze</code></li>
+						<li class="fragment">Object.freeze only freezes one level down</li>
+						<li class="fragment">There are libraries to fix this issue <a href="">immutable</a></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Avoid array mutation</h2>
+				</section>
+				<section>
+					<h2>avoid object mutation</h2>
+				</section>
+				<section>
+					<h2>const</h2>
+					<ul>
+						<li class="fragment">const is useful</li>
+						<li class="fragment">does not make your data immutable</li>
+						<li class="fragment">prevents variable being reassigned</li>
+						<pre class="fragment"><code class="hljs" data-trim>
+							const x = 1;
+							x = 2; //not allowed
+
+							const myArray = [1,2,3];
+							myArray = [0, 2, 3]; // not allowed
+
+							myArray[0] = 0; //allowed
+						</code></pre>
+					</ul>
+				</section>
 			</section>
 
 			<section>
-				<h2>Point of View</h2>
-				<p>
-					Press <strong>ESC</strong> to enter the slide overview.
-				</p>
-				<p>
-					Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt
-					+ click anywhere to zoom back out.
-				</p>
-			</section>
-
-			<section>
-				<h2>Touch Optimized</h2>
-				<p>
-					Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-				</p>
-			</section>
-
-			<section data-markdown>
-				<script type="text/template">
-					## Markdown support Write content using inline or external Markdown. Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-					```
-					<section data-markdown>
-						## Markdown support Write content using inline or external Markdown. Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-					</section>
-					```
-				</script>
-			</section>
-
-			<section>
-				<section id="fragments">
-					<h2>Fragments</h2>
-					<p>Hit the next arrow...</p>
-					<p class="fragment">... to step through ...</p>
-					<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
+				<section>
+					<h1>Pure Function</h1>
+				</section>
+				<section>
+					<h2>Pure Function</h2>
+					<ul>
+						<li class="fragment">Does not change the program's state</li>
+						<li class="fragment">Does not produce an observable side effect</li>
+						<li class="fragment">Output relies solely on input values</li>
+						<li class="fragment">Always return same output for same input</li>
+						<li class="fragment">Indifferent to context</li>
+						<li class="fragment">Highly testable and reusable</li>
+					</ul>
 					<aside class="notes">
 						This slide has fragments which are also stepped through in the notes window.
 					</aside>
 				</section>
 				<section>
-					<h2>Fragment Styles</h2>
-					<p>There's different types of fragments, like:</p>
-					<p class="fragment grow">grow</p>
-					<p class="fragment shrink">shrink</p>
-					<p class="fragment fade-out">fade-out</p>
-					<p class="fragment fade-up">fade-up (also down, left and right!)</p>
-					<p class="fragment current-visible">current-visible</p>
-					<p>Highlight <span class="fragment highlight-red">red</span> <span class="fragment highlight-blue">blue</span> <span class="fragment highlight-green">green</span></p>
+					<h2>Make global variable local</h2>
+					<pre><code class="hljs" data-trim>
+						const myFunc = function(y){
+							const x = 10;
+							return x + y;
+						}
+
+						console.log(myFunc(3)); //13
+						console.log(myFunc(3)); //13
+					</code></pre>
+				</section>
+				<section>
+					<h2>Pass as paramter</h2>
+					<pre><code class="hljs" data-trim>
+						const x = 10;
+						const myFunc = function(x, y){
+							return x + y;
+						}
+
+						console.log(myFunc(x, 3)); //13
+						console.log(myFunc(x, 3)); //13
+					</code></pre>
+				</section>
+				<section>
+					<h2></h2>
+					<ul>
+						<li class="fragment">Ulitmate your program will always produce some side effects</li>
+						<li class="fragment">You shoul handle them carefully</li>
+						<li class="fragment">Constrained them as much as possible</li>
+						<li class="fragment"></li>
+					</ul>
 				</section>
 			</section>
 
