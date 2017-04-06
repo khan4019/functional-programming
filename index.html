@@ -41,8 +41,12 @@
 		<!-- Any section element inside of this container is displayed as a slide -->
 		<div class="slides">
 			<section>
-				<h1>Functional Programming</h1>
+				<h2>Functional Programming</h2>
 				<h3>What, Why and How</h3>
+				<br>
+				<br>
+				<br>
+				<br>
 				<p>
 					<small><a href="http://thatjsdude.com">That Brown JS Dude</a> / <a href="http://twitter.com/jsdude005">@jsdudeoo5</a></small>
 				</p>
@@ -92,6 +96,87 @@
 					<h2>Some more about definition</h2>
 					<p>That's it, time to go back up.</p>
 					<br>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Why</h1>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">Code works more than it doesn’t.</li>
+						<li class="fragment">Unit tests are easier to write.</li>
+						<li class="fragment">Unit tests break faster allowing me to fix broken code they found faster.</li>
+						<li class="fragment">Easier to figure out what the hell is going on in a larger code base. If something breaks, it’s easier to pull things apart and improve the testing of those parts to prevent it from happening again. Not like usual spaghetti that can occur with mutable state.</li>
+						<li class="fragment">Don’t get bit (as much) by concurrency/parallelism bugs that can arise in server or testing environments.</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Story</h1>
+					<p>medium article: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536">medium call</a></p>
+				</section>
+				<section>
+					<p>more info in second part and third part</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Practical example of FP</h2>
+					<br>
+					<p><a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">reference</a></p>
+				</section>
+				<section>
+					<p>Many functional programming articles teach abstract functional techniques. That is, composition, pipelining, higher order functions. This one is different. It shows examples of imperative, unfunctional code that people write every day and translates these examples to a functional style.</p>
+				</section>
+				<section>
+					<h2>A guide rope</h2>
+					<p>When people talk about functional programming</p>
+					<p>A dizzying number of “functional” characteristics</p>
+					<ul>
+						<li class="fragment">immutable data</li>
+						<li class="fragment">first class functions</li>
+						<li class="fragment">tail call optimisation</li>
+						<p>These are language features that aid functional programming</p>
+						<li class="fragment">mapping, reducing, pipelining, recursing, currying</li>
+						<li class="fragment">higher order functions</li>
+						<p>These are programming techniques used to write functional code</p>
+						<li class="fragment">parallelization</li>
+						<li class="fragment"> lazy evaluation6 and determinism</li>
+						<p>These are advantageous properties of functional programs.</p>
+					</ul>
+					
+				</section>
+				<section>
+					<h2>Ignore all that</h2>
+					<ul>
+						<li class="fragment">Functional code is characterised by one thing</li>
+						<li class="fragment">The absence of side effects</li>
+						<li class="fragment">It doesn’t rely on data outside the current function</li>
+						<li class="fragment">it doesn’t change data that exists outside the current function</li>
+						<li class="fragment">Every other “functional” thing can be derived from this property</li>
+						<li class="fragment">Use it as a guide rope as you learn</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Don't use Map or Reduce</h2>
+				</section>
+				<section>
+					<h2>Don’t iterate over lists. Use map and reduce</h2>
+					<p>Middle of this page: <a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">ref</a> </p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Write declaratively, not imperatively</h2>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Use pipelines</h2>
 				</section>
 			</section>
 			<section>
