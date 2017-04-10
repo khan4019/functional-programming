@@ -107,7 +107,9 @@
 						<li class="fragment">Code works more than it doesn’t.</li>
 						<li class="fragment">Unit tests are easier to write.</li>
 						<li class="fragment">Unit tests break faster allowing me to fix broken code they found faster.</li>
-						<li class="fragment">Easier to figure out what the hell is going on in a larger code base. If something breaks, it’s easier to pull things apart and improve the testing of those parts to prevent it from happening again. Not like usual spaghetti that can occur with mutable state.</li>
+						<li class="fragment">Easier to figure out what the hell is going on in a larger code base. If something breaks, it’s easier to pull things
+							apart and improve the testing of those parts to prevent it from happening again. Not like usual spaghetti that can
+							occur with mutable state.</li>
 						<li class="fragment">Don’t get bit (as much) by concurrency/parallelism bugs that can arise in server or testing environments.</li>
 					</ul>
 				</section>
@@ -128,7 +130,9 @@
 					<p><a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">reference</a></p>
 				</section>
 				<section>
-					<p>Many functional programming articles teach abstract functional techniques. That is, composition, pipelining, higher order functions. This one is different. It shows examples of imperative, unfunctional code that people write every day and translates these examples to a functional style.</p>
+					<p>Many functional programming articles teach abstract functional techniques. That is, composition, pipelining, higher
+						order functions. This one is different. It shows examples of imperative, unfunctional code that people write every
+						day and translates these examples to a functional style.</p>
 				</section>
 				<section>
 					<h2>A guide rope</h2>
@@ -146,7 +150,7 @@
 						<li class="fragment"> lazy evaluation6 and determinism</li>
 						<p>These are advantageous properties of functional programs.</p>
 					</ul>
-					
+
 				</section>
 				<section>
 					<h2>Ignore all that</h2>
@@ -162,11 +166,349 @@
 			</section>
 			<section>
 				<section>
+					<h1>Purity</h1>
+				</section>
+				<section>
+					<pre class="hljs" data-trim><code>
+					var z = 10;
+function add(x, y) {
+    return x + y;
+}
+					</code></pre>
+				</section>
+				<section>
+					<pre class="hljs" data-trim><code>
+					function add(x, y) {
+						return x + y;
+					}
+					console.log(add(1, 2)); // prints 3
+					console.log(add(1, 2)); // still prints 3
+					console.log(add(1, 2)); // WILL ALWAYS print 3
+					</code></pre>
+					<p class="fragment">
+						Pure Functions will always produce the same output given the same inputs.
+					</p>
+				</section>
+				<section>
+					<pre class="hljs"><code>
+					writeFile(fileName);
+					updateDatabaseTable(sqlCmd);
+					sendAjaxRequest(ajaxRequest);
+					openSocket(ipAddress);
+					</code></pre>
+					<p class="fragment">All these are impure function</p>
+					<p class="fragment">they will have <strong>side effect</strong> </p>
+					<p class="fragment">Pure functions have no side effects.</p>
+					<aside class="notes">
+						<p>In Imperative Programming Languages such as Javascript, Java, and C#, Side Effects are everywhere. This makes debugging very difficult because a variable can be changed anywhere in your program. So when you have a bug because a variable is changed to the wrong value at the wrong time, where do you look? Everywhere? That’s not good.</p>
+					</aside>
+
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">Functional Languages cannot eliminate Side Effects, they can only confine them.</li>
+						<li class="fragment"> Since programs have to interface to the real world, some parts of every program must be impure.</li>
+						<li class="fragment"> The goal is to minimize the amount of impure code and segregate it from the rest of our program.</li>
+						<li class="fragment"></li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Immutibility</h1>
+				</section>
+				<section>
+					<pre class="hljs" data-trim><code>
+						var x = 1;
+						x = x + 1;
+					</code></pre>
+					<p>whoever was teaching you told you to forget what you learned in math class? In math, x can never be equal to x + 1.</p>
+					<p>in Imperative Programming, it means, take the current value of x add 1 to it and put that result back into x.</p>
+					<p>Well, in functional programming, x = x + 1 is illegal. </p>
+					<p>There are no variables in Functional Programming.</p>
+					<p>Stored values are still called variables because of history but they are constants,</p>
+					<p>once x takes on a value, it’s that value for life.</p>
+					<p>Don’t worry, x is usually a local variable so its life is usually short. But while it’s alive, it can never change.</p>
+				</section>
+				<section>
+					<pre class="hljs"><code>
+						function addOneTOSum(x,y){
+							const x = 1;
+							return x + y + z;
+						}
+					</code></pre>
+					<ul>
+						<li class="fragment">x is bound to the value of 1</li>
+						<li class="fragment">it’s equal to 1 for the rest of its life.</li>
+						<li class="fragment">Its life is over when the function exits</li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+					</ul>
+				</section>
+				<section>
+					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+					&ldquo;HOW THE HELL AM I SUPPOSED TO DO ANYTHING WITHOUT VARIABLES?!&rdquo;
+				</blockquote>
+				</section>
+				<section>
+					<p>Let’s think about when we want to modify variables.</p>
+					<ul>
+						<li class="fragment">There are 2 general cases</li>
+						<li class="fragment">1. multi-valued changes (e.g. changing a single value of an object or record)</li>
+						<li class="fragment">2. single-valued changes (e.g. loop counters)</li>
+						<li class="fragment  highlight-red">research this</li>
+					</ul>
+				</section>
+				<section>
+					<p class="fragment highlight-red">Isn't clear. read it again</p>
+					<p>Functional Programming deals with changes to values in a record by making a copy of the record with the values changed. It does this efficiently without having to copy all parts of the record by using data structures that makes this possible.
+Functional programming solves the single-valued change in exactly the same way, by making a copy of it.
+Oh, yes and by not having loops.</p>
+				</section>
+				<section>
+					<blockquote>
+						“WHAT NO VARIABLES AND NOW NO LOOPS?! I HATE YOU!!!”
+					</blockquote>
+				</section>
+				<section>
+					<p>Hold on. It’s not like we can’t do loops (no pun intended), it’s just that there are no specific loop constructs like for, while, do, repeat, etc.</p>
+					<p>Functional Programming uses recursion to do looping.</p>
+
+				</section>
+				<section>
+					<h2>Two ways to lopping in javascript</h2>
+					<pre class="hljs"><code>
+					// simple loop construct
+					var acc = 0;
+					for (var i = 1; i <= 10; ++i)
+						acc += i;
+					console.log(acc); // prints 55
+					</code></pre>
+					<pre class="fragment hljs"><code>
+					// without loop construct or variables (recursion)
+function sumRange(start, end, acc) {
+    if (start > end)
+        return acc;
+    return sumRange(start + 1, end, acc + start)
+}
+console.log(sumRange(1, 10, 0)); // prints 55
+					</code></pre>
+				</section>
+				<section>
+					<p>Notice how recursion, the functional approach, accomplishes the same as the for loop by calling itself with a new start (start + 1) and a new accumulator (acc + start). It doesn’t modify the old values. Instead it uses new values calculated from the old.</p>
+					<p>You’re probably thinking that for loops are easier to understand. While that’s debatable and more likely an issue of familiarity, non-recursive loops require Mutability, which is bad.</p>
+				</section>
+				<section>
+					<h2>benefits of Immutability</h2>
+					<p>read <a href="https://medium.com/@cscalfani/why-programmers-need-limits-3d96e1a0a6db">this</a></p>
+					<p>One obvious benefit is that if you have access to a value in your program, you only have read access, which means that no one else can change that value. Even you. So no accidental mutations.</p>
+					<p>Also, if your program is multi-threaded, then no other thread can pull the rug out from under you. That value is constant and if another thread wants to change it, it’ll have create a new value from the old one.</p>
+					<p>Immutability creates simpler and safer code.</p>
+				</section>
+			</section>
+			<section>
+				<section>
 					<h2>Don't use Map or Reduce</h2>
 				</section>
 				<section>
 					<h2>Don’t iterate over lists. Use map and reduce</h2>
-					<p>Middle of this page: <a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">ref</a> </p>
+					<p>Middle of this page: <a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">ref</a>						</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Need a heading!</h1>
+				</section>
+				<section>
+					<h2>Familiar code</h2>
+					<pre class="fragment"><code>
+						function validateSsn(ssn) {
+							if (/^\d{3}-\d{2}-\d{4}$/.exec(ssn))
+								console.log('Valid SSN');
+							else
+								console.log('Invalid SSN');
+						}
+					</code></pre>
+					<pre class="fragment hljs"><code>
+function validatePhone(phone) {
+    if (/^\(\d{3}\)\d{3}-\d{4}$/.exec(phone))
+        console.log('Valid Phone Number');
+    else
+        console.log('Invalid Phone Number');
+}
+					</code></pre>
+				</section>
+				<section>
+					<h2>Refactored Code</h2>
+					<pre class="fragment hljs"><code>
+function validateValue(value, regex, type) {
+    if (regex.exec(value))
+        console.log('Invalid ' + type);
+    else
+        console.log('Valid ' + type);
+}
+					</code></pre>
+					<ul>
+						<li class="fragment">one function is much better than two, three, four, etc</li>
+						<li class="fragment">keeps your code clean and maintainable</li>
+						<li class="fragment">if there’s a bug, you only have to fix it in one place</li>
+					</ul>
+					<aside class="notes">
+						The parameters ssn and phone in the old code are now represented by value.
+The regular expressions /^\d{3}-\d{2}-\d{4}$/ and /^\(\d{3}\)\d{3}-\d{4}$/ are represented by regex.
+And finally, the last part of the message ‘SSN’ and ‘Phone Number’ are represented by type.
+					</aside>
+				</section>
+				<section>
+					<h2>What will you do here?</h2>
+					<pre class="fragment hljs"><code>
+function validateAddress(address) {
+    if (parseAddress(address))
+        console.log('Valid Address');
+    else
+        console.log('Invalid Address');
+}
+					</code></pre>
+					<pre class="fragment hljs"><code>
+function validateName(name) {
+    if (parseFullName(name))
+        console.log('Valid Name');
+    else
+        console.log('Invalid Name');
+}					
+					</code></pre>
+					<p>Here parseAddress and parseFullName are functions that take a string and return true if it parses.</p>
+					<p>How do we refactor this?</p>
+				</section>
+				<section>
+					<h2>Higher Order Function</h2>
+					<ul>
+						<li class="fragment">In Functional Programming, a function is a first-class citizen of the language.</li>
+						<li class="fragment">In other words, a function is just another value.</li>
+						<li class="fragment">Since functions are just values, we can pass them as parameters.</li>
+						<li class="fragment">Higher-order Functions either take functions as parameters, return functions or both.</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Search: IS JS a pure Functional program?</h2>
+				</section>
+				<section>
+					<pre class="fragment hljs"><code>
+function validateValueWithFunc(value, parseFunc, type) {
+    if (parseFunc(value))
+        console.log('Invalid ' + type);
+    else
+        console.log('Valid ' + type);
+}
+					</code></pre>
+					<pre class="fragment hljs"><code>
+validateValueWithFunc('123-45-6789', /^\d{3}-\d{2}-\d{4}$/.exec, 'SSN');
+validateValueWithFunc('(123)456-7890', /^\(\d{3}\)\d{3}-\d{4}$/.exec, 'Phone');
+validateValueWithFunc('123 Main St.', parseAddress, 'Address');
+validateValueWithFunc('Joe Mama', parseName, 'Name');
+					</code></pre>
+					<aside class="notes">
+						<p>Now we can call our higher-order function for the four previous functions (this works in Javascript because Regex.exec returns a truthy value when a match is found):</p>
+					</aside>
+				</section>
+				<section>
+					<h2> regular expressions bit verbose</h2>
+					<pre class="fragment hljs"><code>
+var parseSsn = /^\d{3}-\d{2}-\d{4}$/.exec;
+var parsePhone = /^\(\d{3}\)\d{3}-\d{4}$/.exec;
+validateValueWithFunc('123-45-6789', parseSsn, 'SSN');
+validateValueWithFunc('(123)456-7890', parsePhone, 'Phone');
+validateValueWithFunc('123 Main St.', parseAddress, 'Address');
+validateValueWithFunc('Joe Mama', parseName, 'Name');
+					</code></pre>
+					<aside class="notes">
+						<p>That’s better. Now when we want to parse a phone number, we don’t have to copy and paste the regular expression.</p>
+						<p>But imagine we have more regular expressions to parse, not just parseSsn and parsePhone. Each time we create a regular expression parser, we have to remember to add the .exec to the end. And trust me, this is easy to forget.</p>
+						<p>We can guard against this by creating a high-order function that returns the exec function:</p>
+					</aside>
+				</section>
+				<section>
+					<pre class="fargment hljs"><code>
+function makeRegexParser(regex) {
+    return regex.exec;
+}
+var parseSsn = makeRegexParser(/^\d{3}-\d{2}-\d{4}$/);
+var parsePhone = makeRegexParser(/^\(\d{3}\)\d{3}-\d{4}$/);
+validateValueWithFunc('123-45-6789', parseSsn, 'SSN');
+validateValueWithFunc('(123)456-7890', parsePhone, 'Phone');
+validateValueWithFunc('123 Main St.', parseAddress, 'Address');
+validateValueWithFunc('Joe Mama', parseName, 'Name');
+					</code></pre>
+					<aside class="notes">
+						Here, makeRegexParser takes a regular expression and returns the exec function, which takes a string. validateValueWithFunc will pass the string, value, to the parse function, i.e. exec.
+parseSsn and parsePhone are effectively the same as before, the regular expression’s exec function.
+Granted, this is a marginal improvement but is shown here to give an example of a high-order function that returns a function.
+However, you can imagine the benefits of making this change if makeRegexParser was much more complex.
+					</aside>
+				</section>
+				<section>
+					<h2>Another Higher order function</h2>
+					<pre><code>
+function makeAdder(constantValue) {
+    return function adder(value) {
+        return constantValue + value;
+    };
+}
+					</code></pre>
+					<pre class="fragment"><code>
+var add10 = makeAdder(10);
+console.log(add10(20)); // prints 30
+console.log(add10(30)); // prints 40
+console.log(add10(40)); // prints 50
+					</code></pre>
+					<aside class="notes">
+						This behavior is very important because without it, functions that return functions wouldn’t be very useful. So it’s important we understand how they work and what this behavior is called.
+This behavior is called a Closure.
+					</aside>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Closure</h1>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Composition</h1>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">Code reuse sounds great but is difficult to achieve.</li>
+						<li class="fragment">Make the code too specific and you can’t reuse it.</li>
+						<li class="fragment">Make it too general and it can be too difficult to use in the first place.</li>
+						<li class="fragment">So what we need is a balance between the two, a way to make smaller</li>
+						<li class="fragment"></li>
+					</ul>
+				</section>
+				<section>
+					<h2 class="fragment higlight-red"></h2>
+					<pre><code>
+var add10 = function(value) {
+    return value + 10;
+};
+var mult5 = function(value) {
+    return value * 5;
+};
+					</code></pre>
+					<pre class="fragment"><code>
+var add10 = value => value + 10;
+var mult5 = value => value * 5;
+					</code></pre>
+				</section>
+				<section>
+					<pre class="fragment"><code>
+var mult5AfterAdd10 = value => mult5(add10(value));
+					</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Point free notation</h1>
 				</section>
 			</section>
 			<section>
@@ -261,7 +603,7 @@
 					</ul>
 				</section>
 			</section>
-			
+
 
 			<section>
 				<section>
@@ -399,7 +741,7 @@
 					<h1>Partial function application</h1>
 				</section>
 				<section></section>
-				<section></section>				
+				<section></section>
 			</section>
 
 			<section>
@@ -407,10 +749,10 @@
 					<h2>Currying</h2>
 				</section>
 				<section>
-					
+
 				</section>
 				<section>
-					
+
 					<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
 				</section>
 				<section>
@@ -442,7 +784,7 @@
 				</section>
 
 			</section>
-		
+
 			<section>
 				<h2>Method chaining</h2>
 				<ul>
@@ -502,25 +844,25 @@
 	<script src="js/reveal.js"></script>
 
 	<script>
-						  // More info https://github.com/hakimel/reveal.js#configuration
-						  Reveal.initialize({
-							  controls: true,
-							  progress: true,
-							  history: true,
-							  center: true,
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
 
-							  transition: 'slide', // none/fade/slide/convex/concave/zoom
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-							  // More info https://github.com/hakimel/reveal.js#dependencies
-							  dependencies: [
-								  { src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
-								  { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-								  { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
-								  { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
-								  { src: 'plugin/zoom-js/zoom.js', async: true },
-								  { src: 'plugin/notes/notes.js', async: true }
-							  ]
-						  });
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true }
+			]
+		});
 	</script>
 
 </body>
