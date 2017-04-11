@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Functional Programming in JavaScript</title>
+	<title>Functional Programming: What Why and How</title>
 
 	<meta name="description" content="An introductory talk for funcational programming in JavaScript">
 	<meta name="author" content="That JS Dude">
@@ -52,27 +52,70 @@
 				</p>
 			</section>
 			<section>
-				<h2>Organize the talk</h2>
-				<ol>
-					<li>Intro</li>
-					<li>level 1: pure, immutable, higher order: medium that and <a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0">here</a></li>
-					<li>level 2: </li>
-					<li>level 3: monads, functor, etc. <a href="https://medium.freecodecamp.com/functional-programming-in-js-with-practical-examples-part-1-87c2b0dbc276">here: part 1 and 2</a></li>
-				</ol>
+				<section>
+					<h1>TODO</h1>
+				</section>
+				<section>
+					<h2>Organize the talk</h2>
+					<ol>
+						<li>Intro</li>
+						<li>level 1: pure, immutable, higher order: medium that and <a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0">here</a></li>
+						<li>level 2: <a href="http://reactivex.io/learnrx/">something</a> </li>
+						<li>level 3: monads, functor, etc. <a href="https://medium.freecodecamp.com/functional-programming-in-js-with-practical-examples-part-1-87c2b0dbc276">here: part 1 and 2</a></li>
+					</ol>
+				</section>
+				<section>
+					<h2>references</h2>
+					<ul>
+						<li>
+							<a href="http://www.lihaoyi.com/post/WhatsFunctionalProgrammingAllAbout.html">Make a tea making diagram</a>
+						</li>
+						<li>
+							<a href="https://egghead.io/courses/professor-frisby-introduces-composable-functional-javascript">Luke shares these videso in JS meetup</a>
+						</li>
+						<li>
+							<a href="http://www.braveclojure.com/functional-programming/">Closure: for the brave and true (read it)</a>
+						</li>
+						<li>
+							<a href="http://stackoverflow.com/questions/36504/why-functional-languages">Why Functional Programming</a>
+						</li>
+						<li>
+							<a href="http://www.defmacro.org/ramblings/fp.html">Read this as well</a>
+						</li>
+						<li>
+							<a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/">Good slides: go through it all</a>
+						</li>
+						<li>
+							<a href=""></a>
+						</li>
+						<li>
+							<a href=""></a>
+						</li>
+						<li>
+							<a href="https://www.quora.com/Why-are-many-experienced-programmers-upset-at-functional-programming">Why experience developers upset on FP</a>
+						</li>
+						<li><a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">Claims to be practical.. look at the examples</a></li>
+					</ul>
+				</section>
 			</section>
 			<section>
 				<h2>Bragging time!</h2>
 				<p>I know you don't care</p>
 				<p></p>
 			</section>
-
-			<!-- Example of nested vertical slides -->
 			<section>
 				<section>
 					<h1>What</h1>
 				</section>
 				<section>
 					<h2>What the Func?</h2>
+					<ul>
+						<li>add pic: i search google: what is functional programming and got 12 million results</li>
+						<li>it's too much...so i searched for FP for lazy developers: now it's working</li>
+						<li>I wanted to start from zero... so... i started clicking next button in google to get the last result...and it took me 14 days...to get the first first result... i got exhausted and ga ev up FP</li>
+						<li>add pic: i asked a new hire: it a pain for new dev</li>
+						<li>add pic: I asked my manager what is func? he said it's a pain for older developer</li>
+					</ul>
 					<ul>
 						<li class="fragment">Is this only a hype?</li>
 						<li class="fragment">Why it's called functional?</li>
@@ -82,6 +125,7 @@
 						<li class="fragment">Btw, What would be served in the lunch?</li>
 					</ul>
 					<br>
+					<p>ref: <a href="https://clojurefun.wordpress.com/2012/08/27/what-defines-a-functional-programming-language/">what is functioanl programming</a></p>
 				</section>
 				<section>
 					<h2>Functional Programming</h2>
@@ -100,6 +144,46 @@
 						<li></li>
 						<li></li>
 					</ul>
+				</section>
+				<section>
+					<section>
+						<h2>What, Why and How</h2>
+					</section>
+					<section>
+						<h2>What</h2>
+						<ul>
+							<li class="fragment">Functional programming is the mustachioed hipster of programming paradigms.</li>
+							<li class="fragment">Originally relegated to the annals of computer science academia</li>
+							<li class="fragment">Depending on whom you ask, functional programming (FP) is either an enlightened approach to programming that should be spread far and wide, </li>
+							<li class="fragment">or an overly academic approach to programming with few real-world benefits.</li>
+							<li class="fragment"></li>
+						</ul>
+						<h2>Serious: take it after first section</h2>
+						<ul>
+							<li class="fragment">Functions are first-class entities: They can be assigned to variables, passed as arguments, or returned from other functions.</li>
+							<li class="fragment">No state.</li>
+							<li class="fragment">No side effects: Anything the code does except produce an output from given inputs.</li>
+							<li class="fragment">programming with functions—pure mathematical functions.</li>
+							<li class="fragment">result of a function depends only on the arguments, </li>
+							<li class="fragment">there are no side effects</li>
+							<li class="fragment">Programs are built by combining functions together</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Why</h2>
+					</section>
+					<section>
+						<h2>How</h2>
+					</section>
+					<section>
+						<h2>Extra: put somehwere</h2>
+						<h4>Don't open that trap door!</h4>
+						<p>Recall that the result of a function depends only on its inputs. Alas, almost all programming languages have "features" that break this assumption. Null values, type case (instanceof), type casting, exceptions, side-effects, and the possibility of infinite recursion are trap doors that break equational reasoning and impair a programmer's ability to reason about the behavior or correctness of a program. (Total languages, which do not have any trap doors, include Agda, Idris, and Coq.)</p>
+						<p>Fortunately, as programmers, we can choose to avoid these traps, and if we are disciplined, we can pretend that the trap doors do not exist. This idea is called fast and loose reasoning. It costs nothing—almost any program can be written without using the trap doors—and by avoiding them you win back equational reasoning, composability and reuse.</p>
+						<p>ref: <a href="https://opensource.com/article/17/4/introduction-functional-programming">Intro to Functional Programming</a></p>
+						<p>Let's discuss exceptions in detail. This trap door breaks equational reasoning because the possibility of abnormal termination is not reflected in the type. (Count yourself lucky if the documentation even mentions the exceptions that could be thrown.) But there is no reason why we can't have a return type that encompasses all the failure modes.</p>
+						<p>Avoiding trap doors is an area in which language features can make a big difference. For avoiding exceptions, algebraic data types can be used to model error conditions, like so:</p>
+					</section>
 				</section>
 				<section>
 					<h2>Some more about definition</h2>
@@ -157,6 +241,7 @@
 						<p>These are programming techniques used to write functional code</p>
 						<li class="fragment">parallelization</li>
 						<li class="fragment"> lazy evaluation6 and determinism</li>
+						<li class="fragment"> extra: <a href="http://stackoverflow.com/questions/1303794/how-is-debugging-achieved-in-a-lazy-functional-programming-language">How to debug lazy function</a></li>
 						<p>These are advantageous properties of functional programs.</p>
 					</ul>
 
@@ -208,8 +293,23 @@ function add(x, y) {
 					<p class="fragment">All these are impure function</p>
 					<p class="fragment">they will have <strong>side effect</strong> </p>
 					<p class="fragment">Pure functions have no side effects.</p>
+					<pre class="fragment"><code>
+						public class SideEffectExample {
+						   private static final Logger LOGGER = Logger.getLogger(SideEffectExample.class.getName());
+						   boolean changeState = false;
+						   int i = 1;
+						   public int setI(int i) {
+						       this.i = i;
+						       this.changeState = true;
+						       LOGGER.info("changee");
+						       return i + 1;
+						   }
+						}
+					</code></pre>
 					<aside class="notes">
-						<p>In Imperative Programming Languages such as Javascript, Java, and C#, Side Effects are everywhere. This makes debugging very difficult because a variable can be changed anywhere in your program. So when you have a bug because a variable is changed to the wrong value at the wrong time, where do you look? Everywhere? That’s not good.</p>
+						<p>In Imperative Programming Languages such as Javascript, Java, and C#, Side Effects are everywhere. This makes debugging
+							very difficult because a variable can be changed anywhere in your program. So when you have a bug because a variable
+							is changed to the wrong value at the wrong time, where do you look? Everywhere? That’s not good.</p>
 					</aside>
 
 				</section>
@@ -220,6 +320,18 @@ function add(x, y) {
 						<li class="fragment"> The goal is to minimize the amount of impure code and segregate it from the rest of our program.</li>
 						<li class="fragment"></li>
 					</ul>
+				</section>
+				<section>
+					<h2>Side effects</h2>
+					<pre><code>
+						public int addNumbers(int x, int y) {
+						    int result = x+y;
+						    Database.write(result);
+						    return result;
+						}
+					</code></pre>
+					<p>Link has good discussions</p>
+					<p>ref: <a href="http://poincare101.blogspot.com/2012/02/functional-programming-explained.html">FP: side effects</a></p>
 				</section>
 			</section>
 			<section>
@@ -256,8 +368,8 @@ function add(x, y) {
 				</section>
 				<section>
 					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-					&ldquo;HOW THE HELL AM I SUPPOSED TO DO ANYTHING WITHOUT VARIABLES?!&rdquo;
-				</blockquote>
+						&ldquo;HOW THE HELL AM I SUPPOSED TO DO ANYTHING WITHOUT VARIABLES?!&rdquo;
+					</blockquote>
 				</section>
 				<section>
 					<p>Let’s think about when we want to modify variables.</p>
@@ -270,9 +382,10 @@ function add(x, y) {
 				</section>
 				<section>
 					<p class="fragment highlight-red">Isn't clear. read it again</p>
-					<p>Functional Programming deals with changes to values in a record by making a copy of the record with the values changed. It does this efficiently without having to copy all parts of the record by using data structures that makes this possible.
-Functional programming solves the single-valued change in exactly the same way, by making a copy of it.
-Oh, yes and by not having loops.</p>
+					<p>Functional Programming deals with changes to values in a record by making a copy of the record with the values changed.
+						It does this efficiently without having to copy all parts of the record by using data structures that makes this possible.
+						Functional programming solves the single-valued change in exactly the same way, by making a copy of it. Oh, yes and
+						by not having loops.</p>
 				</section>
 				<section>
 					<blockquote>
@@ -280,7 +393,8 @@ Oh, yes and by not having loops.</p>
 					</blockquote>
 				</section>
 				<section>
-					<p>Hold on. It’s not like we can’t do loops (no pun intended), it’s just that there are no specific loop constructs like for, while, do, repeat, etc.</p>
+					<p>Hold on. It’s not like we can’t do loops (no pun intended), it’s just that there are no specific loop constructs like
+						for, while, do, repeat, etc.</p>
 					<p>Functional Programming uses recursion to do looping.</p>
 
 				</section>
@@ -304,14 +418,19 @@ console.log(sumRange(1, 10, 0)); // prints 55
 					</code></pre>
 				</section>
 				<section>
-					<p>Notice how recursion, the functional approach, accomplishes the same as the for loop by calling itself with a new start (start + 1) and a new accumulator (acc + start). It doesn’t modify the old values. Instead it uses new values calculated from the old.</p>
-					<p>You’re probably thinking that for loops are easier to understand. While that’s debatable and more likely an issue of familiarity, non-recursive loops require Mutability, which is bad.</p>
+					<p>Notice how recursion, the functional approach, accomplishes the same as the for loop by calling itself with a new start
+						(start + 1) and a new accumulator (acc + start). It doesn’t modify the old values. Instead it uses new values calculated
+						from the old.</p>
+					<p>You’re probably thinking that for loops are easier to understand. While that’s debatable and more likely an issue of
+						familiarity, non-recursive loops require Mutability, which is bad.</p>
 				</section>
 				<section>
 					<h2>benefits of Immutability</h2>
 					<p>read <a href="https://medium.com/@cscalfani/why-programmers-need-limits-3d96e1a0a6db">this</a></p>
-					<p>One obvious benefit is that if you have access to a value in your program, you only have read access, which means that no one else can change that value. Even you. So no accidental mutations.</p>
-					<p>Also, if your program is multi-threaded, then no other thread can pull the rug out from under you. That value is constant and if another thread wants to change it, it’ll have create a new value from the old one.</p>
+					<p>One obvious benefit is that if you have access to a value in your program, you only have read access, which means that
+						no one else can change that value. Even you. So no accidental mutations.</p>
+					<p>Also, if your program is multi-threaded, then no other thread can pull the rug out from under you. That value is constant
+						and if another thread wants to change it, it’ll have create a new value from the old one.</p>
 					<p>Immutability creates simpler and safer code.</p>
 				</section>
 			</section>
@@ -363,9 +482,9 @@ function validateValue(value, regex, type) {
 						<li class="fragment">if there’s a bug, you only have to fix it in one place</li>
 					</ul>
 					<aside class="notes">
-						The parameters ssn and phone in the old code are now represented by value.
-The regular expressions /^\d{3}-\d{2}-\d{4}$/ and /^\(\d{3}\)\d{3}-\d{4}$/ are represented by regex.
-And finally, the last part of the message ‘SSN’ and ‘Phone Number’ are represented by type.
+						The parameters ssn and phone in the old code are now represented by value. The regular expressions /^\d{3}-\d{2}-\d{4}$/
+						and /^\(\d{3}\)\d{3}-\d{4}$/ are represented by regex. And finally, the last part of the message ‘SSN’ and ‘Phone Number’
+						are represented by type.
 					</aside>
 				</section>
 				<section>
@@ -384,7 +503,7 @@ function validateName(name) {
         console.log('Valid Name');
     else
         console.log('Invalid Name');
-}					
+}
 					</code></pre>
 					<p>Here parseAddress and parseFullName are functions that take a string and return true if it parses.</p>
 					<p>How do we refactor this?</p>
@@ -417,7 +536,8 @@ validateValueWithFunc('123 Main St.', parseAddress, 'Address');
 validateValueWithFunc('Joe Mama', parseName, 'Name');
 					</code></pre>
 					<aside class="notes">
-						<p>Now we can call our higher-order function for the four previous functions (this works in Javascript because Regex.exec returns a truthy value when a match is found):</p>
+						<p>Now we can call our higher-order function for the four previous functions (this works in Javascript because Regex.exec
+							returns a truthy value when a match is found):</p>
 					</aside>
 				</section>
 				<section>
@@ -432,7 +552,8 @@ validateValueWithFunc('Joe Mama', parseName, 'Name');
 					</code></pre>
 					<aside class="notes">
 						<p>That’s better. Now when we want to parse a phone number, we don’t have to copy and paste the regular expression.</p>
-						<p>But imagine we have more regular expressions to parse, not just parseSsn and parsePhone. Each time we create a regular expression parser, we have to remember to add the .exec to the end. And trust me, this is easy to forget.</p>
+						<p>But imagine we have more regular expressions to parse, not just parseSsn and parsePhone. Each time we create a regular
+							expression parser, we have to remember to add the .exec to the end. And trust me, this is easy to forget.</p>
 						<p>We can guard against this by creating a high-order function that returns the exec function:</p>
 					</aside>
 				</section>
@@ -449,10 +570,11 @@ validateValueWithFunc('123 Main St.', parseAddress, 'Address');
 validateValueWithFunc('Joe Mama', parseName, 'Name');
 					</code></pre>
 					<aside class="notes">
-						Here, makeRegexParser takes a regular expression and returns the exec function, which takes a string. validateValueWithFunc will pass the string, value, to the parse function, i.e. exec.
-parseSsn and parsePhone are effectively the same as before, the regular expression’s exec function.
-Granted, this is a marginal improvement but is shown here to give an example of a high-order function that returns a function.
-However, you can imagine the benefits of making this change if makeRegexParser was much more complex.
+						Here, makeRegexParser takes a regular expression and returns the exec function, which takes a string. validateValueWithFunc
+						will pass the string, value, to the parse function, i.e. exec. parseSsn and parsePhone are effectively the same as
+						before, the regular expression’s exec function. Granted, this is a marginal improvement but is shown here to give an
+						example of a high-order function that returns a function. However, you can imagine the benefits of making this change
+						if makeRegexParser was much more complex.
 					</aside>
 				</section>
 				<section>
@@ -471,10 +593,52 @@ console.log(add10(30)); // prints 40
 console.log(add10(40)); // prints 50
 					</code></pre>
 					<aside class="notes">
-						This behavior is very important because without it, functions that return functions wouldn’t be very useful. So it’s important we understand how they work and what this behavior is called.
-This behavior is called a Closure.
+						This behavior is very important because without it, functions that return functions wouldn’t be very useful. So it’s important
+						we understand how they work and what this behavior is called. This behavior is called a Closure.
 					</aside>
 				</section>
+			</section>
+			<section>
+				<section>
+					<h1>higher order function</h1>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">Function that take other function as parameter</li>
+						<li class="fragment"></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Functors</h2>
+					<p>Higher-order functions can be usually simulated in object-oriented languages by functions that take function-objects, also called functors (note that functor in Haskell is an entirely different concept). Variables from the scope of the call can be bound inside the function-object which acts as if it were a closure. This way of simulating HOFs is, however, very verbose and requires declaring a new class each time we want to use a HOF.</p>
+				</section>
+				<section>
+
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Purity</h1>
+				</section>
+				<section>
+					<ul>
+						<li>Immutable data</li>
+						<li>Referential transparency</li>
+						<li>Lazy Evaluation</li>
+						<li></li>
+						<li></li>
+					</ul>
+				</section>
+				<section>
+					<h3> Side effects through monads</h3>
+					<p>Another way of introducing side effects to a pure language is to simulate them using monads. While the language remains pure and referentially transparent, monads can provide implicit state by threading it inside them. The compiler does not even have to 'know' about the imperative features because the language itself remains pure, however usually the implementations do 'know' about them due to the efficiency reasons, for instance to provide O(1) mutable arrays.
+
+Allowing side effects only through monads and keeping the language pure makes it possible to have lazy evaluation that does not conflict with the effects of impure code. Even though lazy expressions can be evaluated in any order, the monad structure forces the effects to be executed in the correct order.</p>
+				</section>
+			</section>
+			<section>
+				<h2>Recursion</h2>
+				<p>Recursion is heavily used in functional programming as it is the canonical and often the only way to iterate. Functional language implementations will often include tail call optimisation to ensure that heavy recursion does not consume excessive memory.</p>
 			</section>
 			<section>
 				<section>
@@ -591,7 +755,7 @@ var mult5AfterAdd10 = value => mult5(add10(value));
 
 					const myFunc = function (y){
 						x = x + y;
-					}	
+					}
 
 					myFunc(3);
 					console.log(x); //13
@@ -725,7 +889,7 @@ var mult5AfterAdd10 = value => mult5(add10(value));
 				<section>
 					<pre><code class="hljs" data-trim>
 						const add = function(x,y){
-							return x + y; 
+							return x + y;
 						}
 
 						const square = function(x){
@@ -756,25 +920,33 @@ var mult5AfterAdd10 = value => mult5(add10(value));
 			<section>
 				<section>
 					<h2>Currying</h2>
+					<p>Find a better example for curring in JS FP</p>
 				</section>
 				<section>
-
+					<p>A Curried Function is a function that only takes a single parameter at a time.</p>
 				</section>
 				<section>
 
 					<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
 				</section>
-				<section>
-					<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-						<h2>Video Backgrounds</h2>
-						<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-					</div>
-				</section>
-				<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-					<h2>... and GIFs!</h2>
-				</section>
 			</section>
-
+			<section>
+				<section>
+					<h1>Common Funcational Programming Functions</h1>
+					<ul>
+						<li>Map</li>
+						<li>Filter</li>
+						<li>Reduce</li>
+						<li></li>
+						<li></li>
+					</ul>
+					<p></p>
+				</section>
+				<section></section>
+				<section></section>
+				<section></section>
+				<section></section>
+			</section>
 			<section>
 				<section>
 					<h1>Recursion</h1>
@@ -797,36 +969,33 @@ var mult5AfterAdd10 = value => mult5(add10(value));
 			<section>
 				<h2>Method chaining</h2>
 				<ul>
-					<li>No order here</li>
-					<li>Or here</li>
-					<li>Or here</li>
-					<li>Or here</li>
+
+				</ul>
+			</section>
+			<section>
+				<h2>Conclustion</h2>
+				<ul>
+					<li class="fragment">The reason functional programming forces you to learn so much is because it challenges every assumption about writing software that you had. </li>
+					<li class="fragment">ftentimes you can’t believe that some common thing can be done in a different way</li>
+					<li class="fragment">if you are focused on get things done as the way you are comfortable dont change: <a href="https://ilikekillnerds.com/2016/09/functional-programming-javascript-like-dysfunctional/">read this</a></li>
+					<li class="fragment"><a href="http://queue.acm.org/detail.cfm?id=2611829">Mostly functional programming does not work</a></li>
+					<li class="fragment"></li>
 				</ul>
 			</section>
 
 			<section>
-				<h2>Fantastic Ordered List</h2>
-				<ol>
-					<li>One is smaller than...</li>
-					<li>Two is smaller than...</li>
-					<li>Three!</li>
-				</ol>
-			</section>
+				<h2>Need more: still hungry</h2>
+				<ul>
+					<li><a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">a practical introduction to Functional Programming</a></li>
+					<li><a href="https://www.manning.com/books/functional-programming-in-scala">Functional Programming in Scala</a></li>
+					<li><a href="http://www.vasinov.com/blog/16-months-of-functional-programming/">16 months of functional programming</a></li>					
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+				</ul>
 
-			<section>
-				<h2>Tabular Tables</h2>
-			</section>
-
-			<section>
-				<h2>Clever Quotes</h2>
-				<p>
-					These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-				</p>
-				<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-					&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would reproduce
-					the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-				</blockquote>
 			</section>
 
 			<section>
