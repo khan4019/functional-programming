@@ -41,15 +41,23 @@
 		<!-- Any section element inside of this container is displayed as a slide -->
 		<div class="slides">
 			<section>
-				<h2>Functional Programming</h2>
-				<h3>What, Why and How</h3>
-				<br>
-				<br>
-				<br>
-				<br>
-				<p>
-					<small><a href="http://thatjsdude.com">That Brown JS Dude</a> / <a href="http://twitter.com/jsdude005">@jsdudeoo5</a></small>
-				</p>
+				<section>
+					<h2>Functional Programming</h2>
+					<h3>What, Why and How</h3>
+					<br>
+					<br>
+					<br>
+					<br>
+					<p>
+						<a href="http://thatjsdude.com">ThatJSDude.com</a> / <a href="http://twitter.com/jsdude005">@jsdude005</a>
+					</p>
+					<p>
+						<small><a href="http://www.youtube.com/c/ThatJSDude">youtube.com/c/ThatJSDude </a></small>
+					</p>
+				</section>
+				<section>
+					<img src="images/evolution.png">
+				</section>
 			</section>
 			<section>
 				<section>
@@ -109,7 +117,7 @@
 						<li><a href="https://github.com/getify/Functional-Light-JS">Kyle simpson books about functional programming</a></li>
 						<li><a href="https://www.barbarianmeetscoding.com/blog/2016/06/14/functional-programming-in-javascript/">Some example</a></li>
 						<li><a href="http://dealwithjs.io/functional-programming-in-javascript/">Not very interesting</a></li>
-
+						li><a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-48">ramada slide</a>
 					</ul>
 				</section>
 			</section>
@@ -123,29 +131,48 @@
 					<h1>What</h1>
 				</section>
 				<section>
-					<h2>What the Func?</h2>
+					<h2>Ask the geeky guy</h2>
+					<img class="fragment" src="images/speak.jpg">
+					<aside class="notes">
+						<p>Monads</p>
+						<p>Functors</p>
+						<p>Tail optimization</p>
+						<p>after 40 minutes of talk during lunch break... my head starts spinning</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Ask my manager</h2>
 					<ul>
-						<li>add pic: i search google: what is functional programming and got 12 million results</li>
-						<li>it's too much...so i searched for FP for lazy developers: now it's working</li>
-						<li>I wanted to start from zero... so... i started clicking next button in google to get the last result...and it took
-							me 14 days...to get the first first result... i got exhausted and ga ev up FP</li>
 						<li>add pic: i asked a new hire: it a pain for new dev</li>
 						<li>add pic: I asked my manager what is func? he said it's a pain for older developer</li>
 					</ul>
+				</section>
+				<section>
+					<h2>What the Func?</h2>					
 					<ul>
 						<li class="fragment">Is this only a hype?</li>
+						<li class="fragment">Is it a geeky thing?</li>
 						<li class="fragment">Why it's called functional?</li>
 						<li class="fragment">Is everything else is dysfunctional?</li>
-						<li class="fragment">XXXX</li>
 						<li class="fragment">Why am I sitting here?</li>
 						<li class="fragment">Btw, What would be served in the lunch?</li>
 					</ul>
 					<br>
-					<p>ref: <a href="https://clojurefun.wordpress.com/2012/08/27/what-defines-a-functional-programming-language/">what is functioanl programming</a></p>
+					<p>ref: <a href="https://clojurefun.wordpress.com/2012/08/27/what-defines-a-functional-programming-language/">what is functional programming</a></p>
+					<aside class="notes">
+						<p>Finally, I got the brilliant idea to goole</p>
+					</aside>
+				</section>
+				<section>
+					<h4>Every major idea starts with Google search</h4>
+					<img src="images/day.jpg">
 				</section>
 				<section>
 					<h2>Functional Programming</h2>
 					<p class="fragment highlight-red">Find a definition</p>
+				</section>
+				<section>
+					<h1>Can move rest of the things for later</h1>
 				</section>
 				<section>
 					<h2>pieces of Functional Programming</h2>
@@ -693,6 +720,7 @@ console.log(add10(40)); // prints 50
 					language implementations will often include tail call optimisation to ensure that heavy recursion does not consume excessive
 					memory.
 				</p>
+				<p>check this slide: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-30">here</a></p>
 			</section>
 			<section>
 				<section>
@@ -1041,6 +1069,9 @@ var mult5AfterAdd10 = value => mult5(add10(value));
 						</code></pre>
 
 				</section>
+				<section>
+					<p>also look at this slide: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-34">here</a></p>
+				</section>
 
 			</section>
 
@@ -1051,7 +1082,15 @@ var mult5AfterAdd10 = value => mult5(add10(value));
 				</ul>
 			</section>
 			<section>
-				<h2>Conclustion</h2>
+				<section>
+					<h1>Free tip</h1>
+				</section>
+				<section>
+					<h2>How to date</h2>
+				</section>
+			</section>
+			<section>
+				<h2>Conclusion</h2>
 				<ul>
 					<li class="fragment">The reason functional programming forces you to learn so much is because it challenges every assumption about writing
 						software that you had. </li>
@@ -1066,9 +1105,10 @@ var mult5AfterAdd10 = value => mult5(add10(value));
 				<h2>Need more: still hungry</h2>
 				<ul>
 					<li>
-						<a href="http://reactivex.io/learnrx/">Functional Programming in Javascript</a>
+						<a href="http://reactivex.io/learnrx/">Functional Programming in JavaScript</a>
 					</li>
 					<li><a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">a practical introduction to Functional Programming</a></li>
+					li><a href="http://kachayev.github.io/talks/uapycon2012/">Functional programming in Python</a>
 					<li><a href="https://www.manning.com/books/functional-programming-in-scala">Functional Programming in Scala</a></li>
 					<li><a href="http://www.vasinov.com/blog/16-months-of-functional-programming/">16 months of functional programming</a></li>
 					<li>
