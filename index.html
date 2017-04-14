@@ -86,15 +86,30 @@
 							<a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/">Good slides: go through it all</a>
 						</li>
 						<li>
-							<a href=""></a>
+							<a href="https://medium.com/javascript-scene/why-learn-functional-programming-in-javascript-composing-software-ea13afc7a257">Read this and it's next parts</a>
 						</li>
 						<li>
-							<a href=""></a>
+							<a href="http://jrsinclair.com/articles/2016/gentle-introduction-to-functional-javascript-intro/">might get something from here</a>
 						</li>
 						<li>
 							<a href="https://www.quora.com/Why-are-many-experienced-programmers-upset-at-functional-programming">Why experience developers upset on FP</a>
 						</li>
 						<li><a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">Claims to be practical.. look at the examples</a></li>
+						<li><a href="https://bethallchurch.github.io/JavaScript-and-Functional-Programming/">A good and simple collection</a></li>
+						<li><a href="https://drboolean.gitbooks.io/mostly-adequate-guide/">Looks very good: Adequote function programming</a></li>
+						<li><a href=""></a></li>
+					</ul>
+				</section>
+				<section>
+					<h2>JavaScript resources</h2>
+					<ul>
+						<li><a href="https://github.com/stoeffel/awesome-fp-js">collection of JS librarires</a></li>
+						<li><a href="https://www.youtube.com/watch?v=dkZFtimgAcM">watch this: Douglus Crockford: Monads and Gonads</a></li>
+						<li><a href="http://srirangan.net/2011-12-functional-programming-in-javascript">Some JS code examples</a></li>
+						<li><a href="https://github.com/getify/Functional-Light-JS">Kyle simpson books about functional programming</a></li>
+						<li><a href="https://www.barbarianmeetscoding.com/blog/2016/06/14/functional-programming-in-javascript/">Some example</a></li>
+						<li><a href="http://dealwithjs.io/functional-programming-in-javascript/">Not very interesting</a></li>
+
 					</ul>
 				</section>
 			</section>
@@ -112,7 +127,8 @@
 					<ul>
 						<li>add pic: i search google: what is functional programming and got 12 million results</li>
 						<li>it's too much...so i searched for FP for lazy developers: now it's working</li>
-						<li>I wanted to start from zero... so... i started clicking next button in google to get the last result...and it took me 14 days...to get the first first result... i got exhausted and ga ev up FP</li>
+						<li>I wanted to start from zero... so... i started clicking next button in google to get the last result...and it took
+							me 14 days...to get the first first result... i got exhausted and ga ev up FP</li>
 						<li>add pic: i asked a new hire: it a pain for new dev</li>
 						<li>add pic: I asked my manager what is func? he said it's a pain for older developer</li>
 					</ul>
@@ -154,13 +170,26 @@
 						<ul>
 							<li class="fragment">Functional programming is the mustachioed hipster of programming paradigms.</li>
 							<li class="fragment">Originally relegated to the annals of computer science academia</li>
-							<li class="fragment">Depending on whom you ask, functional programming (FP) is either an enlightened approach to programming that should be spread far and wide, </li>
+							<li class="fragment">Depending on whom you ask, functional programming (FP) is either an enlightened approach to programming that should
+								be spread far and wide, </li>
 							<li class="fragment">or an overly academic approach to programming with few real-world benefits.</li>
 							<li class="fragment"></li>
 						</ul>
 						<h2>Serious: take it after first section</h2>
 						<ul>
-							<li class="fragment">Functions are first-class entities: They can be assigned to variables, passed as arguments, or returned from other functions.</li>
+							<li class="fragment">building software by composing pure functions, avoiding shared state, mutable data, and side-effects. </li>
+							<li class="fragment"> Functional programming is declarative rather than imperative, and application state flows through pure functions.
+								Contrast with object oriented programming, where application state is usually shared and colocated with methods in
+								objects.</li>
+							<li class="fragment">Functional programming is a programming paradigm, meaning that it is a way of thinking about software construction
+								based on some fundamental, defining principles (listed above). Other examples of programming paradigms include object
+								oriented programming and procedural programming.</li>
+							<li class="fragment">Functional code tends to be more concise, more predictable, and easier to test than imperative or object oriented
+								code — but if you’re unfamiliar with it and the common patterns associated with it, functional code can also seem
+								a lot more dense, and the related literature can be impenetrable to newcomers.</li>
+							<li class="fragment">Functions are first-class entities: They can be assigned to variables, passed as arguments, or returned from other
+								functions.
+							</li>
 							<li class="fragment">No state.</li>
 							<li class="fragment">No side effects: Anything the code does except produce an output from given inputs.</li>
 							<li class="fragment">programming with functions—pure mathematical functions.</li>
@@ -168,21 +197,36 @@
 							<li class="fragment">there are no side effects</li>
 							<li class="fragment">Programs are built by combining functions together</li>
 						</ul>
+						<p>ref: <a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0">Eric Elliot: Functional Programming</a></p>
 					</section>
 					<section>
 						<h2>Why</h2>
 					</section>
 					<section>
-						<h2>How</h2>
+						<h2>How (level-1)</h2>
+						<ul class="fragment">Pure functions</ul>
+						<ul class="fragment">Function composition</ul>
+						<ul class="fragment">Avoid shared state</ul>
+						<ul class="fragment">Avoid mutating state</ul>
+						<ul class="fragment">Avoid side effects</ul>
 					</section>
 					<section>
 						<h2>Extra: put somehwere</h2>
 						<h4>Don't open that trap door!</h4>
-						<p>Recall that the result of a function depends only on its inputs. Alas, almost all programming languages have "features" that break this assumption. Null values, type case (instanceof), type casting, exceptions, side-effects, and the possibility of infinite recursion are trap doors that break equational reasoning and impair a programmer's ability to reason about the behavior or correctness of a program. (Total languages, which do not have any trap doors, include Agda, Idris, and Coq.)</p>
-						<p>Fortunately, as programmers, we can choose to avoid these traps, and if we are disciplined, we can pretend that the trap doors do not exist. This idea is called fast and loose reasoning. It costs nothing—almost any program can be written without using the trap doors—and by avoiding them you win back equational reasoning, composability and reuse.</p>
+						<p>Recall that the result of a function depends only on its inputs. Alas, almost all programming languages have "features"
+							that break this assumption. Null values, type case (instanceof), type casting, exceptions, side-effects, and the possibility
+							of infinite recursion are trap doors that break equational reasoning and impair a programmer's ability to reason about
+							the behavior or correctness of a program. (Total languages, which do not have any trap doors, include Agda, Idris,
+							and Coq.)</p>
+						<p>Fortunately, as programmers, we can choose to avoid these traps, and if we are disciplined, we can pretend that the
+							trap doors do not exist. This idea is called fast and loose reasoning. It costs nothing—almost any program can be
+							written without using the trap doors—and by avoiding them you win back equational reasoning, composability and reuse.</p>
 						<p>ref: <a href="https://opensource.com/article/17/4/introduction-functional-programming">Intro to Functional Programming</a></p>
-						<p>Let's discuss exceptions in detail. This trap door breaks equational reasoning because the possibility of abnormal termination is not reflected in the type. (Count yourself lucky if the documentation even mentions the exceptions that could be thrown.) But there is no reason why we can't have a return type that encompasses all the failure modes.</p>
-						<p>Avoiding trap doors is an area in which language features can make a big difference. For avoiding exceptions, algebraic data types can be used to model error conditions, like so:</p>
+						<p>Let's discuss exceptions in detail. This trap door breaks equational reasoning because the possibility of abnormal
+							termination is not reflected in the type. (Count yourself lucky if the documentation even mentions the exceptions
+							that could be thrown.) But there is no reason why we can't have a return type that encompasses all the failure modes.</p>
+						<p>Avoiding trap doors is an area in which language features can make a big difference. For avoiding exceptions, algebraic
+							data types can be used to model error conditions, like so:</p>
 					</section>
 				</section>
 				<section>
@@ -610,7 +654,10 @@ console.log(add10(40)); // prints 50
 				</section>
 				<section>
 					<h2>Functors</h2>
-					<p>Higher-order functions can be usually simulated in object-oriented languages by functions that take function-objects, also called functors (note that functor in Haskell is an entirely different concept). Variables from the scope of the call can be bound inside the function-object which acts as if it were a closure. This way of simulating HOFs is, however, very verbose and requires declaring a new class each time we want to use a HOF.</p>
+					<p>Higher-order functions can be usually simulated in object-oriented languages by functions that take function-objects,
+						also called functors (note that functor in Haskell is an entirely different concept). Variables from the scope of the
+						call can be bound inside the function-object which acts as if it were a closure. This way of simulating HOFs is, however,
+						very verbose and requires declaring a new class each time we want to use a HOF.</p>
 				</section>
 				<section>
 
@@ -631,14 +678,45 @@ console.log(add10(40)); // prints 50
 				</section>
 				<section>
 					<h3> Side effects through monads</h3>
-					<p>Another way of introducing side effects to a pure language is to simulate them using monads. While the language remains pure and referentially transparent, monads can provide implicit state by threading it inside them. The compiler does not even have to 'know' about the imperative features because the language itself remains pure, however usually the implementations do 'know' about them due to the efficiency reasons, for instance to provide O(1) mutable arrays.
-
-Allowing side effects only through monads and keeping the language pure makes it possible to have lazy evaluation that does not conflict with the effects of impure code. Even though lazy expressions can be evaluated in any order, the monad structure forces the effects to be executed in the correct order.</p>
+					<p>Another way of introducing side effects to a pure language is to simulate them using monads. While the language remains
+						pure and referentially transparent, monads can provide implicit state by threading it inside them. The compiler does
+						not even have to 'know' about the imperative features because the language itself remains pure, however usually the
+						implementations do 'know' about them due to the efficiency reasons, for instance to provide O(1) mutable arrays. Allowing
+						side effects only through monads and keeping the language pure makes it possible to have lazy evaluation that does
+						not conflict with the effects of impure code. Even though lazy expressions can be evaluated in any order, the monad
+						structure forces the effects to be executed in the correct order.</p>
 				</section>
 			</section>
 			<section>
 				<h2>Recursion</h2>
-				<p>Recursion is heavily used in functional programming as it is the canonical and often the only way to iterate. Functional language implementations will often include tail call optimisation to ensure that heavy recursion does not consume excessive memory.</p>
+				<p>Recursion is heavily used in functional programming as it is the canonical and often the only way to iterate. Functional
+					language implementations will often include tail call optimisation to ensure that heavy recursion does not consume excessive
+					memory.
+				</p>
+			</section>
+			<section>
+				<section>
+					<h2>Referential Transparency </h2>
+					<p>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-5-c70adc9cf56a">Not so good here: but you can use it</a></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Execution order</h2>
+					<p>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-5-c70adc9cf56a">Not so good here: but you can use it</a></p>
+				</section>
+				<section>
+
+				</section>
+			</section>
+			<section>
+				<h1>Immutability</h1>
+			</section>
+			<section>
+				<h1>Currying and Composition</h1>
+			</section>
+			<section>
+				<h1>Map, Filter and Reduce</h1>
 			</section>
 			<section>
 				<section>
@@ -975,7 +1053,8 @@ var mult5AfterAdd10 = value => mult5(add10(value));
 			<section>
 				<h2>Conclustion</h2>
 				<ul>
-					<li class="fragment">The reason functional programming forces you to learn so much is because it challenges every assumption about writing software that you had. </li>
+					<li class="fragment">The reason functional programming forces you to learn so much is because it challenges every assumption about writing
+						software that you had. </li>
 					<li class="fragment">ftentimes you can’t believe that some common thing can be done in a different way</li>
 					<li class="fragment">if you are focused on get things done as the way you are comfortable dont change: <a href="https://ilikekillnerds.com/2016/09/functional-programming-javascript-like-dysfunctional/">read this</a></li>
 					<li class="fragment"><a href="http://queue.acm.org/detail.cfm?id=2611829">Mostly functional programming does not work</a></li>
@@ -986,14 +1065,24 @@ var mult5AfterAdd10 = value => mult5(add10(value));
 			<section>
 				<h2>Need more: still hungry</h2>
 				<ul>
+					<li>
+						<a href="http://reactivex.io/learnrx/">Functional Programming in Javascript</a>
+					</li>
 					<li><a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">a practical introduction to Functional Programming</a></li>
 					<li><a href="https://www.manning.com/books/functional-programming-in-scala">Functional Programming in Scala</a></li>
-					<li><a href="http://www.vasinov.com/blog/16-months-of-functional-programming/">16 months of functional programming</a></li>					
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
+					<li><a href="http://www.vasinov.com/blog/16-months-of-functional-programming/">16 months of functional programming</a></li>
+					<li>
+						<a href=""></a>
+					</li>
+					<li>
+						<a href=""></a>
+					</li>
+					<li>
+						<a href=""></a>
+					</li>
+					<li>
+						<a href=""></a>
+					</li>
 				</ul>
 
 			</section>
