@@ -439,37 +439,47 @@ function getRandom(value){
 					<h1>Immutibility</h1>
 				</section>
 				<section>
-					<pre class="hljs" data-trim><code>
-						var x = 1;
-						x = x + 1;
-					</code></pre>
-					<p>whoever was teaching you told you to forget what you learned in math class? In math, x can never be equal to x + 1.</p>
-					<p>in Imperative Programming, it means, take the current value of x add 1 to it and put that result back into x.</p>
-					<p>Well, in functional programming, x = x + 1 is illegal. </p>
-					<p>There are no variables in Functional Programming.</p>
-					<p>Stored values are still called variables because of history but they are constants,</p>
-					<p>once x takes on a value, it’s that value for life.</p>
-					<p>Don’t worry, x is usually a local variable so its life is usually short. But while it’s alive, it can never change.</p>
+					<img src="images/immutable.png">
 				</section>
 				<section>
-					<pre class="hljs"><code>
-						function addOneTOSum(x,y){
-							const x = 1;
-							return x + y + z;
-						}
+					<img src="images/mutable.png">
+				</section>
+				<section>
+					<h2>Programming vs Math</h2>
+					<pre class="hljs" data-trim><code>
+var x = 1;
+x = x + 1;
 					</code></pre>
 					<ul>
-						<li class="fragment">x is bound to the value of 1</li>
-						<li class="fragment">it’s equal to 1 for the rest of its life.</li>
-						<li class="fragment">Its life is over when the function exits</li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
+						<li class="fragment">In math, x can never be equal to x + 1</li>
+						<li class="fragment">It's permitted in Imperative Programming</li>
+						<li class="fragment">In functional programming, x = x + 1 is illegal</li>
+						<li class="fragment">There are no variables in Functional Programming</li>
+						<li class="fragment">Stored values are still called variables because of history but they are constants</li>
+						<li class="fragment">Once x takes on a value, it’s that value for life</li>						
 					</ul>
+					<aside class="notes">
+						<p>Don’t worry, x is usually a local variable so its life is usually short. But while it’s alive, it can never change.</p>
+					</aside>
 				</section>
 				<section>
 					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
 						&ldquo;HOW THE HELL AM I SUPPOSED TO DO ANYTHING WITHOUT VARIABLES?!&rdquo;
 					</blockquote>
+				</section>
+				<section>
+					<h2>Example</h2>
+					<pre class="hljs"><code>
+function addOneTOSum(y,y){
+	const x = 1;
+	return x + y + z;
+}
+					</code></pre>
+					<ul>
+						<li class="fragment">x is bound to the value of 1</li>
+						<li class="fragment">It’s equal to 1 for the rest of its life.</li>
+						<li class="fragment">Its life is over when the function exits</li>
+					</ul>
 				</section>
 				<section>
 					<p>Let’s think about when we want to modify variables.</p>
@@ -499,23 +509,26 @@ function getRandom(value){
 
 				</section>
 				<section>
-					<h2>Two ways to lopping in javascript</h2>
+					<h2>Looping in JavaScript</h2>
 					<pre class="hljs"><code>
-					// simple loop construct
-					var acc = 0;
-					for (var i = 1; i <= 10; ++i)
-						acc += i;
-					console.log(acc); // prints 55
+var sum = 0;
+for (var i = 1; i <= 10; ++i){
+	sum += i;
+}
+console.log(sum); // prints 55
 					</code></pre>
 					<pre class="fragment hljs"><code>
-					// without loop construct or variables (recursion)
-function sumRange(start, end, acc) {
+// without loop construct or variables (recursion)
+function sumRange(start, end, sum) {
     if (start > end)
-        return acc;
-    return sumRange(start + 1, end, acc + start)
+        return sum;
+    return sumRange(start + 1, end, sum + start)
 }
 console.log(sumRange(1, 10, 0)); // prints 55
 					</code></pre>
+					<aside class="notes">
+						<h2>Two ways to lopping in javascript</h2>
+					</aside>
 				</section>
 				<section>
 					<p>Notice how recursion, the functional approach, accomplishes the same as the for loop by calling itself with a new start
@@ -536,11 +549,54 @@ console.log(sumRange(1, 10, 0)); // prints 55
 			</section>
 			<section>
 				<section>
-					<h2>Don't use Map or Reduce</h2>
+					<h2>Looping</h2>
 				</section>
 				<section>
 					<h2>Don’t iterate over lists. Use map and reduce</h2>
-					<p>Middle of this page: <a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">ref</a>						</p>
+					<pre class="hljs fragment"><code>
+//add javascript map
+					</code> </pre>
+					<pre class="hljs"><code>
+//add python example
+					</code> </pre>
+					<p>Middle of this page: <a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">ref</a></p>
+					<aside class="notes">
+						<ul>
+							<li class="">Map takes a function</li>
+							<li class="">And a collection of items</li>
+							<li class="">It makes a new, empty collection</li>
+							<li class="">runs the function on each item in the original collection</li>
+							<li class="">inserts each return value into the new collection</li>
+							<li class="">It returns the new collection</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
+					<h2>Reduce</h2>
+					<pre class="hljs"><code>
+//add reduce code
+					</code></pre>
+					<pre class="fragment"><code>
+# in python
+sum = reduce(lambda a, x: a + x, [0, 1, 2, 3, 4])
+
+print sum
+# 10
+					</code></pre>
+					<p>does reduce create new value each time</p>
+					<aside class="notes">
+						<p>Reduce takes a function and a collection of items. It returns a value that is created by combining the items.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Why map and reduce</h2>
+					<ul>
+						<li class="fragment">the important parts of the iteration - the collection, the operation and the return value - are always in the same places in every map and reduce.</li>
+						<li class="fragment">the code in a loop may affect variables defined before it or code that runs after it. By convention, maps and reduces are functional.</li>
+						<li class="fragment"> map and reduce are elemental operations. Every time a person reads a for loop, they have to work through the logic line by line. There are few structural regularities they can use to create a scaffolding on which to hang their understanding of the code. In contrast, map and reduce are at once building blocks that can be combined into complex algorithms, and elements that the code reader can instantly understand and abstract in their mind. “Ah, this code is transforming each item in this collection. It’s throwing some of the transformations away. It’s combining the remainder into a single output.”</li>
+						<li class="fragment">map and reduce have many friends that provide useful, tweaked versions of their basic behaviour. For example: filter, all, any and find.</li>
+						<li class="fragment">Search for more benefits</li>
+					</ul>
 				</section>
 			</section>
 			<section>
@@ -550,12 +606,12 @@ console.log(sumRange(1, 10, 0)); // prints 55
 				<section>
 					<h2>Familiar code</h2>
 					<pre class="fragment"><code>
-						function validateSsn(ssn) {
-							if (/^\d{3}-\d{2}-\d{4}$/.exec(ssn))
-								console.log('Valid SSN');
-							else
-								console.log('Invalid SSN');
-						}
+function validateSsn(ssn) {
+	if (/^\d{3}-\d{2}-\d{4}$/.exec(ssn))
+		console.log('Valid SSN');
+	else
+		console.log('Invalid SSN');
+}
 					</code></pre>
 					<pre class="fragment hljs"><code>
 function validatePhone(phone) {
@@ -1157,19 +1213,14 @@ var mult5AfterAdd10 = value => mult5(add10(value));
 			</section>
 
 			<section>
-				<h2>Take a Moment</h2>
-				<p>
-					Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting
-					slides off the screen.
-				</p>
+				<h2>Thank  you</h2>
+				
 			</section>
 
 
 			<section style="text-align: left;">
 				<h1>THE END</h1>
-				<p>
-					- <a href="http://slides.com">Try the online editor</a> <br> - <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-				</p>
+				
 			</section>
 
 		</div>
