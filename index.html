@@ -105,7 +105,9 @@
 						<li><a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">Claims to be practical.. look at the examples</a></li>
 						<li><a href="https://bethallchurch.github.io/JavaScript-and-Functional-Programming/">A good and simple collection</a></li>
 						<li><a href="https://drboolean.gitbooks.io/mostly-adequate-guide/">Looks very good: Adequote function programming</a></li>
-						<li><a href=""></a></li>
+						<li>
+							<a href=""></a>
+						</li>
 					</ul>
 				</section>
 				<section>
@@ -153,7 +155,7 @@
 					</ul>
 				</section>
 				<section>
-					<h2>What the Func?</h2>					
+					<h2>What the Func?</h2>
 					<ul>
 						<li class="fragment">Is this only a hype?</li>
 						<li class="fragment">Is it a geeky thing?</li>
@@ -212,7 +214,8 @@
 							<li class="fragment">building software by composing pure functions, avoiding shared state, mutable data, and side-effects. </li>
 							<li class="fragment"> Functional programming is declarative rather than imperative, and application state flows through pure functions.
 								Contrast with object oriented programming, where application state is usually shared and colocated with methods in
-								objects.</li>
+								objects.
+							</li>
 							<li class="fragment">Functional programming is a programming paradigm, meaning that it is a way of thinking about software construction
 								based on some fundamental, defining principles (listed above). Other examples of programming paradigms include object
 								oriented programming and procedural programming.</li>
@@ -311,7 +314,7 @@
 						<p>These are language features that aid functional programming</p>
 						<li class="fragment">mapping, reducing, pipelining, recursing, currying</li>
 						<p>These are programming techniques used to write functional code</p>
-						<li class="fragment">parallelization</li>						
+						<li class="fragment">parallelization</li>
 						<li class="fragment"> extra: <a href="http://stackoverflow.com/questions/1303794/how-is-debugging-achieved-in-a-lazy-functional-programming-language">How to debug lazy function</a></li>
 						<p>These are advantageous properties of functional programs.</p>
 					</ul>
@@ -344,8 +347,9 @@ add(1, 2); // output is 3
 add(1, 2); // output still is 3
 add(1, 2); // WILL ALWAYS output 3
 					</code></pre>
+					<p class="fragment">Only operate on their input parameters</p>
 					<p class="fragment">
-						Always produce the same output given the same inputs.
+						Always produce the same output for same inputs.
 					</p>
 				</section>
 				<section>
@@ -361,9 +365,9 @@ function mouseOnLeftSide(mouseX) {
 }
 					</code></pre>
 					<aside class="notes">
-							<p>Not pure. </p>
-							<p>Chnage the browser width and for same position of mouse the result varies</p>
-							<p><strong>Impure is not testable</strong></p>
+						<p>Not pure. </p>
+						<p>Chnage the browser width and for same position of mouse the result varies</p>
+						<p><strong>Impure is not testable</strong></p>
 						<ul>
 							<li class="">Bug: a user reported the function doesn't work for window is less than 500 px</li>
 							<li class="">How do you test this?
@@ -372,10 +376,10 @@ function mouseOnLeftSide(mouseX) {
 									<li>write some unit tests</li>
 								</ul>
 							</li>
-							<li class="">You cann't write unit test</li>
+							<li class="">You can not write unit test</li>
 							<li class="">function relies on window.innerWidth</li>
 						</ul>
-						</aside>
+					</aside>
 				</section>
 				<section>
 					<h2>Few more</h2>
@@ -392,6 +396,12 @@ public int addNumbers(int x, int y) {
     return result;
 }
 					</code></pre>
+					<ul>
+						<li class="fragment">When you call these functions, they changes something</li>
+						<li class="fragment">changing something outside is called they have side effect</li>
+						<li class="fragment">They rely on things outside of input parameter</li>
+						<li class="fragment">You can't always predict their behavior/output</li>
+					</ul>
 					<p class="fragment">All these are impure function</p>
 					<p class="fragment">they will have <strong>side effect</strong> </p>
 					<p class="fragment">Pure functions have no side effects.</p>
@@ -400,7 +410,13 @@ public int addNumbers(int x, int y) {
 							very difficult because a variable can be changed anywhere in your program. So when you have a bug because a variable
 							is changed to the wrong value at the wrong time, where do you look? Everywhere? That’s not good.</p>
 					</aside>
-
+				</section>
+				<section>
+					<h2>Impure function</h2>
+					<p>In Imperative Programming Languages such as Javascript, Java, and C#, Side Effects are everywhere</p>
+					<p>This makes debugging very difficult because a variable can be changed anywhere in your program. </p>
+					<p>So when you have a bug because a variable is changed to the wrong value at the wrong time, where do you look? Everywhere?
+						That’s not good.</p>
 				</section>
 				<section>
 					<h2>Two type of functions</h2>
@@ -408,16 +424,20 @@ public int addNumbers(int x, int y) {
 function add(x, y) {
     return x + y;
 }
-					</code></pre>	
+					</code></pre>
 					<pre class="hljs fragment"><code>
 function getRandom(value){
   return Math.random() * value;
 }
-					</code> </pre>				
+					</code> </pre>
 				</section>
 				<section>
 					<h2>Pure function</h2>
-					<p>Define it here</p>
+					<ul>
+						<li class="fragment">Most useful Pure Functions must take at least one parameter.</li>
+						<li class="fragment">All useful Pure Functions must return something.</li>
+						<li class="fragment">always produce the same output given the same inputs.</li>
+					</ul>
 				</section>
 				<section>
 					<h2>Side effects</h2>
@@ -432,6 +452,10 @@ function getRandom(value){
 						<li class="fragment"> Since programs have to interface to the real world, some parts of every program must be impure.</li>
 						<li class="fragment"> The goal is to minimize the amount of impure code and segregate it from the rest of our program.</li>
 					</ul>
+				</section>
+				<section>
+					<h2>So far</h2>
+					<p>Functional programming means: a lot functions</p>
 				</section>
 			</section>
 			<section>
@@ -456,7 +480,7 @@ x = x + 1;
 						<li class="fragment">In functional programming, x = x + 1 is illegal</li>
 						<li class="fragment">There are no variables in Functional Programming</li>
 						<li class="fragment">Stored values are still called variables because of history but they are constants</li>
-						<li class="fragment">Once x takes on a value, it’s that value for life</li>						
+						<li class="fragment">Once x takes on a value, it’s that value for life</li>
 					</ul>
 					<aside class="notes">
 						<p>Don’t worry, x is usually a local variable so its life is usually short. But while it’s alive, it can never change.</p>
@@ -552,16 +576,29 @@ console.log(sumRange(1, 10, 0)); // prints 55
 					<h2>Looping</h2>
 				</section>
 				<section>
-					<h2>Don’t iterate over lists. Use map and reduce</h2>
+					<h2>Iterate over lists</h2>
+					<pre class="hljs javascript"><code>
+let tasks = ['coding', 'drink coffee', 'hide from manager'];
+let lengths = [];
+
+for (let i = 0; i < tasks.length; i++){
+  lengths.push(tasks[i].length);
+}
+console.log(lengths); //[6, 12, 17]
+					</code> </pre>
 					<pre class="hljs fragment"><code>
-//add javascript map
+const tasks = ['coding', 'drink coffee', 'hide from manager'];
+
+const lengths = tasks.map(function(task) {
+  return task.length;
+});
+
+console.log(lengths); // [6, 12, 17]
 					</code> </pre>
-					<pre class="hljs"><code>
-//add python example
-					</code> </pre>
-					<p>Middle of this page: <a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">ref</a></p>
+					<p>Middle of this page: <a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">use map</a></p>
 					<aside class="notes">
 						<ul>
+							<li>declare far fewer variables</li>
 							<li class="">Map takes a function</li>
 							<li class="">And a collection of items</li>
 							<li class="">It makes a new, empty collection</li>
@@ -569,6 +606,116 @@ console.log(sumRange(1, 10, 0)); // prints 55
 							<li class="">inserts each return value into the new collection</li>
 							<li class="">It returns the new collection</li>
 						</ul>
+					</aside>
+				</section>
+				<section>
+					<h2>Reuse </h2>
+					<pre class="hljs"><code>
+function getLength(word) {
+  return word.length;
+}
+
+var tasks = ['coding', 'drink coffee', 'hide from manager'];
+
+var lengths = tasks.map(getLength);
+
+console.log(lengths); // [6, 12, 17]
+					</code> </pre>
+				</section>
+				<section>
+					<h2>ES6</h2>
+					<pre class="hljs"><code>
+const getLength = word => word.length;
+
+const tasks = ['coding', 'drink coffee', 'hide from manager'];
+
+const lengths = tasks.map(getLength);
+
+console.log(lengths); // [6, 12, 17]
+					</code> </pre>
+				</section>
+				<section>
+					<h2>ES6</h2>
+					<pre class="hljs"><code>
+const getLength = word => word.length;
+const doubleIt = x => x*2;
+
+const tasks = ['coding', 'drink coffee', 'hide from manager'];
+
+const lengths = tasks.map(getLength).map(doubleIt);
+
+console.log(lengths); // [12, 24, 34]
+					</code> </pre>
+				</section>
+				<section>
+					<h2>Fun Fun Functor</h2>
+					<p>The term “functor” comes from category theory. In category theory, a functor is a mapping between categories. Loosely, a category is a group of things, where each “thing” can be any value. In code, a functor is sometimes represented as an object with a .map() method that maps from one set of values to another.</p>
+					<p>When you see the word functor, you should think “mappable”.</p>
+					<pre class="hljs haskel fragment"><code>
+fmap :: (a -> b) -> f a -> f b
+						</code></pre>
+					<p>A functor supplies a box with zero or more things inside, and a mapping interface. An array is a good example of a functor, but many other kinds of objects can be mapped over as well, including single valued-objects, streams, trees, objects, etc…</p>
+					<blockquote>A functor is a container of type a that, when subjected to a function that maps from a→b, yields a container of type b.</blockquote>
+					<p>ref: <a href="http://stackoverflow.com/questions/2030863/in-functional-programming-what-is-a-functor">what is functor</a></p>
+					<aside class="notes">
+						<p>Given a function that takes an a and returns a b and a functor with zero or more as inside it: fmap returns a box with zero or more bs inside it. The f a and f b bits can be read as “a functor of a” and “a functor of b”, meaning f a has as inside the box, and f b has bs inside the box.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Functor Laws</h2>
+					<ul>
+						<li class="fragment">Categories have two important properties</li>
+						<li class="fargment">Identity</li>
+						<li class="fargment">Composition</li>
+					</ul>
+					<pre class="hljs fragment"><code>
+const f = [1, 2, 3];
+f.map(x => x); // [1, 2, 3]
+						</code></pre>
+					<pre class="hljs fragment"><code>
+					
+					</code></pre>
+					<aside class="notes">
+						<h4>Identity</h4>
+						<p>If you pass the identity function (x => x) into f.map(), where f is any functor, the result should be equivalent to (have the same meaning as) f:</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Add more from this </h2>
+					<p>ref: <a href="https://medium.com/javascript-scene/functors-categories-61e031bac53f">Functors & Categories</a></p>
+					<p>ref: <a href="https://templecoding.com/blog/2016/06/16/functional-javascript-what-is-a-functor/">another good to read</a></p>
+				</section>
+				<section>
+					
+					<ul>
+						<li class="fragment">Functors are not function like map</li>
+						<li class="fragment">Functor is an Object that has map method</li>
+						<li class="fragment">For Example Array is a Functor as it has an implementation of map</li>
+						<li class="fragment">Other example are promises, trees, strings, etc.</li>
+					</ul>
+					<br>
+					<br>
+					<p>ref: <a href="http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html">picture explanation of functor</a></p>
+				</section>				
+			</section>
+			<section>
+				<section>
+					<h2>Siblings of Map</h2>
+				</section>
+				<section>
+					<h2>Filter</h2>
+				</section>
+				<section>
+					<h2>Reduce</h2>
+					<ul>
+						<li class="fragment">Reduce (aka: fold, accumulate)</li>
+						<li class="fragment">takes a reducer function and an initial value</li>
+						<li class="fragment">returns the accumulated value</li>
+					</ul>
+					<br>
+					<p>ref: <a href="https://medium.com/javascript-scene/reduce-composing-software-fe22f0c39a1d">reduce</a></p>
+					<aside class="notes">
+						<p>commonly used in functional programming that lets you iterate over a list, applying a function to an accumulated value and the next item in the list, until the iteration is complete and the accumulated value gets returned. Many useful things can be implemented with reduce. </p>
 					</aside>
 				</section>
 				<section>
@@ -591,10 +738,18 @@ print sum
 				<section>
 					<h2>Why map and reduce</h2>
 					<ul>
-						<li class="fragment">the important parts of the iteration - the collection, the operation and the return value - are always in the same places in every map and reduce.</li>
-						<li class="fragment">the code in a loop may affect variables defined before it or code that runs after it. By convention, maps and reduces are functional.</li>
-						<li class="fragment"> map and reduce are elemental operations. Every time a person reads a for loop, they have to work through the logic line by line. There are few structural regularities they can use to create a scaffolding on which to hang their understanding of the code. In contrast, map and reduce are at once building blocks that can be combined into complex algorithms, and elements that the code reader can instantly understand and abstract in their mind. “Ah, this code is transforming each item in this collection. It’s throwing some of the transformations away. It’s combining the remainder into a single output.”</li>
-						<li class="fragment">map and reduce have many friends that provide useful, tweaked versions of their basic behaviour. For example: filter, all, any and find.</li>
+						<li class="fragment">the important parts of the iteration - the collection, the operation and the return value - are always in the same
+							places in every map and reduce.</li>
+						<li class="fragment">the code in a loop may affect variables defined before it or code that runs after it. By convention, maps and reduces
+							are functional.</li>
+						<li class="fragment"> map and reduce are elemental operations. Every time a person reads a for loop, they have to work through the logic
+							line by line. There are few structural regularities they can use to create a scaffolding on which to hang their understanding
+							of the code. In contrast, map and reduce are at once building blocks that can be combined into complex algorithms,
+							and elements that the code reader can instantly understand and abstract in their mind. “Ah, this code is transforming
+							each item in this collection. It’s throwing some of the transformations away. It’s combining the remainder into a
+							single output.”</li>
+						<li class="fragment">map and reduce have many friends that provide useful, tweaked versions of their basic behaviour. For example: filter,
+							all, any and find.</li>
 						<li class="fragment">Search for more benefits</li>
 					</ul>
 				</section>
@@ -672,6 +827,7 @@ function validateName(name) {
 						<li class="fragment">Since functions are just values, we can pass them as parameters.</li>
 						<li class="fragment">Higher-order Functions either take functions as parameters, return functions or both.</li>
 					</ul>
+					<p>ref: <a href="https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99">read this</a></p>
 				</section>
 				<section>
 					<h2>Search: IS JS a pure Functional program?</h2>
@@ -1167,6 +1323,10 @@ var mult5AfterAdd10 = value => mult5(add10(value));
 				</ul>
 			</section>
 			<section>
+				<h2>Functional programming perf test</h2>
+				<p>Done in ng conf</p>
+			</section>
+			<section>
 				<section>
 					<h1>Free tip</h1>
 				</section>
@@ -1197,7 +1357,7 @@ var mult5AfterAdd10 = value => mult5(add10(value));
 					<li><a href="https://www.manning.com/books/functional-programming-in-scala">Functional Programming in Scala</a></li>
 					<li><a href="http://www.vasinov.com/blog/16-months-of-functional-programming/">16 months of functional programming</a></li>
 					<li>
-						<a href=""></a>
+						<a href="http://osteele.com/sources/javascript/functional/">Functional JavaScript</a>
 					</li>
 					<li>
 						<a href=""></a>
@@ -1213,14 +1373,14 @@ var mult5AfterAdd10 = value => mult5(add10(value));
 			</section>
 
 			<section>
-				<h2>Thank  you</h2>
-				
+				<h2>Thank you</h2>
+
 			</section>
 
 
 			<section style="text-align: left;">
 				<h1>THE END</h1>
-				
+
 			</section>
 
 		</div>
