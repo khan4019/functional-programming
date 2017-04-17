@@ -540,7 +540,28 @@ function addOneTOSum(y,y){
 					<p>Hold on. It’s not like we can’t do loops (no pun intended), it’s just that there are no specific loop constructs like
 						for, while, do, repeat, etc.</p>
 					<p>Functional Programming uses recursion to do looping.</p>
-
+				</section>
+				<section>
+					<h2>Immutability in JavaScript</h2>
+					<pre class="hljs"><code>
+const a = 1;
+a = 2; // will throw error
+					</code></pre>
+					<pre class="hljs"><code>
+const a = {
+    x: 1,
+    y: 2
+};
+a.x = 2; // NO EXCEPTION!
+a = {};
+					</code></pre>
+					<p>ref: <a href="https://facebook.github.io/immutable-js/"> Immutable.js</a></p>
+					<aside class="notes">
+						<p>Here a is defined to be a constant and therefore cannot be changed once set. This is why a = 2 throws an exception</p>
+						<p>The problem with const in Javascript is that it doesn’t go far enough. The following example illustrates its limits:</p>
+						<p>Notice how a.x = 2 does NOT throw an exception. The only thing that’s immutable with the const keyword is the variable a. Anything that a points to can be mutated.</p>
+						<p>Unfortunately, we can only do so via a library called Immutable.js. This may give us better immutability but sadly, it does so in a way that makes our code look more like Java than Javascript.</p>
+					</aside>
 				</section>
 				<section>
 					<h2>Looping in JavaScript</h2>
@@ -656,6 +677,7 @@ const lengths = tasks.map(getLength).map(doubleIt);
 
 console.log(lengths); // [12, 24, 34]
 					</code> </pre>
+					<p>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-4-18fbe3ea9e49">part 4: last part of the page</a></p>
 				</section>
 				<section>
 					<h2>Fun Fun Functor</h2>
@@ -668,9 +690,11 @@ fmap :: (a -> b) -> f a -> f b
 						</code></pre>
 					<p>A functor supplies a box with zero or more things inside, and a mapping interface. An array is a good example of a functor,
 						but many other kinds of objects can be mapped over as well, including single valued-objects, streams, trees, objects,
-						etc…</p>
+						etc…
+					</p>
 					<blockquote>A functor is a container of type a that, when subjected to a function that maps from a→b, yields a container of type
-						b.</blockquote>
+						b.
+					</blockquote>
 					<p>ref: <a href="http://stackoverflow.com/questions/2030863/in-functional-programming-what-is-a-functor">what is functor</a></p>
 					<aside class="notes">
 						<p>Given a function that takes an a and returns a b and a functor with zero or more as inside it: fmap returns a box with
@@ -690,7 +714,7 @@ const f = [1, 2, 3];
 f.map(x => x); // [1, 2, 3]
 						</code></pre>
 					<pre class="hljs fragment"><code>
-					
+
 					</code></pre>
 					<aside class="notes">
 						<h4>Identity</h4>
@@ -829,7 +853,8 @@ var mult5AfterAdd10 = x => 5 * (x + 10);
 				</section>
 				<section>
 					<h2>There is a better way</h2>
-					<p>In math, f ∘ g is functional composition and is read “f composed with g” or, more commonly, “f after g”. So (f ∘ g)(x) is equivalent to calling f after calling g with x or simply, f(g(x)).</p>
+					<p>In math, f ∘ g is functional composition and is read “f composed with g” or, more commonly, “f after g”. So (f ∘ g)(x)
+						is equivalent to calling f after calling g with x or simply, f(g(x)).</p>
 					<p> we have mult5 ∘ add10 or “mult5 after add10”, hence the name of our function, mult5AfterAdd10.</p>
 					<p>And that’s exactly what we did. We called mult5 after we called add10 with value or simply, mult5(add10(value)).</p>
 					<p>First, value is passed to add10 then its results are passed to mult5.</p>
@@ -851,8 +876,11 @@ f x =
    (g << h << s << r << t) x
 					</code></pre>
 					<aside class="notes">
-						<p>Note the parentheses in mult5AfterAdd10, i.e. (mult5 << add10). They are there to make sure that the functions are composed first before applying value.</p>
-						<p>Here x is passed to function t whose result is passed to r whose result is passed to s and so on. If you did something similar in Javascript it would look like g(h(s(r(t(x))))), a parenthetical nightmare</p>
+						<p>Note the parentheses in mult5AfterAdd10, i.e. (mult5
+							<< add10). They are there to make sure that the functions are
+							 composed first before applying value.</p>
+								<p>Here x is passed to function t whose result is passed to r whose result is passed to s and so on. If you did something
+									similar in Javascript it would look like g(h(s(r(t(x))))), a parenthetical nightmare</p>
 					</aside>
 				</section>
 				<section>
@@ -876,7 +904,104 @@ var mult5AfterAdd10 = mult5(add(10)); // this doesn't work
 var mult5AfterAdd10 = y => mult5(add(10, y)); // not point-free
 						</code></pre>
 				</section>
-
+			</section>
+			<section>
+				<section>
+					<h1>Currying</h1>
+					<p>If you remember from Part 3, the reason that we were having problems composing mult5 and add (in ) is because mult5
+						takes 1 parameter and add takes 2.</p>
+					<p>We can solve this easily by just restricting all functions to take only 1 parameter.</p>
+					<p>Trust me. It’s not as bad as it sounds.</p>
+					<p>We simply write an add function that uses 2 parameters but only takes 1 parameter at a time. Curried functions allow us to do this.</p>
+					<p>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-4-18fbe3ea9e49">part4</a></p>
+				</section>
+				<section>
+					<h2>Curried Function</h2>
+					<blockquote>
+						<p>A Curried Function is a function that only takes a single parameter at a time.</p>
+					</blockquote>
+					<p>This will let us give add its first parameter before we compose it with mult5. Then when mult5AfterAdd10 is called, add will get its second parameter.</p>
+					<pre class="hljs"><code>
+const add = x => y => x + y
+					</code></pre>
+					<pre><code>
+function add(x){
+	return function (y){
+		return x + y;
+	}
+}
+					</code></pre>
+					<p>In detail, the add function takes a single parameter, x, and returns a function that takes a single parameter, y, which will ultimately return the result of adding x and y.</p>
+					<aside class="notes">
+						<p>This version of add is a function that takes one parameter now and then another one later.</p>
+					</aside>
+				</section>
+				<section>
+					<h2></h2>
+					<p>Now we can use this version of add to build a working version of mult5AfterAdd10:</p>
+					<pre><code>
+var compose = (f, g) => x => f(g(x));
+var mult5AfterAdd10 = compose(mult5, add(10));
+					</code></pre>
+					<p>The compose function takes 2 parameters, f and g. Then it returns a function that takes 1 parameter, x, which when called will apply f after g to x.</p>
+					<p>So what did we do exactly? Well, we converted our plain old add function into a curried version. This made add more flexible since the first parameter, 10, can be passed to it up front and the final parameter will be passed when mult5AfterAdd10 is called.</p>
+				</section>
+				<section>
+					<h2></h2>
+					<p>At this point, you may be wondering how to rewrite the add function in Elm. Turns out, you don’t have to. In Elm and other Functional Languages, all functions are curried automatically.</p>
+					<pre class="hljs elm"><code>
+add x y =
+    x + y
+					</code></pre>
+					<pre class="hljs elm"><code>
+mult5AfterAdd10 =
+    (mult5 << add 10)
+					</code></pre>
+					<aside class="notes">
+						<p>Syntactically speaking, Elm beats Imperative Languages like Javascript because it’s been optimized for Functional things like currying and composition.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Currying and Refactoring</h2>
+					<p>Another time currying shines is during refactoring when you create a generalized version of a function with lots of parameters and then use it to create specialized versions with fewer parameters.</p>
+					<p>For example, when we have the following functions that put brackets and double brackets around strings:</p>
+				</section>
+				<section>
+					<h2>Currying and Composition</h2>
+<pre><code>
+const f = a => b => c => d => a + b + c + d
+console.log(f(1)(2)(3)(4)); // prints 10
+</code></pre>
+<pre class="fragment hljs"><code>
+const f = R.curry((a, b, c, d) => a + b + c + d);
+console.log(f(1, 2, 3, 4)); // prints 10
+console.log(f(1, 2)(3, 4)); // also prints 10
+console.log(f(1)(2)(3, 4)); // also prints 10
+</code></pre>
+				<p>Ref: <a href="http://ramdajs.com/"></a></p>
+				<aside class="notes">
+					<p>Too much parenthesis... might confuse you and make you cry.</p>
+					<p>a framework named Ramada will rescue you</p>
+					<p>The function definition isn’t much better but we’ve eliminated the need for all those parenthesis. Notice that we can apply as many or as few parameters as we want each time we invoke f.</p>
+				</aside>
+				</section>
+				<section>
+					<h2>RamadaJS</h2>
+<pre class="hljs"><code>
+//add old code here
+</code></pre>
+<pre class="fragment hljs"><code>
+const add = R.curry((x, y) => x + y);
+const mult5 = value => value * 5;
+const mult5AfterAdd10 = R.compose(mult5, add(10));
+</code></pre>
+<pre class="fragment"><code>
+const mult5AfterAdd10 = R.compose(R.multiply(5), R.add(10));
+</code></pre>
+				<aside class="notes">
+					<p>Ramda has a lot of helper functions for doing these sorts of things, e.g. R.add and R.multiply, which means we can write less code:</p>
+				</aside>
+				</section>
 			</section>
 			<section>
 				<section>
@@ -1166,8 +1291,35 @@ console.log(add10(40)); // prints 50
 			</section>
 			<section>
 				<section>
+					<h1>Referntial Transparency</h1>
+				</section>
+				<section>
 					<h2>Referential Transparency </h2>
+					<p>Referential Transparency is a fancy term to describe that a pure function can safely be replaced by its expression.</p>
+					<pre class="hljs"><code>
+y = x + 10
+x = 3
+y = 3 + 10
+					</code></pre>
+					<p>You could substituted x back into the equation</p>
 					<p>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-5-c70adc9cf56a">Not so good here: but you can use it</a></p>
+				</section>
+				<section>
+					<pre class="hljs elm"><code>
+quote str =
+    "'" ++ str ++ "'"
+					</code></pre>
+					<pre class="hljs elm"><code>
+findError key =
+    "Unable to find " ++ (quote key)
+					</code></pre>
+					<pre class="hljs elm" data-trim><code>
+findError key =
+   "Unable to find " ++ ("'" ++ str ++ "'")
+					</code></pre>
+					<aside class="notes">
+						<p>Since the quote function is pure, we can simply replace the function call in findError with the body of the quote function (which is just an expression)</p>
+					</aside>
 				</section>
 			</section>
 			<section>
@@ -1177,6 +1329,15 @@ console.log(add10(40)); // prints 50
 				</section>
 				<section>
 
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Type annotation</h1>
+				</section>
+				<section>
+					<h2></h2>
+					this is there
 				</section>
 			</section>
 			<section>
