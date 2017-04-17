@@ -434,6 +434,7 @@ function getRandom(value){
 				<section>
 					<h2>Pure function</h2>
 					<ul>
+						<li>in a mathematical way...</li>
 						<li class="fragment">Most useful Pure Functions must take at least one parameter.</li>
 						<li class="fragment">All useful Pure Functions must return something.</li>
 						<li class="fragment">always produce the same output given the same inputs.</li>
@@ -452,6 +453,15 @@ function getRandom(value){
 						<li class="fragment"> Since programs have to interface to the real world, some parts of every program must be impure.</li>
 						<li class="fragment"> The goal is to minimize the amount of impure code and segregate it from the rest of our program.</li>
 					</ul>
+				</section>
+				<section>
+					<h2>First class function</h2>
+					<ul>
+						<li>pass function</li>
+						<li>return function</li>
+						
+					</ul>
+					<p>add more</p>
 				</section>
 				<section>
 					<h2>So far</h2>
@@ -704,6 +714,32 @@ f.map(x => x); // [1, 2, 3]
 				</section>
 				<section>
 					<h2>Filter</h2>
+					<pre class="hljs"><code>
+var numbers = [1, 2, 3, 4];
+var newNumbers = [];
+
+for(var i = 0; i < numbers.length; i++) {
+    if(numbers[i] % 2 !== 0) {
+        newNumbers[i] = numbers[i] * 2;
+    }
+}
+
+console.log("The doubled numbers are", newNumbers); // [2, 6]
+					</code></pre>
+				</section>
+				<section>
+					<pre class="hljs"><code>
+var numbers = [1, 2, 3, 4];
+
+var newNumbers = numbers.filter(function(number){
+    return (number % 2 !== 0);
+}).map(function(number){
+    return number * 2;
+});
+
+console.log("The doubled numbers are", newNumbers); // [2, 6]
+					</code></pre>
+					<p>ref: <a href="http://cryto.net/~joepie91/blog/2015/05/04/functional-programming-in-javascript-map-filter-reduce/">here</a></p>
 				</section>
 				<section>
 					<h2>Reduce</h2>
@@ -756,7 +792,91 @@ print sum
 			</section>
 			<section>
 				<section>
+					<h1>Composition</h1>
+				</section>
+				<section>
+					
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Monads </h1>
+				</section>
+				<section>
+					<h2>Go Nerd with Monads</h2>
+					<p>Raise your hands if you heard monads</p>
+					<p>Can you explain monads!</p>
+					<p>It is made popular by Haskel</p>
+					<p>Warning: the moment you understand what is monads</p>
+					<p>And you say... ohh...this is the monads</p>
+					<p>This is the moment when you loose the ability to explain it to someone else</p>
+					<p>ref: <a href="https://www.youtube.com/watch?v=dkZFtimgAcM">Monads</a></p>
+				</section>
+				<section>
+					<h2></h2>
+					<p>ref: <a href="http://jrsinclair.com/articles/2016/marvellously-mysterious-javascript-maybe-monad/">May be you can starts with this</a></p>
+					<p>ref: <a href="http://blog.klipse.tech/javascript/2016/08/31/monads-javascript.html">Explain monads by using this</a></p>
+					<p>ref: <a href="https://curiosity-driven.org/monads-in-javascript">Three types of moands</a></p>
+					<p>Can ignore things in below</p>
+					<p>ref: <a href="https://www.youtube.com/watch?v=dkZFtimgAcM">Crokcford video</a></p>
+					<p>ref: <a href="https://blog.jcoglan.com/2011/03/05/translation-from-haskell-to-javascript-of-selected-portions-of-the-best-introduction-to-monads-ive-ever-read/">Monads in JS</a></p>
+					<p>ref: <a href="http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html">monads in Haskel</a></p>
+				</section>
+				<section>
+					<h2>IO Monads</h2>
+					<p>IO monads is solution to a problem you will never have</p>
+				</section>
+				<section>
+					<h2></h2>
+					<pre class="hljs"><code>
+function unit(value)
+function bind (monad, function(value))
+					</code></pre>
+					<ul>
+						<li>Monad is a object</li>
+						<li>bind take a mond</li>
+						<li>above function return monads</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Three axiom of MOnads</h2>
+					<ul>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+						<li class="fragment">composition: bind(bind(monad, f<), g)/li>
+					</ul>
+				</section>
+				<section>
+					<h2>Identity MOnad</h2>
+					<pre class ="hljs"><code>
+function MONAD(){
+	return function unit (value){
+		var monad = Object.create (null){
+			return func(value);
+		}
+		retun monad;
+	}
+}
+					</code></pre>
+					<pre class="hljs"><code>
+var identity = MONAD();
+var monad = identity("hello world");
+monad.bind(alert);
+					</code></pre>
+				</section>
+				<section>
+					<h2>MOnads</h2>
+					<p>MOnads is functor with flatmap</p>
+					<p>ref: <a href="https://www.youtube.com/watch?v=9QveBbn7t_c">Fun fun function</a></p>
+				</section>
+			</section>
+			<section>
+				<section>
 					<h1>Need a heading!</h1>
+				</section>
+				<section>
+					<h2>category theory</h2>
+					<p>Search for category theory</p>
 				</section>
 				<section>
 					<h2>Familiar code</h2>
