@@ -459,7 +459,7 @@ function getRandom(value){
 					<ul>
 						<li>pass function</li>
 						<li>return function</li>
-						
+
 					</ul>
 					<p>add more</p>
 				</section>
@@ -659,16 +659,23 @@ console.log(lengths); // [12, 24, 34]
 				</section>
 				<section>
 					<h2>Fun Fun Functor</h2>
-					<p>The term “functor” comes from category theory. In category theory, a functor is a mapping between categories. Loosely, a category is a group of things, where each “thing” can be any value. In code, a functor is sometimes represented as an object with a .map() method that maps from one set of values to another.</p>
+					<p>The term “functor” comes from category theory. In category theory, a functor is a mapping between categories. Loosely,
+						a category is a group of things, where each “thing” can be any value. In code, a functor is sometimes represented as
+						an object with a .map() method that maps from one set of values to another.</p>
 					<p>When you see the word functor, you should think “mappable”.</p>
 					<pre class="hljs haskel fragment"><code>
 fmap :: (a -> b) -> f a -> f b
 						</code></pre>
-					<p>A functor supplies a box with zero or more things inside, and a mapping interface. An array is a good example of a functor, but many other kinds of objects can be mapped over as well, including single valued-objects, streams, trees, objects, etc…</p>
-					<blockquote>A functor is a container of type a that, when subjected to a function that maps from a→b, yields a container of type b.</blockquote>
+					<p>A functor supplies a box with zero or more things inside, and a mapping interface. An array is a good example of a functor,
+						but many other kinds of objects can be mapped over as well, including single valued-objects, streams, trees, objects,
+						etc…</p>
+					<blockquote>A functor is a container of type a that, when subjected to a function that maps from a→b, yields a container of type
+						b.</blockquote>
 					<p>ref: <a href="http://stackoverflow.com/questions/2030863/in-functional-programming-what-is-a-functor">what is functor</a></p>
 					<aside class="notes">
-						<p>Given a function that takes an a and returns a b and a functor with zero or more as inside it: fmap returns a box with zero or more bs inside it. The f a and f b bits can be read as “a functor of a” and “a functor of b”, meaning f a has as inside the box, and f b has bs inside the box.</p>
+						<p>Given a function that takes an a and returns a b and a functor with zero or more as inside it: fmap returns a box with
+							zero or more bs inside it. The f a and f b bits can be read as “a functor of a” and “a functor of b”, meaning f a
+							has as inside the box, and f b has bs inside the box.</p>
 					</aside>
 				</section>
 				<section>
@@ -687,7 +694,8 @@ f.map(x => x); // [1, 2, 3]
 					</code></pre>
 					<aside class="notes">
 						<h4>Identity</h4>
-						<p>If you pass the identity function (x => x) into f.map(), where f is any functor, the result should be equivalent to (have the same meaning as) f:</p>
+						<p>If you pass the identity function (x => x) into f.map(), where f is any functor, the result should be equivalent to
+							(have the same meaning as) f:</p>
 					</aside>
 				</section>
 				<section>
@@ -696,7 +704,7 @@ f.map(x => x); // [1, 2, 3]
 					<p>ref: <a href="https://templecoding.com/blog/2016/06/16/functional-javascript-what-is-a-functor/">another good to read</a></p>
 				</section>
 				<section>
-					
+
 					<ul>
 						<li class="fragment">Functors are not function like map</li>
 						<li class="fragment">Functor is an Object that has map method</li>
@@ -706,7 +714,7 @@ f.map(x => x); // [1, 2, 3]
 					<br>
 					<br>
 					<p>ref: <a href="http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html">picture explanation of functor</a></p>
-				</section>				
+				</section>
 			</section>
 			<section>
 				<section>
@@ -751,7 +759,9 @@ console.log("The doubled numbers are", newNumbers); // [2, 6]
 					<br>
 					<p>ref: <a href="https://medium.com/javascript-scene/reduce-composing-software-fe22f0c39a1d">reduce</a></p>
 					<aside class="notes">
-						<p>commonly used in functional programming that lets you iterate over a list, applying a function to an accumulated value and the next item in the list, until the iteration is complete and the accumulated value gets returned. Many useful things can be implemented with reduce. </p>
+						<p>commonly used in functional programming that lets you iterate over a list, applying a function to an accumulated value
+							and the next item in the list, until the iteration is complete and the accumulated value gets returned. Many useful
+							things can be implemented with reduce. </p>
 					</aside>
 				</section>
 				<section>
@@ -795,8 +805,78 @@ print sum
 					<h1>Composition</h1>
 				</section>
 				<section>
-					
+					<h2>Functiuon Composotion</h2>
+					<pre class="hljs"><code>
+const add10 = function(value) {
+    return value + 10;
+};
+var mult5 = function(value) {
+    return value * 5;
+};
+					</code></pre>
+					<pre class="hljs"><code>
+const add10 = x => x + 10;
+
+const mult5 = x => x * 5;
+					</code></pre>
+					<pre class="hljs"><code>
+var mult5AfterAdd10 = x => 5 * (x + 10);
+					</code></pre>
+					<aside class="notes">
+						<p>let’s imagine that we also want to have a function that takes a value and adds 10 to it and then multiplies the result
+							by 5. </p>
+					</aside>
 				</section>
+				<section>
+					<h2>There is a better way</h2>
+					<p>In math, f ∘ g is functional composition and is read “f composed with g” or, more commonly, “f after g”. So (f ∘ g)(x) is equivalent to calling f after calling g with x or simply, f(g(x)).</p>
+					<p> we have mult5 ∘ add10 or “mult5 after add10”, hence the name of our function, mult5AfterAdd10.</p>
+					<p>And that’s exactly what we did. We called mult5 after we called add10 with value or simply, mult5(add10(value)).</p>
+					<p>First, value is passed to add10 then its results are passed to mult5.</p>
+					<br>
+					<p>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-3-1b0fd14eb1a7">part 3</a></p>
+				</section>
+				<section>
+					<h2>Elm example</h2>
+					<pre class="hljs elm"><code>
+add10 value =
+    value + 10
+mult5 value =
+    value * 5
+mult5AfterAdd10 value =
+    (mult5 << add10) value
+					</code></pre>
+					<pre class="hljs elm"><code>
+f x =
+   (g << h << s << r << t) x
+					</code></pre>
+					<aside class="notes">
+						<p>Note the parentheses in mult5AfterAdd10, i.e. (mult5 << add10). They are there to make sure that the functions are composed first before applying value.</p>
+						<p>Here x is passed to function t whose result is passed to r whose result is passed to s and so on. If you did something similar in Javascript it would look like g(h(s(r(t(x))))), a parenthetical nightmare</p>
+					</aside>
+				</section>
+				<section>
+					<h2> Find other example of Compostion</h2>
+				</section>
+				<section>
+					<h2>Point free notation</h2>
+				</section>
+				<section>
+					<h2>More</h2>
+					<pre class="hljs"><code>
+add x y =
+    x + y
+mult5 value =
+    value * 5
+					</code></pre>
+					<pre><code>
+var mult5AfterAdd10 = mult5(add(10)); // this doesn't work
+						</code></pre>
+					<pre class="hljs fragment"><code>
+var mult5AfterAdd10 = y => mult5(add(10, y)); // not point-free
+						</code></pre>
+				</section>
+
 			</section>
 			<section>
 				<section>
@@ -843,12 +923,13 @@ function bind (monad, function(value))
 					<ul>
 						<li class="fragment"></li>
 						<li class="fragment"></li>
-						<li class="fragment">composition: bind(bind(monad, f<), g)/li>
+						<li class="fragment">composition: bind(bind(monad, f
+							<), g)/li>
 					</ul>
 				</section>
 				<section>
 					<h2>Identity MOnad</h2>
-					<pre class ="hljs"><code>
+					<pre class="hljs"><code>
 function MONAD(){
 	return function unit (value){
 		var monad = Object.create (null){
