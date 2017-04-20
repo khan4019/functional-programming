@@ -79,9 +79,6 @@
 							<a href="http://www.lihaoyi.com/post/WhatsFunctionalProgrammingAllAbout.html">Make a tea making diagram</a>
 						</li>
 						<li>
-							<a href="https://egghead.io/courses/professor-frisby-introduces-composable-functional-javascript">Luke shares these videso in JS meetup</a>
-						</li>
-						<li>
 							<a href="http://www.braveclojure.com/functional-programming/">Closure: for the brave and true (read it)</a>
 						</li>
 						<li>
@@ -181,21 +178,6 @@
 				<section>
 					<h1>Can move rest of the things for later</h1>
 				</section>
-				<section>
-					<h2>pieces of Functional Programming</h2>
-					<ul>
-						<li>abc</li>
-						<li>Tere was once upon a time</li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</section>
-				<section>
 					<section>
 						<h2>What, Why and How</h2>
 					</section>
@@ -203,35 +185,13 @@
 						<h2>What</h2>
 						<ul>
 							<li class="fragment">Functional programming is the mustachioed hipster of programming paradigms.</li>
-							<li class="fragment">Originally relegated to the annals of computer science academia</li>
+							<li class="hide">Originally relegated to the annals of computer science academia</li>
 							<li class="fragment">Depending on whom you ask, functional programming (FP) is either an enlightened approach to programming that should
 								be spread far and wide, </li>
 							<li class="fragment">or an overly academic approach to programming with few real-world benefits.</li>
-							<li class="fragment"></li>
 						</ul>
 						<h2>Serious: take it after first section</h2>
-						<ul>
-							<li class="fragment">building software by composing pure functions, avoiding shared state, mutable data, and side-effects. </li>
-							<li class="fragment"> Functional programming is declarative rather than imperative, and application state flows through pure functions.
-								Contrast with object oriented programming, where application state is usually shared and colocated with methods in
-								objects.
-							</li>
-							<li class="fragment">Functional programming is a programming paradigm, meaning that it is a way of thinking about software construction
-								based on some fundamental, defining principles (listed above). Other examples of programming paradigms include object
-								oriented programming and procedural programming.</li>
-							<li class="fragment">Functional code tends to be more concise, more predictable, and easier to test than imperative or object oriented
-								code — but if you’re unfamiliar with it and the common patterns associated with it, functional code can also seem
-								a lot more dense, and the related literature can be impenetrable to newcomers.</li>
-							<li class="fragment">Functions are first-class entities: They can be assigned to variables, passed as arguments, or returned from other
-								functions.
-							</li>
-							<li class="fragment">No state.</li>
-							<li class="fragment">No side effects: Anything the code does except produce an output from given inputs.</li>
-							<li class="fragment">programming with functions—pure mathematical functions.</li>
-							<li class="fragment">result of a function depends only on the arguments, </li>
-							<li class="fragment">there are no side effects</li>
-							<li class="fragment">Programs are built by combining functions together</li>
-						</ul>
+
 						<p>ref: <a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0">Eric Elliot: Functional Programming</a></p>
 					</section>
 					<section>
@@ -263,16 +223,48 @@
 						<p>Avoiding trap doors is an area in which language features can make a big difference. For avoiding exceptions, algebraic
 							data types can be used to model error conditions, like so:</p>
 					</section>
+			</section>
+			<section>
+				<section>
+					<h1>What more</h1>
+					<p>reduce what</p>
 				</section>
 				<section>
-					<h2>Some more about definition</h2>
-					<p>That's it, time to go back up.</p>
-					<br>
+					<ul>
+						<li class="fragment">building software by composing pure functions, avoiding shared state, mutable data, and side-effects. </li>
+						<li class="fragment"> Functional programming is declarative rather than imperative, and application state flows through pure functions.
+							Contrast with object oriented programming, where application state is usually shared and colocated with methods in
+							objects.
+						</li>
+						<li class="fragment">Functional programming is a programming paradigm, meaning that it is a way of thinking about software construction
+							based on some fundamental, defining principles (listed above). Other examples of programming paradigms include object
+							oriented programming and procedural programming.</li>
+						<li class="fragment">Functional code tends to be more concise, more predictable, and easier to test than imperative or object oriented
+							code — but if you’re unfamiliar with it and the common patterns associated with it, functional code can also seem
+							a lot more dense, and the related literature can be impenetrable to newcomers.</li>
+						<li class="fragment">Functions are first-class entities: They can be assigned to variables, passed as arguments, or returned from other
+							functions.
+						</li>
+					</ul>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">No state.</li>
+						<li class="fragment">No side effects: Anything the code does except produce an output from given inputs.</li>
+						<li class="fragment">programming with functions—pure mathematical functions.</li>
+						<li class="fragment">result of a function depends only on the arguments, </li>
+						<li class="fragment">there are no side effects</li>
+						<li class="fragment">Programs are built by combining functions together</li>
+					</ul>
+				</section>
+				<section>
+					 the absence of side effects. It doesn’t rely on data outside the current function, and it doesn’t change data that exists outside the current function.
 				</section>
 			</section>
 			<section>
 				<section>
 					<h1>Why</h1>
+					<p>move this later</p>
 				</section>
 				<section>
 					<ul>
@@ -353,12 +345,14 @@ add(1, 2); // WILL ALWAYS output 3
 					</p>
 				</section>
 				<section>
-					<h2>What about this</h2>
-					<pre class="hljs"><code>
-function getRandom(value){
-  return Math.random() * value;
+					<h2>What about this one?</h2>
+					<pre class="hljs java" data-trim><code>
+public int addNumbers(int x, int y) {
+    int result = x + y;
+    Database.write(result);
+    return result;
 }
-					</code> </pre>
+					</code></pre>
 					<pre class="fragment hljs"><code>
 function mouseOnLeftSide(mouseX) {
     return mouseX < window.innerWidth / 2;
@@ -383,28 +377,19 @@ function mouseOnLeftSide(mouseX) {
 				</section>
 				<section>
 					<h2>Few more</h2>
-					<pre class="hljs"><code>
+					<pre class="hljs fragment"><code>
 writeFile(fileName);
 updateDatabaseTable(sqlCmd);
 sendAjaxRequest(ajaxRequest);
 openSocket(ipAddress);
 					</code></pre>
-					<pre class="fragment" data-trim><code>
-public int addNumbers(int x, int y) {
-    int result = x+y;
-    Database.write(result);
-    return result;
-}
-					</code></pre>
 					<ul>
-						<li class="fragment">When you call these functions, they changes something</li>
-						<li class="fragment">changing something outside is called they have side effect</li>
-						<li class="fragment">They rely on things outside of input parameter</li>
-						<li class="fragment">You can't always predict their behavior/output</li>
+						<li class="fragment">Rely on things outside of input parameter</li>
+						<li class="fragment">Can't always predict their behavior/output</li>
+						<li class="fragment">All these are <strong>impure function</strong></li>
+						<li class="fragment">They will have <strong>side effect</strong></li>
+						<li class="fragment">Pure functions have no side effects.</li>
 					</ul>
-					<p class="fragment">All these are impure function</p>
-					<p class="fragment">they will have <strong>side effect</strong> </p>
-					<p class="fragment">Pure functions have no side effects.</p>
 					<aside class="notes">
 						<p>In Imperative Programming Languages such as Javascript, Java, and C#, Side Effects are everywhere. This makes debugging
 							very difficult because a variable can be changed anywhere in your program. So when you have a bug because a variable
@@ -414,8 +399,8 @@ public int addNumbers(int x, int y) {
 				<section>
 					<h2>Impure function</h2>
 					<p>In Imperative Programming Languages such as Javascript, Java, and C#, Side Effects are everywhere</p>
-					<p>This makes debugging very difficult because a variable can be changed anywhere in your program. </p>
-					<p>So when you have a bug because a variable is changed to the wrong value at the wrong time, where do you look? Everywhere?
+					<p class="fragment">This makes debugging very difficult because a variable can be changed anywhere in your program. </p>
+					<p class="fragment">So when you have a bug because a variable is changed to the wrong value at the wrong time, where do you look? Everywhere?
 						That’s not good.</p>
 				</section>
 				<section>
@@ -426,8 +411,11 @@ function add(x, y) {
 }
 					</code></pre>
 					<pre class="hljs fragment"><code>
-function getRandom(value){
-  return Math.random() * value;
+function addAndSave(value){
+	var result = x + y;
+	Database.save(sum);
+	  return result;
+	}
 }
 					</code> </pre>
 				</section>
