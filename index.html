@@ -1093,10 +1093,6 @@ const mult5AfterAdd10 = R.compose(R.multiply(5), R.add(10));
 					<h1>Need a heading!</h1>
 				</section>
 				<section>
-					<h2>category theory</h2>
-					<p>Search for category theory</p>
-				</section>
-				<section>
 					<h2>Familiar code</h2>
 					<pre class="fragment"><code>
 function validateSsn(ssn) {
@@ -1258,16 +1254,6 @@ console.log(add10(40)); // prints 50
 						<li class="fragment"></li>
 					</ul>
 				</section>
-				<section>
-					<h2>Functors</h2>
-					<p>Higher-order functions can be usually simulated in object-oriented languages by functions that take function-objects,
-						also called functors (note that functor in Haskell is an entirely different concept). Variables from the scope of the
-						call can be bound inside the function-object which acts as if it were a closure. This way of simulating HOFs is, however,
-						very verbose and requires declaring a new class each time we want to use a HOF.</p>
-				</section>
-				<section>
-
-				</section>
 			</section>
 			<section>
 				<h2>Recursion</h2>
@@ -1285,6 +1271,10 @@ console.log(add10(40)); // prints 50
 			<section>
 				<section>
 					<h1>Category Theory</h1>
+				</section>
+				<section>
+					<h2>category theory</h2>
+					<p>Search for category theory</p>
 				</section>
 			</section>
 			<section>
@@ -1313,6 +1303,13 @@ fmap :: (a -> b) -> f a -> f b
 							zero or more bs inside it. The f a and f b bits can be read as “a functor of a” and “a functor of b”, meaning f a
 							has as inside the box, and f b has bs inside the box.</p>
 					</aside>
+				</section>
+				<section>
+					<h2>Functors</h2>
+					<p>Higher-order functions can be usually simulated in object-oriented languages by functions that take function-objects,
+						also called functors (note that functor in Haskell is an entirely different concept). Variables from the scope of the
+						call can be bound inside the function-object which acts as if it were a closure. This way of simulating HOFs is, however,
+						very verbose and requires declaring a new class each time we want to use a HOF.</p>
 				</section>
 				<section>
 					<h2>Functor Laws</h2>
