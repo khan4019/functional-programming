@@ -70,6 +70,7 @@
 						<li>Composition, currying, higher order</li>
 						<li>Category Theory</li>
 						<li>Functor, Monads, Applicatives</li>
+						<li>Take a OOP example and convert it to FP</li>
 						<li>why</li>
 					</ol>
 					<ol>
@@ -129,6 +130,14 @@
 				<p></p>
 			</section>
 			<section>
+				<h2>Warning</h2>
+				<ul>
+					<li>Everything you know has a harder name</li>
+					<li>Everything has a different way of thinking</li>
+					<li>And you can make anything sounds complicated aka nerd</li>
+				</ul>
+			</section>
+			<section>
 				<section>
 					<h1>What</h1>
 				</section>
@@ -175,99 +184,75 @@
 					<img style="height: 600px;" src="images/day.jpg">
 				</section>
 				<section>
+					<h2>Searching FP could be your greatest mistake</h2>
+					<p>When people talk about functional programming</p>
+					<p>A dizzying number of “functional” characteristics</p>
+					<p>Many functional programming articles teach abstract functional techniques. That is, composition, pipelining, higher
+						order functions. This one is different. It shows examples of imperative, unfunctional code that people write every
+						day and translates these examples to a functional style.</p>
+					<ul>
+						<p>These are language features that aid functional programming</p>
+						<li class="fragment">mapping, reducing, pipelining, recursing, currying</li>
+						<p>These are programming techniques used to write functional code</p>
+						<li class="fragment">parallelization</li>
+						<li class="fragment"> extra: <a href="http://stackoverflow.com/questions/1303794/how-is-debugging-achieved-in-a-lazy-functional-programming-language">How to debug lazy function</a></li>
+						<p>These are advantageous properties of functional programs.</p>
+					</ul>
+				</section>
+				<section>
 					<h2>Functional Programming</h2>
 					<p class="fragment highlight-red">Find a definition</p>
 				</section>
 				<section>
-					<h1>Can move rest of the things for later</h1>
+					<h2>What, Why and How</h2>
 				</section>
-					<section>
-						<h2>What, Why and How</h2>
-					</section>
-					<section>
-						<h2>What</h2>
-						<ul>
-							<li class="fragment">Functional programming is the mustachioed hipster of programming paradigms.</li>
-							<li class="hide">Originally relegated to the annals of computer science academia</li>
-							<li class="fragment">Depending on whom you ask, functional programming (FP) is either an enlightened approach to programming that should
-								be spread far and wide, </li>
-							<li class="fragment">or an overly academic approach to programming with few real-world benefits.</li>
-						</ul>
-						<h2>Serious: take it after first section</h2>
+				<section>
+					<h2>What</h2>
+					<ul>
+						<li class="fragment">Functional programming is the mustachioed hipster of programming paradigms.</li>
+						<li class="hide">Originally relegated to the annals of computer science academia</li>
+						<li class="fragment">Depending on whom you ask, functional programming (FP) is either an enlightened approach to programming that should
+							be spread far and wide, </li>
+						<li class="fragment">or an overly academic approach to programming with few real-world benefits.</li>
+					</ul>
+					<h2>Serious: take it after first section</h2>
 
-						<p>ref: <a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0">Eric Elliot: Functional Programming</a></p>
-					</section>
-					<section>
-						<h2>Why</h2>
-					</section>
-					<section>
-						<h2>How (level-1)</h2>
-						<ul class="fragment">Pure functions</ul>
-						<ul class="fragment">Function composition</ul>
-						<ul class="fragment">Avoid shared state</ul>
-						<ul class="fragment">Avoid mutating state</ul>
-						<ul class="fragment">Avoid side effects</ul>
-					</section>
-					<section>
-						<h2>Extra: put somehwere</h2>
-						<h4>Don't open that trap door!</h4>
-						<p>Recall that the result of a function depends only on its inputs. Alas, almost all programming languages have "features"
-							that break this assumption. Null values, type case (instanceof), type casting, exceptions, side-effects, and the possibility
-							of infinite recursion are trap doors that break equational reasoning and impair a programmer's ability to reason about
-							the behavior or correctness of a program. (Total languages, which do not have any trap doors, include Agda, Idris,
-							and Coq.)</p>
-						<p>Fortunately, as programmers, we can choose to avoid these traps, and if we are disciplined, we can pretend that the
-							trap doors do not exist. This idea is called fast and loose reasoning. It costs nothing—almost any program can be
-							written without using the trap doors—and by avoiding them you win back equational reasoning, composability and reuse.</p>
-						<p>ref: <a href="https://opensource.com/article/17/4/introduction-functional-programming">Intro to Functional Programming</a></p>
-						<p>Let's discuss exceptions in detail. This trap door breaks equational reasoning because the possibility of abnormal
-							termination is not reflected in the type. (Count yourself lucky if the documentation even mentions the exceptions
-							that could be thrown.) But there is no reason why we can't have a return type that encompasses all the failure modes.</p>
-						<p>Avoiding trap doors is an area in which language features can make a big difference. For avoiding exceptions, algebraic
-							data types can be used to model error conditions, like so:</p>
-					</section>
-			</section>
-			<section>
-				<section>
-					<h1>What more</h1>
-					<p>reduce what</p>
+					<p>ref: <a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0">Eric Elliot: Functional Programming</a></p>
 				</section>
 				<section>
-					<ul>
-						<li class="fragment">building software by composing pure functions, avoiding shared state, mutable data, and side-effects. </li>
-						<li class="fragment"> Functional programming is declarative rather than imperative, and application state flows through pure functions.
-							Contrast with object oriented programming, where application state is usually shared and colocated with methods in
-							objects.
-						</li>
-						<li class="fragment">Functional programming is a programming paradigm, meaning that it is a way of thinking about software construction
-							based on some fundamental, defining principles (listed above). Other examples of programming paradigms include object
-							oriented programming and procedural programming.</li>
-						<li class="fragment">Functional code tends to be more concise, more predictable, and easier to test than imperative or object oriented
-							code — but if you’re unfamiliar with it and the common patterns associated with it, functional code can also seem
-							a lot more dense, and the related literature can be impenetrable to newcomers.</li>
-						<li class="fragment">Functions are first-class entities: They can be assigned to variables, passed as arguments, or returned from other
-							functions.
-						</li>
-					</ul>
+					<h2>Why</h2>
 				</section>
 				<section>
-					<ul>
-						<li class="fragment">No state.</li>
-						<li class="fragment">No side effects: Anything the code does except produce an output from given inputs.</li>
-						<li class="fragment">programming with functions—pure mathematical functions.</li>
-						<li class="fragment">result of a function depends only on the arguments, </li>
-						<li class="fragment">there are no side effects</li>
-						<li class="fragment">Programs are built by combining functions together</li>
-					</ul>
+					<h2>How (level-1)</h2>
+					<ul class="fragment">Pure functions</ul>
+					<ul class="fragment">Function composition</ul>
+					<ul class="fragment">Avoid shared state</ul>
+					<ul class="fragment">Avoid mutating state</ul>
+					<ul class="fragment">Avoid side effects</ul>
 				</section>
 				<section>
-					 the absence of side effects. It doesn’t rely on data outside the current function, and it doesn’t change data that exists outside the current function.
+					<h2>Extra: put somehwere</h2>
+					<h4>Don't open that trap door!</h4>
+					<p>Recall that the result of a function depends only on its inputs. Alas, almost all programming languages have "features"
+						that break this assumption. Null values, type case (instanceof), type casting, exceptions, side-effects, and the possibility
+						of infinite recursion are trap doors that break equational reasoning and impair a programmer's ability to reason about
+						the behavior or correctness of a program. (Total languages, which do not have any trap doors, include Agda, Idris,
+						and Coq.)</p>
+					<p>Fortunately, as programmers, we can choose to avoid these traps, and if we are disciplined, we can pretend that the
+						trap doors do not exist. This idea is called fast and loose reasoning. It costs nothing—almost any program can be written
+						without using the trap doors—and by avoiding them you win back equational reasoning, composability and reuse.</p>
+					<p>ref: <a href="https://opensource.com/article/17/4/introduction-functional-programming">Intro to Functional Programming</a></p>
+					<p>Let's discuss exceptions in detail. This trap door breaks equational reasoning because the possibility of abnormal termination
+						is not reflected in the type. (Count yourself lucky if the documentation even mentions the exceptions that could be
+						thrown.) But there is no reason why we can't have a return type that encompasses all the failure modes.</p>
+					<p>Avoiding trap doors is an area in which language features can make a big difference. For avoiding exceptions, algebraic
+						data types can be used to model error conditions, like so:</p>
 				</section>
 			</section>
 			<section>
 				<section>
 					<h1>Why</h1>
-					<p>move this later</p>
+					<p>promises that Functional programming does</p>
 				</section>
 				<section>
 					<ul>
@@ -283,7 +268,7 @@
 			</section>
 			<section>
 				<section>
-					<h1>Story</h1>
+					<h1>Fully lost!</h1>
 					<p>medium article: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536">medium call</a></p>
 				</section>
 				<section>
@@ -292,30 +277,10 @@
 			</section>
 			<section>
 				<section>
-					<h2>Practical example of FP</h2>
-					<br>
-					<p><a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">reference</a></p>
+					<h1>Let's Start</h1>
 				</section>
 				<section>
-					<p>Many functional programming articles teach abstract functional techniques. That is, composition, pipelining, higher
-						order functions. This one is different. It shows examples of imperative, unfunctional code that people write every
-						day and translates these examples to a functional style.</p>
-				</section>
-				<section>
-					<h2>A guide rope</h2>
-					<p>When people talk about functional programming</p>
-					<p>A dizzying number of “functional” characteristics</p>
-					<ul>
-						<p>These are language features that aid functional programming</p>
-						<li class="fragment">mapping, reducing, pipelining, recursing, currying</li>
-						<p>These are programming techniques used to write functional code</p>
-						<li class="fragment">parallelization</li>
-						<li class="fragment"> extra: <a href="http://stackoverflow.com/questions/1303794/how-is-debugging-achieved-in-a-lazy-functional-programming-language">How to debug lazy function</a></li>
-						<p>These are advantageous properties of functional programs.</p>
-					</ul>
-				</section>
-				<section>
-					<h2>Ignore all that</h2>
+					<h2>Forget Everything</h2>
 					<ul>
 						<li class="fragment">Functional code is characterized by one thing</li>
 						<li class="fragment">The absence of side effects</li>
@@ -324,11 +289,9 @@
 						<li class="fragment">Every other “functional” thing can be derived from this property</li>
 						<li class="fragment">Use it as a guide rope as you learn</li>
 					</ul>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h2>Let's start</h2>
+					<aside class="notes">
+						<p>It doesn it by using two simple principle</p>
+					</aside>
 				</section>
 				<section>
 					<h2>This is a function</h2>
@@ -598,8 +561,10 @@ a = {};
 					<aside class="notes">
 						<p>Here a is defined to be a constant and therefore cannot be changed once set. This is why a = 2 throws an exception</p>
 						<p>The problem with const in Javascript is that it doesn’t go far enough. The following example illustrates its limits:</p>
-						<p>Notice how a.x = 2 does NOT throw an exception. The only thing that’s immutable with the const keyword is the variable a. Anything that a points to can be mutated.</p>
-						<p>Unfortunately, we can only do so via a library called Immutable.js. This may give us better immutability but sadly, it does so in a way that makes our code look more like Java than Javascript.</p>
+						<p>Notice how a.x = 2 does NOT throw an exception. The only thing that’s immutable with the const keyword is the variable
+							a. Anything that a points to can be mutated.</p>
+						<p>Unfortunately, we can only do so via a library called Immutable.js. This may give us better immutability but sadly,
+							it does so in a way that makes our code look more like Java than Javascript.</p>
 					</aside>
 				</section>
 				<section>
@@ -690,7 +655,7 @@ console.log(sumRange(1, 10, 0)); // prints 55
 			</section>
 			<section>
 				<section>
-					<h2>Looping</h2>
+					<h1>Looping</h1>
 				</section>
 				<section>
 					<h2>Iterate over lists</h2>
@@ -864,88 +829,133 @@ print sum
 						<li></li>
 					</ul>
 				</section>
+				<section>
+					<ul>
+						<li class="fragment">building software by composing pure functions, avoiding shared state, mutable data, and side-effects. </li>
+						<li class="fragment"> Functional programming is declarative rather than imperative, and application state flows through pure functions. Contrast
+							with object oriented programming, where application state is usually shared and colocated with methods in objects.
+						</li>
+						<li class="fragment">Functional programming is a programming paradigm, meaning that it is a way of thinking about software construction
+							based on some fundamental, defining principles (listed above). Other examples of programming paradigms include object
+							oriented programming and procedural programming.</li>
+						<li class="fragment">Functional code tends to be more concise, more predictable, and easier to test than imperative or object oriented code — but
+							if you’re unfamiliar with it and the common patterns associated with it, functional code can also seem a lot more
+							dense, and the related literature can be impenetrable to newcomers.</li>
+						<li class="fragment">Functions are first-class entities: They can be assigned to variables, passed as arguments, or returned from other
+							functions.
+						</li>
+					</ul>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">No state.</li>
+						<li class="fragment">No side effects: Anything the code does except produce an output from given inputs.</li>
+						<li class="fragment">programming with functions—pure mathematical functions.</li>
+						<li class="fragment">result of a function depends only on the arguments, </li>
+						<li class="fragment">there are no side effects</li>
+						<li class="fragment">Programs are built by combining functions together</li>
+					</ul>
+				</section>
+				<section>
+					the absence of side effects. It doesn’t rely on data outside the current function, and it doesn’t change data that exists
+					outside the current function.
+				</section>
+				<section>
+					<h2>sleeper finder</h2>
+					<ul>
+						<li>ask a question</li>
+					</ul>
+				</section>
 			</section>
 			<section>
 				<section>
 					<h1>Composition</h1>
 				</section>
 				<section>
-					<ul>
-						<li class="fragment">Code reuse sounds great but is difficult to achieve.</li>
-						<li class="fragment">Make the code too specific and you can’t reuse it.</li>
-						<li class="fragment">Make it too general and it can be too difficult to use in the first place.</li>
-						<li class="fragment">So what we need is a balance between the two, a way to make smaller</li>
-						<li class="fragment"></li>
-					</ul>
-				</section>
-				<section>
-					<h2>some title</h2>
-					<pre><code>
-var add10 = function(value) {
-    return value + 10;
-};
-var mult5 = function(value) {
-    return value * 5;
-};
-					</code></pre>
+					<h2>Back to High school</h2>
 					<pre class="fragment"><code>
-var add10 = value => value + 10;
-var mult5 = value => value * 5;
-					</code></pre>
-					<pre class="fragment"><code>
-var mult5AfterAdd10 = value => mult5(add10(value));
-					</code></pre>
-					<h2 class="fragment">g(f(x))</h2>
-				</section>
-				<section>
-					<h2>Function Composotion</h2>
-					<pre class="hljs"><code>
-const add10 = function(value) {
-    return value + 10;
-};
-var mult5 = function(value) {
-    return value * 5;
-};
-					</code></pre>
-					<pre class="hljs"><code>
-const add10 = x => x + 10;
+f(x) = 2x + 3
 
-const mult5 = x => x * 5;
+f(7) = 2 * 7 + 3
 					</code></pre>
-					<pre class="hljs"><code>
-var mult5AfterAdd10 = x => 5 * (x + 10);
+					<p class="fragment">g(x) = x <sup>2</sup> + 1</p>
+					<p class="fragment">What is the value of f(g(x)) ?</p>
+					<pre class="fragment"><code>
+g(2) = 2 * 2 + 1
+     = 5
+
+f(g(2)) = f(5)
+        = 2 * 5 + 3
+        = 10 + 3
+        = 13
 					</code></pre>
 					<aside class="notes">
-						<p>let’s imagine that we also want to have a function that takes a value and adds 10 to it and then multiplies the result
-							by 5. </p>
+						<p>I am bringing back to the match class... your night mare</p>
 					</aside>
 				</section>
 				<section>
-					<pre><code class="hljs" data-trim>
-						const add = function(x,y){
-							return x + y;
-						}
-
-						const square = function(x){
-							return x * x;
-						}
-
-						const addThenSquare = function(x, y){
-							return square(add(x,y));
-						}
-					</code></pre>
-					<h2 class="fragment">g(f(x))</h2>
+					<h2>Make this complicated</h2>
+					<ul>
+						<li>What you saw as f(g(x))</li>
+						<li class="fragment">f ∘ g (read as f of g)</li>
+						<li class="fragment">f after g</li>
+						<li class="fragment">g(x) inside f(x)...inside executes first</li>
+						<li class="fragment">calling f after calling g with x</li>
+						<li class="fragment">or simply: <strong>f composed with g</strong></li>
+					</ul>
+					<br>
+					<br>
+					<p><small>Khan Academy: <a href="https://www.khanacademy.org/math/algebra2/manipulating-functions/funciton-composition/v/function-composition">function composition</a></small></p>
 				</section>
 				<section>
-					<h2>There is a better way</h2>
-					<p>In math, f ∘ g is functional composition and is read “f composed with g” or, more commonly, “f after g”. So (f ∘ g)(x)
-						is equivalent to calling f after calling g with x or simply, f(g(x)).</p>
-					<p> we have mult5 ∘ add10 or “mult5 after add10”, hence the name of our function, mult5AfterAdd10.</p>
-					<p>And that’s exactly what we did. We called mult5 after we called add10 with value or simply, mult5(add10(value)).</p>
-					<p>First, value is passed to add10 then its results are passed to mult5.</p>
-					<br>
-					<p>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-3-1b0fd14eb1a7">part 3</a></p>
+					<h2>You are using this</h2>
+					<pre><code>
+var add10 = function(x) {
+    return x + 10;
+};
+var mult5 = function(x) {
+    return x * 5;
+};
+					</code></pre>
+					<pre class="fragment"><code>
+const add10 = x => x + 10;
+const mult5 = x => x * 5;
+					</code></pre>
+					<pre class="fragment"><code>
+const mult5AfterAdd10 = x => mult5(add10(value));
+					</code></pre>
+					<h4 class="fragment">g(f(x))</h4>
 				</section>
+				<section>
+						<h2>Function Composotion</h2>
+					<pre><code class="hljs javascript" data-trim>
+						const add10 = x =>  x + 10;
+
+						const mult5 = x =>  x * 5;
+					</code></pre>
+					<pre class="fragment"><code data-trim>
+						var compose = function(f, g) {
+						  return function(x) {
+						    return f(g(x));
+						  };
+						};
+
+						const mult5AfterAdd10 = compose(add10, mult5);
+					</code></pre>
+					<pre class="hljs javascript fragment"><code>
+multmult5AfterAdd10(5); //35
+					</code></pre>
+					<p class="fragment">executes <strong>right to left</strong></p>
+					<p class="fragment"> Direction matters</p>
+					<br>
+					<p><small>ref: <a href="https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch5.html#functional-husbandry">Coding by composing</a></small></p>
+					<aside class="notes">
+						<p>f and g are functions and x is the value being "piped" through them. </p>
+						<p>The composition of two functions returns a new function. This makes perfect sense: composing two units of some type (in this case function) should yield a new unit of that very type. You don't plug two legos together and get a lincoln log. There is a theory here, some underlying law that we will discover in due time.</p>
+						In our definition of compose, the g will run before the f, creating a right to left flow of data.
+					</aside>
+				</section>
+
 				<section>
 					<h2>Elm example</h2>
 					<pre class="hljs elm"><code>
@@ -957,22 +967,23 @@ mult5AfterAdd10 value =
     (mult5 << add10) value
 					</code></pre>
 					<pre class="hljs elm"><code>
-f x =
-   (g << h << s << r << t) x
+f x = (g << h << s << r << t) x
 					</code></pre>
 					<aside class="notes">
 						<p>Note the parentheses in mult5AfterAdd10, i.e. (mult5
-							<< add10). They are there to make sure that the functions are
-							 composed first before applying value.</p>
+							<< add10). They are there to make sure that the functions are composed first before applying value.</p>
 								<p>Here x is passed to function t whose result is passed to r whose result is passed to s and so on. If you did something
 									similar in Javascript it would look like g(h(s(r(t(x))))), a parenthetical nightmare</p>
 					</aside>
 				</section>
 				<section>
-					<h2> Find other Complete thinking</h2>
+					<h2> Complete this thinking</h2>
+					<p>can use <a href="https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch5.html#pointfree">this</a></p>
 				</section>
 				<section>
 					<h2>Point free notation</h2>
+					<p>read <a href="http://lucasmreis.github.io/blog/pointfree-javascript/">this</a></p>
+					<p>adn <a href="https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch5.html#pointfree">this as well</a></p>
 				</section>
 				<section>
 					<h2>Two parameters pain</h2>
@@ -988,36 +999,63 @@ var mult5AfterAdd10 = mult5(add(10)); // this doesn't work
 					<pre class="hljs fragment"><code>
 var mult5AfterAdd10 = y => mult5(add(10, y)); // not point-free
 						</code></pre>
+						<p class="fragment highlight-red">It's not throwing error</p>
+						<p>Read more, research more about it</p>
+				</section>
+				<section>
+					<h2>Code reuse</h2>
+					<p>Find a suitable place for this: later</p>
+					<ul>
+						<li class="fragment">Code reuse sounds great but is difficult to achieve.</li>
+						<li class="fragment">Make the code too specific and you can’t reuse it.</li>
+						<li class="fragment">Make it too general and it can be too difficult to use in the first place.</li>
+						<li class="fragment">So what we need is a balance between the two, a way to make smaller</li>
+					</ul>
 				</section>
 			</section>
 			<section>
 				<section>
 					<h1>Currying</h1>
-					<p>If you remember from Part 3, the reason that we were having problems composing mult5 and add (in ) is because mult5
-						takes 1 parameter and add takes 2.</p>
-					<p>We can solve this easily by just restricting all functions to take only 1 parameter.</p>
-					<p>Trust me. It’s not as bad as it sounds.</p>
-					<p>We simply write an add function that uses 2 parameters but only takes 1 parameter at a time. Curried functions allow us to do this.</p>
-					<p>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-4-18fbe3ea9e49">part4</a></p>
 				</section>
 				<section>
-					<h2>Curried Function</h2>
+					<h2>add an image of currying</h2>
+				</section>
+				<section>
+					<h1>Currying</h1>
+					<p>The concept is simple: You can call a function with fewer arguments than it expects. It returns a function that takes the remaining arguments.</p>
 					<blockquote>
 						<p>A Curried Function is a function that only takes a single parameter at a time.</p>
 					</blockquote>
-					<p>This will let us give add its first parameter before we compose it with mult5. Then when mult5AfterAdd10 is called, add will get its second parameter.</p>
-					<pre class="hljs"><code>
-const add = x => y => x + y
+					<aside class="notes">
+						<p>The reason that we were having problems composing mult5 and add (in ) is because mult5
+							takes 1 parameter and add takes 2.</p>
+						<p>We can solve this easily by just restricting all functions to take only 1 parameter.</p>
+						<p>Trust me. It’s not as bad as it sounds.</p>
+						<p>We simply write an add function that uses 2 parameters but only takes 1 parameter at a time. Curried functions allow
+							us to do this.</p>
+						<p>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-4-18fbe3ea9e49">part4</a></p>
+					</aside>
+				</section>
+				<section>
+					<h2>Curried Function</h2>
+					<pre class="hljs javascript"><code>
+const add = x + y => x + y
 					</code></pre>
-					<pre><code>
+					<pre class="fragment"><code data-trim>
 function add(x){
 	return function (y){
 		return x + y;
 	}
 }
 					</code></pre>
-					<p>In detail, the add function takes a single parameter, x, and returns a function that takes a single parameter, y, which will ultimately return the result of adding x and y.</p>
+					<pre class="hljs fragment"><code>
+const add = x => y => x + y
+					</code></pre>
 					<aside class="notes">
+						<p>In detail, the add function takes a single parameter, x, and returns a function that takes a single parameter, y, which
+							will ultimately return the result of adding x and y.</p>
+						<p>This will let us give add its first parameter before we compose it with mult5. Then when mult5AfterAdd10 is called,
+							add will get its second parameter.</p>
 						<p>This version of add is a function that takes one parameter now and then another one later.</p>
 					</aside>
 				</section>
@@ -1028,64 +1066,60 @@ function add(x){
 var compose = (f, g) => x => f(g(x));
 var mult5AfterAdd10 = compose(mult5, add(10));
 					</code></pre>
-					<p>The compose function takes 2 parameters, f and g. Then it returns a function that takes 1 parameter, x, which when called will apply f after g to x.</p>
-					<p>So what did we do exactly? Well, we converted our plain old add function into a curried version. This made add more flexible since the first parameter, 10, can be passed to it up front and the final parameter will be passed when mult5AfterAdd10 is called.</p>
+					<p>The compose function takes 2 parameters, f and g. Then it returns a function that takes 1 parameter, x, which when called
+						will apply f after g to x.</p>
+					<p>So what did we do exactly? Well, we converted our plain old add function into a curried version. This made add more
+						flexible since the first parameter, 10, can be passed to it up front and the final parameter will be passed when mult5AfterAdd10
+						is called.</p>
 				</section>
 				<section>
-					<h2></h2>
-					<p>At this point, you may be wondering how to rewrite the add function in Elm. Turns out, you don’t have to. In Elm and other Functional Languages, all functions are curried automatically.</p>
-					<pre class="hljs elm"><code>
-add x y =
-    x + y
-					</code></pre>
-					<pre class="hljs elm"><code>
-mult5AfterAdd10 =
-    (mult5 << add 10)
-					</code></pre>
-					<aside class="notes">
-						<p>Syntactically speaking, Elm beats Imperative Languages like Javascript because it’s been optimized for Functional things like currying and composition.</p>
-					</aside>
+					<h2>Add more solid example</h2>
 				</section>
 				<section>
 					<h2>Currying and Refactoring</h2>
-					<p>Another time currying shines is during refactoring when you create a generalized version of a function with lots of parameters and then use it to create specialized versions with fewer parameters.</p>
+					<p>Another time currying shines is during refactoring when you create a generalized version of a function with lots of
+						parameters and then use it to create specialized versions with fewer parameters.</p>
 					<p>For example, when we have the following functions that put brackets and double brackets around strings:</p>
 				</section>
 				<section>
 					<h2>Currying and Composition</h2>
-<pre><code>
+					<pre><code>
 const f = a => b => c => d => a + b + c + d
 console.log(f(1)(2)(3)(4)); // prints 10
 </code></pre>
-<pre class="fragment hljs"><code>
+					<pre class="fragment hljs"><code>
 const f = R.curry((a, b, c, d) => a + b + c + d);
 console.log(f(1, 2, 3, 4)); // prints 10
 console.log(f(1, 2)(3, 4)); // also prints 10
 console.log(f(1)(2)(3, 4)); // also prints 10
 </code></pre>
-				<p>Ref: <a href="http://ramdajs.com/"></a></p>
-				<aside class="notes">
-					<p>Too much parenthesis... might confuse you and make you cry.</p>
-					<p>a framework named Ramada will rescue you</p>
-					<p>The function definition isn’t much better but we’ve eliminated the need for all those parenthesis. Notice that we can apply as many or as few parameters as we want each time we invoke f.</p>
-				</aside>
+					<p>Ref:
+						<a href="http://ramdajs.com/"></a>
+					</p>
+					<aside class="notes">
+						<p>Too much parenthesis... might confuse you and make you cry.</p>
+						<p>a framework named Ramada will rescue you</p>
+						<p>The function definition isn’t much better but we’ve eliminated the need for all those parenthesis. Notice that we can
+							apply as many or as few parameters as we want each time we invoke f.</p>
+					</aside>
 				</section>
 				<section>
 					<h2>RamadaJS</h2>
-<pre class="hljs"><code>
+					<pre class="hljs"><code>
 //add old code here
 </code></pre>
-<pre class="fragment hljs"><code>
+					<pre class="fragment hljs"><code>
 const add = R.curry((x, y) => x + y);
 const mult5 = value => value * 5;
 const mult5AfterAdd10 = R.compose(mult5, add(10));
 </code></pre>
-<pre class="fragment"><code>
+					<pre class="fragment"><code>
 const mult5AfterAdd10 = R.compose(R.multiply(5), R.add(10));
 </code></pre>
-				<aside class="notes">
-					<p>Ramda has a lot of helper functions for doing these sorts of things, e.g. R.add and R.multiply, which means we can write less code:</p>
-				</aside>
+					<aside class="notes">
+						<p>Ramda has a lot of helper functions for doing these sorts of things, e.g. R.add and R.multiply, which means we can
+							write less code:</p>
+					</aside>
 				</section>
 			</section>
 			<section>
@@ -1275,6 +1309,13 @@ console.log(add10(40)); // prints 50
 				<section>
 					<h2>category theory</h2>
 					<p>Search for category theory</p>
+					<ul>
+						<li><a href="http://nikgrozev.com/2016/03/14/functional-programming-and-category-theory-part-1-categories-and-functors/">this one</a></li>
+						<li><a href="https://cs.stackexchange.com/questions/3028/is-category-theory-useful-for-learning-functional-programming">Is is needed to learn Category theory to understand FP</a></li>
+						<li><a href=""></a></li>
+						<li><a href="http://yogsototh.github.io/Category-Theory-Presentation">Good slide</a></li>
+						<li><a href="https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/">Category theory for programmers</a></li>
+					</ul>
 				</section>
 			</section>
 			<section>
