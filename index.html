@@ -908,12 +908,28 @@ f x = (g << h << s << r << t) x
 				</section>
 				<section>
 					<h2> Complete this thinking</h2>
-					<p>can use <a href="https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch5.html#pointfree">this</a></p>
 				</section>
 				<section>
 					<h2>Point free notation</h2>
-					<p>read <a href="http://lucasmreis.github.io/blog/pointfree-javascript/">this</a></p>
-					<p>adn <a href="https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch5.html#pointfree">this as well</a></p>
+					<pre class="fragment"><code data-trim>
+const toUpperCase = str => str.toUpperCase();
+const head =  x => x[0];
+const compose = (f, g)  => x => f(g(x));
+
+//not pointfree because we mention the data: name
+var initials = function(name) {
+  return name.split(' ').map(compose(toUpperCase, head)).join('. ');
+};
+					</code></pre>
+					<pre class="fragment"><code data-trim>
+						//pointfree
+						var initials = compose(join('. '), map(compose(toUpperCase, head)), split(' '));
+
+						initials("hunter stockton thompson");
+						// 'H. S. T'
+					</code></pre>
+					<br>
+					<p><small> Ref <a href="http://lucasmreis.github.io/blog/pointfree-javascript/">this</a> and <a href="https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch5.html#pointfree">this as well</a></small></p>
 				</section>
 				<section>
 					<h2>Two parameters pain</h2>
@@ -952,14 +968,24 @@ var mult5AfterAdd10 = y => mult5(add(10, y)); // not point-free
 					<p><small>ref: <a href="https://en.wikipedia.org/wiki/Haskell_Curry">Haskell Brooks Curry</a></small></p>
 				</section>
 				<section>
-					<h1>Currying</h1>
-					<p>The concept is simple: You can call a function with fewer arguments than it expects. It returns a function that takes the remaining arguments.</p>
-					<p> Function currying is when you call a function with fewer arguments than it wants and that function returns another function to accept the rest of the arguments. </p>
+					<h2>Currying</h2>
+					<ul>
+						<li class="fragment">Call a function with fewer arguments than it expects</li>
+						<li class="fragment">Returns a function that takes the remaining arguments</li>
+						<li class="fragment">multiple arguments are described by a series of one-argument functions</li>
+						<pre class="fragment"><code data-trim>
+var sum3 = curry(function(a, b, c){ return a + b + c })
+sum3(1)(2)(3) //= 6
+						</code></pre>
+					</ul>
 					<blockquote>
 						<p>A Curried Function is a function that only takes a single parameter at a time.</p>
 					</blockquote>
-					<p>ref: <a href="https://hughfdjackson.com/javascript/why-curry-helps/">some these</a></p>
+					<br>
+					<p><small>Ref: <a href="https://hughfdjackson.com/javascript/why-curry-helps/">Why Curry Helps</a> and
+						<a href="https://github.com/dominictarr/curry">Curry JS</a></small></p>
 					<aside class="notes">
+						<h2>The concept is simple: </h2>
 						<p>The reason that we were having problems composing mult5 and add (in ) is because mult5
 							takes 1 parameter and add takes 2.</p>
 						<p>We can solve this easily by just restricting all functions to take only 1 parameter.</p>
@@ -984,6 +1010,8 @@ function add(x){
 					<pre class="hljs fragment"><code>
 const add = x => y => x + y
 					</code></pre>
+					<br>
+					<p><small>Ref: <a href="https://medium.com/@kevincennis/currying-in-javascript-c66080543528">Currying in JS</a></small></p>
 					<aside class="notes">
 						<p>In detail, the add function takes a single parameter, x, and returns a function that takes a single parameter, y, which
 							will ultimately return the result of adding x and y.</p>
@@ -991,6 +1019,17 @@ const add = x => y => x + y
 							add will get its second parameter.</p>
 						<p>This version of add is a function that takes one parameter now and then another one later.</p>
 					</aside>
+				</section>
+				<section>
+					<h2>Promise is currying</h2>
+					<p class="dangser">Is pormise is curry?</p>
+					<pre class="fragment"><code data-trim>
+						fetchFromServer()
+						    .then(JSON.parse)
+						    .then(get('posts'))
+						    .then(map(get('title')))
+					</code></pre>
+					<p><small><a href="https://github.com/learn-javascript-courses/javascript-questions/issues/7">Is Currying Advantageours</a></small></p>
 				</section>
 				<section>
 					<h2></h2>
