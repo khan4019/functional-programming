@@ -201,7 +201,7 @@
 				</section>
 				<section>
 					<h2>Functional Programming</h2>
-					<p class="fragment highlight-red">Find a definition</p>
+					<p class="fragment highlight-red">Find a definition: <a href="https://medium.com/functional-javascript/introduction-to-functional-javascript-45a9dca6c64a">here</a></p>
 				</section>
 				<section>
 					<h2>What, Why and How</h2>
@@ -1019,13 +1019,16 @@ var mult5AfterAdd10 = y => mult5(add(10, y)); // not point-free
 				</section>
 				<section>
 					<h2>add an image of currying</h2>
+					<p><small>ref: <a href="https://en.wikipedia.org/wiki/Haskell_Curry">Haskell Brooks Curry</a></small></p>
 				</section>
 				<section>
 					<h1>Currying</h1>
 					<p>The concept is simple: You can call a function with fewer arguments than it expects. It returns a function that takes the remaining arguments.</p>
+					<p> Function currying is when you call a function with fewer arguments than it wants and that function returns another function to accept the rest of the arguments. </p>
 					<blockquote>
 						<p>A Curried Function is a function that only takes a single parameter at a time.</p>
 					</blockquote>
+					<p>ref: <a href="https://hughfdjackson.com/javascript/why-curry-helps/">some these</a></p>
 					<aside class="notes">
 						<p>The reason that we were having problems composing mult5 and add (in ) is because mult5
 							takes 1 parameter and add takes 2.</p>
@@ -1124,7 +1127,99 @@ const mult5AfterAdd10 = R.compose(R.multiply(5), R.add(10));
 			</section>
 			<section>
 				<section>
-					<h1>Need a heading!</h1>
+					<h1>higher order function</h1>
+				</section>
+				<section>
+					<h2>Higher order function</h2>
+					<ul>
+						<li class="fragment">Function that take other function as parameter</li>
+						<li class="fragment">or by returning them</li>
+					</ul>
+					<p>Higher-order functions allow us to abstract over actions, not just values. </p>
+				</section>
+				<section>
+					<h2>Counter</h2>
+					<pre><code data-trim>
+						function counter(){
+							var count = 0;
+							return function(){
+								return count++;
+							}
+						}
+					</code></pre>
+					<pre><code data-trim>
+						const myClock = counter();
+						myClock(); //0
+						myClock(); //1
+						myClock(); //2
+						myClock(); //3
+					</code></pre>
+				</section>
+				<section>
+					<h2>Closure</h2>
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<h2>Recursion</h2>
+				<p>Recursion is heavily used in functional programming as it is the canonical and often the only way to iterate. Functional
+					language implementations will often include tail call optimisation to ensure that heavy recursion does not consume excessive
+					memory.
+				</p>
+				<p>check this slide: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-30">here</a></p>
+			</section>
+			<section>
+				<section>
+					<h1>Pipelines</h1>
+				</section>
+				<section>
+					<h2>pipelines</h2>
+					<p>Collection pipelines are a programming pattern where you organize some computation as a sequence of operations which compose by taking a collection as output of one operation and feeding it into the next. (Common operations are filter, map, and reduce.) This pattern is common in functional programming, and also in object-oriented languages which have lambdas. This article describes the pattern with several examples of how to form pipelines, both to introduce the pattern to those unfamiliar with it, and to help people understand the core concepts so they can more easily take ideas from one language to another.</p>
+					<p><small>ref: <a href="https://martinfowler.com/articles/collection-pipeline/">Martin Fowler: Collection piplelines</a></small></p>
+				</section>
+				<section>
+					<pre><code data-trim>
+function doubleSay (str) {
+  return str + ", " + str;
+}
+function capitalize (str) {
+  return str[0].toUpperCase() + str.substring(1);
+}
+function exclaim (str) {
+  return str + '!';
+}
+					</code></pre>
+					<pre class="fragment"><code data-trim>
+						let result = exclaim(capitalize(doubleSay("hello")));
+						result //=> "Hello, hello!"
+
+						let result = "hello"
+						  |> doubleSay
+						  |> capitalize
+						  |> exclaim;
+
+						result //=> "Hello, hello!"
+					</code></pre>
+					<p><small>ref: <a href="https://github.com/gilbert/es-pipeline-operator">JS pipeline proposal</a></small></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Combinators</h1>
+				</section>
+				<section>
+					<p>ref: <a href="http://scalafp.com/book/functional-programming-is-like-unix-pipelines.html">at the bottom of this</a></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Mix all you learned a heading!</h1>
 				</section>
 				<section>
 					<h2>Familiar code</h2>
@@ -1280,22 +1375,13 @@ console.log(add10(40)); // prints 50
 			</section>
 			<section>
 				<section>
-					<h1>higher order function</h1>
+					<h1>Lazy Evaluation</h1>
+					<p>at the bottom: <a href="https://medium.com/@chetcorcos/functional-programming-for-javascript-people-1915d8775504">here</a></p>	
 				</section>
 				<section>
-					<ul>
-						<li class="fragment">Function that take other function as parameter</li>
-						<li class="fragment"></li>
-					</ul>
+					<p>don’t do something until you absolutely have to, be lazy and procrastinate as long as possible. One analogy is to suppose you have a large, possibly infinite, amount of dishes to wash. Rather than put all the dishes in the sink and wash them at once, let’s be lazy and just take one dish at a time.</p>
 				</section>
-			</section>
-			<section>
-				<h2>Recursion</h2>
-				<p>Recursion is heavily used in functional programming as it is the canonical and often the only way to iterate. Functional
-					language implementations will often include tail call optimisation to ensure that heavy recursion does not consume excessive
-					memory.
-				</p>
-				<p>check this slide: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-30">here</a></p>
+
 			</section>
 			<section>
 				<section>
@@ -1495,11 +1581,6 @@ monad.bind(alert);
 				<section>
 					<h2></h2>
 					this is there
-				</section>
-			</section>
-			<section>
-				<section>
-					<h1>Closure</h1>
 				</section>
 			</section>
 			<section>
