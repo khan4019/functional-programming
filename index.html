@@ -245,17 +245,17 @@
 					<h1>Let's Start</h1>
 				</section>
 				<section>
-					<h2>Forget Everything</h2>
+					<h2>Ground Rules</h2>
 					<ul>
-						<li class="fragment">Functional code is characterized by one thing</li>
-						<li class="fragment">The absence of side effects</li>
-						<li class="fragment">It doesn’t rely on data outside the current function</li>
-						<li class="fragment">it doesn’t change data that exists outside the current function</li>
-						<li class="fragment">Every other “functional” thing can be derived from this property</li>
-						<li class="fragment">Use it as a guide rope as you learn</li>
+						<li class="fragment">Application evolves around function </li>
+						<li class="fragment">With Only one rule: <strong class="danger">No side effect</strong></li>
+						<li class="fragment">Don’t rely on data outside of the current function</li>
+						<li class="fragment">Don’t change data outside of the current function</li>
+						<li class="fragment">Every other “functional programing” things are derived from this property</li>
+						<li class="fragment">Use this as a guide rope</li>
 					</ul>
 					<aside class="notes">
-						<p>It doesn it by using two simple principle</p>
+
 					</aside>
 				</section>
 				<section>
@@ -270,10 +270,11 @@ add(1, 2); // output is 3
 add(1, 2); // output still is 3
 add(1, 2); // WILL ALWAYS output 3
 					</code></pre>
-					<p class="fragment">Only operate on their input parameters</p>
-					<p class="fragment">
-						Always produce the same output for same inputs.
-					</p>
+					<ul>
+						<li class="fragment">Always produce the same output for same inputs</li>
+						<li class="fragment">Only operate on their input parameters</li>
+						<li class="fragment">No side effect</li>
+					</ul>
 				</section>
 				<section>
 					<h2>What about this one?</h2>
@@ -336,33 +337,18 @@ openSocket(ipAddress);
 				</section>
 				<section>
 					<h2>Two type of functions</h2>
-					<pre class="hljs" data-trim><code>
+					<pre class="hljs" ><code data-trim>
 function add(x, y) {
     return x + y;
 }
 					</code></pre>
-					<pre class="hljs fragment"><code>
-function addAndSave(value){
-	var result = x + y;
-	Database.save(sum);
-	  return result;
-	}
-}
+					<pre class="hljs fragment"><code data-trim>
+						public int addNumbers(int x, int y) {
+						    int result = x + y;
+						    Database.write(result);
+						    return result;
+						}
 					</code> </pre>
-				</section>
-				<section>
-					<h2>Pure function</h2>
-					<ul>
-						<li>in a mathematical way...</li>
-						<li class="fragment">Most useful Pure Functions must take at least one parameter.</li>
-						<li class="fragment">All useful Pure Functions must return something.</li>
-						<li class="fragment">always produce the same output given the same inputs.</li>
-					</ul>
-				</section>
-				<section>
-					<h2>Side effects</h2>
-					<p>Define it here</p>
-					<p>ref: <a href="http://poincare101.blogspot.com/2012/02/functional-programming-explained.html">FP: side effects</a></p>
 				</section>
 				<section>
 					<h2>Pure Function</h2>
@@ -373,14 +359,16 @@ function addAndSave(value){
 						<li class="fragment">Always return same output for same input</li>
 						<li class="fragment">Indifferent to context</li>
 						<li class="fragment">Highly testable and reusable</li>
+						<li class="fragment">always produce the same output given the same inputs.</li>
 					</ul>
 					<aside class="notes">
 						This slide has fragments which are also stepped through in the notes window.
 					</aside>
 				</section>
 				<section>
-					<h2>Make global variable local</h2>
-					<pre><code class="hljs" data-trim>
+					<h2>Convert Impure to pure</h2>
+					<p class="fragment">Make global variable local</p>
+					<pre class="fragment"><code class="hljs" data-trim>
 						const myFunc = function(y){
 							const x = 10;
 							return x + y;
@@ -389,10 +377,8 @@ function addAndSave(value){
 						console.log(myFunc(3)); //13
 						console.log(myFunc(3)); //13
 					</code></pre>
-				</section>
-				<section>
-					<h2>Pass as paramter</h2>
-					<pre><code class="hljs" data-trim>
+					<p class="fragment">Pass as paramter</p>
+					<pre class="fragment"><code class="hljs" data-trim>
 						const x = 10;
 						const myFunc = function(x, y){
 							return x + y;
@@ -403,17 +389,9 @@ function addAndSave(value){
 					</code></pre>
 				</section>
 				<section>
-					<h2></h2>
+					<h2>Reality</h2>
 					<ul>
-						<li class="fragment">Ulitmate your program will always produce some side effects</li>
-						<li class="fragment">You shoul handle them carefully</li>
-						<li class="fragment">Constrained them as much as possible</li>
-						<li class="fragment"></li>
-					</ul>
-				</section>
-				<section>
-					<h2>Functional Programming Language</h2>
-					<ul>
+						<li class="fragment">Ulitmately your program will always produce some side effects</li>
 						<li class="fragment">Cannot eliminate Side Effects completey</li>
 						<li class="fragment">Can only confine them.</li>
 						<li class="fragment"> Since programs have to interface to the real world, some parts of every program must be impure.</li>
@@ -426,13 +404,9 @@ function addAndSave(value){
 					<ul>
 						<li>pass function</li>
 						<li>return function</li>
-
 					</ul>
 					<p>add more</p>
-				</section>
-				<section>
-					<h2>So far</h2>
-					<p>Functional programming means: a lot functions</p>
+					<p class="danger">may be it's own section</p>
 				</section>
 			</section>
 			<section>
@@ -441,9 +415,9 @@ function addAndSave(value){
 				</section>
 				<section>
 					<img src="images/immutable.png">
-				</section>
-				<section>
-					<img src="images/mutable.png">
+					<aside class="notes">
+						<p>I am programming </p>
+					</aside>
 				</section>
 				<section>
 					<h2>Programming vs Math</h2>
@@ -483,30 +457,23 @@ function addOneTOSum(y , z){
 					</ul>
 				</section>
 				<section>
-					<p>Let’s think about when we want to modify variables.</p>
+					<h2>FP: approach</h2>
+					<p class="fragment">Two types of variable</p>
+					<ol class="fragment">
+						<li>Single valued</li>
+						<li>Multi valued</li>
+					</ol>
 					<ul>
-						<li class="fragment">There are 2 general cases</li>
-						<li class="fragment">1. multi-valued changes (e.g. changing a single value of an object or record)</li>
-						<li class="fragment">2. single-valued changes (e.g. loop counters)</li>
-						<li class="fragment  highlight-red">research this</li>
+						<li class="fragment">Doesn't change value, rather create a new varialbe</li>
+						<li class="fragment">If values in record changes, create a new copy</li>
+						<li class="fragment">Leverage Uses data structure underneath it to make it efficient: <span class="danger">Research how</span></li>
 					</ul>
-				</section>
-				<section>
-					<p class="fragment highlight-red">Isn't clear. read it again</p>
-					<p>Functional Programming deals with changes to values in a record by making a copy of the record with the values changed.
-						It does this efficiently without having to copy all parts of the record by using data structures that makes this possible.
-						Functional programming solves the single-valued change in exactly the same way, by making a copy of it. Oh, yes and
-						by not having loops.</p>
-				</section>
-				<section>
-					<blockquote>
-						“WHAT NO VARIABLES AND NOW NO LOOPS?! I HATE YOU!!!”
-					</blockquote>
-				</section>
-				<section>
-					<p>Hold on. It’s not like we can’t do loops (no pun intended), it’s just that there are no specific loop constructs like
-						for, while, do, repeat, etc.</p>
-					<p>Functional Programming uses recursion to do looping.</p>
+					<aside class="notes">
+						<p>Functional Programming deals with changes to values in a record by making a copy of the record with the values changed.
+							It does this efficiently without having to copy all parts of the record by using data structures that makes this possible.
+							Functional programming solves the single-valued change in exactly the same way, by making a copy of it. Oh, yes and
+							by not having loops.</p>
+					</aside>
 				</section>
 				<section>
 					<h2>Immutability in JavaScript</h2>
@@ -533,16 +500,30 @@ a = {};
 					</aside>
 				</section>
 				<section>
-					<h2>Looping in JavaScript</h2>
-					<pre class="hljs"><code>
+					<h2>Hold on</h2>
+					<p class="danger">Loop needs variable</p>
+					<p class="fragment">for, while, do while, etc.</p>
+					<pre class="hljs fragment"><code>
 var sum = 0;
 for (var i = 1; i <= 10; ++i){
 	sum += i;
 }
 console.log(sum); // prints 55
 					</code></pre>
-					<pre class="fragment hljs"><code>
-// without loop construct or variables (recursion)
+					<blockquote class="fragment">
+						“WHAT NO VARIABLES AND NOW NO LOOPS?! I HATE YOU!!!”
+					</blockquote>
+				</section>
+				<section>
+					<h2>Looping in JavaScript</h2>
+					<pre class="hljs javasript"><code>
+var sum = 0;
+for (var i = 1; i <= 10; ++i){
+	sum += i;
+}
+console.log(sum); // prints 55
+					</code></pre>
+					<pre class="fragment hljs javascript"><code>
 function sumRange(start, end, sum) {
     if (start > end)
         return sum;
@@ -552,23 +533,24 @@ console.log(sumRange(1, 10, 0)); // prints 55
 					</code></pre>
 					<aside class="notes">
 						<h2>Two ways to lopping in javascript</h2>
+						<p>Notice how recursion, the functional approach, accomplishes the same as the for loop by calling itself with a new start
+							(start + 1) and a new accumulator (acc + start). It doesn’t modify the old values. Instead it uses new values calculated
+							from the old.</p>
+						<p>You’re probably thinking that for loops are easier to understand. While that’s debatable and more likely an issue of
+							familiarity, non-recursive loops require Mutability, which is bad.</p>
 					</aside>
 				</section>
 				<section>
-					<p>Notice how recursion, the functional approach, accomplishes the same as the for loop by calling itself with a new start
-						(start + 1) and a new accumulator (acc + start). It doesn’t modify the old values. Instead it uses new values calculated
-						from the old.</p>
-					<p>You’re probably thinking that for loops are easier to understand. While that’s debatable and more likely an issue of
-						familiarity, non-recursive loops require Mutability, which is bad.</p>
-				</section>
-				<section>
-					<h2>benefits of Immutability</h2>
-					<p>read <a href="https://medium.com/@cscalfani/why-programmers-need-limits-3d96e1a0a6db">this</a></p>
+					<h2>Benefits of Immutability</h2>
+					Did you ever wonder why most solutions to program glitches are fixed by rebooting your computer or restarting the offending application? That’s because of state. The program has corrupted its state.
 					<p>One obvious benefit is that if you have access to a value in your program, you only have read access, which means that
 						no one else can change that value. Even you. So no accidental mutations.</p>
 					<p>Also, if your program is multi-threaded, then no other thread can pull the rug out from under you. That value is constant
 						and if another thread wants to change it, it’ll have create a new value from the old one.</p>
 					<p>Immutability creates simpler and safer code.</p>
+					<br>
+					<br>
+					<p><small>read <a href="https://medium.com/@cscalfani/why-programmers-need-limits-3d96e1a0a6db">Programmer needs limit</a></small></p>
 				</section>
 				<section>
 					<h2>Immutable</h2>
@@ -596,9 +578,11 @@ console.log(sumRange(1, 10, 0)); // prints 55
 				</section>
 				<section>
 					<h2>Avoid array mutation</h2>
+					<p>Search: how to avoid array mutation</p>
 				</section>
 				<section>
 					<h2>avoid object mutation</h2>
+					<p>Search: How to avoid object mutation</p>
 				</section>
 				<section>
 					<h2>const</h2>
@@ -634,11 +618,7 @@ for (let i = 0; i < tasks.length; i++){
 console.log(lengths); //[6, 12, 17]
 					</code> </pre>
 					<pre class="hljs fragment"><code>
-const tasks = ['coding', 'drink coffee', 'hide from manager'];
-
-const lengths = tasks.map(function(task) {
-  return task.length;
-});
+const lengths = tasks.map(task => task.length);
 
 console.log(lengths); // [6, 12, 17]
 					</code> </pre>
@@ -658,9 +638,7 @@ console.log(lengths); // [6, 12, 17]
 				<section>
 					<h2>Reuse </h2>
 					<pre class="hljs"><code>
-function getLength(word) {
-  return word.length;
-}
+const getLength = word => word.length;
 
 var tasks = ['coding', 'drink coffee', 'hide from manager'];
 
@@ -671,22 +649,13 @@ console.log(lengths); // [6, 12, 17]
 					<pre class="hljs fragment"><code>
 var meals = ['jimmy jhons', 'jimmy jhons', 'jimmy jhons'];
 
-var lengths = tasks.map(getLength);
+var mealLengths = tasks.map(getLength);
 
-console.log(lengths); // [11, 11, 11]
+console.log(mealLengths); // [11, 11, 11]
 					</code> </pre>
 				</section>
 				<section>
 					<h2>ES6</h2>
-					<pre class="hljs"><code>
-const getLength = word => word.length;
-
-const tasks = ['coding', 'drink coffee', 'hide from manager'];
-
-const lengths = tasks.map(getLength);
-
-console.log(lengths); // [6, 12, 17]
-					</code> </pre>
 					<pre class="hljs fragment"><code>
 const getLength = word => word.length;
 const doubleIt = x => x*2;
@@ -702,11 +671,11 @@ console.log(lengths); // [12, 24, 34]
 			</section>
 			<section>
 				<section>
-					<h2>Siblings of Map</h2>
+					<h1>Siblings of Map</h1>
 				</section>
 				<section>
 					<h2>Filter</h2>
-					<pre class="hljs"><code>
+					<pre class="hljs javascript"><code data-trim>
 var numbers = [1, 2, 3, 4];
 var newNumbers = [];
 
@@ -716,20 +685,16 @@ for(var i = 0; i < numbers.length; i++) {
     }
 }
 
-console.log("The doubled numbers are", newNumbers); // [2, 6]
+console.log(newNumbers); // [2, 6]
 					</code></pre>
-				</section>
-				<section>
-					<pre class="hljs"><code>
-var numbers = [1, 2, 3, 4];
+					<pre class="hljs fragment"><code data-trim>
+const numbers = [1, 2, 3, 4];
+const odd = n => n % 2;
+const double = x => x * 2;
 
-var newNumbers = numbers.filter(function(number){
-    return (number % 2 !== 0);
-}).map(function(number){
-    return number * 2;
-});
+var newNumbers = numbers.filter(odd).map(double);
 
-console.log("The doubled numbers are", newNumbers); // [2, 6]
+console.log(newNumbers); // [2, 6]
 					</code></pre>
 					<p>ref: <a href="http://cryto.net/~joepie91/blog/2015/05/04/functional-programming-in-javascript-map-filter-reduce/">here</a></p>
 				</section>
@@ -791,7 +756,7 @@ print sum
 				<section>
 					<h2>So far</h2>
 					<ul>
-						<li></li>
+						<p>Functional programming means: a lot functions</p>
 					</ul>
 				</section>
 				<section>
