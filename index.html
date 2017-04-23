@@ -151,7 +151,7 @@
 				<section>
 					<h2>Ask the geeky guy</h2>
 					<ul>
-						<li class="fragment">Monads, Functors, actuators, compositor</li>
+						<li class="fragment">Monads, Monoids, Lift, Functors, actuators, compositor</li>
 						<li class="fragment">Immutable data, Tail call optimization</li>
 						<li class="fragment">Higher order functions</li>
 						<li class="fragment">Lazy evaluation and determinism</li>
@@ -1363,40 +1363,81 @@ console.log(add10(40)); // prints 50
 			<section>
 				<section>
 					<h1>Category Theory</h1>
-				</section>
-				<section>
-					<h2>category theory</h2>
-					<p>Search for category theory</p>
 					<ul>
-						<li><a href="http://nikgrozev.com/2016/03/14/functional-programming-and-category-theory-part-1-categories-and-functors/">this one</a></li>
-						<li><a href="https://cs.stackexchange.com/questions/3028/is-category-theory-useful-for-learning-functional-programming">Is is needed to learn Category theory to understand FP</a></li>
-						<li><a href=""></a></li>
-						<li><a href="http://yogsototh.github.io/Category-Theory-Presentation">Good slide</a></li>
-						<li><a href="https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/">Category theory for programmers</a></li>
+
+
 					</ul>
 				</section>
+				<section>
+					<h2>Category Theory</h2>
+					<ul>
+						<li class="fragment">Mathematical discipline in theoretical computer science</li>
+						<li class="fragment">It has a wide range of applications</li>
+						<li class="fragment">Concepts like Category, Functor, Monad, and others</li>
+						<li class="fragment">Understanding Category Theory isn't a must to understand FP</li>
+					</ul>
+					<br>
+					<p><small>Ref: <a href="http://nikgrozev.com/2016/03/14/functional-programming-and-category-theory-part-1-categories-and-functors/">Category Theory</a></small></p>
+					<p class="hide"><small><a href="https://cs.stackexchange.com/questions/3028/is-category-theory-useful-for-learning-functional-programming">Is is needed to learn Category theory to understand FP</a></small></p>
+				</section>
+				<section>
+					<h2>Categories</h2>
+					<img src="images/category.jpg" alt="">
+					<ul>
+						<li class="fragment"> A category consists of objects and arrows that go between them.</li>
+						<li class="fragment">Arrows are known as morphisms. Morphisms can be thought of as functions.</li>
+						<li class="fragment">For any group of connected objects, a -> b -> c, there must be a composition which goes directly from a -> c.</li>
+						<li class="fragment">All objects in a category have identity arrows.</li>
+					</ul>
+					<p><small>Ref: <a href="https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/">Category Theory for Programmers: Book</a></small></p>
+					<p class="hide"><small>Ref: <a href="https://yogsototh.github.io/Category-Theory-Presentation/">Category THeory & Programming</a></small></p>
+					<aside class="notes">
+						<p>In a category, if there is an arrow going from A to B and an arrow going from B to C then there must also be a direct arrow from A to C that is their composition. This diagram is not a full category because it’s missing identity morphisms (see later).</p>
+						<p>arrows, which are also called morphisms, as functions</p>
+						<p>You have a function f that takes an argument of type A and returns a B. </p>
+						<p></p>
+					</aside>
+				</section>
+					<section>
+						<h2>Functor Laws</h2>
+						<ul>
+							<li class="fragment">Categories have two important properties</li>
+							<li class="fargment">Identity</li>
+							<li class="fargment">Composition</li>
+						</ul>
+						<pre class="hljs fragment"><code>
+	const f = [1, 2, 3];
+	f.map(x => x); // [1, 2, 3]
+							</code></pre>
+							<p class="fragment">Functors must obey the composition law: F.map(x => f(g(x))) is equivalent to F.map(g).map(f).</p>
+						<pre class="hljs fragment"><code>
+
+						</code></pre>
+						<aside class="notes">
+							<h4>Identity</h4>
+							<p>If you pass the identity function (x => x) into f.map(), where f is any functor, the result should be equivalent to
+								(have the same meaning as) f:</p>
+						</aside>
+					</section>
 			</section>
 			<section>
 				<section>
-					<h1>Functior</h1>
+					<h1>Functor</h1>
 				</section>
 				<section>
-					<h2>Fun Fun Functor</h2>
-					<p>The term “functor” comes from category theory. In category theory, a functor is a mapping between categories. Loosely,
-						a category is a group of things, where each “thing” can be any value. In code, a functor is sometimes represented as
-						an object with a .map() method that maps from one set of values to another.</p>
-					<p>When you see the word functor, you should think “mappable”.</p>
-					<pre class="hljs haskel fragment"><code>
-fmap :: (a -> b) -> f a -> f b
-						</code></pre>
-					<p>A functor supplies a box with zero or more things inside, and a mapping interface. An array is a good example of a functor,
-						but many other kinds of objects can be mapped over as well, including single valued-objects, streams, trees, objects,
-						etc…
-					</p>
-					<blockquote>A functor is a container of type a that, when subjected to a function that maps from a→b, yields a container of type
+					<h2>Functor in theory</h2>
+					<ul>
+						<li class="fragment">The term “functor” comes from category theory</li>
+						<li class="fragment">Functor is a mapping between categories</li>
+						<li class="fragment"> A category is a group of things</li>
+					</ul>
+					<br>
+					<br>
+					<blockquote class="fragment">A functor is a container of type a that, when subjected to a function that maps from a→b, yields a container of type
 						b.
 					</blockquote>
-					<p>ref: <a href="http://stackoverflow.com/questions/2030863/in-functional-programming-what-is-a-functor">what is functor</a></p>
+					<br>
+					<p><small>ref: <a href="http://stackoverflow.com/questions/2030863/in-functional-programming-what-is-a-functor">what is functor</a></small></p>
 					<aside class="notes">
 						<p>Given a function that takes an a and returns a b and a functor with zero or more as inside it: fmap returns a box with
 							zero or more bs inside it. The f a and f b bits can be read as “a functor of a” and “a functor of b”, meaning f a
@@ -1404,30 +1445,19 @@ fmap :: (a -> b) -> f a -> f b
 					</aside>
 				</section>
 				<section>
-					<h2>Functors</h2>
-					<p>Higher-order functions can be usually simulated in object-oriented languages by functions that take function-objects,
-						also called functors (note that functor in Haskell is an entirely different concept). Variables from the scope of the
-						call can be bound inside the function-object which acts as if it were a closure. This way of simulating HOFs is, however,
-						very verbose and requires declaring a new class each time we want to use a HOF.</p>
-				</section>
-				<section>
-					<h2>Functor Laws</h2>
+					<h2 class="">Fun Fun Functor</h2>
 					<ul>
-						<li class="fragment">Categories have two important properties</li>
-						<li class="fargment">Identity</li>
-						<li class="fargment">Composition</li>
+						<li class="fragment">An object with a .map() method </li>
+						<li class="fragment">maps from one set of values to another</li>
+						<li class="fragment">When you see the word functor, you should think “mappable”</li>
+						<li class="fragment">Like array, streams, trees, objects</li>
 					</ul>
-					<pre class="hljs fragment"><code>
-const f = [1, 2, 3];
-f.map(x => x); // [1, 2, 3]
-						</code></pre>
-					<pre class="hljs fragment"><code>
-
-					</code></pre>
+					<br>
+					<blockquote class="fragment">
+						A functor supplies a box with zero or more things inside, and a mapping interface.
+					</blockquote>
 					<aside class="notes">
-						<h4>Identity</h4>
-						<p>If you pass the identity function (x => x) into f.map(), where f is any functor, the result should be equivalent to
-							(have the same meaning as) f:</p>
+						<h2>In Programming</h2>
 					</aside>
 				</section>
 				<section>
@@ -1447,30 +1477,64 @@ f.map(x => x); // [1, 2, 3]
 					<br>
 					<p>ref: <a href="http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html">picture explanation of functor</a></p>
 				</section>
+				<section>
+					<h2>Why Functors</h2>
+					<p>Well, because functors help us solve a lot of problems when writing code in a functional style. We can use functors to manage null or undefined, to handle errors, to make async calls, among other things. They are an important piece of any functionally styled application.</p>
+					<p><small>Ref: <a href="https://templecoding.com/blog/2016/06/16/functional-javascript-what-is-a-functor/"></a></small></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>maybe</h1>
+				</section>
+				<section>
+					<h2>Maybe</h2>
+					<pre><code data-trim>
+						class Maybe {
+						    constructor(val) {
+						        this.__value = val;
+						    }
+
+						    map(f) {
+						        return this.__value !== null && this.__value !== undefined ?
+						        	Maybe.of(f(this.__value)) :
+						        	Maybe.of(null);
+						    }
+
+						    static of(val) {
+						        return new Maybe(val);
+						    }
+						}
+					</code></pre>
+				</section>
+				<section>
+					<h2>But I’ve heard that a Maybe is a Monad</h2>
+
+<p>Well, Maybe could be a Monad as well. It only has to implement its interface and follow its rules. If you know a language like C# or Java, it’s the same as having a class that implements two different interfaces. So yeah, you can have a Maybe value that is a Functor and also a Monad.</p>
+				<p>ref: <a href="http://jrsinclair.com/articles/2016/marvellously-mysterious-javascript-maybe-monad/">maybe monads</a></p>
+				</section>
 			</section>
 			<section>
 				<section>
 					<h1>Monads </h1>
 				</section>
 				<section>
-					<h2>Go Nerd with Monads</h2>
-					<p>Raise your hands if you heard monads</p>
-					<p>Can you explain monads!</p>
-					<p>It is made popular by Haskel</p>
-					<p>Warning: the moment you understand what is monads</p>
-					<p>And you say... ohh...this is the monads</p>
-					<p>This is the moment when you loose the ability to explain it to someone else</p>
-					<p>ref: <a href="https://www.youtube.com/watch?v=dkZFtimgAcM">Monads</a></p>
+					<blockquote cite="https://www.youtube.com/watch?v=dkZFtimgAcM">
+						The moment you understand what is monads, is the moment you loose the ability to explain it to someone else.
+					</blockquote>
 				</section>
 				<section>
-					<h2></h2>
+					<h2>Go Nerd with Monads</h2>
+					<ul>
+						<li class="fragment">The moment you understand what is monads, you loose the ability to explain it to someone else</li>
+					</ul>
 					<p>ref: <a href="http://jrsinclair.com/articles/2016/marvellously-mysterious-javascript-maybe-monad/">May be you can starts with this</a></p>
 					<p>ref: <a href="http://blog.klipse.tech/javascript/2016/08/31/monads-javascript.html">Explain monads by using this</a></p>
 					<p>ref: <a href="https://curiosity-driven.org/monads-in-javascript">Three types of moands</a></p>
 					<p>Can ignore things in below</p>
-					<p>ref: <a href="https://www.youtube.com/watch?v=dkZFtimgAcM">Crokcford video</a></p>
 					<p>ref: <a href="https://blog.jcoglan.com/2011/03/05/translation-from-haskell-to-javascript-of-selected-portions-of-the-best-introduction-to-monads-ive-ever-read/">Monads in JS</a></p>
 					<p>ref: <a href="http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html">monads in Haskel</a></p>
+					<p>ref: <a href="https://www.youtube.com/watch?v=dkZFtimgAcM">Monads</a></p>
 				</section>
 				<section>
 					<h2>IO Monads</h2>
@@ -1552,7 +1616,7 @@ monad.bind(alert);
 				</section>
 				<section>
 					<h2></h2>
-					this is there
+					<p>a type constructor is a generic type definition, which takes another type as a parameter.</p>
 				</section>
 			</section>
 			<section>
