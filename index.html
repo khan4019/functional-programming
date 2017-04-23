@@ -1530,11 +1530,31 @@ console.log(add10(40)); // prints 50
 					</ul>
 					<p>ref: <a href="http://jrsinclair.com/articles/2016/marvellously-mysterious-javascript-maybe-monad/">May be you can starts with this</a></p>
 					<p>ref: <a href="http://blog.klipse.tech/javascript/2016/08/31/monads-javascript.html">Explain monads by using this</a></p>
-					<p>ref: <a href="https://curiosity-driven.org/monads-in-javascript">Three types of moands</a></p>
+
 					<p>Can ignore things in below</p>
 					<p>ref: <a href="https://blog.jcoglan.com/2011/03/05/translation-from-haskell-to-javascript-of-selected-portions-of-the-best-introduction-to-monads-ive-ever-read/">Monads in JS</a></p>
 					<p>ref: <a href="http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html">monads in Haskel</a></p>
 					<p>ref: <a href="https://www.youtube.com/watch?v=dkZFtimgAcM">Monads</a></p>
+				</section>
+				<section>
+					<h2>Three Component</h2>
+					<ol>
+						<li class="fragment">
+							<strong>Type constructor</strong>
+							— a feature that creates a monadic type for the underlying type. For example it defines the type Maybe<number> for the underlying type number.
+						</li>
+						<li class="fragment">the unit function that wraps a value of underlying type into a monad. For the Maybe monad it wraps value 2 of the type number into the value Maybe(2) of the type Maybe<number></li>
+						<li class="fragment">the bind function that chains the operations on a monadic values.</li>
+					</ol>
+
+type constructor — a feature that creates a monadic type for the underlying type. For example it defines the type Maybe<number> for the underlying type number.
+the unit function that wraps a value of underlying type into a monad. For the Maybe monad it wraps value 2 of the type number into the value Maybe(2) of the type Maybe<number>.
+the bind function that chains the operations on a monadic values.
+					<p>ref: <a href="https://curiosity-driven.org/monads-in-javascript">Read more: Three types of moands</a></p>
+					<aside class="notes">
+						<p>To be considered a monad the structure has to provide three components:</p>
+
+					</aside>
 				</section>
 				<section>
 					<h2>IO Monads</h2>
@@ -1594,7 +1614,106 @@ monad.bind(alert);
 						not conflict with the effects of impure code. Even though lazy expressions can be evaluated in any order, the monad
 						structure forces the effects to be executed in the correct order.</p>
 				</section>
+				<section>
+					<h2>Debugging XXX</h2>
+					<pre class="fragment"><code data-trim>
+						var cube = (x) =>  x * x * x;
+					</code></pre>
+					<pre class="fragment"><code data-trim>
+var cube = (x) => {
+  console.log('cube was called.');
+  return x * x * x;
+};
+					</code></pre>
+					<p class="fragment1">But we’re not allowed to do this in a system that only allows pure functions: console.log() is neither an argument nor a return value of the function, it is a side effect.</p>
+					<p>If we want to capture this logging information, it must form part of the return value. Let’s modify our functions to return a pair of values: the result, and some debugging information:</p>
+				</section>
+				<section>
+					<h2>Return an arry</h2>
+					<pre class="fragment"><code data-trim>
+						var sine = (x) => [Math.sin(x), 'sine was called.'];
+						sine(0.3218) // [ 0.31627467384831887,  "sine was called."]
+					</code></pre>
+					<pre class="fragment"><code data-trim>
+						var cube = (x) =>  [x * x * x, 'cube was called.'];
+						cube(3); //  [  27, "cube was called."]
+					</code></pre>
+					<h2>But we now find, to our horror, that these functions don’t compose:</h2>
+					<pre><code data-trim>
+						compose(sine, cube)(3);
+						// [ NaN, "sine was called."]
+					</code></pre>
+				</section>
+				<section>
+					<h2>Broken two ways</h2>
+					<ul>
+						<li class="fragment">sine is trying to calculate the sine of an array, which results in null</li>
+						<li class="fragment">we’re losing the debugging information from the call to cube</li>
+					</ul>
+					<p>We’d expect the composition of these functions to return the sine of the cube of x, and a string stating that both cube and sine were called:</p>
+					<p>A simple composition won’t work here because the return type of cube (an array) is not the same as the argument type to sine (a number).</p>
+					<p>A little more glue is required. We could write a function to compose these ‘debuggable’ functions: it would break up the return values of each function and stitch them back together in a meaningful way:</p>
+					<pre class="fragment"><code data-trim>
+						var composeDebuggable = (f, g) => (x) => {
+						  const [y,s] = g(x),
+						        [z,t ] = f(y);
+						  return [z, s + t];
+						};
+						composeDebuggable(sine, cube)(3); // [
+  0.956375928404503,
+  "cube was called.sine was called.",
+]
+					</code></pre>
+					<p>We’ve composed two functions that take a number and return a (number, string) pair, and created another function with the same signature, meaning it can be composed further with other debuggable functions.</p>
+				</section>
+				<!-- <section>
+					<h2>Haskell to the rescue</h2>
+					<p>To simplify things, let’s borrow some Haskell notation. The following type signature says that the function cube accepts a number and returns a tuple containing a number and a string:</p>
+					<pre class="hljs haskell"><code>
+cube :: Number -> (Number,String)
+					</code></pre>
+					<p>This is the signature that all our debuggable functions and their compositions have. Our original functions had the simpler signature Number -> Number.</p>
+					<p>The symmetry of the argument and return types is what makes these functions composable. Rather than writing customized composition logic for our debuggable functions, what if we could simply convert them such that their signature was:</p>
+					<pre><code>
+cube :: (Number,String) -> (Number,String)
+					</code></pre>
+					<p>We could then use our original compose function for glueing them together. We could do this conversion by hand, and rewrite the source for cube and sine to accept (Number,String) instead of just Number but this doesn’t scale, and you end up writing the same boilerplate in all your functions.</p>
+					<br>
+					<p><small>Ref: <a href="http://blog.klipse.tech/javascript/2016/08/31/monads-javascript.html">Read the bottom part again</a></small></p>
+				</section>
+				<section>
+					<h2>The Writer monad</h2>
+					<p>Far better to let each function just do its job, and provide one tool to coerce the functions into the desired format. We’ll call this tool bind, and its job is to take a Number -> (Number,String) function and return a (Number,String) -> (Number,String) function.</p>
+				</section> -->
+				<section>
+					<p>We’d expect the composition of these functions to return the sine of the cube of x, and a string stating that both cube and sine were called:</p>
+					<pre><code>
+						compose(sine, cube)(3)
+						// -> [0.956, 'cube was called.sine was called.']
+					</code></pre>
+				</section>
+				<section>
+					<pre class="hljs javascript"><code data-trim>
+						var composeDebuggable = function(f, g) {
+						  return function(x) {
+						    var gx = g(x),      // e.g. cube(3) -> [27, 'cube was called.']
+						        y  = gx[0],     //                 27
+						        s  = gx[1],     //                 'cube was called.'
+						        fy = f(y),      //  sine(27) -> [0.956, 'sine was called.']
+						        z  = fy[0],     //                 0.956
+						        t  = fy[1];     //                 'sine was called.'
 
+						    return [z, s + t];
+						  };
+						};
+
+						composeDebuggable(sine, cube)(3)
+						// -> [0.956, 'cube was called.sine was called.']
+					</code></pre>
+					<aside class="notes">
+						<p>A simple composition won’t work here because the return type of cube (an array) is not the same as the argument type to sine (a number). A little more glue is required. We could write a function to compose these ‘debuggable’ functions: it would break up the return values of each function and stitch them back together in a meaningful way:</p>
+					</aside>
+				</section>
 			</section>
 			<section>
 				<section>
