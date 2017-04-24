@@ -43,7 +43,7 @@
 			<section>
 				<section>
 					<h2>Functional Programming</h2>
-					<h3>What, Why and How</h3>
+					<h4>What, Why and How</h4>
 					<br>
 					<br>
 					<br>
@@ -64,11 +64,7 @@
 					<h1>TODO</h1>
 				</section>
 				<section>
-					<h2>Organize the talk</h2>
 					<ol>
-						<li>Pure and immutable (variable and loop)</li>
-						<li>Composition, currying, higher order</li>
-						<li>Category Theory</li>
 						<li>Functor, Monads, Applicatives</li>
 						<li>Take a OOP example and convert it to FP</li>
 						<li>why</li>
@@ -139,8 +135,9 @@
 			<section>
 				<h2 class="danger"><strong>WARNING</strong></h2>
 				<ul>
-					<li class="fragment">Everything you know has a harder name</li>
-					<li class="fragment">Simple things has <strong>complicated alternatives</strong></li>
+					<li class="fragment">Everything you know has a obscure name</li>
+					<li class="fragment">One constraint can make life complicated</li>
+					<li class="fragment">There are <strong>harder alternatives</strong> to simple things</li>
 					<li class="fragment">Nerd means living dictionary of <strong>Jargons</strong></li>
 				</ul>
 			</section>
@@ -151,10 +148,9 @@
 				<section>
 					<h2>Ask the geeky guy</h2>
 					<ul>
-						<li class="fragment">Monads, Monoids, Lift, Functors, actuators, compositor</li>
-						<li class="fragment">Immutable data, Tail call optimization</li>
-						<li class="fragment">Higher order functions</li>
-						<li class="fragment">Lazy evaluation and determinism</li>
+						<li class="fragment">Monads, Monoids, Lift, Functors, actuators</li>
+						<li class="fragment">Immutable, Higher Order, Tail call optimization</li>
+						<li class="fragment">Lazy evaluation, composition, determinism</li>
 					</ul>
 					<img class="fragment" src="images/speak.jpg">
 					<aside class="notes">
@@ -162,16 +158,25 @@
 					</aside>
 				</section>
 				<section>
-					<h2>Ask my manager</h2>
+					<h2>Ask my Manager</h2>
+					<img class="fragment" src="images/manager.gif" alt="">
 					<ul>
-						<li class="fragment">I don't code anymore. I am just the powerpoint presenter</li>
-						<li>add pic: i asked a new hire: he said it's alien's programming</li>
-						<li>add pic: he said it's a pain for older developer</li>
-						<li>It's a trap door. Once you start functional programming...no one else..understand your code</li>
+						<li class="fragment">I am the JIRA man</li>
+
 					</ul>
-					<asie class="notes">
-						<p>Manager says: I don't code anymore</p>
-					</asie>
+					<aside class="notes">
+						<p>Manager Manager not very angry: and starting yelling...don't you know I neve code</p>
+						<p>I am the JIRA professional with ocassional powerpoint slide presenteer</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Junior Developer</h2>
+					<img class="fragment" src="images/junior.jpg" alt="">
+					<aside class="notes">
+						<li>It's a trap door. </li>
+						<li>Once you start functional programming...no one else..understand your code</li>
+						<li>And once no else can understand your code... you have the job security</li>
+					</aside>
 				</section>
 				<section>
 					<h4>Every major idea starts with Google search</h4>
@@ -182,14 +187,13 @@
 					<ul>
 						<li class="fragment">Dizzying number of “functional” characteristics</li>
 						<li class="fragment">Abstract functional techniques</li>
-						<li class="fragment">Composition, pipelining, higher order functions</li>
-						<li class="fragment">Programming whty Lambdas. btw, what is lambda</li>
-						<li class="fragment">You have to learn haskell</li>
-						<li class="fragment">Only pure function and no side effects</li>
+						<li class="fragment">Composition, pipelining, pure function, side effect</li>
+						<li class="fragment">Lambdas!!!</li>
+						<li class="fragment">Learn Haskell</li>
 					</ul>
 					<br>
 					<br>
-					<p><small>Ref: <a href="https://clojurefun.wordpress.com/2012/08/27/what-defines-a-functional-programming-language/">What is functional programming</a></small></p>
+					<p><small>Ref: <a href="https://clojurefun.wordpress.com/2012/08/27/what-defines-a-functional-programming-language/">What is Functional Programming</a></small></p>
 					<aside class="notes">
 						<p>When people talk about functional programming</p>
 					</aside>
@@ -201,31 +205,42 @@
 						<li class="fragment">Is it a geeky thing?</li>
 						<li class="fragment">Why it's called functional?</li>
 						<li class="fragment">Is everything else is dysfunctional?</li>
+						<li class="fragment">Why the hell, I  have to ruin my weekend on this?</li>
 					</ul>
 					<br>
 					<aside class="notes">
+						<h2>Then i realized I have nothing else to do in the weekend...anyway</h2>
 					</aside>
 				</section>
 				<section>
 					<h2>May be</h2>
 					<ul>
-						<li class="fragment">Functional programming is the mustachioed hipster of programming paradigms.</li>
-						<li class="hide">Originally relegated to the annals of computer science academia</li>
-						<li class="fragment">Depending on whom you ask, functional programming (FP) is either an enlightened approach to programming that should
-							be spread far and wide, </li>
-						<li class="fragment">or an overly academic approach to programming with few real-world benefits.</li>
+						<li class="fragment">The <strong>mustachioed hipster</strong> of programming.</li>
+						<li class="fragment">Or <strong>undigestible scientific theory</strong> for programming</li>
 					</ul>
+					<p class="fragment">Depending on whom you have asked: Functional programming</p>
+					<ol>
+						<li class="fragment">Either an enlightened approach to programming that should be spread far and wide.</li>
+						<li class="fragment">Or an overly academic approach to programming with few real-world benefits.</li>
+					</ol>
 					<br>
 					<br>
-					<p><small>Ref: <a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0">Eric Elliot: Functional Programming</a></small></p>
+					<p><small>Ref: <a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0">Functional Programming</a></small></p>
+					<aside class="notes">
+						<li >Depending on whom you ask, functional programming (FP) is either an enlightened approach to programming that should
+							be spread far and wide, </li>
+						<li>or an overly academic approach to programming with few real-world benefits.</li>
+					</aside>
 				</section>
 			</section>
 			<section>
 				<section>
 					<h1>Fully lost!</h1>
-					<p><small>There are reasons</small></p>
+					<img src="images/lost.jpg" alt="">
+					<p><small>Like everyone else</small></p>
 				</section>
 				<section>
+					<h2>Learn driving</h2>
 					<img src="images/driving1.png" alt="">
 					<p><small>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536">medium call</a></small></p>
 				</section>
@@ -245,7 +260,7 @@
 					<h1>Let's Start</h1>
 				</section>
 				<section>
-					<h2>Ground Rules</h2>
+					<h2>Ground Rule</h2>
 					<ul>
 						<li class="fragment">Application evolves around function </li>
 						<li class="fragment">With Only one rule: <strong class="danger">No side effect</strong></li>
@@ -260,12 +275,12 @@
 				</section>
 				<section>
 					<h2>This is a function</h2>
-					<pre class="hljs"><code>
+					<pre class="hljs javascript"><code>
 function add(x, y){
   return x + y;
 }
 					</code> </pre>
-					<pre class="hljs fragment" data-trim><code>
+					<pre class="hljs fragment javascript" data-trim><code>
 add(1, 2); // output is 3
 add(1, 2); // output still is 3
 add(1, 2); // WILL ALWAYS output 3
@@ -336,18 +351,18 @@ openSocket(ipAddress);
 						That’s not good.</p>
 				</section>
 				<section>
-					<h2>Two type of functions</h2>
-					<pre class="hljs" ><code data-trim>
+					<h2>Two Types of functions</h2>
+					<pre class="hljs javascript" ><code>
 function add(x, y) {
     return x + y;
 }
 					</code></pre>
-					<pre class="hljs fragment"><code data-trim>
-						public int addNumbers(int x, int y) {
-						    int result = x + y;
-						    Database.write(result);
-						    return result;
-						}
+					<pre class="hljs fragment java"><code>
+public int addNumbers(int x, int y) {
+    int result = x + y;
+    Database.write(result);
+    return result;
+}
 					</code> </pre>
 				</section>
 				<section>
@@ -359,7 +374,7 @@ function add(x, y) {
 						<li class="fragment">Always return same output for same input</li>
 						<li class="fragment">Indifferent to context</li>
 						<li class="fragment">Highly testable and reusable</li>
-						<li class="fragment">always produce the same output given the same inputs.</li>
+						<li class="fragment">Always produce same output for same inputs.</li>
 					</ul>
 					<aside class="notes">
 						This slide has fragments which are also stepped through in the notes window.
@@ -397,16 +412,6 @@ function add(x, y) {
 						<li class="fragment"> Since programs have to interface to the real world, some parts of every program must be impure.</li>
 						<li class="fragment"> The goal is to minimize the amount of impure code and segregate it from the rest of our program.</li>
 					</ul>
-				</section>
-
-				<section>
-					<h2>First class function</h2>
-					<ul>
-						<li>pass function</li>
-						<li>return function</li>
-					</ul>
-					<p>add more</p>
-					<p class="danger">may be it's own section</p>
 				</section>
 			</section>
 			<section>
@@ -457,12 +462,14 @@ function addOneTOSum(y , z){
 					</ul>
 				</section>
 				<section>
-					<h2>FP: approach</h2>
-					<p class="fragment">Two types of variable</p>
+					<h2>Two types of variable</h2>
+					<br>
 					<ol class="fragment">
 						<li>Single valued</li>
 						<li>Multi valued</li>
 					</ol>
+					<br>
+					<br>
 					<ul>
 						<li class="fragment">Doesn't change value, rather create a new varialbe</li>
 						<li class="fragment">If values in record changes, create a new copy</li>
@@ -476,20 +483,23 @@ function addOneTOSum(y , z){
 					</aside>
 				</section>
 				<section>
-					<h2>Immutability in JavaScript</h2>
-					<pre class="hljs"><code>
+					<h2>Immutability in JS</h2>
+					<pre class="hljs javascript"><code>
 const a = 1;
 a = 2; // will throw error
 					</code></pre>
-					<pre class="hljs"><code>
+					<pre class="hljs javascript"><code>
 const a = {
     x: 1,
     y: 2
 };
+
+a = {};  // will throw error
+
 a.x = 2; // NO EXCEPTION!
-a = {};
 					</code></pre>
-					<p>ref: <a href="https://facebook.github.io/immutable-js/"> Immutable.js</a></p>
+					<p class="fragment">Avoid Object and array mutation</p>
+					<p><small>Use: <a href="https://facebook.github.io/immutable-js/"> Immutable.js</a></small></p>
 					<aside class="notes">
 						<p>Here a is defined to be a constant and therefore cannot be changed once set. This is why a = 2 throws an exception</p>
 						<p>The problem with const in Javascript is that it doesn’t go far enough. The following example illustrates its limits:</p>
@@ -501,7 +511,7 @@ a = {};
 				</section>
 				<section>
 					<h2>Hold on</h2>
-					<p class="danger">Loop needs variable</p>
+					<p class="danger fragment">Loop needs variable</p>
 					<p class="fragment">for, while, do while, etc.</p>
 					<pre class="hljs fragment"><code>
 var sum = 0;
@@ -541,21 +551,6 @@ console.log(sumRange(1, 10, 0)); // prints 55
 					</aside>
 				</section>
 				<section>
-					<h2>Benefits of Immutability</h2>
-					Did you ever wonder why most solutions to program glitches are fixed by rebooting your computer or restarting the offending application? That’s because of state. The program has corrupted its state.
-					<p>One obvious benefit is that if you have access to a value in your program, you only have read access, which means that
-						no one else can change that value. Even you. So no accidental mutations.</p>
-					<p>Also, if your program is multi-threaded, then no other thread can pull the rug out from under you. That value is constant
-						and if another thread wants to change it, it’ll have create a new value from the old one.</p>
-					<p>Immutability creates simpler and safer code.</p>
-					<br>
-					<br>
-					<p><small>read <a href="https://medium.com/@cscalfani/why-programmers-need-limits-3d96e1a0a6db">Programmer needs limit</a></small></p>
-				</section>
-				<section>
-					<h2>Immutable</h2>
-				</section>
-				<section>
 					<h2>Treat data as Immutable</h2>
 					<ul>
 						<li class="fragment">Immutable is not Mutatable</li>
@@ -577,28 +572,78 @@ console.log(sumRange(1, 10, 0)); // prints 55
 					</ul>
 				</section>
 				<section>
-					<h2>Avoid array mutation</h2>
-					<p>Search: how to avoid array mutation</p>
+					<h2>Global Mutable State</h2>
+					<img src="images/global-mutable-state.png" alt="">
+					<p>Immutability creates simpler and safer code.</p>
+					<br>
+					<br>
+					<p><small>read <a href="https://medium.com/@cscalfani/why-programmers-need-limits-3d96e1a0a6db">Programmer needs limit</a></small></p>
+					<aside class="notes">
+						<p>Did you ever wonder why most solutions to program glitches are fixed by rebooting your computer or restarting the offending application? That’s because of state. The program has corrupted its state.</p>
+						<p>Did you ever wonder why most solutions to program glitches are fixed by rebooting your computer or restarting the offending application? That’s because of state. The program has corrupted its state.</p>
+						<p>One obvious benefit is that if you have access to a value in your program, you only have read access, which means that
+							no one else can change that value. Even you. So no accidental mutations.</p>
+						<p>Also, if your program is multi-threaded, then no other thread can pull the rug out from under you. That value is constant
+							and if another thread wants to change it, it’ll have create a new value from the old one.</p>
+					</aside>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>First Class</h1>
+					<img style="height:500px" src="images/firstClass1.jpg" alt="">
 				</section>
 				<section>
-					<h2>avoid object mutation</h2>
-					<p>Search: How to avoid object mutation</p>
-				</section>
-				<section>
-					<h2>const</h2>
+					<h2>function is first class citizen</h2>
 					<ul>
-						<li class="fragment">const is useful</li>
-						<li class="fragment">does not make your data immutable</li>
-						<li class="fragment">prevents variable being reassigned</li>
-						<pre class="fragment"><code class="hljs" data-trim>
-							const x = 1;
-							x = 2; //not allowed
-
-							const myArray = [1,2,3];
-							myArray = [0, 2, 3]; // not allowed
-
-							myArray[0] = 0; //allowed
-						</code></pre>
+						<li>pass function</li>
+						<li>return function</li>
+						<li>assign a type</li>
+					</ul>
+					<aside class="notes">
+						<p></p>
+					</aside>
+				</section>
+				<section>
+					<h2>Higher order function</h2>
+					<ul>
+						<li class="fragment">Function that take other function as parameter</li>
+						<li class="fragment">or by returning them</li>
+					</ul>
+					<p>Higher-order functions allow us to abstract over actions, not just values. </p>
+					<aside class="notes">
+						<p>Higher Order Functions are functions that accept a function, and/or return a function </p>
+					</aside>
+				</section>
+				<section>
+					<h2>Closure</h2>
+					<pre><code data-trim>
+						function counter(){
+							var count = 0;
+							return function(){
+								return count++;
+							}
+						}
+					</code></pre>
+					<pre><code data-trim>
+						const myClock = counter();
+						myClock(); //0
+						myClock(); //1
+						myClock(); //2
+						myClock(); //3
+					</code></pre>
+				</section>
+				<section>
+					<h2>Function as Parameter</h2>
+					<pre class="fragment"><code>
+						
+					</code></pre>
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
 					</ul>
 				</section>
 			</section>
@@ -1092,47 +1137,6 @@ const mult5AfterAdd10 = R.compose(R.multiply(5), R.add(10));
 						<p>Ramda has a lot of helper functions for doing these sorts of things, e.g. R.add and R.multiply, which means we can
 							write less code:</p>
 					</aside>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h1>higher order function</h1>
-				</section>
-				<section>
-					<h2>Higher order function</h2>
-					<ul>
-						<li class="fragment">Function that take other function as parameter</li>
-						<li class="fragment">or by returning them</li>
-					</ul>
-					<p>Higher-order functions allow us to abstract over actions, not just values. </p>
-				</section>
-				<section>
-					<h2>Counter</h2>
-					<pre><code data-trim>
-						function counter(){
-							var count = 0;
-							return function(){
-								return count++;
-							}
-						}
-					</code></pre>
-					<pre><code data-trim>
-						const myClock = counter();
-						myClock(); //0
-						myClock(); //1
-						myClock(); //2
-						myClock(); //3
-					</code></pre>
-				</section>
-				<section>
-					<h2>Closure</h2>
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
 				</section>
 			</section>
 			<section>
@@ -1865,6 +1869,7 @@ cube :: (Number,String) -> (Number,String)
 				</section>
 				<section>
 					<h2>How to date</h2>
+					<img src="images/data.jpg" alt="">
 				</section>
 			</section>
 			<section>
