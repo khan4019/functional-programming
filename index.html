@@ -222,14 +222,17 @@
 				</section>
 				<section>
 					<h2>Learn driving</h2>
-					<img src="images/driving1.png" alt="">
-					<p><small>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536">medium call</a></small></p>
+					<img class="fragment" src="images/driving1.png" alt="">
+					<br>
+					<br>
+					<br>
+					<p><small>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536">So you want to be functional programmer</a></small></p>
 				</section>
 				<section>
 					<img src="images/driving2.jpg" alt="">
 				</section>
 				<section>
-					<img src="images/driving3.png" alt="">
+					<img style="height:500px;" src="images/driving3.png" alt="">
 				</section>
 				<section>
 					<h2>Forget everything you know</h2>
@@ -241,7 +244,7 @@
 					<h1>Let's Start</h1>
 				</section>
 				<section>
-					<h2>Ground Rule</h2>
+					<h2>One Ground Rule</h2>
 					<ul>
 						<li class="fragment">Application evolves around function </li>
 						<li class="fragment">With Only one rule: <strong class="danger">No side effect</strong></li>
@@ -715,46 +718,48 @@ console.log(newNumbers); // [2, 6]
 						<li class="fragment">returns the accumulated value</li>
 					</ul>
 					<br>
-					<p>ref: <a href="https://medium.com/javascript-scene/reduce-composing-software-fe22f0c39a1d">reduce</a></p>
+					<pre class="hljs javascript fragment"><code data-trim>
+const numbers = [0, 1, 2, 3];
+
+const sum = numbers.reduce(function(acc, val) {
+  return acc + val;
+}, 0);
+// sum is 6
+					</code></pre>
+					<br>
+					<p><small>ref: <a href="https://medium.com/javascript-scene/reduce-composing-software-fe22f0c39a1d">reduce</a></small></p>
 					<aside class="notes">
 						<p>commonly used in functional programming that lets you iterate over a list, applying a function to an accumulated value
 							and the next item in the list, until the iteration is complete and the accumulated value gets returned. Many useful
 							things can be implemented with reduce. </p>
-					</aside>
-				</section>
-				<section>
-					<h2>Reduce</h2>
-					<pre class="hljs"><code>
-//add reduce code
-					</code></pre>
-					<pre class="fragment"><code>
-# in python
-sum = reduce(lambda a, x: a + x, [0, 1, 2, 3, 4])
-
-print sum
-# 10
-					</code></pre>
-					<p>does reduce create new value each time</p>
-					<aside class="notes">
 						<p>Reduce takes a function and a collection of items. It returns a value that is created by combining the items.</p>
 					</aside>
 				</section>
 				<section>
-					<h2>Why map and reduce</h2>
+					<h2>Reduce is very useful</h2>
+					<pre><code>
+var list1 = [[0, 1], [2, 3], [4, 5]];
+var list2 = [0, [1, [2, [3, [4, [5]]]]]];
+
+const flatten = arr => arr.reduce(
+  (acc, val) => acc.concat(
+    Array.isArray(val) ? flatten(val) : val
+  ),
+  []
+);
+flatten(list1); // returns [0, 1, 2, 3, 4, 5]
+flatten(list2); // returns [0, 1, 2, 3, 4, 5]
+					</code></pre>
+				</section>
+				<section>
+					<h2>Why map, filter, reduce</h2>
 					<ul>
+						<li class="fragment">Structure for looping always same</li>
+						<li class="fragment">Map, reduce, filter take care of the repeating parts</li>
+						<li class="fragment">Reduce typing- reduce chances of error</li>
 						<li class="fragment">the important parts of the iteration - the collection, the operation and the return value - are always in the same
 							places in every map and reduce.</li>
-						<li class="fragment">the code in a loop may affect variables defined before it or code that runs after it. By convention, maps and reduces
-							are functional.</li>
-						<li class="fragment"> map and reduce are elemental operations. Every time a person reads a for loop, they have to work through the logic
-							line by line. There are few structural regularities they can use to create a scaffolding on which to hang their understanding
-							of the code. In contrast, map and reduce are at once building blocks that can be combined into complex algorithms,
-							and elements that the code reader can instantly understand and abstract in their mind. “Ah, this code is transforming
-							each item in this collection. It’s throwing some of the transformations away. It’s combining the remainder into a
-							single output.”</li>
-						<li class="fragment">map and reduce have many friends that provide useful, tweaked versions of their basic behaviour. For example: filter,
-							all, any and find.</li>
-						<li class="fragment">Search for more benefits</li>
+						<li class="fragment">It’s throwing some of the transformations away. It’s combining the remainder into a single output.</li>
 					</ul>
 				</section>
 			</section>
@@ -953,23 +958,28 @@ var mult5AfterAdd10 = y => mult5(add(10, y)); // not point-free
 			<section>
 				<section>
 					<h1>Currying</h1>
-				</section>
-				<section>
-					<h2>add an image of currying</h2>
+					<img src="images/currying.png" alt="">
+					<br>
 					<p><small>ref: <a href="https://en.wikipedia.org/wiki/Haskell_Curry">Haskell Brooks Curry</a></small></p>
 				</section>
 				<section>
 					<h2>Currying</h2>
 					<ul>
-						<li class="fragment">Call a function with fewer arguments than it expects</li>
-						<li class="fragment">Returns a function that takes the remaining arguments</li>
-						<li class="fragment">multiple arguments are described by a series of one-argument functions</li>
-						<pre class="fragment"><code data-trim>
-var sum3 = curry(function(a, b, c){ return a + b + c })
-sum3(1)(2)(3) //= 6
+						<li class="fragment">Call a function with one parameter at a time</li>
+						<li class="fragment">Returns a function that takes second parameter</li>
+						<li class="fragment">arguments are taken by a series of one-argument</li>
+						<pre class="fragment javascript"><code>
+const sum3 = (x, y, z) => x + y + z;
+
+sum3(1,2,3); //6
+						</code></pre>
+						<pre class="fargment"><code>
+const currySum3 = x => y => z => x + y + z;
+
+currySum3(1)(2)(3); //= 6
 						</code></pre>
 					</ul>
-					<blockquote>
+					<blockquote class="hide">
 						<p>A Curried Function is a function that only takes a single parameter at a time.</p>
 					</blockquote>
 					<br>
@@ -988,18 +998,23 @@ sum3(1)(2)(3) //= 6
 				</section>
 				<section>
 					<h2>Curried Function</h2>
-					<pre class="hljs javascript"><code>
-const add = x + y => x + y
-					</code></pre>
 					<pre class="fragment"><code data-trim>
-function add(x){
+function sum3(x){
 	return function (y){
-		return x + y;
+		return function (z){
+			return x + y + z;
+		}
 	}
 }
 					</code></pre>
-					<pre class="hljs fragment"><code>
-const add = x => y => x + y
+					<pre class="hljs fragment javascript"><code>
+currySum3(1)(2)(3); //= 6
+					</code></pre>
+					<pre class="fragment javascript"><code>
+const first = sum3(1);
+const second = first(2);
+const third = second(3);
+console.log(third); // 6
 					</code></pre>
 					<br>
 					<p><small>Ref: <a href="https://medium.com/@kevincennis/currying-in-javascript-c66080543528">Currying in JS</a></small></p>
@@ -1022,7 +1037,7 @@ const add = x => y => x + y
 					</code></pre>
 					<p><small><a href="https://github.com/learn-javascript-courses/javascript-questions/issues/7">Is Currying Advantageours</a></small></p>
 				</section>
-				<section>
+				<!-- <section>
 					<h2></h2>
 					<p>Now we can use this version of add to build a working version of mult5AfterAdd10:</p>
 					<pre><code>
@@ -1043,7 +1058,7 @@ var mult5AfterAdd10 = compose(mult5, add(10));
 					<p>Another time currying shines is during refactoring when you create a generalized version of a function with lots of
 						parameters and then use it to create specialized versions with fewer parameters.</p>
 					<p>For example, when we have the following functions that put brackets and double brackets around strings:</p>
-				</section>
+				</section> -->
 				<section>
 					<h2>Currying and Composition</h2>
 					<pre><code>
@@ -1056,9 +1071,9 @@ console.log(f(1, 2, 3, 4)); // prints 10
 console.log(f(1, 2)(3, 4)); // also prints 10
 console.log(f(1)(2)(3, 4)); // also prints 10
 </code></pre>
-					<p>Ref:
-						<a href="http://ramdajs.com/"></a>
-					</p>
+					<br>
+					<br>
+					<p><small>Ref: <a href="http://ramdajs.com/">Ramada JS</a></small></p>
 					<aside class="notes">
 						<p>Too much parenthesis... might confuse you and make you cry.</p>
 						<p>a framework named Ramada will rescue you</p>
@@ -1066,8 +1081,8 @@ console.log(f(1)(2)(3, 4)); // also prints 10
 							apply as many or as few parameters as we want each time we invoke f.</p>
 					</aside>
 				</section>
-				<section>
-					<h2>RamadaJS</h2>
+				<!-- <section>
+					<h2>Ramada JS</h2>
 					<pre class="hljs"><code>
 //add old code here
 </code></pre>
@@ -1083,7 +1098,7 @@ const mult5AfterAdd10 = R.compose(R.multiply(5), R.add(10));
 						<p>Ramda has a lot of helper functions for doing these sorts of things, e.g. R.add and R.multiply, which means we can
 							write less code:</p>
 					</aside>
-				</section>
+				</section> -->
 			</section>
 			<section>
 				<h2>Recursion</h2>
