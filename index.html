@@ -232,11 +232,12 @@
 					<img src="images/driving2.jpg" alt="">
 				</section>
 				<section>
-					<img style="height:500px;" src="images/driving3.png" alt="">
+					<h2>Forget everything</h2>
+					<img src="images/forget.png" alt="">
+					<p> you know</p>
 				</section>
 				<section>
-					<h2>Forget everything you know</h2>
-					<img src="images/forget.png" alt="">
+					<img style="height:500px;" src="images/driving3.png" alt="">
 				</section>
 			</section>
 			<section>
@@ -247,7 +248,7 @@
 					<h2>One Ground Rule</h2>
 					<ul>
 						<li class="fragment">Application evolves around function </li>
-						<li class="fragment">With Only one rule: <strong class="danger">No side effect</strong></li>
+						<li class="fragment">With only one rule: <strong class="danger">No side effect</strong></li>
 						<li class="fragment">Don’t rely on data outside of the current function</li>
 						<li class="fragment">Don’t change data outside of the current function</li>
 						<li class="fragment">Every other “functional programing” things are derived from this property</li>
@@ -320,6 +321,8 @@ openSocket(ipAddress);
 						<li class="fragment">All these are <strong>impure function</strong></li>
 						<li class="fragment">They will have <strong>side effect</strong></li>
 						<li class="fragment">Pure functions have no side effects.</li>
+						<li class="fragment">Non FP (c#, java, JS) has tons of these</li>
+						<li class="fragment">Makes a function harder to debug</li>
 					</ul>
 					<aside class="notes">
 						<p>In Imperative Programming Languages such as Javascript, Java, and C#, Side Effects are everywhere. This makes debugging
@@ -327,21 +330,23 @@ openSocket(ipAddress);
 							is changed to the wrong value at the wrong time, where do you look? Everywhere? That’s not good.</p>
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>Impure function</h2>
 					<p>In Imperative Programming Languages such as Javascript, Java, and C#, Side Effects are everywhere</p>
 					<p class="fragment">This makes debugging very difficult because a variable can be changed anywhere in your program. </p>
 					<p class="fragment">So when you have a bug because a variable is changed to the wrong value at the wrong time, where do you look? Everywhere?
 						That’s not good.</p>
-				</section>
+				</section> -->
 				<section>
 					<h2>Two Types of functions</h2>
 					<pre class="hljs javascript" ><code>
+//pure function
 function add(x, y) {
     return x + y;
 }
 					</code></pre>
 					<pre class="hljs fragment java"><code>
+//impure function
 public int addNumbers(int x, int y) {
     int result = x + y;
     Database.write(result);
@@ -390,11 +395,12 @@ public int addNumbers(int x, int y) {
 				<section>
 					<h2>Reality</h2>
 					<ul>
-						<li class="fragment">Ulitmately your program will always produce some side effects</li>
+						<li class="fragment">Program will always produce some side effects</li>
 						<li class="fragment">Cannot eliminate Side Effects completey</li>
-						<li class="fragment">Can only confine them.</li>
-						<li class="fragment"> Since programs have to interface to the real world, some parts of every program must be impure.</li>
-						<li class="fragment"> The goal is to minimize the amount of impure code and segregate it from the rest of our program.</li>
+						<li class="fragment">You Can only confine them.</li>
+						<li class="fragment">To interface with real world, some parts must be impure.</li>
+						<li class="fragment"> Goal is to minimize the amount of impure code</li>
+						<li class="fragment"> Segregate impure from the rest of the program.</li>
 					</ul>
 				</section>
 			</section>
@@ -574,63 +580,6 @@ console.log(sumRange(1, 10, 0)); // prints 55
 			</section>
 			<section>
 				<section>
-					<h1>First Class</h1>
-					<img style="height:500px" src="images/firstClass1.jpg" alt="">
-				</section>
-				<section>
-					<h2>function is first class citizen</h2>
-					<ul>
-						<li>pass function</li>
-						<li>return function</li>
-						<li>assign a type</li>
-					</ul>
-					<aside class="notes">
-						<p></p>
-					</aside>
-				</section>
-				<section>
-					<h2>Higher order function</h2>
-
-				</section>
-				<section>
-					<h2>Higher Order Function</h2>
-					<ul>
-						<li class="fragment">function is a first-class citizen of the language.</li>
-						<li class="fragment">function is just another value.</li>
-						<li class="fragment">Just another value.</li>
-						<li class="fragment">You can pass functions as parameters</li>
-						<li class="fragment">return functions</li>
-						<li class="fragment">Also allows to abstract values and actions </li>
-					</ul>
-					<br>
-					<br>
-					<p><small>ref: <a href="https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99">higher order function</a></small></p>
-					<aside class="notes">
-						<p>In Functional Programming, a function is a first-class citizen of the language</p>
-						<p>Higher Order Functions are functions that accept a function, and/or return a function </p>
-					</aside>
-				</section>
-				<section>
-					<h2>Closure</h2>
-					<pre><code data-trim>
-						function counter(){
-							var count = 0;
-							return function(){
-								return count++;
-							}
-						}
-					</code></pre>
-					<pre><code data-trim>
-						const myClock = counter();
-						myClock(); //0
-						myClock(); //1
-						myClock(); //2
-						myClock(); //3
-					</code></pre>
-				</section>
-			</section>
-			<section>
-				<section>
 					<h1>Looping</h1>
 				</section>
 				<section>
@@ -795,7 +744,65 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 			</section>
 			<section>
 				<section>
+					<h1>First Class</h1>
+					<img style="height:500px" src="images/firstClass1.jpg" alt="">
+				</section>
+				<section>
+					<h2>function is first class citizen</h2>
+					<ul>
+						<li>pass function</li>
+						<li>return function</li>
+						<li>assign a type</li>
+					</ul>
+					<p class="fragment">Also known as: Higher Order Function</p>
+					<p class="danger">So many things here: first class, higher order, closure... make it simple</p>
+					<aside class="notes">
+						<p></p>
+					</aside>
+				</section>
+				<section>
+					<h2>Higher Order Function</h2>
+					<ul>
+						<li class="fragment">function is a first-class citizen of the language.</li>
+						<li class="fragment">function is just another value.</li>
+						<li class="fragment">Just another value.</li>
+						<li class="fragment">You can pass functions as parameters</li>
+						<li class="fragment">return functions</li>
+						<li class="fragment">Also allows to abstract values and actions </li>
+					</ul>
+					<br>
+					<br>
+					<p><small>ref: <a href="https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99">higher order function</a></small></p>
+					<aside class="notes">
+						<p>In Functional Programming, a function is a first-class citizen of the language</p>
+						<p>Higher Order Functions are functions that accept a function, and/or return a function </p>
+					</aside>
+				</section>
+				<section>
+					<h2>Higher Order Function</h2>
+					<pre><code>
+function counter(){
+	var count = 0;
+	return function(){
+		return count++;
+	}
+}
+					</code></pre>
+					<pre class="fragment"><code>
+const myClock = counter();
+myClock(); //0
+myClock(); //1
+myClock(); //2
+myClock(); //3
+				</code></pre>
+				<p class="fragment">This is also known as Closure</p>
+				</section>
+				<p></p>
+			</section>
+			<section>
+				<section>
 					<h1>Composition</h1>
+					<img src="images/composition1.jpeg" alt="">
 				</section>
 				<section>
 					<h2>Back to High school</h2>
@@ -881,7 +888,9 @@ multmult5AfterAdd10(5); //35
 						In our definition of compose, the g will run before the f, creating a right to left flow of data.
 					</aside>
 				</section>
-
+				<section>
+					<img src="images/composition.png" alt="">
+				</section>
 				<section>
 					<h2>Elm example</h2>
 					<pre class="hljs elm"><code>
@@ -903,7 +912,14 @@ f x = (g << h << s << r << t) x
 					</aside>
 				</section>
 				<section>
-					<h2> Complete this thinking</h2>
+					<h2> Why Composition?</h2>
+					<p class="danger">Complete this thinking</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Point Free</h1>
+					<img src="images/free.png" alt="">
 				</section>
 				<section>
 					<h2>Point free notation</h2>
@@ -943,16 +959,6 @@ var mult5AfterAdd10 = y => mult5(add(10, y)); // not point-free
 						</code></pre>
 						<p class="fragment highlight-red">It's not throwing error</p>
 						<p>Read more, research more about it</p>
-				</section>
-				<section>
-					<h2>Code reuse</h2>
-					<p>Find a suitable place for this: later</p>
-					<ul>
-						<li class="fragment">Code reuse sounds great but is difficult to achieve.</li>
-						<li class="fragment">Make the code too specific and you can’t reuse it.</li>
-						<li class="fragment">Make it too general and it can be too difficult to use in the first place.</li>
-						<li class="fragment">So what we need is a balance between the two, a way to make smaller</li>
-					</ul>
 				</section>
 			</section>
 			<section>
@@ -1025,6 +1031,9 @@ console.log(third); // 6
 							add will get its second parameter.</p>
 						<p>This version of add is a function that takes one parameter now and then another one later.</p>
 					</aside>
+				</section>
+				<section>
+					<h1 class="danger">Is currying not pure function</h1>
 				</section>
 				<section>
 					<h2>Promise is currying</h2>
@@ -1111,34 +1120,100 @@ const mult5AfterAdd10 = R.compose(R.multiply(5), R.add(10));
 			<section>
 				<section>
 					<h1>Pipelines</h1>
+					<img src="images/pipeline.jpg" alt="">
 				</section>
 				<section>
-					<h2>pipelines</h2>
-					<p>Collection pipelines are a programming pattern where you organize some computation as a sequence of operations which compose by taking a collection as output of one operation and feeding it into the next. (Common operations are filter, map, and reduce.) This pattern is common in functional programming, and also in object-oriented languages which have lambdas. This article describes the pattern with several examples of how to form pipelines, both to introduce the pattern to those unfamiliar with it, and to help people understand the core concepts so they can more easily take ideas from one language to another.</p>
+					<h2>Collection Pipelines</h2>
+					<ul>
+						<li class="fragment">A  programming pattern</li>
+						<li class="fragment">Lays out a sequence of operations</li>
+						<li class="fragment">Feed output of one operation into the next</li>
+						<li class="fragment">Common in FP and OOP with Lambdas</li>
+						<li class="fragment">Put common operations (map, filter, reduce) together</li>
+					</ul>
+					<br>
+					<br>
 					<p><small>ref: <a href="https://martinfowler.com/articles/collection-pipeline/">Martin Fowler: Collection piplelines</a></small></p>
+					<aside class="notes">
+						<p>Each operation takes a collection as an input and emits another collection (except the last operation, </p>
+						<p>The individual operations are simple, but you can create complex behavior by stringing together</p>
+						<p>Collection pipelines are a programming pattern where you organize some computation as a sequence of operations which compose by taking a collection as output of one operation and feeding it into the next.</p>
+						<p>(Common operations are filter, map, and reduce.)</p>
+						<p>  This pattern is common in functional programming, and also in object-oriented languages which have lambdas. </p>
+						<p>This article describes the pattern with several examples of how to form pipelines, both to introduce the pattern to those unfamiliar with it, and to help people understand the core concepts so they can more easily take ideas from one language to another.</p>
+					</aside>
 				</section>
 				<section>
-					<pre><code data-trim>
-function doubleSay (str) {
-  return str + ", " + str;
-}
-function capitalize (str) {
-  return str[0].toUpperCase() + str.substring(1);
-}
-function exclaim (str) {
-  return str + '!';
-}
+					<h2>Pipelines in Unix</h2>
+					<p class="fragment">
+						 find all bliki entries that mention "nosql" in the text
+					</p>
+					<p class="danger">change bliki</p>
+					<pre class="fragment hljs unix"><code>
+grep -l 'nosql' bliki/entries
+
+grep -l 'nosql' bliki/entries/* | xargs wc -w
 					</code></pre>
-					<pre class="fragment"><code data-trim>
-						let result = exclaim(capitalize(doubleSay("hello")));
-						result //=> "Hello, hello!"
+					<pre class="fragment hljs"><code>
+grep -l 'nosql' bliki/entries/* | xargs wc -w | sort -nr
+					</code></pre>
+					<pre class="fragment hljs"><code class="hljs">
+grep -l 'nosql' bliki/entries/* | xargs wc -w | sort -nr | head -4 | tail -3
+					</code></pre>
+					<aside class="notes">
+						<li class="">Used in unix...vaies in other Programming</li>
+						<ol>
+							<li>I want to find all my bliki entries that mention "nosql" in the text.</li>
+							<li>hen want to find out how many words are in each entry</li>
+							<li>and perhaps sort them by their word count</li>
+							<li>and then just print the top 3 (removing the total)</li>
+							<li></li>
+						</ol>
+					</aside>
+				</section>
+				<section>
+					<h2>Pipeline in JS</h2>
+					<pre class="hljs javascript"><code data-trim>
+const addOne = x => x + 1;
+const square = x => x * x;
+const minusTwo = x => x - 2;
 
-						let result = "hello"
-						  |> doubleSay
-						  |> capitalize
-						  |> exclaim;
+// Not reusable
+minusTwo(square(addOne(10)));
+minusTwo(square(addOne(20)));
+					</code></pre>
+					<pre class="fragment hljs javascript"><code>
+const someFormula = new Pipeline([ addOne, square, minusTwo ]);
+someFormula.process(10);
+someFormula.process(20)
+					</code></pre>
+					<pre class="fragment hljs javascript"><code>
+// alternative approach
+const someFormula = (new Pipeline()).pipe(addOne)
+                                  .pipe(square)
+                                  .pipe(minusTwo);
+					</code></pre>
+					<p><small>Ref: <a href="https://github.com/kamranahmedse/pipeline-js">pipleine JS</a></small></p>
+					<aside class="notes">
+						<p>If formula changes...now you can change one place...</p>
+					</aside>
+				</section>
+				<section>
+					<h2>ESNext Proposal</h2>
+					<pre class="hljs javascript js es6"><code>
+const doubleSay = str => str + ", " + str;
 
-						result //=> "Hello, hello!"
+const capitalize  = str => str[0].toUpperCase() + str.substring(1);
+
+const exclaim = str => str + '!';
+					</code></pre>
+					<pre class="fragment hljs javascript"><code>
+let result = exclaim(capitalize(doubleSay("hello")));
+
+
+let result = "hello" |> doubleSay |> capitalize |> exclaim;
+
+//Hello, hello!
 					</code></pre>
 					<p><small>ref: <a href="https://github.com/gilbert/es-pipeline-operator">JS pipeline proposal</a></small></p>
 				</section>
@@ -1149,162 +1224,6 @@ function exclaim (str) {
 				</section>
 				<section>
 					<p>ref: <a href="http://scalafp.com/book/functional-programming-is-like-unix-pipelines.html">at the bottom of this</a></p>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h1>Mix all you learned a heading!</h1>
-				</section>
-				<section>
-					<h2>Familiar code</h2>
-					<pre class="fragment"><code>
-function validateSsn(ssn) {
-	if (/^\d{3}-\d{2}-\d{4}$/.exec(ssn))
-		console.log('Valid SSN');
-	else
-		console.log('Invalid SSN');
-}
-					</code></pre>
-					<pre class="fragment hljs"><code>
-function validatePhone(phone) {
-    if (/^\(\d{3}\)\d{3}-\d{4}$/.exec(phone))
-        console.log('Valid Phone Number');
-    else
-        console.log('Invalid Phone Number');
-}
-					</code></pre>
-				</section>
-				<section>
-					<h2>Refactored Code</h2>
-					<pre class="fragment hljs"><code>
-function validateValue(value, regex, type) {
-    if (regex.exec(value))
-        console.log('Invalid ' + type);
-    else
-        console.log('Valid ' + type);
-}
-					</code></pre>
-					<ul>
-						<li class="fragment">one function is much better than two, three, four, etc</li>
-						<li class="fragment">keeps your code clean and maintainable</li>
-						<li class="fragment">if there’s a bug, you only have to fix it in one place</li>
-					</ul>
-					<aside class="notes">
-						The parameters ssn and phone in the old code are now represented by value. The regular expressions /^\d{3}-\d{2}-\d{4}$/
-						and /^\(\d{3}\)\d{3}-\d{4}$/ are represented by regex. And finally, the last part of the message ‘SSN’ and ‘Phone Number’
-						are represented by type.
-					</aside>
-				</section>
-				<section>
-					<h2>What will you do here?</h2>
-					<pre class="fragment hljs"><code>
-function validateAddress(address) {
-    if (parseAddress(address))
-        console.log('Valid Address');
-    else
-        console.log('Invalid Address');
-}
-					</code></pre>
-					<pre class="fragment hljs"><code>
-function validateName(name) {
-    if (parseFullName(name))
-        console.log('Valid Name');
-    else
-        console.log('Invalid Name');
-}
-					</code></pre>
-					<p>Here parseAddress and parseFullName are functions that take a string and return true if it parses.</p>
-					<p>How do we refactor this?</p>
-				</section>
-				<section>
-					<h2>Higher Order Function</h2>
-					<ul>
-						<li class="fragment">In Functional Programming, a function is a first-class citizen of the language.</li>
-						<li class="fragment">In other words, a function is just another value.</li>
-						<li class="fragment">Since functions are just values, we can pass them as parameters.</li>
-						<li class="fragment">Higher-order Functions either take functions as parameters, return functions or both.</li>
-					</ul>
-					<p>ref: <a href="https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99">read this</a></p>
-				</section>
-				<section>
-					<h2>Search: IS JS a pure Functional program?</h2>
-				</section>
-				<section>
-					<pre class="fragment hljs"><code>
-function validateValueWithFunc(value, parseFunc, type) {
-    if (parseFunc(value))
-        console.log('Invalid ' + type);
-    else
-        console.log('Valid ' + type);
-}
-					</code></pre>
-					<pre class="fragment hljs"><code>
-validateValueWithFunc('123-45-6789', /^\d{3}-\d{2}-\d{4}$/.exec, 'SSN');
-validateValueWithFunc('(123)456-7890', /^\(\d{3}\)\d{3}-\d{4}$/.exec, 'Phone');
-validateValueWithFunc('123 Main St.', parseAddress, 'Address');
-validateValueWithFunc('Joe Mama', parseName, 'Name');
-					</code></pre>
-					<aside class="notes">
-						<p>Now we can call our higher-order function for the four previous functions (this works in Javascript because Regex.exec
-							returns a truthy value when a match is found):</p>
-					</aside>
-				</section>
-				<section>
-					<h2> regular expressions bit verbose</h2>
-					<pre class="fragment hljs"><code>
-var parseSsn = /^\d{3}-\d{2}-\d{4}$/.exec;
-var parsePhone = /^\(\d{3}\)\d{3}-\d{4}$/.exec;
-validateValueWithFunc('123-45-6789', parseSsn, 'SSN');
-validateValueWithFunc('(123)456-7890', parsePhone, 'Phone');
-validateValueWithFunc('123 Main St.', parseAddress, 'Address');
-validateValueWithFunc('Joe Mama', parseName, 'Name');
-					</code></pre>
-					<aside class="notes">
-						<p>That’s better. Now when we want to parse a phone number, we don’t have to copy and paste the regular expression.</p>
-						<p>But imagine we have more regular expressions to parse, not just parseSsn and parsePhone. Each time we create a regular
-							expression parser, we have to remember to add the .exec to the end. And trust me, this is easy to forget.</p>
-						<p>We can guard against this by creating a high-order function that returns the exec function:</p>
-					</aside>
-				</section>
-				<section>
-					<pre class="fargment hljs"><code>
-function makeRegexParser(regex) {
-    return regex.exec;
-}
-var parseSsn = makeRegexParser(/^\d{3}-\d{2}-\d{4}$/);
-var parsePhone = makeRegexParser(/^\(\d{3}\)\d{3}-\d{4}$/);
-validateValueWithFunc('123-45-6789', parseSsn, 'SSN');
-validateValueWithFunc('(123)456-7890', parsePhone, 'Phone');
-validateValueWithFunc('123 Main St.', parseAddress, 'Address');
-validateValueWithFunc('Joe Mama', parseName, 'Name');
-					</code></pre>
-					<aside class="notes">
-						Here, makeRegexParser takes a regular expression and returns the exec function, which takes a string. validateValueWithFunc
-						will pass the string, value, to the parse function, i.e. exec. parseSsn and parsePhone are effectively the same as
-						before, the regular expression’s exec function. Granted, this is a marginal improvement but is shown here to give an
-						example of a high-order function that returns a function. However, you can imagine the benefits of making this change
-						if makeRegexParser was much more complex.
-					</aside>
-				</section>
-				<section>
-					<h2>Another Higher order function</h2>
-					<pre><code>
-function makeAdder(constantValue) {
-    return function adder(value) {
-        return constantValue + value;
-    };
-}
-					</code></pre>
-					<pre class="fragment"><code>
-var add10 = makeAdder(10);
-console.log(add10(20)); // prints 30
-console.log(add10(30)); // prints 40
-console.log(add10(40)); // prints 50
-					</code></pre>
-					<aside class="notes">
-						This behavior is very important because without it, functions that return functions wouldn’t be very useful. So it’s important
-						we understand how they work and what this behavior is called. This behavior is called a Closure.
-					</aside>
 				</section>
 			</section>
 			<section>
@@ -1323,6 +1242,16 @@ console.log(add10(40)); // prints 50
 			<section>
 				<section>
 					<h1>Summary2</h1>
+				</section>
+				<section>
+					<h2>Code reuse</h2>
+					<p>Find a suitable place for this: later</p>
+					<ul>
+						<li class="fragment">Code reuse sounds great but is difficult to achieve.</li>
+						<li class="fragment">Make the code too specific and you can’t reuse it.</li>
+						<li class="fragment">Make it too general and it can be too difficult to use in the first place.</li>
+						<li class="fragment">So what we need is a balance between the two, a way to make smaller</li>
+					</ul>
 				</section>
 			</section>
 			<section>
@@ -1705,22 +1634,168 @@ cube :: (Number,String) -> (Number,String)
 			</section>
 			<section>
 				<section>
-					<h1>Point free notation</h1>
-				</section>
-			</section>
-			<section>
-				<section>
 					<h2>Write declaratively, not imperatively</h2>
 				</section>
 			</section>
 			<section>
 				<section>
-					<h2>Use pipelines</h2>
+					<h1>Mix all you learned a heading!</h1>
+				</section>
+				<section>
+					<h2>Familiar code</h2>
+					<pre class="fragment"><code>
+function validateSsn(ssn) {
+	if (/^\d{3}-\d{2}-\d{4}$/.exec(ssn))
+		console.log('Valid SSN');
+	else
+		console.log('Invalid SSN');
+}
+					</code></pre>
+					<pre class="fragment hljs"><code>
+function validatePhone(phone) {
+    if (/^\(\d{3}\)\d{3}-\d{4}$/.exec(phone))
+        console.log('Valid Phone Number');
+    else
+        console.log('Invalid Phone Number');
+}
+					</code></pre>
+				</section>
+				<section>
+					<h2>Refactored Code</h2>
+					<pre class="fragment hljs"><code>
+function validateValue(value, regex, type) {
+    if (regex.exec(value))
+        console.log('Invalid ' + type);
+    else
+        console.log('Valid ' + type);
+}
+					</code></pre>
+					<ul>
+						<li class="fragment">one function is much better than two, three, four, etc</li>
+						<li class="fragment">keeps your code clean and maintainable</li>
+						<li class="fragment">if there’s a bug, you only have to fix it in one place</li>
+					</ul>
+					<aside class="notes">
+						The parameters ssn and phone in the old code are now represented by value. The regular expressions /^\d{3}-\d{2}-\d{4}$/
+						and /^\(\d{3}\)\d{3}-\d{4}$/ are represented by regex. And finally, the last part of the message ‘SSN’ and ‘Phone Number’
+						are represented by type.
+					</aside>
+				</section>
+				<section>
+					<h2>What will you do here?</h2>
+					<pre class="fragment hljs"><code>
+function validateAddress(address) {
+    if (parseAddress(address))
+        console.log('Valid Address');
+    else
+        console.log('Invalid Address');
+}
+					</code></pre>
+					<pre class="fragment hljs"><code>
+function validateName(name) {
+    if (parseFullName(name))
+        console.log('Valid Name');
+    else
+        console.log('Invalid Name');
+}
+					</code></pre>
+					<p>Here parseAddress and parseFullName are functions that take a string and return true if it parses.</p>
+					<p>How do we refactor this?</p>
+				</section>
+				<section>
+					<h2>Higher Order Function</h2>
+					<ul>
+						<li class="fragment">In Functional Programming, a function is a first-class citizen of the language.</li>
+						<li class="fragment">In other words, a function is just another value.</li>
+						<li class="fragment">Since functions are just values, we can pass them as parameters.</li>
+						<li class="fragment">Higher-order Functions either take functions as parameters, return functions or both.</li>
+					</ul>
+					<p>ref: <a href="https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99">read this</a></p>
+				</section>
+				<section>
+					<h2>Search: IS JS a pure Functional program?</h2>
+				</section>
+				<section>
+					<pre class="fragment hljs"><code>
+function validateValueWithFunc(value, parseFunc, type) {
+    if (parseFunc(value))
+        console.log('Invalid ' + type);
+    else
+        console.log('Valid ' + type);
+}
+					</code></pre>
+					<pre class="fragment hljs"><code>
+validateValueWithFunc('123-45-6789', /^\d{3}-\d{2}-\d{4}$/.exec, 'SSN');
+validateValueWithFunc('(123)456-7890', /^\(\d{3}\)\d{3}-\d{4}$/.exec, 'Phone');
+validateValueWithFunc('123 Main St.', parseAddress, 'Address');
+validateValueWithFunc('Joe Mama', parseName, 'Name');
+					</code></pre>
+					<aside class="notes">
+						<p>Now we can call our higher-order function for the four previous functions (this works in Javascript because Regex.exec
+							returns a truthy value when a match is found):</p>
+					</aside>
+				</section>
+				<section>
+					<h2> regular expressions bit verbose</h2>
+					<pre class="fragment hljs"><code>
+var parseSsn = /^\d{3}-\d{2}-\d{4}$/.exec;
+var parsePhone = /^\(\d{3}\)\d{3}-\d{4}$/.exec;
+validateValueWithFunc('123-45-6789', parseSsn, 'SSN');
+validateValueWithFunc('(123)456-7890', parsePhone, 'Phone');
+validateValueWithFunc('123 Main St.', parseAddress, 'Address');
+validateValueWithFunc('Joe Mama', parseName, 'Name');
+					</code></pre>
+					<aside class="notes">
+						<p>That’s better. Now when we want to parse a phone number, we don’t have to copy and paste the regular expression.</p>
+						<p>But imagine we have more regular expressions to parse, not just parseSsn and parsePhone. Each time we create a regular
+							expression parser, we have to remember to add the .exec to the end. And trust me, this is easy to forget.</p>
+						<p>We can guard against this by creating a high-order function that returns the exec function:</p>
+					</aside>
+				</section>
+				<section>
+					<pre class="fargment hljs"><code>
+function makeRegexParser(regex) {
+    return regex.exec;
+}
+var parseSsn = makeRegexParser(/^\d{3}-\d{2}-\d{4}$/);
+var parsePhone = makeRegexParser(/^\(\d{3}\)\d{3}-\d{4}$/);
+validateValueWithFunc('123-45-6789', parseSsn, 'SSN');
+validateValueWithFunc('(123)456-7890', parsePhone, 'Phone');
+validateValueWithFunc('123 Main St.', parseAddress, 'Address');
+validateValueWithFunc('Joe Mama', parseName, 'Name');
+					</code></pre>
+					<aside class="notes">
+						Here, makeRegexParser takes a regular expression and returns the exec function, which takes a string. validateValueWithFunc
+						will pass the string, value, to the parse function, i.e. exec. parseSsn and parsePhone are effectively the same as
+						before, the regular expression’s exec function. Granted, this is a marginal improvement but is shown here to give an
+						example of a high-order function that returns a function. However, you can imagine the benefits of making this change
+						if makeRegexParser was much more complex.
+					</aside>
+				</section>
+				<section>
+					<h2>Another Higher order function</h2>
+					<pre><code>
+function makeAdder(constantValue) {
+    return function adder(value) {
+        return constantValue + value;
+    };
+}
+					</code></pre>
+					<pre class="fragment"><code>
+var add10 = makeAdder(10);
+console.log(add10(20)); // prints 30
+console.log(add10(30)); // prints 40
+console.log(add10(40)); // prints 50
+					</code></pre>
+					<aside class="notes">
+						This behavior is very important because without it, functions that return functions wouldn’t be very useful. So it’s important
+						we understand how they work and what this behavior is called. This behavior is called a Closure.
+					</aside>
 				</section>
 			</section>
 			<section>
 				<section>
-					<h1>constrast with OOP</h1>
+					<h1>contrast with OOP</h1>
 				</section>
 				<section>
 					<h2>Point of View</h2>
@@ -1783,19 +1858,6 @@ cube :: (Number,String) -> (Number,String)
 						<li class="fragment">harder to test and could produce bug</li>
 						<li class="fragment">Minimizing side effects is a fundamental principle of FP</li>
 					</ul>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h2>Currying</h2>
-					<p>Find a better example for curring in JS FP</p>
-				</section>
-				<section>
-					<p>A Curried Function is a function that only takes a single parameter at a time.</p>
-				</section>
-				<section>
-
-					<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
 				</section>
 			</section>
 			<section>
