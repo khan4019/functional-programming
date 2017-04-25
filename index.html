@@ -65,6 +65,7 @@
 				</section>
 				<section>
 					<ol>
+						<li>Make map, filter, reduce, part slimmer</li>
 						<li>Functor, Monads, Applicatives</li>
 						<li>Take a OOP example and convert it to FP</li>
 						<li>why</li>
@@ -210,26 +211,6 @@
 					<br>
 					<aside class="notes">
 						<h2>Then i realized I have nothing else to do in the weekend...anyway</h2>
-					</aside>
-				</section>
-				<section>
-					<h2>May be</h2>
-					<ul>
-						<li class="fragment">The <strong>mustachioed hipster</strong> of programming.</li>
-						<li class="fragment">Or <strong>undigestible scientific theory</strong> for programming</li>
-					</ul>
-					<p class="fragment">Depending on whom you have asked: Functional programming</p>
-					<ol>
-						<li class="fragment">Either an enlightened approach to programming that should be spread far and wide.</li>
-						<li class="fragment">Or an overly academic approach to programming with few real-world benefits.</li>
-					</ol>
-					<br>
-					<br>
-					<p><small>Ref: <a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0">Functional Programming</a></small></p>
-					<aside class="notes">
-						<li >Depending on whom you ask, functional programming (FP) is either an enlightened approach to programming that should
-							be spread far and wide, </li>
-						<li>or an overly academic approach to programming with few real-world benefits.</li>
 					</aside>
 				</section>
 			</section>
@@ -606,12 +587,23 @@ console.log(sumRange(1, 10, 0)); // prints 55
 				</section>
 				<section>
 					<h2>Higher order function</h2>
+
+				</section>
+				<section>
+					<h2>Higher Order Function</h2>
 					<ul>
-						<li class="fragment">Function that take other function as parameter</li>
-						<li class="fragment">or by returning them</li>
+						<li class="fragment">function is a first-class citizen of the language.</li>
+						<li class="fragment">function is just another value.</li>
+						<li class="fragment">Just another value.</li>
+						<li class="fragment">You can pass functions as parameters</li>
+						<li class="fragment">return functions</li>
+						<li class="fragment">Also allows to abstract values and actions </li>
 					</ul>
-					<p>Higher-order functions allow us to abstract over actions, not just values. </p>
+					<br>
+					<br>
+					<p><small>ref: <a href="https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99">higher order function</a></small></p>
 					<aside class="notes">
+						<p>In Functional Programming, a function is a first-class citizen of the language</p>
 						<p>Higher Order Functions are functions that accept a function, and/or return a function </p>
 					</aside>
 				</section>
@@ -633,19 +625,6 @@ console.log(sumRange(1, 10, 0)); // prints 55
 						myClock(); //3
 					</code></pre>
 				</section>
-				<section>
-					<h2>Function as Parameter</h2>
-					<pre class="fragment"><code>
-						
-					</code></pre>
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</section>
 			</section>
 			<section>
 				<section>
@@ -655,6 +634,8 @@ console.log(sumRange(1, 10, 0)); // prints 55
 					<h2>Iterate over lists</h2>
 					<pre class="hljs javascript"><code>
 let tasks = ['coding', 'drink coffee', 'hide from manager'];
+					</code></pre>
+					<pre class="hljs javascript fragment"><code>
 let lengths = [];
 
 for (let i = 0; i < tasks.length; i++){
@@ -662,12 +643,13 @@ for (let i = 0; i < tasks.length; i++){
 }
 console.log(lengths); //[6, 12, 17]
 					</code> </pre>
-					<pre class="hljs fragment"><code>
+					<pre class="hljs fragment"><code  data-trim>
 const lengths = tasks.map(task => task.length);
 
 console.log(lengths); // [6, 12, 17]
 					</code> </pre>
-					<p>Middle of this page: <a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">use map</a></p>
+					<br>
+					<p><small><a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">use map</a></small></p>
 					<aside class="notes">
 						<ul>
 							<li>declare far fewer variables</li>
@@ -681,26 +663,14 @@ console.log(lengths); // [6, 12, 17]
 					</aside>
 				</section>
 				<section>
-					<h2>Reuse </h2>
+					<h2>Reuse and chain</h2>
 					<pre class="hljs"><code>
 const getLength = word => word.length;
 
-var tasks = ['coding', 'drink coffee', 'hide from manager'];
-
-var lengths = tasks.map(getLength);
-
-console.log(lengths); // [6, 12, 17]
-					</code> </pre>
-					<pre class="hljs fragment"><code>
-var meals = ['jimmy jhons', 'jimmy jhons', 'jimmy jhons'];
-
-var mealLengths = tasks.map(getLength);
-
+const meals = ['jimmy jhons', 'jimmy jhons', 'jimmy jhons'];
+const mealLengths = tasks.map(getLength);
 console.log(mealLengths); // [11, 11, 11]
 					</code> </pre>
-				</section>
-				<section>
-					<h2>ES6</h2>
 					<pre class="hljs fragment"><code>
 const getLength = word => word.length;
 const doubleIt = x => x*2;
@@ -711,12 +681,6 @@ const lengths = tasks.map(getLength).map(doubleIt);
 
 console.log(lengths); // [12, 24, 34]
 					</code> </pre>
-					<p>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-4-18fbe3ea9e49">part 4: last part of the page</a></p>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h1>Siblings of Map</h1>
 				</section>
 				<section>
 					<h2>Filter</h2>
@@ -801,42 +765,24 @@ print sum
 				<section>
 					<h2>So far</h2>
 					<ul>
-						<p>Functional programming means: a lot functions</p>
+						<li class="fragment">Functional programming means: a lot functions</li>
+						<li class="fragment">Avoid shared state, mutable data, and side-effects</li>
+						<li class="fragment">Build software by composing pure functions</li>
+						<li class="fragment">Immutable: No variable, only constant</li>
+						<li class="fragment">No looping: use map, filter, reduce</li>
 					</ul>
-				</section>
-				<section>
+					<br>
+					<br>
 					<ul>
-						<li class="fragment">building software by composing pure functions, avoiding shared state, mutable data, and side-effects. </li>
-						<li class="fragment"> Functional programming is declarative rather than imperative, and application state flows through pure functions. Contrast
-							with object oriented programming, where application state is usually shared and colocated with methods in objects.
-						</li>
-						<li class="fragment">Functional programming is a programming paradigm, meaning that it is a way of thinking about software construction
-							based on some fundamental, defining principles (listed above). Other examples of programming paradigms include object
-							oriented programming and procedural programming.</li>
-						<li class="fragment">Functional code tends to be more concise, more predictable, and easier to test than imperative or object oriented code — but
-							if you’re unfamiliar with it and the common patterns associated with it, functional code can also seem a lot more
-							dense, and the related literature can be impenetrable to newcomers.</li>
-						<li class="fragment">Functions are first-class entities: They can be assigned to variables, passed as arguments, or returned from other
-							functions.
-						</li>
+						<li class="fragment">more concise, more predictable way of thinking</li>
 					</ul>
+					<aside class="notes">
+						<h2>So, we learn the basic</h2>
+						<p>Now drive into common patterns in Functional Programming</p>
+					</aside>
 				</section>
 				<section>
-					<ul>
-						<li class="fragment">No state.</li>
-						<li class="fragment">No side effects: Anything the code does except produce an output from given inputs.</li>
-						<li class="fragment">programming with functions—pure mathematical functions.</li>
-						<li class="fragment">result of a function depends only on the arguments, </li>
-						<li class="fragment">there are no side effects</li>
-						<li class="fragment">Programs are built by combining functions together</li>
-					</ul>
-				</section>
-				<section>
-					the absence of side effects. It doesn’t rely on data outside the current function, and it doesn’t change data that exists
-					outside the current function.
-				</section>
-				<section>
-					<h2>sleeper finder</h2>
+					<h2>Sleep Finder</h2>
 					<ul>
 						<li>ask a question</li>
 					</ul>
@@ -1903,6 +1849,31 @@ cube :: (Number,String) -> (Number,String)
 							occur with mutable state.</li>
 						<li class="fragment">Don’t get bit (as much) by concurrency/parallelism bugs that can arise in server or testing environments.</li>
 					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Final Summary</h1>
+				</section>
+				<section>
+					<h2>Functiona Programming: What</h2>
+					<ul>
+						<li class="fragment">The <strong>mustachioed hipster</strong> of programming.</li>
+						<li class="fragment">Or <strong>undigestible scientific theory</strong> for programming</li>
+					</ul>
+					<p class="fragment">Depending on whom you have asked: Functional programming</p>
+					<ol>
+						<li class="fragment">Either an enlightened approach to programming that should be spread far and wide.</li>
+						<li class="fragment">Or an overly academic approach to programming with few real-world benefits.</li>
+					</ol>
+					<br>
+					<br>
+					<p><small>Ref: <a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0">Functional Programming</a></small></p>
+					<aside class="notes">
+						<li >Depending on whom you ask, functional programming (FP) is either an enlightened approach to programming that should
+							be spread far and wide, </li>
+						<li>or an overly academic approach to programming with few real-world benefits.</li>
+					</aside>
 				</section>
 			</section>
 			<section>
