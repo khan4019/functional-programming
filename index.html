@@ -1228,16 +1228,78 @@ let result = "hello" |> doubleSay |> capitalize |> exclaim;
 			</section>
 			<section>
 				<section>
-					<h1>Lazy Evaluation</h1>
-					<p>at the bottom: <a href="https://medium.com/@chetcorcos/functional-programming-for-javascript-people-1915d8775504">here</a></p>
+					<h2>Lazy Evaluation</h2>
+					<img src="images/lazy1.jpg" alt="">
 				</section>
 				<section>
-					<p>don’t do something until you absolutely have to, be lazy and procrastinate as long as possible. One analogy is to suppose you have a large, possibly infinite, amount of dishes to wash. Rather than put all the dishes in the sink and wash them at once, let’s be lazy and just take one dish at a time.</p>
+					<h2>Be Lazy</h2>
 					<ul>
-						<li class=""> Extra: <a href="http://stackoverflow.com/questions/1303794/how-is-debugging-achieved-in-a-lazy-functional-programming-language">How to debug lazy function</a></li>
+						<li class="fragment">don’t do something until you absolutely have to</li>
+						<li class="fragment">be lazy and procrastinate as long as possible</li>
 					</ul>
+					<pre class="fragment"><code data-trim>
+						large_list
+						  .map{|e| slow_complex_method (e)}
+						  .take(5)
+					</code></pre>
+					<p>With such code, you would spend a lot of time evaluating slow_complex_method on lots of elements and then throw away all the results except the top 5. Laziness allows the underlying platform to determine that you only need the top five results, and then only to perform slow_complex_method on the ones that are needed.</p>
+					<p>at the bottom: <a href="https://medium.com/@chetcorcos/functional-programming-for-javascript-people-1915d8775504">here</a></p>
+					<p><a href="https://martinfowler.com/articles/collection-pipeline/#Laziness">Laziness</a></p>
 				</section>
+				<section>
+					<h2>Lazy Evaluation in JS</h2>
+					<pre><code>
+// Not lazy. immediately evaluates to 2
+var value = 1 + 1
 
+// Lazy. Evaluates to 2 when lazyValue is *invoked*
+var lazyValue = () => 1 + 1
+					</code></pre>
+					<pre class="fragment hljs javascript"><code>
+// Not lazy. Immediately evaluates to 3
+var add = (x, y) => x + y
+var result = add(1, 2)
+
+// Lazy. Returns a thunk which *when evaluated* results in 3.
+var addLazy = (x, y) => () => x + y;
+var result = addLazy(1, 2)
+					</code></pre>
+					<p class="danger">Research: What is thunk</p>
+					<p><small>Ref: <a href="https://hackernoon.com/lazy-evaluation-in-javascript-84f7072631b7">redux-thunk</a></small></p>
+					<p><small>Ref: <a href="http://stackoverflow.com/questions/38904865/meaning-of-lazy-evaluation-in-javascript">Good example</a></small></p>
+				</section>
+				<section>
+					<h2>lazy async</h2>
+					<pre><code>
+// Not lazy
+var callApi = spec => fetch(spec.url, spec.options);
+// Immediately returns a Promise which will be fulfilled when the network response is processed.
+var result = callApi({url: '/api', options: {}});
+
+// Lazy
+var callApiLazy = spec => () => fetch(spec.url, spec.options);
+var result = callApiLazy({url: '/api', options: {}});
+// result is a thunk that when evaluated will return a Promise ...
+// which will be fulfilled when the network response is processed.
+					</code></pre>
+					<p class="fragment">Curry is not lazy</p>
+					<pre class="fragment"><code>
+// Curried add (not lazy)
+var add = x => y => x + y
+var add3 = add(3)
+var result = add3(7)  // Immediately evaluates to 10
+					</code></pre>
+				</section>
+				<section>
+					<h2>Debug Lazy function</h2>
+					<p><small>Extra: <a href="http://stackoverflow.com/questions/1303794/how-is-debugging-achieved-in-a-lazy-functional-programming-language">Debug lazy function</a></small></p>
+				</section>
+			</section>
+			<section>
+				<h1>Partial application</h1>
+				<p>ref: <a href="http://www.datchley.name/currying-vs-partial-application/">here</a></p>
+				or
+				<p><a href="https://smthngsmwhr.wordpress.com/2012/10/22/higher-order-javascript-short-journey-into-the-land-of-functional-programming/#partial_application">this</a></p>
 			</section>
 			<section>
 				<section>
