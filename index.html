@@ -134,6 +134,61 @@
 				</section>
 			</section>
 			<section>
+				<section>
+					<h1>Why</h1>
+				</section>
+				<section>
+					<h2>Where it shines</h2>
+					<ul>
+						<li class="fragment">Cloud <span class="danger">Buy why</span></li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+					</ul>
+				</section>
+
+				<!-- <section>
+					<h2>Programming Language</h2>
+						<ul>
+							<li class="fragment">Imperative Language</li>
+							<li class="fragment">Object Oriented Language</li>
+							<li class="fragment">Functional Language</li>
+							<li class="fragment">Multi paradaigmm language</li>
+						</ul>
+						<br>
+						<br>
+					<p><small>Ref: <a href="https://medium.com/functional-javascript/introduction-to-functional-javascript-45a9dca6c64a">programming Paradaigm</a></small></p>
+					<aside class="notes">
+						<p>we have OOP...working good why we need FP?</p>
+						<p>An imperative programming language is one in which program state change is achieved by executing a series of statements, and does flow control primarily using conditional statements, loop statements and function calls. </p>
+					</aside>
+				</section> -->
+				<section>
+					<H2>benefits</H2>
+					<ul>
+						<li class="fragment">Easier to read, maintain, test, debug</li>
+						<li class="fragment">Parallel/concurrent programming is easier</li>
+						<li class="fragment">Treat function as value</li>
+						<li class="fragment">Don't have a mess of states or multi threding issues</li>
+						<li class="fragment">FP is modular in the dimension of functionality, where ObjectOrientedProgramming is modular in the dimension of different components.</li>
+					</ul>
+					<p><small>ref: <a href="http://scalafp.com/book/benefits-of-functional-programming-in-scala.htm"></a></small></p>
+					<p><small><a href="https://hackernoon.com/why-functional-programming-matters-c647f56a7691"></a></small></p>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">Code works more than it doesn’t.</li>
+						<li class="fragment">Unit tests are easier to write.</li>
+						<li class="fragment">Unit tests break faster allowing me to fix broken code they found faster.</li>
+						<li class="fragment">Easier to figure out what the hell is going on in a larger code base. If something breaks, it’s easier to pull things
+							apart and improve the testing of those parts to prevent it from happening again. Not like usual spaghetti that can
+							occur with mutable state.</li>
+						<li class="fragment">Don’t get bit (as much) by concurrency/parallelism bugs that can arise in server or testing environments.</li>
+					</ul>
+				</section>
+			</section>
+			<section>
 				<h2 class="danger"><strong>WARNING</strong></h2>
 				<ul>
 					<li class="fragment">Everything you know has a obscure name</li>
@@ -719,6 +774,8 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 				<section>
 					<h2>So far</h2>
 					<ul>
+						<li class="fragment">describe what you want, rather than how to get it</li>
+						<li class="fragment">moves more basic programming ideas into the compiler,</li>
 						<li class="fragment">Functional programming means: a lot functions</li>
 						<li class="fragment">Avoid shared state, mutable data, and side-effects</li>
 						<li class="fragment">Build software by composing pure functions</li>
@@ -731,6 +788,7 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 						<li class="fragment">more concise, more predictable way of thinking</li>
 					</ul>
 					<aside class="notes">
+						<p>instead of creating a for-loop with an iterator variable and marching through an array doing something to each cell</p>
 						<h2>So, we learn the basic</h2>
 						<p>Now drive into common patterns in Functional Programming</p>
 					</aside>
@@ -1304,6 +1362,18 @@ var result = add3(7)  // Immediately evaluates to 10
 			<section>
 				<section>
 					<h1>Summary2</h1>
+				</section>
+				<section>
+					<h2>So far</h2>
+					<ul>
+						<li class="fragment">Samething could have different names</li>
+						<li class="fragment"> concurrency, which is easier to do with functional programming because the compiler is taking care of most of the operations </li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+					</ul>
+					<aside class="notes">
+						<p>Look at you...you have three names as well</p>
+					</aside>
 				</section>
 				<section>
 					<h2>Code reuse</h2>
@@ -1935,6 +2005,9 @@ console.log(add10(40)); // prints 50
 				<section>
 					<p>also look at this slide: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-34">here</a></p>
 				</section>
+				<section>
+					<p><a href="http://wiki.c2.com/?TailCallOptimization">another</a></p>
+				</section>
 
 			</section>
 
@@ -1955,39 +2028,6 @@ console.log(add10(40)); // prints 50
 				<section>
 					<h2>How to date</h2>
 					<img src="images/data.jpg" alt="">
-				</section>
-			</section>
-			<section>
-				<section>
-					<h1>Why</h1>
-					<p>promises that Functional programming does</p>
-					<p class="danger">Move this later</p>
-				</section>
-				<section>
-					<h2>Programming Language</h2>
-						<ul>
-							<li class="fragment">Imperative Language</li>
-							<li class="fragment">Object Oriented Language</li>
-							<li class="fragment">Functional Language</li>
-							<li class="fragment">Multi paradaigmm language</li>
-						</ul>
-						<br>
-						<br>
-					<p><small>Ref: <a href="https://medium.com/functional-javascript/introduction-to-functional-javascript-45a9dca6c64a">programming Paradaigm</a></small></p>
-					<aside class="notes">
-						<p>we have OOP...working good why we need FP?</p>
-					</aside>
-				</section>
-				<section>
-					<ul>
-						<li class="fragment">Code works more than it doesn’t.</li>
-						<li class="fragment">Unit tests are easier to write.</li>
-						<li class="fragment">Unit tests break faster allowing me to fix broken code they found faster.</li>
-						<li class="fragment">Easier to figure out what the hell is going on in a larger code base. If something breaks, it’s easier to pull things
-							apart and improve the testing of those parts to prevent it from happening again. Not like usual spaghetti that can
-							occur with mutable state.</li>
-						<li class="fragment">Don’t get bit (as much) by concurrency/parallelism bugs that can arise in server or testing environments.</li>
-					</ul>
 				</section>
 			</section>
 			<section>
