@@ -65,56 +65,13 @@
 				</section>
 				<section>
 					<ol>
+						<li>remove var</li>
 						<li>Make map, filter, reduce, part slimmer</li>
 						<li>Functor, Monads, Applicatives</li>
 						<li>Take a OOP example and convert it to FP</li>
 						<li>why</li>
 						<li>Free tip</li>
 					</ol>
-				</section>
-				<section>
-					<h2>references</h2>
-					<ul>
-						<li>
-							<a href="http://www.lihaoyi.com/post/WhatsFunctionalProgrammingAllAbout.html">Make a tea making diagram</a>
-						</li>
-						<li>
-							<a href="http://www.braveclojure.com/functional-programming/">Closure: for the brave and true (read it)</a>
-						</li>
-						<li>
-							<a href="http://stackoverflow.com/questions/36504/why-functional-languages">Why Functional Programming</a>
-						</li>
-						<li>
-							<a href="http://www.defmacro.org/ramblings/fp.html">Read this as well</a>
-						</li>
-						<li>
-							<a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/">Good slides: go through it all</a>
-						</li>
-						<li>
-							<a href="https://medium.com/javascript-scene/why-learn-functional-programming-in-javascript-composing-software-ea13afc7a257">Read this and it's next parts</a>
-						</li>
-						<li>
-							<a href="http://jrsinclair.com/articles/2016/gentle-introduction-to-functional-javascript-intro/">might get something from here</a>
-						</li>
-						<li>
-							<a href="https://www.quora.com/Why-are-many-experienced-programmers-upset-at-functional-programming">Why experience developers upset on FP</a>
-						</li>
-						<li><a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">Claims to be practical.. look at the examples</a></li>
-						<li><a href="https://bethallchurch.github.io/JavaScript-and-Functional-Programming/">A good and simple collection</a></li>
-						<li><a href="https://drboolean.gitbooks.io/mostly-adequate-guide/">Looks very good: Adequote function programming</a></li>
-					</ul>
-				</section>
-				<section>
-					<h2>JavaScript resources</h2>
-					<ul>
-						<li><a href="https://github.com/stoeffel/awesome-fp-js">collection of JS librarires</a></li>
-						<li><a href="https://www.youtube.com/watch?v=dkZFtimgAcM">watch this: Douglus Crockford: Monads and Gonads</a></li>
-						<li><a href="http://srirangan.net/2011-12-functional-programming-in-javascript">Some JS code examples</a></li>
-						<li><a href="https://github.com/getify/Functional-Light-JS">Kyle simpson books about functional programming</a></li>
-						<li><a href="https://www.barbarianmeetscoding.com/blog/2016/06/14/functional-programming-in-javascript/">Some example</a></li>
-						<li><a href="http://dealwithjs.io/functional-programming-in-javascript/">Not very interesting</a></li>
-						<li><a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-48">ramada slide</a>
-					</ul>
 				</section>
 			</section>
 			<section>
@@ -140,11 +97,9 @@
 				<section>
 					<h2>Where it shines</h2>
 					<ul>
-						<li class="fragment">Cloud <span class="danger">Buy why</span></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
-						<li class="fragment"></li>
+						<li class="fragment">Cloud/Big Data for data processing, filtering, aggregating</li>
+						<li class="fragment">Larger applications</li>
+						<li class="fragment">Concepts are used in web application</li>						
 					</ul>
 				</section>
 
@@ -165,18 +120,24 @@
 					</aside>
 				</section> -->
 				<section>
-					<H2>benefits</H2>
+					<H2>Why FP matters</H2>
 					<ul>
 						<li class="fragment">Easier to read, maintain, test, debug</li>
 						<li class="fragment">Parallel/concurrent programming is easier</li>
-						<li class="fragment">Treat function as value</li>
-						<li class="fragment">Don't have a mess of states or multi threding issues</li>
-						<li class="fragment">FP is modular in the dimension of functionality, where ObjectOrientedProgramming is modular in the dimension of different components.</li>
+						<li class="fragment">Don't have a mess of states or multi threading issues</li>
+						<li class="fragment">Modular in the dimension of functionality</li>
+						<li class="fragment">Easier to figure out what the hell is going on in a larger code base</li>
+						<li class="fragment">Will discuss more as we are going trough</li>
 					</ul>
-					<p><small>ref: <a href="http://scalafp.com/book/benefits-of-functional-programming-in-scala.htm"></a></small></p>
-					<p><small><a href="https://hackernoon.com/why-functional-programming-matters-c647f56a7691"></a></small></p>
+					<br>
+					<p><small>Ref: <a href="http://scalafp.com/book/benefits-of-functional-programming-in-scala.htm"></a> <a href="https://hackernoon.com/why-functional-programming-matters-c647f56a7691">Why FP matters</a></small></p>
+					<aside class="notes">
+						<p>You dont have to worry about deadLock, race condition</p>
+						<p>No piece of data is modified twice ...even not in two different threads</p>
+						<p>, where ObjectOrientedProgramming is modular in the dimension of different components.</p>
+					</aside>
 				</section>
-				<section>
+			<!-- 	<section>
 					<ul>
 						<li class="fragment">Code works more than it doesn’t.</li>
 						<li class="fragment">Unit tests are easier to write.</li>
@@ -186,16 +147,7 @@
 							occur with mutable state.</li>
 						<li class="fragment">Don’t get bit (as much) by concurrency/parallelism bugs that can arise in server or testing environments.</li>
 					</ul>
-				</section>
-			</section>
-			<section>
-				<h2 class="danger"><strong>WARNING</strong></h2>
-				<ul>
-					<li class="fragment">Everything you know has a obscure name</li>
-					<li class="fragment">One constraint can make life complicated</li>
-					<li class="fragment">There are <strong>harder alternatives</strong> to simple things</li>
-					<li class="fragment">Nerd means living dictionary of <strong>Jargons</strong></li>
-				</ul>
+				</section> -->
 			</section>
 			<section>
 				<section>
@@ -218,8 +170,8 @@
 					<img class="fragment" src="images/manager.gif" alt="">
 					<ul>
 						<li class="fragment">I am the JIRA man</li>
-
 					</ul>
+					<p><small><a href="https://www.quora.com/Why-are-many-experienced-programmers-upset-at-functional-programming">Why experience developers upset on FP</a></small></p>
 					<aside class="notes">
 						<p>Manager Manager not very angry: and starting yelling...don't you know I neve code</p>
 						<p>I am the JIRA professional with ocassional powerpoint slide presenteer</p>
@@ -293,6 +245,21 @@
 				</section>
 				<section>
 					<img style="height:500px;" src="images/driving3.png" alt="">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Warning</h1>
+				</section>
+				<section>
+					<h2 class="danger"><strong>WARNING</strong></h2>
+					<ul>
+						<li class="fragment">Everything you know has a obscure name</li>
+						<li class="fragment">One constraint can make life complicated</li>
+						<li class="fragment">There are <strong>harder alternatives</strong> to simple things</li>
+						<li class="fragment">Nerd means living dictionary of <strong>Jargons</strong></li>
+					</ul>
+					<img class="fragment" src="images/warning.png"></img>
 				</section>
 			</section>
 			<section>
@@ -1000,6 +967,9 @@ var initials = function(name) {
 					</code></pre>
 					<br>
 					<p><small> Ref <a href="http://lucasmreis.github.io/blog/pointfree-javascript/">this</a> and <a href="https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch5.html#pointfree">this as well</a></small></p>
+					<aside class="notes">
+						<p> defining functions without ever making direct reference to their arguments.</p>
+					</aside>
 				</section>
 				<section>
 					<h2>Two parameters pain</h2>
@@ -1168,12 +1138,44 @@ const mult5AfterAdd10 = R.compose(R.multiply(5), R.add(10));
 				</section> -->
 			</section>
 			<section>
-				<h2>Recursion</h2>
-				<p>Recursion is heavily used in functional programming as it is the canonical and often the only way to iterate. Functional
-					language implementations will often include tail call optimisation to ensure that heavy recursion does not consume excessive
-					memory.
-				</p>
-				<p>check this slide: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-30">here</a></p>
+				<section>
+					<h2>Recursion</h2>
+					<p>Recursion is heavily used in functional programming as it is the canonical and often the only way to iterate. Functional
+						language implementations will often include tail call optimisation to ensure that heavy recursion does not consume excessive
+						memory.
+					</p>
+					<p>check this slide: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-30">here</a></p>
+				</section>
+				<section>
+					<h2>Chances to win lottery</h2>
+					<pre><code>
+function odds(n, p) {
+    var acc = 1;
+    for(var i = 0; i < n; i++) {
+        acc *= (n - i) / (p - i);
+    }
+    return acc;
+}
+
+console.log(odds(3, 10)); //=> (3/10) * (2/9) * (1/8) => (1/120) => 0.008333...
+					</code></pre>
+					<pre class="fragment"><code>
+// Recursive version
+
+function odds(n, p) {
+    return (n == 0) ? 1 : (n / p) * odds(n - 1, p - 1);
+}
+
+console.log(odds(3, 10)); //=> (3/10) * (2/9) * (1/8) => (1/120) => 0.008333...
+					</code></pre>
+					<aside class="notes">
+					<p>There are many reasons that functional programmers prefer recursion, but one very simple one is that recursive functions are often much more elegant than their iterative cousins. It's easier to reason about them.</p>
+					<p>Unfortunately, they often don't perform as well. All the overhead of creating stack contexts for function calls tends to add up. But certain kinds of recursive calls can be easily optimized.</p>
+					</aside>	
+				</section>
+				<section>
+					<p><a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-34">Tail call formulation</a></p>
+				</section>
 			</section>
 			<section>
 				<section>
@@ -1563,6 +1565,9 @@ var result = add3(7)  // Immediately evaluates to 10
 					<p>ref: <a href="https://www.youtube.com/watch?v=dkZFtimgAcM">Monads</a></p>
 				</section>
 				<section>
+					<p><a href="https://github.com/getify/Functional-Light-JS/blob/master/apB.md">can read this</a></p>
+				</section>
+				<section>
 					<h2>Three Component</h2>
 					<ol>
 						<li class="fragment">
@@ -1744,6 +1749,7 @@ cube :: (Number,String) -> (Number,String)
 			<section>
 				<section>
 					<h1>Applicatives</h1>
+					<p><a href="https://drboolean.gitbooks.io/mostly-adequate-guide/ch10.html#applying-applicatives">read this</a></p>
 				</section>
 			</section>
 			<section>
@@ -1926,6 +1932,10 @@ console.log(add10(40)); // prints 50
 				</section>
 			</section>
 			<section>
+				<h2>Convert OOP to FP</h2>
+				<p><a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-54">convert in a nice way</a></p>
+			</section>
+			<section>
 				<section>
 					<h1>contrast with OOP</h1>
 				</section>
@@ -1995,6 +2005,25 @@ console.log(add10(40)); // prints 50
 			<section>
 				<section>
 					<h1>Tail call Optimization</h1>
+					<p>Put next to recursion</p>
+				</section>
+				<section>
+					<p>A tail call is a function call that is the last action of a function. Tail call optimisation is when the language compiler recognises tail calls and reuses the same call frame for them. This means that if you write recursive functions with tail calls, the limits of the call stack will never be exceeded by them as it will reuse the same frame over and over.</p>
+					<pre><code>
+const factorial = function ( n, base ) {
+  if ( n === 0 ) {
+    return base;
+  }
+  base *= n;
+  return factorial( n - 1, base );
+};
+
+console.log(factorial( 10, 1 )); // 3628800
+					</code> </pre>
+				</section>
+				<section>
+					<p><a href="http://2ality.com/2015/06/tail-call-optimization.html">read this</a></p>
+					<p><a href="http://benignbemine.github.io/2015/07/19/es6-tail-calls/">read this</a></p>
 				</section>
 				<section>
 					<h2>Pretty Code</h2>
