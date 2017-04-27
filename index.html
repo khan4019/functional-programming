@@ -61,6 +61,18 @@
 			</section>
 			<section>
 				<section>
+					<h1>Agenda</h1>
+				</section>
+				<section>
+					<ul>
+						<li class="fragment">Basics of Functional Programming</li>
+						<li class="fragment">Popular patterns</li>
+						<li class="fragment">Geeking in Functional Programming</li>
+						<li class="fragment">Transform OOP to FP</li>
+						<li class="fragment">...</li>
+					</ul>
+				</section>
+				<section>
 					<h1>TODO</h1>
 				</section>
 				<section>
@@ -174,7 +186,7 @@
 					<p><small><a href="https://www.quora.com/Why-are-many-experienced-programmers-upset-at-functional-programming">Why experience developers upset on FP</a></small></p>
 					<aside class="notes">
 						<p>Manager Manager not very angry: and starting yelling...don't you know I neve code</p>
-						<p>I am the JIRA professional with ocassional powerpoint slide presenteer</p>
+						<p>I am the JIRA professional with occasional power point slide presenter</p>
 					</aside>
 				</section>
 				<section>
@@ -267,15 +279,18 @@
 					<h1>Let's Start</h1>
 				</section>
 				<section>
-					<h2>One Ground Rule</h2>
+					<h2>Functional Programming</h2>
 					<ul>
 						<li class="fragment">Application evolves around function </li>
-						<li class="fragment">With only one rule: <strong class="danger">No side effect</strong></li>
+						<li class="fragment">With only one ground rule: <strong class="danger">No side effect</strong></li>
 						<li class="fragment">Don’t rely on data outside of the current function</li>
 						<li class="fragment">Don’t change data outside of the current function</li>
 						<li class="fragment">Every other “functional programing” things are derived from this property</li>
 						<li class="fragment">Use this as a guide rope</li>
 					</ul>
+					<br>
+					<br>
+					<p><small>Ref: <a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">Practical Functional Programming</a></small></p>
 					<aside class="notes">
 
 					</aside>
@@ -347,14 +362,14 @@ openSocket(ipAddress);
 						<li class="fragment">Makes a function harder to debug</li>
 					</ul>
 					<aside class="notes">
-						<p>In Imperative Programming Languages such as Javascript, Java, and C#, Side Effects are everywhere. This makes debugging
+						<p>In Imperative Programming Languages such as JavaScript, Java, and C#, Side Effects are everywhere. This makes debugging
 							very difficult because a variable can be changed anywhere in your program. So when you have a bug because a variable
 							is changed to the wrong value at the wrong time, where do you look? Everywhere? That’s not good.</p>
 					</aside>
 				</section>
 				<!-- <section>
 					<h2>Impure function</h2>
-					<p>In Imperative Programming Languages such as Javascript, Java, and C#, Side Effects are everywhere</p>
+					<p>In Imperative Programming Languages such as JavaScript, Java, and C#, Side Effects are everywhere</p>
 					<p class="fragment">This makes debugging very difficult because a variable can be changed anywhere in your program. </p>
 					<p class="fragment">So when you have a bug because a variable is changed to the wrong value at the wrong time, where do you look? Everywhere?
 						That’s not good.</p>
@@ -403,7 +418,7 @@ public int addNumbers(int x, int y) {
 						console.log(myFunc(3)); //13
 						console.log(myFunc(3)); //13
 					</code></pre>
-					<p class="fragment">Pass as paramter</p>
+					<p class="fragment">Pass as parameter</p>
 					<pre class="fragment"><code class="hljs" data-trim>
 						const x = 10;
 						const myFunc = function(x, y){
@@ -418,17 +433,18 @@ public int addNumbers(int x, int y) {
 					<h2>Reality</h2>
 					<ul>
 						<li class="fragment">Program will always produce some side effects</li>
-						<li class="fragment">Cannot eliminate Side Effects completey</li>
-						<li class="fragment">You Can only confine them.</li>
-						<li class="fragment">To interface with real world, some parts must be impure.</li>
-						<li class="fragment"> Goal is to minimize the amount of impure code</li>
+						<li class="fragment">Cannot eliminate Side Effects completely</li>
+						<li class="fragment">You can only confine them. minimize them</li>		
 						<li class="fragment"> Segregate impure from the rest of the program.</li>
 					</ul>
+					<aside class="notes">
+						<li class="">To interface with real world, some parts must be impure</li>
+					</aside>
 				</section>
 			</section>
 			<section>
 				<section>
-					<h1>Immutibility</h1>
+					<h1>Immutability</h1>
 				</section>
 				<section>
 					<img src="images/immutable.png">
@@ -483,15 +499,31 @@ function addOneTOSum(y , z){
 					<br>
 					<br>
 					<ul>
-						<li class="fragment">Doesn't change value, rather create a new varialbe</li>
+						<li class="fragment">Doesn't change value, rather create a new variable</li>
 						<li class="fragment">If values in record changes, create a new copy</li>
-						<li class="fragment">Leverage Uses data structure underneath it to make it efficient: <span class="danger">Research how</span></li>
+						<!-- <li class="fragment">Leverage Uses data structure underneath it to make it efficient: <span class="danger">Research how</span></li> -->
 					</ul>
 					<aside class="notes">
 						<p>Functional Programming deals with changes to values in a record by making a copy of the record with the values changed.
 							It does this efficiently without having to copy all parts of the record by using data structures that makes this possible.
 							Functional programming solves the single-valued change in exactly the same way, by making a copy of it. Oh, yes and
 							by not having loops.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Global Mutable State</h2>
+					<img src="images/global-mutable-state.png" alt="">
+					<p>Immutability creates simpler and safer code.</p>
+					<br>
+					<br>
+					<p><small>read <a href="https://medium.com/@cscalfani/why-programmers-need-limits-3d96e1a0a6db">Programmer needs limit</a></small></p>
+					<aside class="notes">
+						<p>Did you ever wonder why most solutions to program glitches are fixed by rebooting your computer or restarting the offending application? That’s because of state. The program has corrupted its state.</p>
+						<p>Did you ever wonder why most solutions to program glitches are fixed by rebooting your computer or restarting the offending application? That’s because of state. The program has corrupted its state.</p>
+						<p>One obvious benefit is that if you have access to a value in your program, you only have read access, which means that
+							no one else can change that value. Even you. So no accidental mutations.</p>
+						<p>Also, if your program is multi-threaded, then no other thread can pull the rug out from under you. That value is constant
+							and if another thread wants to change it, it’ll have create a new value from the old one.</p>
 					</aside>
 				</section>
 				<section>
@@ -514,11 +546,11 @@ a.x = 2; // NO EXCEPTION!
 					<p><small>Use: <a href="https://facebook.github.io/immutable-js/"> Immutable.js</a></small></p>
 					<aside class="notes">
 						<p>Here a is defined to be a constant and therefore cannot be changed once set. This is why a = 2 throws an exception</p>
-						<p>The problem with const in Javascript is that it doesn’t go far enough. The following example illustrates its limits:</p>
+						<p>The problem with const in JavaScript is that it doesn’t go far enough. The following example illustrates its limits:</p>
 						<p>Notice how a.x = 2 does NOT throw an exception. The only thing that’s immutable with the const keyword is the variable
 							a. Anything that a points to can be mutated.</p>
 						<p>Unfortunately, we can only do so via a library called Immutable.js. This may give us better immutability but sadly,
-							it does so in a way that makes our code look more like Java than Javascript.</p>
+							it does so in a way that makes our code look more like Java than JavaScript.</p>
 					</aside>
 				</section>
 				<section>
@@ -554,7 +586,7 @@ function sumRange(start, end, sum) {
 console.log(sumRange(1, 10, 0)); // prints 55
 					</code></pre>
 					<aside class="notes">
-						<h2>Two ways to lopping in javascript</h2>
+						<h2>Two ways to lopping in javaScript</h2>
 						<p>Notice how recursion, the functional approach, accomplishes the same as the for loop by calling itself with a new start
 							(start + 1) and a new accumulator (acc + start). It doesn’t modify the old values. Instead it uses new values calculated
 							from the old.</p>
@@ -565,40 +597,18 @@ console.log(sumRange(1, 10, 0)); // prints 55
 				<section>
 					<h2>Treat data as Immutable</h2>
 					<ul>
-						<li class="fragment">Immutable is not Mutatable</li>
+						<li class="fragment">Immutable is not Mutable</li>
 						<li class="fragment">number, string, boolean are immutable</li>
 						<li class="fragment">Objects, arrays are mutable</li>
-					</ul>
-					<aside class="notes">
-						<p>Ask who can tell the definition of immutable will get a prize. and then reveal the first line</p>
-					</aside>
-				</section>
-				<section>
-					<h2>Why you would like to avoid mutation</h2>
-					<ul>
 						<li class="fragment">Mutation has side effect</li>
 						<li class="fragment">Less changes means less things to keep track</li>
-						<li class="fragment"><code>Object.freeze</code></li>
-						<li class="fragment">Object.freeze only freezes one level down</li>
+						<li class="fragment"><code>Object.freeze</code> only freezes one level down</li>
 						<li class="fragment">There are libraries to fix this issue <a href="">immutable</a></li>
 					</ul>
-				</section>
-				<section>
-					<h2>Global Mutable State</h2>
-					<img src="images/global-mutable-state.png" alt="">
-					<p>Immutability creates simpler and safer code.</p>
-					<br>
-					<br>
-					<p><small>read <a href="https://medium.com/@cscalfani/why-programmers-need-limits-3d96e1a0a6db">Programmer needs limit</a></small></p>
 					<aside class="notes">
-						<p>Did you ever wonder why most solutions to program glitches are fixed by rebooting your computer or restarting the offending application? That’s because of state. The program has corrupted its state.</p>
-						<p>Did you ever wonder why most solutions to program glitches are fixed by rebooting your computer or restarting the offending application? That’s because of state. The program has corrupted its state.</p>
-						<p>One obvious benefit is that if you have access to a value in your program, you only have read access, which means that
-							no one else can change that value. Even you. So no accidental mutations.</p>
-						<p>Also, if your program is multi-threaded, then no other thread can pull the rug out from under you. That value is constant
-							and if another thread wants to change it, it’ll have create a new value from the old one.</p>
+						<p>string is immutable...you don't feel it as compiler takes care of it</p>
 					</aside>
-				</section>
+				</section>				
 			</section>
 			<section>
 				<section>
@@ -607,24 +617,26 @@ console.log(sumRange(1, 10, 0)); // prints 55
 				<section>
 					<h2>Iterate over lists</h2>
 					<pre class="hljs javascript"><code>
-let tasks = ['coding', 'drink coffee', 'hide from manager'];
+let tasks = ['write code', 'drink coffee', 'hide from manager'];
 					</code></pre>
-					<pre class="hljs javascript fragment"><code>
-let lengths = [];
-
-for (let i = 0; i < tasks.length; i++){
-  lengths.push(tasks[i].length);
-}
-console.log(lengths); //[6, 12, 17]
-					</code> </pre>
 					<pre class="hljs fragment"><code  data-trim>
-const lengths = tasks.map(task => task.length);
+const lengths = tasks.map(word => word.length);
 
-console.log(lengths); // [6, 12, 17]
+console.log(lengths); // [10, 12, 17]
+					</code> </pre>
+					<pre class="hljs fragment"><code data-trim>
+const getLength = word => word.length;
+
+const meals = ['jimmy johns', 'jimmy johns', 'jimmy johns'];
+
+const mealLengths = meals.map(getLength);
+
+console.log(mealLengths); // [11, 11, 11]
 					</code> </pre>
 					<br>
 					<p><small><a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">use map</a></small></p>
 					<aside class="notes">
+						<h2>You focus on functionality</h2>
 						<ul>
 							<li>declare far fewer variables</li>
 							<li class="">Map takes a function</li>
@@ -637,23 +649,16 @@ console.log(lengths); // [6, 12, 17]
 					</aside>
 				</section>
 				<section>
-					<h2>Reuse and chain</h2>
-					<pre class="hljs"><code>
-const getLength = word => word.length;
-
-const meals = ['jimmy jhons', 'jimmy jhons', 'jimmy jhons'];
-const mealLengths = tasks.map(getLength);
-console.log(mealLengths); // [11, 11, 11]
-					</code> </pre>
+					<h2>Reuse and chain</h2>					
 					<pre class="hljs fragment"><code>
 const getLength = word => word.length;
 const doubleIt = x => x*2;
 
-const tasks = ['coding', 'drink coffee', 'hide from manager'];
+const tasks = ['write code', 'drink coffee', 'hide from manager'];
 
 const lengths = tasks.map(getLength).map(doubleIt);
 
-console.log(lengths); // [12, 24, 34]
+console.log(lengths); // [20, 24, 34]
 					</code> </pre>
 				</section>
 				<section>
@@ -672,10 +677,10 @@ console.log(newNumbers); // [2, 6]
 					</code></pre>
 					<pre class="hljs fragment"><code data-trim>
 const numbers = [1, 2, 3, 4];
-const odd = n => n % 2;
+const even = n => n % 2;
 const double = x => x * 2;
 
-var newNumbers = numbers.filter(odd).map(double);
+var newNumbers = numbers.filter(even).map(double);
 
 console.log(newNumbers); // [2, 6]
 					</code></pre>
@@ -685,7 +690,7 @@ console.log(newNumbers); // [2, 6]
 					<h2>Reduce</h2>
 					<ul>
 						<li class="fragment">Reduce (aka: fold, accumulate)</li>
-						<li class="fragment">takes a reducer function and an initial value</li>
+						<li class="fragment">Takes a reducer function and an initial value</li>
 						<li class="fragment">returns the accumulated value</li>
 					</ul>
 					<br>
@@ -695,7 +700,14 @@ const numbers = [0, 1, 2, 3];
 const sum = numbers.reduce(function(acc, val) {
   return acc + val;
 }, 0);
-// sum is 6
+					</code></pre>
+					<pre class="hljs javascript fragment"><code data-trim>
+const numbers = [0, 1, 2, 3];
+const accumulator = (num, sum) => num + sum;
+
+const sum = numbers.reduce(accumulator, 0);
+
+console.log(sum);
 					</code></pre>
 					<br>
 					<p><small>ref: <a href="https://medium.com/javascript-scene/reduce-composing-software-fe22f0c39a1d">reduce</a></small></p>
@@ -708,16 +720,15 @@ const sum = numbers.reduce(function(acc, val) {
 				</section>
 				<section>
 					<h2>Reduce is very useful</h2>
-					<pre><code>
+					<pre class="hljs javascript"><code>
 var list1 = [[0, 1], [2, 3], [4, 5]];
 var list2 = [0, [1, [2, [3, [4, [5]]]]]];
 
 const flatten = arr => arr.reduce(
   (acc, val) => acc.concat(
     Array.isArray(val) ? flatten(val) : val
-  ),
-  []
-);
+  ), []);
+
 flatten(list1); // returns [0, 1, 2, 3, 4, 5]
 flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 					</code></pre>
@@ -728,10 +739,12 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 						<li class="fragment">Structure for looping always same</li>
 						<li class="fragment">Map, reduce, filter take care of the repeating parts</li>
 						<li class="fragment">Reduce typing- reduce chances of error</li>
-						<li class="fragment">the important parts of the iteration - the collection, the operation and the return value - are always in the same
-							places in every map and reduce.</li>
-						<li class="fragment">It’s throwing some of the transformations away. It’s combining the remainder into a single output.</li>
+						<li class="fragment">Focus on the important parts of the iteration: <strong>the operation</strong> </li>
+						
 					</ul>
+					<aside class="notes">
+						<li class="">It’s throwing some of the transformations away. It’s combining the remainder into a single output.</li>
+					</aside>
 				</section>
 			</section>
 			<section>
@@ -741,19 +754,19 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 				<section>
 					<h2>So far</h2>
 					<ul>
-						<li class="fragment">describe what you want, rather than how to get it</li>
-						<li class="fragment">moves more basic programming ideas into the compiler,</li>
 						<li class="fragment">Functional programming means: a lot functions</li>
+						<li class="fragment">Not just functions but <strong>pure functions</strong></li>
+						<li class="fragment">With only one ground rule: <strong class="danger">No side effect</strong></li>
 						<li class="fragment">Avoid shared state, mutable data, and side-effects</li>
-						<li class="fragment">Build software by composing pure functions</li>
 						<li class="fragment">Immutable: No variable, only constant</li>
 						<li class="fragment">No looping: use map, filter, reduce</li>
+						<li class="fragment">Give repeating tasks to the compiler</li>
 					</ul>
 					<br>
 					<br>
-					<ul>
-						<li class="fragment">more concise, more predictable way of thinking</li>
-					</ul>
+					<!-- <ul>
+						<li class="fragment">Become more concise, more predictable way of thinking</li>
+					</ul> -->
 					<aside class="notes">
 						<p>instead of creating a for-loop with an iterator variable and marching through an array doing something to each cell</p>
 						<h2>So, we learn the basic</h2>
@@ -761,9 +774,11 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 					</aside>
 				</section>
 				<section>
-					<h2>Sleep Finder</h2>
+					<h2>Find the napper</h2>
+					<img style="height: 400px;" src="images/nap.jpg">
+					<br>
 					<ul>
-						<li>ask a question</li>
+						<li class="fragment">What is immutability?</li>
 					</ul>
 				</section>
 			</section>
@@ -775,9 +790,9 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 				<section>
 					<h2>function is first class citizen</h2>
 					<ul>
-						<li>pass function</li>
-						<li>return function</li>
 						<li>assign a type</li>
+						<li>pass function</li>
+						<li>return function</li>						
 					</ul>
 					<p class="fragment">Also known as: Higher Order Function</p>
 					<p class="danger">So many things here: first class, higher order, closure... make it simple</p>
@@ -785,7 +800,7 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 						<p></p>
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>Higher Order Function</h2>
 					<ul>
 						<li class="fragment">function is a first-class citizen of the language.</li>
@@ -802,7 +817,7 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 						<p>In Functional Programming, a function is a first-class citizen of the language</p>
 						<p>Higher Order Functions are functions that accept a function, and/or return a function </p>
 					</aside>
-				</section>
+				</section> -->
 				<section>
 					<h2>Higher Order Function</h2>
 					<pre><code>
@@ -820,7 +835,8 @@ myClock(); //1
 myClock(); //2
 myClock(); //3
 				</code></pre>
-				<p class="fragment">This is also known as Closure</p>
+				<p><small>ref: <a href="https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99">higher order function</a></small></p>
+				<p class="fragment highlight-red">Change this and avoid mutation</p>
 				</section>
 				<p></p>
 			</section>
@@ -962,16 +978,17 @@ var initials = function(name) {
 						//pointfree
 						var initials = compose(join('. '), map(compose(toUpperCase, head)), split(' '));
 
-						initials("hunter stockton thompson");
-						// 'H. S. T'
+						initials("that js dude");
+						// 'T. J. D'
 					</code></pre>
 					<br>
+					<p class="danger">Why would you use point free?</p>
 					<p><small> Ref <a href="http://lucasmreis.github.io/blog/pointfree-javascript/">this</a> and <a href="https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch5.html#pointfree">this as well</a></small></p>
 					<aside class="notes">
 						<p> defining functions without ever making direct reference to their arguments.</p>
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>Two parameters pain</h2>
 					<pre class="hljs"><code>
 add x y =
@@ -987,14 +1004,14 @@ var mult5AfterAdd10 = y => mult5(add(10, y)); // not point-free
 						</code></pre>
 						<p class="fragment highlight-red">It's not throwing error</p>
 						<p>Read more, research more about it</p>
-				</section>
+				</section> -->
 			</section>
 			<section>
 				<section>
 					<h1>Currying</h1>
-					<img src="images/currying.png" alt="">
+					<img style="height: 300px;" src="images/curry.png" alt="">
 					<br>
-					<p><small>ref: <a href="https://en.wikipedia.org/wiki/Haskell_Curry">Haskell Brooks Curry</a></small></p>
+					<p><small>Ref: <a href="https://en.wikipedia.org/wiki/Haskell_Curry">Haskell Brooks Curry</a></small></p>
 				</section>
 				<section>
 					<h2>Currying</h2>
@@ -1007,7 +1024,7 @@ const sum3 = (x, y, z) => x + y + z;
 
 sum3(1,2,3); //6
 						</code></pre>
-						<pre class="fargment"><code>
+						<pre class="fragment"><code>
 const currySum3 = x => y => z => x + y + z;
 
 currySum3(1)(2)(3); //= 6
@@ -1141,14 +1158,14 @@ const mult5AfterAdd10 = R.compose(R.multiply(5), R.add(10));
 				<section>
 					<h2>Recursion</h2>
 					<p>Recursion is heavily used in functional programming as it is the canonical and often the only way to iterate. Functional
-						language implementations will often include tail call optimisation to ensure that heavy recursion does not consume excessive
+						language implementations will often include tail call optimization to ensure that heavy recursion does not consume excessive
 						memory.
 					</p>
 					<p>check this slide: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-30">here</a></p>
 				</section>
 				<section>
 					<h2>Chances to win lottery</h2>
-					<pre><code>
+					<pre><code data-trim>
 function odds(n, p) {
     var acc = 1;
     for(var i = 0; i < n; i++) {
@@ -1157,16 +1174,18 @@ function odds(n, p) {
     return acc;
 }
 
-console.log(odds(3, 10)); //=> (3/10) * (2/9) * (1/8) => (1/120) => 0.008333...
+console.log(odds(3, 10)); 
+//=> (3/10) * (2/9) * (1/8) => (1/120) => 0.008333...
 					</code></pre>
-					<pre class="fragment"><code>
+					<pre class="fragment"><code data-trim>
 // Recursive version
 
 function odds(n, p) {
     return (n == 0) ? 1 : (n / p) * odds(n - 1, p - 1);
 }
 
-console.log(odds(3, 10)); //=> (3/10) * (2/9) * (1/8) => (1/120) => 0.008333...
+console.log(odds(3, 10)); 
+//=> (3/10) * (2/9) * (1/8) => (1/120) => 0.008333...
 					</code></pre>
 					<aside class="notes">
 					<p>There are many reasons that functional programmers prefer recursion, but one very simple one is that recursive functions are often much more elegant than their iterative cousins. It's easier to reason about them.</p>
@@ -1174,7 +1193,60 @@ console.log(odds(3, 10)); //=> (3/10) * (2/9) * (1/8) => (1/120) => 0.008333...
 					</aside>	
 				</section>
 				<section>
-					<p><a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-34">Tail call formulation</a></p>
+					<p><small>Ref: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-34">Tail call formulation</a></small></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Tail call Optimization</h1>
+					<p>Put next to recursion</p>
+				</section>
+				<section>
+					<p>A tail call is a function call that is the last action of a function. Tail call optimization is when the language compiler recognizes tail calls and reuses the same call frame for them. This means that if you write recursive functions with tail calls, the limits of the call stack will never be exceeded by them as it will reuse the same frame over and over.</p>
+					<pre><code>
+const factorial = function ( n, base ) {
+  if ( n === 0 ) {
+    return base;
+  }
+  base *= n;
+  return factorial( n - 1, base );
+};
+
+console.log(factorial( 10, 1 )); // 3628800
+					</code> </pre>
+				</section>
+				<section>
+					<p><a href="http://2ality.com/2015/06/tail-call-optimization.html">read this</a></p>
+					<p><a href="http://benignbemine.github.io/2015/07/19/es6-tail-calls/">read this</a></p>
+				</section>
+				<section>
+					<h2>Pretty Code</h2>
+					<pre><code class="hljs" data-trim contenteditable>
+						</code></pre>
+				</section>
+				<section>
+					<p>also look at this slide: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-34">here</a></p>
+				</section>
+				<section>
+					<p><a href="http://wiki.c2.com/?TailCallOptimization">another</a></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Execution order</h2>
+					<p>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-5-c70adc9cf56a">Not so good here: but you can use it</a></p>
+				</section>
+				<section>
+
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Type annotation</h1>
+				</section>
+				<section>
+					<h2></h2>
+					<p>a type constructor is a generic type definition, which takes another type as a parameter.</p>
 				</section>
 			</section>
 			<section>
@@ -1193,7 +1265,7 @@ console.log(odds(3, 10)); //=> (3/10) * (2/9) * (1/8) => (1/120) => 0.008333...
 					</ul>
 					<br>
 					<br>
-					<p><small>ref: <a href="https://martinfowler.com/articles/collection-pipeline/">Martin Fowler: Collection piplelines</a></small></p>
+					<p><small>ref: <a href="https://martinfowler.com/articles/collection-pipeline/">Martin Fowler: Collection pipelines</a></small></p>
 					<aside class="notes">
 						<p>Each operation takes a collection as an input and emits another collection (except the last operation, </p>
 						<p>The individual operations are simple, but you can create complex behavior by stringing together</p>
@@ -1253,7 +1325,7 @@ const someFormula = (new Pipeline()).pipe(addOne)
                                   .pipe(square)
                                   .pipe(minusTwo);
 					</code></pre>
-					<p><small>Ref: <a href="https://github.com/kamranahmedse/pipeline-js">pipleine JS</a></small></p>
+					<p><small>Ref: <a href="https://github.com/kamranahmedse/pipeline-js">pipeline JS</a></small></p>
 					<aside class="notes">
 						<p>If formula changes...now you can change one place...</p>
 					</aside>
@@ -1368,7 +1440,7 @@ var result = add3(7)  // Immediately evaluates to 10
 				<section>
 					<h2>So far</h2>
 					<ul>
-						<li class="fragment">Samething could have different names</li>
+						<li class="fragment">Same thing could have different names</li>
 						<li class="fragment"> concurrency, which is easier to do with functional programming because the compiler is taking care of most of the operations </li>
 						<li class="fragment"></li>
 						<li class="fragment"></li>
@@ -1581,7 +1653,7 @@ var result = add3(7)  // Immediately evaluates to 10
 type constructor — a feature that creates a monadic type for the underlying type. For example it defines the type Maybe<number> for the underlying type number.
 the unit function that wraps a value of underlying type into a monad. For the Maybe monad it wraps value 2 of the type number into the value Maybe(2) of the type Maybe<number>.
 the bind function that chains the operations on a monadic values.
-					<p>ref: <a href="https://curiosity-driven.org/monads-in-javascript">Read more: Three types of moands</a></p>
+					<p>ref: <a href="https://curiosity-driven.org/monads-in-javascript">Read more: Three types of monads</a></p>
 					<aside class="notes">
 						<p>To be considered a monad the structure has to provide three components:</p>
 
@@ -1750,24 +1822,6 @@ cube :: (Number,String) -> (Number,String)
 				<section>
 					<h1>Applicatives</h1>
 					<p><a href="https://drboolean.gitbooks.io/mostly-adequate-guide/ch10.html#applying-applicatives">read this</a></p>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h2>Execution order</h2>
-					<p>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-5-c70adc9cf56a">Not so good here: but you can use it</a></p>
-				</section>
-				<section>
-
-				</section>
-			</section>
-			<section>
-				<section>
-					<h1>Type annotation</h1>
-				</section>
-				<section>
-					<h2></h2>
-					<p>a type constructor is a generic type definition, which takes another type as a parameter.</p>
 				</section>
 			</section>
 			<section>
@@ -1942,10 +1996,10 @@ console.log(add10(40)); // prints 50
 				<section>
 					<h2>Point of View</h2>
 					<ul>
-						<li class="fragment">Pomisese less side affect</li>
+						<li class="fragment">Promises less side affect</li>
 						<li class="fragment">Use immutable data</li>
 						<li class="fragment">Use pure function</li>
-						<li class="fragment">Prefers declerative style</li>
+						<li class="fragment">Prefers declarative style</li>
 						<li class="fragment">Write programming in a way to describing</li>
 						<li class="fragment">Implementation detail packaged away</li>
 						<li class="fragment">Promises cleaner, readerable code</li>
@@ -1973,7 +2027,7 @@ console.log(add10(40)); // prints 50
 				<section>
 					<h2>Minimize side effect</h2>
 					<ul>
-						<li class="fragment">Side effect is a change that is not local to the function that cuased it</li>
+						<li class="fragment">Side effect is a change that is not local to the function that caused it</li>
 						<li class="fragment"></li>
 					</ul>
 					<pre class="fragment"><code class="hljs" data-trim>
@@ -2001,50 +2055,6 @@ console.log(add10(40)); // prints 50
 						<li class="fragment">Minimizing side effects is a fundamental principle of FP</li>
 					</ul>
 				</section>
-			</section>
-			<section>
-				<section>
-					<h1>Tail call Optimization</h1>
-					<p>Put next to recursion</p>
-				</section>
-				<section>
-					<p>A tail call is a function call that is the last action of a function. Tail call optimisation is when the language compiler recognises tail calls and reuses the same call frame for them. This means that if you write recursive functions with tail calls, the limits of the call stack will never be exceeded by them as it will reuse the same frame over and over.</p>
-					<pre><code>
-const factorial = function ( n, base ) {
-  if ( n === 0 ) {
-    return base;
-  }
-  base *= n;
-  return factorial( n - 1, base );
-};
-
-console.log(factorial( 10, 1 )); // 3628800
-					</code> </pre>
-				</section>
-				<section>
-					<p><a href="http://2ality.com/2015/06/tail-call-optimization.html">read this</a></p>
-					<p><a href="http://benignbemine.github.io/2015/07/19/es6-tail-calls/">read this</a></p>
-				</section>
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code class="hljs" data-trim contenteditable>
-						</code></pre>
-
-				</section>
-				<section>
-					<p>also look at this slide: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-34">here</a></p>
-				</section>
-				<section>
-					<p><a href="http://wiki.c2.com/?TailCallOptimization">another</a></p>
-				</section>
-
-			</section>
-
-			<section>
-				<h2>Method chaining</h2>
-				<ul>
-
-				</ul>
 			</section>
 			<section>
 				<h2>Functional programming perf test</h2>
