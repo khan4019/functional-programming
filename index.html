@@ -1794,7 +1794,7 @@ getUsers()
 					<p><small>Ref: <a href="https://templecoding.com/blog/2016/06/16/functional-javascript-what-is-a-functor/"></a></small></p>
 				</section> -->
 			</section>
-			<section>
+			<!-- <section>
 				<section>
 					<h1>maybe</h1>
 				</section>
@@ -1823,33 +1823,102 @@ getUsers()
 <p>Well, Maybe could be a Monad as well. It only has to implement its interface and follow its rules. If you know a language like C# or Java, it’s the same as having a class that implements two different interfaces. So yeah, you can have a Maybe value that is a Functor and also a Monad.</p>
 				<p>ref: <a href="http://jrsinclair.com/articles/2016/marvellously-mysterious-javascript-maybe-monad/">maybe monads</a></p>
 				</section>
+			</section> -->
+			<section>
+				<section>
+					<h1>Applicatives</h1>
+				</section>
+				<section>
+					<p>Combine multiple functor into one functor</p>
+					<img src="images/applicative1.png" alt="">
+					<br>
+					<p><small>Ref:<a href="https://buzzdecafe.github.io/code/2014/10/26/functors-and-applicatives">applicatives</a></small></p>
+					<aside class="notes">
+						<p>Applicatives take it to the next level. With an applicative, our values are wrapped in a context, just like Functors:</p>
+						<p> which knows how to apply a function wrapped in a context to a value wrapped in a context:</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Wrapped values</h2>
+					<pre class="hljs javascript"><code data-trim>
+var wrapped2 = [2];
+var wrapped3 = [3];
+
+//Won't work ! The values are wrapped.
+add(wrapped2, wrapped3);
+					</code></pre>
+					<img class="fragment" src="images/applicative.png" alt="">
+					<p><small><a href="https://medium.com/@tzehsiang/javascript-functor-applicative-monads-in-pictures-b567c6415221">applicatives in JS</a></small></p>
+				</section>
+				<section>
+					<img src="images/applicatives.png" alt="">
+					<br>
+					<p><small>Ref: <a href="http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html">applicatives</a></small></p>
+				</section>
 			</section>
 			<section>
 				<section>
 					<h1>Monads </h1>
 				</section>
 				<section>
-					<blockquote cite="https://www.youtube.com/watch?v=dkZFtimgAcM">
+					<h2>Monads in Two steps</h2>
+					<ol>
+						<li class="fragment">Get a PhD in Computer Science</li>
+						<li class="fragment">Throw it away because you don't need PhD to understand Monad</li>
+					</ol>
+					<blockquote class="fragment" cite="https://www.youtube.com/watch?v=dkZFtimgAcM">
 						The moment you understand what is monads, is the moment you loose the ability to explain it to someone else.
 					</blockquote>
 				</section>
 				<section>
-					<h2>Go Nerd with Monads</h2>
+					<h2>Functors, Applicatives</h2>
+					<p class="fragment">Functors apply a function to a wrapped value</p>
+					<img src="images/functor_tiny.png" alt="" class="fragment">
+					<p class="fragment">Applicatives apply a wrapped function to a wrapped value</p>
+					<img src="images/applicative_tiny.png" alt="" class="fragment">
+				</section>
+				<section>
+					<h3>Monads</h2>
+					<p class="fragment">Monads apply a function that <strong>returns a wrapped value to a wrapped value</strong></p>
+					<pre class="fragment hljs javascript"><code>
+const half = x => (x%2===0) ? [x/2] : [];
+					</code></pre>
+					<pre class="fragment"><code data-trim>
+Array.prototype.flatMap = function(lambda) {
+  return [].concat.apply([], this.map(lambda));
+};
+					</code></pre>
+					<pre class="fragment"><code data-trim>
+[3].flatMap(half); //[]
+[4].flatMap(half); //[2]
+[].flatMap(half); //[]
+					</code></pre>
+					<p class="fragment">Simple way: Monad is the container that Applies <strong>flatMap</strong></p>
+					<aside class="notes">
+						<h2>Why can't we use map</h2>
+						<p>You might have the question that why don’t we just use map. I am glad you ask ! This is because half returns a wrapped value. If we use map, we are putting a container inside another container.</p>
+					</aside>
+					<p><small>Ref: <a href="https://medium.com/@tzehsiang/javascript-functor-applicative-monads-in-pictures-b567c6415221">monad in JS</a></small></p>
+				</section>
+				<section>
+					<img style="height: 650px;" src="images/monad.png" alt="">
+				</section>
+				<section>
+					<img style="height:650px;" src="images/monad2.png" alt="">
+				</section>
+				<section>
+					<h2>Monad Resources</h2>
 					<ul>
-						<li class="fragment">The moment you understand what is monads, you loose the ability to explain it to someone else</li>
+						<li><a href="http://jrsinclair.com/articles/2016/marvellously-mysterious-javascript-maybe-monad/">May be you can starts with this</a></li>
+						<li><a href="http://blog.klipse.tech/javascript/2016/08/31/monads-javascript.html">Explain monads by using this</a></li>
+						<li><a href="https://github.com/getify/Functional-Light-JS/blob/master/apB.md">can read this</a></li>
+						<li>Can ignore things in below</li>
+						<li>ref: <a href="https://blog.jcoglan.com/2011/03/05/translation-from-haskell-to-javascript-of-selected-portions-of-the-best-introduction-to-monads-ive-ever-read/">Monads in JS</a></li>
+						<li>ref: <a href="http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html">monads in Haskel</a></li>
+						<li>ref: <a href="https://www.youtube.com/watch?v=dkZFtimgAcM">Monads</a></li>
 					</ul>
-					<p>ref: <a href="http://jrsinclair.com/articles/2016/marvellously-mysterious-javascript-maybe-monad/">May be you can starts with this</a></p>
-					<p>ref: <a href="http://blog.klipse.tech/javascript/2016/08/31/monads-javascript.html">Explain monads by using this</a></p>
-
-					<p>Can ignore things in below</p>
-					<p>ref: <a href="https://blog.jcoglan.com/2011/03/05/translation-from-haskell-to-javascript-of-selected-portions-of-the-best-introduction-to-monads-ive-ever-read/">Monads in JS</a></p>
-					<p>ref: <a href="http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html">monads in Haskel</a></p>
-					<p>ref: <a href="https://www.youtube.com/watch?v=dkZFtimgAcM">Monads</a></p>
 				</section>
-				<section>
-					<p><a href="https://github.com/getify/Functional-Light-JS/blob/master/apB.md">can read this</a></p>
-				</section>
-				<section>
+				<!-- <section>
 					<h2>Three Component</h2>
 					<ol>
 						<li class="fragment">
@@ -1979,7 +2048,7 @@ var cube = (x) => {
 					</code></pre>
 					<p>We’ve composed two functions that take a number and return a (number, string) pair, and created another function with the same signature, meaning it can be composed further with other debuggable functions.</p>
 				</section>
-				<!-- <section>
+				<section>
 					<h2>Haskell to the rescue</h2>
 					<p>To simplify things, let’s borrow some Haskell notation. The following type signature says that the function cube accepts a number and returns a tuple containing a number and a string:</p>
 					<pre class="hljs haskell"><code>
@@ -1997,7 +2066,7 @@ cube :: (Number,String) -> (Number,String)
 				<section>
 					<h2>The Writer monad</h2>
 					<p>Far better to let each function just do its job, and provide one tool to coerce the functions into the desired format. We’ll call this tool bind, and its job is to take a Number -> (Number,String) function and return a (Number,String) -> (Number,String) function.</p>
-				</section> -->
+				</section>
 				<section>
 					<p>We’d expect the composition of these functions to return the sine of the cube of x, and a string stating that both cube and sine were called:</p>
 					<pre><code>
@@ -2026,76 +2095,7 @@ cube :: (Number,String) -> (Number,String)
 					<aside class="notes">
 						<p>A simple composition won’t work here because the return type of cube (an array) is not the same as the argument type to sine (a number). A little more glue is required. We could write a function to compose these ‘debuggable’ functions: it would break up the return values of each function and stitch them back together in a meaningful way:</p>
 					</aside>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h1>Applicatives</h1>
-					<p><a href="https://drboolean.gitbooks.io/mostly-adequate-guide/ch10.html#applying-applicatives">read this</a></p>
-				</section>
-				<section>
-					<h2>from meetup</h2>
-					<pre><code>
-						2. Applicatives
-						Any object or interface
-						It is about combining multiple functor into one functor
-						// applicator
-
-
-						const Result = {
-						    Of:(x) => Result.Ok(x),
-						    Ok: a=> ({
-						        value: a,
-						        map:(f)=> Result.Ok(f(a)),
-						        ap:(otherResult) => otherResult.map(a),
-						        isOk: true
-						    }),
-						    Err: x=>({
-						        error:x,
-						        map:(_)=>Result.Err(x),
-						        ap:(_) => Result.Err(x),
-						        isErr: true
-						    })
-						}
-
-
-						const x = Result.Of(1);
-
-
-						Result.of(x=> y => z => [x,y, z])
-						.ap(parseJson(`{"hello":"world"}`))
-						.ap(parseJson(`{"hello":"JS.Chi"}`))
-						.ap(parseJson(`{"hello":":)"}`))
-						.map(values => values.map(i=> i.hello)).join(' ')
-
-
-						const parseJson = string => {
-						    try{
-						        return Result.error(JSON.parse(string))
-						    }catch(e){
-						        return Result.Err(e)
-						    }
-						}
-
-						parseJson(`{"hello":"world"}`)
-						.map(({hello}) => hello)
-						.map(string =>string.UpperCase())
-						.map(string => 'Output:' + string)
-
-						console.log(result);
-
-
-						// in the non functional or imperative format
-
-
-						cosnt {hello} = JSON.parse(`{"hello":"world}"`)
-
-						const str1 = hellp
-						const str2 = str1.toUpperCase()
-						const result
-
-					</code></pre>
-				</section>
+				</section> -->
 			</section>
 			<section>
 				<section>
