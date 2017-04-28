@@ -969,9 +969,6 @@ wordCount('There are seven words in this sentense'); //7
 					</aside>
 				</section>
 				<section>
-					<img src="images/composition.png" alt="">
-				</section>
-				<section>
 					<h2>Elm example</h2>
 					<pre class="hljs elm"><code>
 add10 value =
@@ -1336,6 +1333,7 @@ console.log(factorial( 10, 1 )); // 3628800
 				<section>
 					<p><a href="http://2ality.com/2015/06/tail-call-optimization.html">read this</a></p>
 					<p><a href="http://benignbemine.github.io/2015/07/19/es6-tail-calls/">read this</a></p>
+					<p><a href="https://taylodl.wordpress.com/2013/06/07/functional-javascript-tail-call-optimization-and-trampolines/">or this</a></p>
 				</section>
 				<section>
 					<pre><code class="hljs" data-trim contenteditable>
@@ -1629,10 +1627,6 @@ A curried function tends to be partially applied but a partially applied functio
 			<section>
 				<section>
 					<h1>Category Theory</h1>
-					<ul>
-
-
-					</ul>
 				</section>
 				<section>
 					<h2>Category Theory</h2>
@@ -1643,17 +1637,16 @@ A curried function tends to be partially applied but a partially applied functio
 						<li class="fragment">Understanding Category Theory isn't a must to understand FP</li>
 					</ul>
 					<br>
+					<br>
 					<p><small>Ref: <a href="http://nikgrozev.com/2016/03/14/functional-programming-and-category-theory-part-1-categories-and-functors/">Category Theory</a></small></p>
 					<p class="hide"><small><a href="https://cs.stackexchange.com/questions/3028/is-category-theory-useful-for-learning-functional-programming">Is is needed to learn Category theory to understand FP</a></small></p>
 				</section>
 				<section>
-					<h2>Categories</h2>
-					<img src="images/category.jpg" alt="">
+					<h4>Categories</h4>
+					<img style="height:200px;" src="images/category.jpg" alt="">
 					<ul>
 						<li class="fragment"> A category consists of objects and arrows that go between them.</li>
 						<li class="fragment">Arrows are known as morphisms. Morphisms can be thought of as functions.</li>
-						<li class="fragment">For any group of connected objects, a -> b -> c, there must be a composition which goes directly from a -> c.</li>
-						<li class="fragment">All objects in a category have identity arrows.</li>
 					</ul>
 					<p><small>Ref: <a href="https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/">Category Theory for Programmers: Book</a></small></p>
 					<p class="hide"><small>Ref: <a href="https://yogsototh.github.io/Category-Theory-Presentation/">Category THeory & Programming</a></small></p>
@@ -1664,7 +1657,12 @@ A curried function tends to be partially applied but a partially applied functio
 						<p></p>
 					</aside>
 				</section>
-					<section>
+				<section>
+					<img src="images/composition.png" alt="">
+					<p class="fragment">For any group of connected objects, a -> b -> c, there must be a composition which goes directly from a -> c.</p>
+					<!-- <li class="fragment">All objects in a category have identity arrows.</li> -->
+				</section>
+					<!-- <section>
 						<h2>Functor Laws</h2>
 						<ul>
 							<li class="fragment">Categories have two important properties</li>
@@ -1684,7 +1682,7 @@ A curried function tends to be partially applied but a partially applied functio
 							<p>If you pass the identity function (x => x) into f.map(), where f is any functor, the result should be equivalent to
 								(have the same meaning as) f:</p>
 						</aside>
-					</section>
+					</section> -->
 			</section>
 			<section>
 				<section>
@@ -1695,7 +1693,6 @@ A curried function tends to be partially applied but a partially applied functio
 					<ul>
 						<li class="fragment">The term “functor” comes from category theory</li>
 						<li class="fragment">Functor is a mapping between categories</li>
-						<li class="fragment"> A category is a group of things</li>
 					</ul>
 					<br>
 					<br>
@@ -1713,8 +1710,10 @@ A curried function tends to be partially applied but a partially applied functio
 				<section>
 					<h2 class="">Fun Fun Functor</h2>
 					<ul>
-						<li class="fragment">An object with a .map() method </li>
+						<li class="fragment">An object with a .map() method</li>
+						<li class="fragment">map method takes function as a parameter</li>
 						<li class="fragment">maps from one set of values to another</li>
+						<li class="fragment">Return another functor so that you can map further</li>
 						<li class="fragment">When you see the word functor, you should think “mappable”</li>
 						<li class="fragment">Like array, streams, trees, objects</li>
 					</ul>
@@ -1727,27 +1726,73 @@ A curried function tends to be partially applied but a partially applied functio
 					</aside>
 				</section>
 				<section>
-					<h2>Add more from this </h2>
-					<p>ref: <a href="https://medium.com/javascript-scene/functors-categories-61e031bac53f">Functors & Categories</a></p>
-					<p>ref: <a href="https://templecoding.com/blog/2016/06/16/functional-javascript-what-is-a-functor/">another good to read</a></p>
+					<h2>Functor has two laws</h2>
+					<ol>
+						<li>Identity</li>
+						<li>Composition</li>
+					</ol>
+					<pre class="fragment"><code>
+const f = [1, 2, 3];
+f.map(x => x); // [1, 2, 3]
+					</code></pre>
+					<pre class="fragment"><code>
+functor.map(x => f(g(x))) ≡ functor.map(g).map(f)
+					</code></pre>
+					<br>
+					<p><small>Ref: <a href="https://medium.com/javascript-scene/functors-categories-61e031bac53f">Functors & Categories</a></small></p>
+					<aside class="notes">
+						<p>There are rules on how .map(f) should behave, so that it can qualifies as a functor.</p>
+					</aside>
 				</section>
 				<section>
-
-					<ul>
-						<li class="fragment">Functors are not function like map</li>
-						<li class="fragment">Functor is an Object that has map method</li>
-						<li class="fragment">For Example Array is a Functor as it has an implementation of map</li>
-						<li class="fragment">Other example are promises, trees, strings, etc.</li>
-					</ul>
-					<br>
-					<br>
-					<p>ref: <a href="http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html">picture explanation of functor</a></p>
+					<img src="images/functor.png" alt="">
 				</section>
 				<section>
+					<h3>Functor</h3>
+					<pre class="hljs javascript"><code>
+const Container = x=> ({
+    map:(f) => Container(f(x)),
+    toString(){return `Container(${x})`}
+});
+				</code></pre>
+				<pre class="fragment hljs javascript"><code>
+const inContainer = Container(5);
+const mapped = inContainer.map(x=>x*2)
+mapped.toString(); //Container(10)
+				</code></pre>
+					<pre class="fragment"><code>
+const transformValue = x=> Container(x)
+		.map(x=>x*2)
+		.map(x=>x*3)
+		.map(x+46)
+		.map(x=> String.fromCharCode(x))
+					</code></pre>
+				</section>
+				<section>
+					<h4>More Functor</h4>
+					<pre class="fragment"><code>
+const tranfromImperateive = x => {
+    const timesTwo = x*2;
+    const timesthree = x*3;
+    const plus46 = timesthree + 46;
+    return String.fromCharCode(x);
+}
+					</code></pre>
+<pre class=" fragment hljs javascript"><code>
+// promise is a functor
+getUsers()
+.map(user => users[0])
+.map(user => user.firstName)
+.map(firstName => firstName.toUpperCase());
+</code></pre>
+					<br>
+					<p><small>ref: <a href="http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html">picture explanation of functor</a></small></p>
+				</section>
+				<!-- <section>
 					<h2>Why Functors</h2>
 					<p>Well, because functors help us solve a lot of problems when writing code in a functional style. We can use functors to manage null or undefined, to handle errors, to make async calls, among other things. They are an important piece of any functionally styled application.</p>
 					<p><small>Ref: <a href="https://templecoding.com/blog/2016/06/16/functional-javascript-what-is-a-functor/"></a></small></p>
-				</section>
+				</section> -->
 			</section>
 			<section>
 				<section>
@@ -1775,7 +1820,6 @@ A curried function tends to be partially applied but a partially applied functio
 				</section>
 				<section>
 					<h2>But I’ve heard that a Maybe is a Monad</h2>
-
 <p>Well, Maybe could be a Monad as well. It only has to implement its interface and follow its rules. If you know a language like C# or Java, it’s the same as having a class that implements two different interfaces. So yeah, you can have a Maybe value that is a Functor and also a Monad.</p>
 				<p>ref: <a href="http://jrsinclair.com/articles/2016/marvellously-mysterious-javascript-maybe-monad/">maybe monads</a></p>
 				</section>
@@ -1988,6 +2032,69 @@ cube :: (Number,String) -> (Number,String)
 				<section>
 					<h1>Applicatives</h1>
 					<p><a href="https://drboolean.gitbooks.io/mostly-adequate-guide/ch10.html#applying-applicatives">read this</a></p>
+				</section>
+				<section>
+					<h2>from meetup</h2>
+					<pre><code>
+						2. Applicatives
+						Any object or interface
+						It is about combining multiple functor into one functor
+						// applicator
+
+
+						const Result = {
+						    Of:(x) => Result.Ok(x),
+						    Ok: a=> ({
+						        value: a,
+						        map:(f)=> Result.Ok(f(a)),
+						        ap:(otherResult) => otherResult.map(a),
+						        isOk: true
+						    }),
+						    Err: x=>({
+						        error:x,
+						        map:(_)=>Result.Err(x),
+						        ap:(_) => Result.Err(x),
+						        isErr: true
+						    })
+						}
+
+
+						const x = Result.Of(1);
+
+
+						Result.of(x=> y => z => [x,y, z])
+						.ap(parseJson(`{"hello":"world"}`))
+						.ap(parseJson(`{"hello":"JS.Chi"}`))
+						.ap(parseJson(`{"hello":":)"}`))
+						.map(values => values.map(i=> i.hello)).join(' ')
+
+
+						const parseJson = string => {
+						    try{
+						        return Result.error(JSON.parse(string))
+						    }catch(e){
+						        return Result.Err(e)
+						    }
+						}
+
+						parseJson(`{"hello":"world"}`)
+						.map(({hello}) => hello)
+						.map(string =>string.UpperCase())
+						.map(string => 'Output:' + string)
+
+						console.log(result);
+
+
+						// in the non functional or imperative format
+
+
+						cosnt {hello} = JSON.parse(`{"hello":"world}"`)
+
+						const str1 = hellp
+						const str2 = str1.toUpperCase()
+						const result
+
+					</code></pre>
 				</section>
 			</section>
 			<section>
