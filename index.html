@@ -111,7 +111,7 @@
 					<ul>
 						<li class="fragment">Cloud/Big Data for data processing, filtering, aggregating</li>
 						<li class="fragment">Larger applications</li>
-						<li class="fragment">Concepts are used in web application</li>						
+						<li class="fragment">Concepts are used in web application</li>
 					</ul>
 				</section>
 
@@ -264,7 +264,7 @@
 					<h1>Warning</h1>
 				</section>
 				<section>
-					<h2 class="danger"><strong>WARNING</strong></h2>
+					<h2 class=""><strong>WARNING</strong></h2>
 					<ul>
 						<li class="fragment">Everything you know has a obscure name</li>
 						<li class="fragment">One constraint can make life complicated</li>
@@ -434,7 +434,7 @@ public int addNumbers(int x, int y) {
 					<ul>
 						<li class="fragment">Program will always produce some side effects</li>
 						<li class="fragment">Cannot eliminate Side Effects completely</li>
-						<li class="fragment">You can only confine them. minimize them</li>		
+						<li class="fragment">You can only confine them. minimize them</li>
 						<li class="fragment"> Segregate impure from the rest of the program.</li>
 					</ul>
 					<aside class="notes">
@@ -608,7 +608,7 @@ console.log(sumRange(1, 10, 0)); // prints 55
 					<aside class="notes">
 						<p>string is immutable...you don't feel it as compiler takes care of it</p>
 					</aside>
-				</section>				
+				</section>
 			</section>
 			<section>
 				<section>
@@ -649,25 +649,22 @@ console.log(mealLengths); // [11, 11, 11]
 					</aside>
 				</section>
 				<section>
-					<h2>Reuse and chain</h2>					
-					<pre class="hljs fragment"><code>
+					<h2>Reuse and chain</h2>
+					<pre class="fragment javascript"><code class="hljs">
 const getLength = word => word.length;
 const doubleIt = x => x*2;
 
-const tasks = ['write code', 'drink coffee', 'hide from manager'];
+tasks.map(getLength).map(doubleIt);
 
-const lengths = tasks.map(getLength).map(doubleIt);
-
-console.log(lengths); // [20, 24, 34]
 					</code> </pre>
 				</section>
 				<section>
 					<h2>Filter</h2>
 					<pre class="hljs javascript"><code data-trim>
-var numbers = [1, 2, 3, 4];
-var newNumbers = [];
+const numbers = [1, 2, 3, 4];
+let newNumbers = [];
 
-for(var i = 0; i < numbers.length; i++) {
+for(let i = 0; i < numbers.length; i++) {
     if(numbers[i] % 2 !== 0) {
         newNumbers[i] = numbers[i] * 2;
     }
@@ -680,9 +677,7 @@ const numbers = [1, 2, 3, 4];
 const even = n => n % 2;
 const double = x => x * 2;
 
-var newNumbers = numbers.filter(even).map(double);
-
-console.log(newNumbers); // [2, 6]
+const newNumbers = numbers.filter(even).map(double);
 					</code></pre>
 					<p>ref: <a href="http://cryto.net/~joepie91/blog/2015/05/04/functional-programming-in-javascript-map-filter-reduce/">here</a></p>
 				</section>
@@ -740,7 +735,7 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 						<li class="fragment">Map, reduce, filter take care of the repeating parts</li>
 						<li class="fragment">Reduce typing- reduce chances of error</li>
 						<li class="fragment">Focus on the important parts of the iteration: <strong>the operation</strong> </li>
-						
+
 					</ul>
 					<aside class="notes">
 						<li class="">It’s throwing some of the transformations away. It’s combining the remainder into a single output.</li>
@@ -785,19 +780,25 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 			<section>
 				<section>
 					<h1>First Class</h1>
-					<img style="height:500px" src="images/firstClass1.jpg" alt="">
+					<img style="height:450px" src="images/firstClass1.jpg" alt="">
 				</section>
 				<section>
 					<h2>function is first class citizen</h2>
 					<ul>
-						<li>assign a type</li>
-						<li>pass function</li>
-						<li>return function</li>						
+						<li>Use function as variable or as a type</li>
+						<li class="fragment">Set function to a variable</li>
+						<li class="fragment">Pass function as parameter</li>
+						<li class="fragment">return function as a value</li>
 					</ul>
-					<p class="fragment">Also known as: Higher Order Function</p>
-					<p class="danger">So many things here: first class, higher order, closure... make it simple</p>
+					<pre class="fragment"><code data-trim>
+						// function expression
+						const doubleIt = x => x * 2;
+
+						const numbers = [1, 2, 3, 4].map(doubleIt);
+						console.log(numbers); // [2, 4, 6, 8]
+					</code></pre>
 					<aside class="notes">
-						<p></p>
+						<p class="danger">So many things are related: first class, higher order, closure... make it simple</p>
 					</aside>
 				</section>
 				<!-- <section>
@@ -819,8 +820,9 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 					</aside>
 				</section> -->
 				<section>
-					<h2>Higher Order Function</h2>
-					<pre><code>
+					<h2>return function</h2>
+					<p><small>Impure and mutable version</small></p>
+					<pre class="hljs javascript"><code data-trim>
 function counter(){
 	var count = 0;
 	return function(){
@@ -828,17 +830,20 @@ function counter(){
 	}
 }
 					</code></pre>
-					<pre class="fragment"><code>
+					<pre class="fragment hljs javascript"><code data-trim>
 const myClock = counter();
 myClock(); //0
 myClock(); //1
 myClock(); //2
 myClock(); //3
 				</code></pre>
+				<p class="fragment">Accessing outer scope variable is called <strong>Closure</strong></p>
+				<p class="fragment"> <span class="danger">Research it</span>when return function called higher order function</p>
 				<p><small>ref: <a href="https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99">higher order function</a></small></p>
-				<p class="fragment highlight-red">Change this and avoid mutation</p>
 				</section>
-				<p></p>
+				<aside class="notes">
+					<p></p>
+				</aside>
 			</section>
 			<section>
 				<section>
@@ -847,17 +852,18 @@ myClock(); //3
 				</section>
 				<section>
 					<h2>Back to High school</h2>
-					<pre class="fragment"><code>
+					<pre class="fragment"><code data-trim>
 f(x) = 2x + 3
 
 f(7) = 2 * 7 + 3
 					</code></pre>
 					<p class="fragment">g(x) = x <sup>2</sup> + 1</p>
+					<pre class="fragment"><code data-trim>
+						g(2) = 2 * 2 + 1
+						     = 5
+					</code></pre>
 					<p class="fragment">What is the value of f(g(x)) ?</p>
-					<pre class="fragment"><code>
-g(2) = 2 * 2 + 1
-     = 5
-
+					<pre class="fragment"><code data-trim>
 f(g(2)) = f(5)
         = 2 * 5 + 3
         = 10 + 3
@@ -882,20 +888,12 @@ f(g(2)) = f(5)
 					<p><small>Khan Academy: <a href="https://www.khanacademy.org/math/algebra2/manipulating-functions/funciton-composition/v/function-composition">function composition</a></small></p>
 				</section>
 				<section>
-					<h2>You are using this</h2>
-					<pre><code>
-var add10 = function(x) {
-    return x + 10;
-};
-var mult5 = function(x) {
-    return x * 5;
-};
-					</code></pre>
+					<h2>Wait! it's not new</h2>
 					<pre class="fragment"><code>
 const add10 = x => x + 10;
 const mult5 = x => x * 5;
 					</code></pre>
-					<pre class="fragment"><code>
+					<pre class="fragment hljs"><code>
 const mult5AfterAdd10 = x => mult5(add10(value));
 					</code></pre>
 					<h4 class="fragment">g(f(x))</h4>
@@ -917,7 +915,7 @@ const mult5AfterAdd10 = x => mult5(add10(value));
 						const mult5AfterAdd10 = compose(add10, mult5);
 					</code></pre>
 					<pre class="hljs javascript fragment"><code>
-multmult5AfterAdd10(5); //35
+mult5AfterAdd10(5); //35
 					</code></pre>
 					<p class="fragment">executes <strong>right to left</strong></p>
 					<p class="fragment"> Direction matters</p>
@@ -1174,7 +1172,7 @@ function odds(n, p) {
     return acc;
 }
 
-console.log(odds(3, 10)); 
+console.log(odds(3, 10));
 //=> (3/10) * (2/9) * (1/8) => (1/120) => 0.008333...
 					</code></pre>
 					<pre class="fragment"><code data-trim>
@@ -1184,13 +1182,13 @@ function odds(n, p) {
     return (n == 0) ? 1 : (n / p) * odds(n - 1, p - 1);
 }
 
-console.log(odds(3, 10)); 
+console.log(odds(3, 10));
 //=> (3/10) * (2/9) * (1/8) => (1/120) => 0.008333...
 					</code></pre>
 					<aside class="notes">
 					<p>There are many reasons that functional programmers prefer recursion, but one very simple one is that recursive functions are often much more elegant than their iterative cousins. It's easier to reason about them.</p>
 					<p>Unfortunately, they often don't perform as well. All the overhead of creating stack contexts for function calls tends to add up. But certain kinds of recursive calls can be easily optimized.</p>
-					</aside>	
+					</aside>
 				</section>
 				<section>
 					<p><small>Ref: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-34">Tail call formulation</a></small></p>
@@ -1202,6 +1200,13 @@ console.log(odds(3, 10));
 					<p>Put next to recursion</p>
 				</section>
 				<section>
+					<p><strong>A tail call is a subroutine call performed as the final action of a procedure</strong></p>
+					<aside class="notes">
+						<p>. Although tail call optimizations can occur in non-recursive functions, the fibonacci examples below are useful for understanding some situations where the optimization will occur. </p>
+					</aside>
+				</section>
+				<section>
+
 					<p>A tail call is a function call that is the last action of a function. Tail call optimization is when the language compiler recognizes tail calls and reuses the same call frame for them. This means that if you write recursive functions with tail calls, the limits of the call stack will never be exceeded by them as it will reuse the same frame over and over.</p>
 					<pre><code>
 const factorial = function ( n, base ) {
@@ -1428,10 +1433,17 @@ var result = add3(7)  // Immediately evaluates to 10
 				</section>
 			</section>
 			<section>
-				<h1>Partial application</h1>
+				<section>
+					<h1>Partial application</h1>
+				</section>
+				<section>
+					<h2>Currying and partial application</h2>
+Currying is strict: a curried function always applied 1 parameter at a time. Partial application is not this strict.
+A curried function tends to be partially applied but a partially applied function does not have to be curried.
 				<p>ref: <a href="http://www.datchley.name/currying-vs-partial-application/">here</a></p>
 				or
 				<p><a href="https://smthngsmwhr.wordpress.com/2012/10/22/higher-order-javascript-short-journey-into-the-land-of-functional-programming/#partial_application">this</a></p>
+				</section>
 			</section>
 			<section>
 				<section>
