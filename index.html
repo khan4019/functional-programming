@@ -1250,7 +1250,11 @@ var mult5AfterAdd10 = y => mult5(add(10, y)); // not point-free
 						<p>Read more, research more about it</p>
 				</section> -->
 			</section>
-			<section>
+			<!-- <section>
+				<section>
+					<h1>Recursion</h1>
+					<p>Put inside tail call opt</p>
+				</section>
 				<section>
 					<h2>Recursion</h2>
 					<p>Recursion is heavily used in functional programming as it is the canonical and often the only way to iterate. Functional
@@ -1258,30 +1262,14 @@ var mult5AfterAdd10 = y => mult5(add(10, y)); // not point-free
 						memory.
 					</p>
 					<p>check this slide: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-30">here</a></p>
-				</section>
-				<section>
-					<h2>Chances to win lottery</h2>
 					<pre><code data-trim>
-function odds(n, p) {
-    var acc = 1;
-    for(var i = 0; i < n; i++) {
-        acc *= (n - i) / (p - i);
-    }
-    return acc;
-}
-
-console.log(odds(3, 10));
-//=> (3/10) * (2/9) * (1/8) => (1/120) => 0.008333...
+						//1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
+						function fibonacci(num) {
+						  if (num <= 1) return 1;
+						  return fibonacci(num - 1) + fibonacci(num - 2);
+						}
 					</code></pre>
 					<pre class="fragment"><code data-trim>
-// Recursive version
-
-function odds(n, p) {
-    return (n == 0) ? 1 : (n / p) * odds(n - 1, p - 1);
-}
-
-console.log(odds(3, 10));
-//=> (3/10) * (2/9) * (1/8) => (1/120) => 0.008333...
 					</code></pre>
 					<aside class="notes">
 					<p>There are many reasons that functional programmers prefer recursion, but one very simple one is that recursive functions are often much more elegant than their iterative cousins. It's easier to reason about them.</p>
@@ -1291,21 +1279,48 @@ console.log(odds(3, 10));
 				<section>
 					<p><small>Ref: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-34">Tail call formulation</a></small></p>
 				</section>
-			</section>
+			</section> -->
 			<section>
 				<section>
 					<h1>Tail call Optimization</h1>
-					<p>Put next to recursion</p>
+					<img style="height:300px;" src="images/tail3.jpg" alt="">
 				</section>
 				<section>
-					<p><strong>A tail call is a subroutine call performed as the final action of a procedure</strong></p>
+					<h2>Tail call optimization</h2>
+					<ul>
+						<li>A tail call is a function call that is the last action of a function</li>
+						<li class="fragment">Smart compiler recognizes tail calls and reuses the same call frame</li>
+						<li class="fragment">When calling function will simply return the value that it gets from the called function</li>
+						<li class="fragment">The most common use is tail-recursion</li>
+						<li class="fragment">Optimized to use constant stack space</li>
+						<li class="fragment">Can happen for non-recursive case as well</li>
+					</ul>
+					<!-- <p>if you write recursive functions with tail calls, the limits of the call stack will never be exceeded by them as it will reuse the same frame over and over</p> -->
+					<br>
+					<br>
+					<p><small>Ref: <a href="http://stackoverflow.com/questions/310974/what-is-tail-call-optimization">Tail call optimization</a></small></p>
 					<aside class="notes">
-						<p>. Although tail call optimizations can occur in non-recursive functions, the fibonacci examples below are useful for understanding some situations where the optimization will occur. </p>
+						<p><strong>tail-recursive</strong> means main recursive calls it makes are in tail positions.</p>
+						<p>Tail-call optimization is where you are able to avoid allocating a new stack frame for a function because the calling function will simply return the value that it gets from the called function. The most common use is tail-recursion, where a recursive function written to take advantage of tail-call optimization can use constant stack space.</p>
+						<p><strong>A tail call is a subroutine call performed as the final action of a procedure</strong></p>
+						<p>A tail call is a function call that is the last action of a function. Tail call optimization is when the language compiler recognizes tail calls and reuses the same call frame for them. This means that if you write recursive functions with tail calls, the limits of the call stack will never be exceeded by them as it will reuse the same frame over and over.</p>
 					</aside>
 				</section>
 				<section>
+					<h2>tail call</h2>
+					<pre><code>
+//Both f() and g() are in tail position
+const a = x => x ? f() : g();
+					</code></pre>
+					<pre class="fragment hljs javascript"><code>
+// g() is in a tail position
+const a = () => f() || g();
 
-					<p>A tail call is a function call that is the last action of a function. Tail call optimization is when the language compiler recognizes tail calls and reuses the same call frame for them. This means that if you write recursive functions with tail calls, the limits of the call stack will never be exceeded by them as it will reuse the same frame over and over.</p>
+const a = () => f() && g();
+					</code></pre>
+					<p><small>Ref: <a href="http://2ality.com/2015/06/tail-call-optimization.html">Tail call optimization ES6</a></small></p>
+				</section>
+				<!-- <section>
 					<pre><code>
 const factorial = function ( n, base ) {
   if ( n === 0 ) {
@@ -1323,35 +1338,39 @@ console.log(factorial( 10, 1 )); // 3628800
 					<p><a href="http://benignbemine.github.io/2015/07/19/es6-tail-calls/">read this</a></p>
 				</section>
 				<section>
-					<h2>Pretty Code</h2>
 					<pre><code class="hljs" data-trim contenteditable>
-						</code></pre>
+						'use strict';
+						function fibonacci(len) {
+						  function recur(len, origLen, oldVal, newVal) {
+						    if(len == origLen)
+						      return oldVal + newVal;
+
+						    return recur(len + 1, origLen, newVal, oldVal + newVal);
+						  }
+
+						  return recur(1, len, 0, 1);
+						}
+
+						console.log(fibonacci(27));
+					</code></pre>
 				</section>
 				<section>
 					<p>also look at this slide: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-34">here</a></p>
 				</section>
 				<section>
 					<p><a href="http://wiki.c2.com/?TailCallOptimization">another</a></p>
-				</section>
+				</section> -->
+			</section>
+			<!-- <section>
+				<h1>Trampolines in JavaScript</h1>
+				<a href="http://raganwald.com/2013/03/28/trampolines-in-javascript.html">here</a>
 			</section>
 			<section>
 				<section>
 					<h2>Execution order</h2>
 					<p>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-5-c70adc9cf56a">Not so good here: but you can use it</a></p>
 				</section>
-				<section>
-
-				</section>
-			</section>
-			<section>
-				<section>
-					<h1>Type annotation</h1>
-				</section>
-				<section>
-					<h2></h2>
-					<p>a type constructor is a generic type definition, which takes another type as a parameter.</p>
-				</section>
-			</section>
+			</section> -->
 			<section>
 				<section>
 					<h1>Pipelines</h1>
@@ -1380,10 +1399,9 @@ console.log(factorial( 10, 1 )); // 3628800
 				</section>
 				<section>
 					<h2>Pipelines in Unix</h2>
-					<p class="fragment">
+					<p class="">
 						 find all bliki entries that mention "nosql" in the text
 					</p>
-					<p class="danger">change bliki</p>
 					<pre class="fragment hljs unix"><code>
 grep -l 'nosql' bliki/entries
 
@@ -1455,14 +1473,6 @@ let result = "hello" |> doubleSay |> capitalize |> exclaim;
 			</section>
 			<section>
 				<section>
-					<h1>Combinators</h1>
-				</section>
-				<section>
-					<p>ref: <a href="http://scalafp.com/book/functional-programming-is-like-unix-pipelines.html">at the bottom of this</a></p>
-				</section>
-			</section>
-			<section>
-				<section>
 					<h2>Lazy Evaluation</h2>
 					<img src="images/lazy1.jpg" alt="">
 				</section>
@@ -1528,6 +1538,26 @@ var result = add3(7)  // Immediately evaluates to 10
 				<section>
 					<h2>Debug Lazy function</h2>
 					<p><small>Extra: <a href="http://stackoverflow.com/questions/1303794/how-is-debugging-achieved-in-a-lazy-functional-programming-language">Debug lazy function</a></small></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Type annotation</h1>
+				</section>
+				<section>
+					<h2></h2>
+					<p>a type constructor is a generic type definition, which takes another type as a parameter.</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Combinators</h1>
+				</section>
+				<section>
+					<p>a function which builds program fragments from program fragments</p>
+					<p>ref: <a href="http://stackoverflow.com/questions/7533837/explanation-of-combinators-for-the-working-man">or this</a></p>
+					<p>Ref: <a href="https://softwareengineering.stackexchange.com/a/117575">or this</a></p>
+					<p>ref: <a href="http://scalafp.com/book/functional-programming-is-like-unix-pipelines.html">at the bottom of this</a></p>
 				</section>
 			</section>
 			<section>
