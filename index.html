@@ -897,12 +897,14 @@ const mult5 = x => x * 5;
 const mult5AfterAdd10 = x => mult5(add10(value));
 					</code></pre>
 					<h4 class="fragment">g(f(x))</h4>
+					<aside class="notes">
+						<p>What we’ve done in this case is manually compose these two functions together in a particular order. We created a new function that first assigns the value being passed to a holder variable, then updates the value of that variable by executing the first function, and then the second function, and finally returns the value of that holder.</p>
+					</aside>
 				</section>
 				<section>
 						<h2>Function Composotion</h2>
 					<pre><code class="hljs javascript" data-trim>
 						const add10 = x =>  x + 10;
-
 						const mult5 = x =>  x * 5;
 					</code></pre>
 					<pre class="fragment"><code data-trim>
@@ -925,6 +927,25 @@ mult5AfterAdd10(5); //35
 						<p>f and g are functions and x is the value being "piped" through them. </p>
 						<p>The composition of two functions returns a new function. This makes perfect sense: composing two units of some type (in this case function) should yield a new unit of that very type. You don't plug two legos together and get a lincoln log. There is a theory here, some underlying law that we will discover in due time.</p>
 						In our definition of compose, the g will run before the f, creating a right to left flow of data.
+					</aside>
+				</section>
+				<section>
+					<h2>Another Example</h2>
+					<pre><code>
+const split = str => str.split(' ');
+const length = itmes => items.length;
+
+const wordCount = compose(length, split);
+wordCount('There are seven words in this sentense'); //7
+					</code></pre>
+					<ul>
+						<li class="fragment">Partially apply split first</li>
+						<li class="fragment">While performing split we are waiting for length</li>
+						<li class="fragment">split does it works and then pass it to length</li>
+						<li class="fragment">Curried function is partially applied</li>
+					</ul>
+					<aside class="notes">
+						<p>Giving you another example so that you keep it in your head</p>
 					</aside>
 				</section>
 				<section>
@@ -952,13 +973,28 @@ f x = (g << h << s << r << t) x
 				</section>
 				<section>
 					<h2> Why Composition?</h2>
-					<p class="danger">Complete this thinking</p>
+					<ul>
+						<li>Put to function together to get one function</li>
+						<li>Clean up nesting</li>
+					</ul>
+					<p>The ability to easily compose functions encourages factoring (breaking apart) functions for maintainability and code reuse. More generally, big systems might be built by composing whole programs.</p>
+					<p>function composition applies to functions that operate on a finite amount of data, each step sequentially processing it before handing it to the next.</p>
 				</section>
 			</section>
 			<section>
 				<section>
 					<h1>Point Free</h1>
 					<img src="images/free.png" alt="">
+				</section>
+				<section>
+					<h2>Point Free</h2>
+					<pre><code>
+const firstTwoLetter = function(words){
+	return words.map(word => {
+		word.substr(0,2);
+	})
+}
+					</code></pre>
 				</section>
 				<section>
 					<h2>Point free notation</h2>
@@ -1017,14 +1053,19 @@ var mult5AfterAdd10 = y => mult5(add(10, y)); // not point-free
 						<li class="fragment">Call a function with one parameter at a time</li>
 						<li class="fragment">Returns a function that takes second parameter</li>
 						<li class="fragment">arguments are taken by a series of one-argument</li>
-						<pre class="fragment javascript"><code>
+						<pre class="fragment javascript"><code data-trim>
 const sum3 = (x, y, z) => x + y + z;
-
 sum3(1,2,3); //6
 						</code></pre>
-						<pre class="fragment"><code>
+						<pre class="fragment"><code data-trim>
+function sum3(x){
+	return function (y){
+		return function (z){
+			return x + y + z;
+		}
+	}
+}
 const currySum3 = x => y => z => x + y + z;
-
 currySum3(1)(2)(3); //= 6
 						</code></pre>
 					</ul>
@@ -1076,7 +1117,23 @@ console.log(third); // 6
 					</aside>
 				</section>
 				<section>
-					<h1 class="danger">Is currying not pure function</h1>
+					<h2>Why Curry?</h2>
+					<pre class="hljs javascript"><code>
+const modulo = divisor => divident => divident % divisor;
+
+modulo (3, 9); //0
+					</code></pre>
+					<pre class="fragment hljs javascript"><code>
+const isOdd = modulo(2);
+
+isOdd(6); //0
+
+isOdd(5); //1
+					</code></pre>
+					<p><small>Ref: <a href=""></a></small></p>
+					<aside class="notes">
+						<p>We created functionality by giving functionality</p>
+					</aside>
 				</section>
 				<section>
 					<h2>Promise is currying</h2>
@@ -1151,6 +1208,16 @@ const mult5AfterAdd10 = R.compose(R.multiply(5), R.add(10));
 							write less code:</p>
 					</aside>
 				</section> -->
+				<section>
+					<h2>Why currying</h2>
+					<ul>
+						<li class="fragment">make generic function</li>
+						<li class="fragment">Build new function by applying args</li>
+						<li class="fragment">Much more concise definiton</li>
+						<li class="fragment">Make types "line up" for composition</li>
+					</ul>
+					<p>ref: <a href="https://softwareengineering.stackexchange.com/questions/185585/what-is-the-advantage-of-currying">read this</a></p>
+				</section>
 			</section>
 			<section>
 				<section>
