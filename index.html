@@ -62,7 +62,7 @@
 				<section>
 					<h2>Agenda</h2>
 					<ul>
-						<li class="fragment">Two Basics of Functional Programming</li>
+						<li class="fragment">Three Basics of Functional Programming</li>
 						<li class="fragment">Five Popular patterns and techniques</li>
 						<li class="fragment">Three higher level Geeky thing</li>
 						<li class="fragment">Transform OOP to FP</li>
@@ -249,6 +249,7 @@
 			<section>
 				<section>
 					<h1>Let's Start</h1>
+					<img src="images/start2.jpg" alt="">
 				</section>
 				<section>
 					<h2>Functional Programming</h2>
@@ -413,6 +414,94 @@ public int addNumbers(int x, int y) {
 						<li class="">To interface with real world, some parts must be impure</li>
 					</aside>
 				</section> -->
+			</section>
+			<section>
+				<section>
+					<h1>First Class</h1>
+					<img style="height:450px" src="images/firstClass1.jpg" alt="">
+				</section>
+				<section>
+					<h2>function is first class citizen</h2>
+					<ul>
+						<li>Use function as value</li>
+						<li class="fragment">Set function to a variable</li>
+						<li class="fragment">Pass function as parameter</li>
+						<li class="fragment">return function as a value</li>
+					</ul>
+					<pre class="fragment"><code>
+// function expression
+const doubleIt = x => x * 2;
+					</code></pre>
+					<aside class="notes">
+						<p class="danger">So many things are related: first class, higher order, closure... make it simple</p>
+					</aside>
+				</section>
+				<!-- <section>
+					<h2>Higher Order Function</h2>
+					<ul>
+						<li class="fragment">function is a first-class citizen of the language.</li>
+						<li class="fragment">function is just another value.</li>
+						<li class="fragment">Just another value.</li>
+						<li class="fragment">You can pass functions as parameters</li>
+						<li class="fragment">return functions</li>
+						<li class="fragment">Also allows to abstract values and actions </li>
+					</ul>
+					<br>
+					<br>
+					<p><small>ref: <a href="https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99">higher order function</a></small></p>
+					<aside class="notes">
+						<p>In Functional Programming, a function is a first-class citizen of the language</p>
+						<p>Higher Order Functions are functions that accept a function, and/or return a function </p>
+					</aside>
+				</section> -->
+				<section>
+					<h2>Highr order function</h2>
+					<ul>
+						<li>Either take function as argument</li>
+						<li>Or return function</li>
+					</ul>
+					<pre class="fragment hljs javascript"><code>
+function greaterThan(n) {
+  return function(m) {
+    return m > n;
+  };
+}
+					</code></pre>
+					<pre class="fragment hljs javascript"><code data-trim>
+const greaterThan10 = greaterThan(10);
+greaterThan10(11); //true
+greaterThan10(7); //false
+					</code></pre>
+					<pre class="fragment hljs javascript"><code data-trim>
+const greaterThan15 = greaterThan(15);
+greaterThan10(11); //false
+greaterThan10(21); //true
+					</code></pre>
+				</section>
+				<section>
+					<h2>Closure</h2>
+					<p><small>Impure and mutable version</small></p>
+					<pre class="hljs javascript"><code data-trim>
+function counter(){
+	var count = 0;
+	return function(){
+		return count++;
+	}
+}
+					</code></pre>
+					<pre class="fragment hljs javascript"><code data-trim>
+const myClock = counter();
+myClock(); //0
+myClock(); //1
+myClock(); //2
+myClock(); //3
+				</code></pre>
+				<p class="fragment">Accessing outer scope variable is called <strong>Closure</strong></p>
+				<p><small>ref: <a href="https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99">higher order function</a></small></p>
+				</section>
+				<aside class="notes">
+					<p></p>
+				</aside>
 			</section>
 			<section>
 				<section>
@@ -587,6 +676,7 @@ console.log(sumRange(1, 10, 0)); // prints 55
 			<section>
 				<section>
 					<h1>Looping</h1>
+					<img style="height:450px;" src="images/loop2.jpg" alt="">
 				</section>
 				<section>
 					<h2>Iterate over lists</h2>
@@ -736,9 +826,10 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 					</aside>
 				</section>
 				<section>
-					<h2>Two basic Rules</h2>
+					<h2>Three basic Rules</h2>
 					<ol>
 						<li class="fragment">No Side Effect</li>
+						<li class="fragment">Function is first class citizen</li>
 						<li class="fragment">Immutable Data</li>
 					</ol>
 				</section>
@@ -747,8 +838,11 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 					<img style="height: 400px;" src="images/nap.jpg">
 					<br>
 					<ul>
-						<li class="fragment">Who was in the image "Fully Lost?""</li>
+						<li class="fragment">Who was in the image "Fully Lost?"</li>
 					</ul>
+				</section>
+				<section>
+					<img src="images/lost.jpg" alt="">
 				</section>
 			</section>
 			<section>
@@ -771,86 +865,20 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 			</section>
 			<section>
 				<section>
-					<h1>First Class</h1>
-					<img style="height:450px" src="images/firstClass1.jpg" alt="">
-				</section>
-				<section>
-					<h2>function is first class citizen</h2>
-					<ul>
-						<li>Use function as value</li>
-						<li class="fragment">Set function to a variable</li>
-						<li class="fragment">Pass function as parameter</li>
-						<li class="fragment">return function as a value</li>
-					</ul>
-					<pre class="fragment"><code>
-// function expression
-const doubleIt = x => x * 2;
-
-const numbers = [1, 2, 3, 4].map(doubleIt);
-					</code></pre>
-					<aside class="notes">
-						<p class="danger">So many things are related: first class, higher order, closure... make it simple</p>
-					</aside>
-				</section>
-				<!-- <section>
-					<h2>Higher Order Function</h2>
-					<ul>
-						<li class="fragment">function is a first-class citizen of the language.</li>
-						<li class="fragment">function is just another value.</li>
-						<li class="fragment">Just another value.</li>
-						<li class="fragment">You can pass functions as parameters</li>
-						<li class="fragment">return functions</li>
-						<li class="fragment">Also allows to abstract values and actions </li>
-					</ul>
-					<br>
-					<br>
-					<p><small>ref: <a href="https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99">higher order function</a></small></p>
-					<aside class="notes">
-						<p>In Functional Programming, a function is a first-class citizen of the language</p>
-						<p>Higher Order Functions are functions that accept a function, and/or return a function </p>
-					</aside>
-				</section> -->
-				<section>
-					<h2>return function</h2>
-					<p><small>Impure and mutable version</small></p>
-					<pre class="hljs javascript"><code data-trim>
-function counter(){
-	var count = 0;
-	return function(){
-		return count++;
-	}
-}
-					</code></pre>
-					<pre class="fragment hljs javascript"><code data-trim>
-const myClock = counter();
-myClock(); //0
-myClock(); //1
-myClock(); //2
-myClock(); //3
-				</code></pre>
-				<p class="fragment">Accessing outer scope variable is called <strong>Closure</strong></p>
-				<p class="fragment"> <span class="danger">Research it</span>when return function called higher order function</p>
-				<p><small>ref: <a href="https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99">higher order function</a></small></p>
-				</section>
-				<aside class="notes">
-					<p></p>
-				</aside>
-			</section>
-			<section>
-				<section>
 					<h1>Composition</h1>
 					<img src="images/composition1.jpeg" alt="">
 				</section>
 				<section>
-					<h2>Back to High school</h2>
+					<p>f(x) = 2x + 3</p>
 					<pre class="fragment"><code data-trim>
-f(x) = 2x + 3
-
 f(7) = 2 * 7 + 3
+     = 14 + 3
+     = 17
 					</code></pre>
 					<p class="fragment">g(x) = x <sup>2</sup> + 1</p>
 					<pre class="fragment"><code data-trim>
 						g(2) = 2 * 2 + 1
+						     = 4 + 1
 						     = 5
 					</code></pre>
 					<p class="fragment">What is the value of f(g(x)) ?</p>
@@ -870,10 +898,10 @@ f(g(2)) = f(5)
 						<li>What you saw as f(g(x))</li>
 						<li class="fragment">f ∘ g (read as f of g)</li>
 						<li class="fragment">f after g</li>
-						<li class="fragment">g(x) inside f(x)...inside executes first</li>
 						<li class="fragment">calling f after calling g with x</li>
 						<li class="fragment">or simply: <strong>f composed with g</strong></li>
 					</ul>
+					<p class="fragment">g(x) inside f(x)...inside executes first</p>
 					<br>
 					<br>
 					<p><small>Khan Academy: <a href="https://www.khanacademy.org/math/algebra2/manipulating-functions/funciton-composition/v/function-composition">function composition</a></small></p>
@@ -885,7 +913,7 @@ const add10 = x => x + 10;
 const mult5 = x => x * 5;
 					</code></pre>
 					<pre class="fragment hljs"><code>
-const mult5AfterAdd10 = x => mult5(add10(value));
+const mult5AfterAdd10 = x => mult5(add10(x));
 					</code></pre>
 					<h4 class="fragment">g(f(x))</h4>
 					<aside class="notes">
@@ -915,7 +943,8 @@ mult5AfterAdd10(5); //35
 					<br>
 					<p><small>ref: <a href="https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch5.html#functional-husbandry">Coding by composing</a></small></p>
 					<aside class="notes">
-						<p>f and g are functions and x is the value being "piped" through them. </p>
+						<p>Though left to right would be easy to read in english</p>
+						<p><strong>Why Right to left:</strong>Pass in all of the configuration first, and pass the value(s) to be operated on last. Because of this, it makes the most sense to define our compose function to read in its arguments and apply them from right to left.</p>
 						<p>The composition of two functions returns a new function. This makes perfect sense: composing two units of some type (in this case function) should yield a new unit of that very type. You don't plug two legos together and get a lincoln log. There is a theory here, some underlying law that we will discover in due time.</p>
 						In our definition of compose, the g will run before the f, creating a right to left flow of data.
 					</aside>
@@ -963,75 +992,20 @@ f x = (g << h << s << r << t) x
 					</aside>
 				</section>
 				<section>
-					<h2> Why Composition?</h2>
+					<h2> Why Composition</h2>
 					<ul>
-						<li>Put to function together to get one function</li>
-						<li>Clean up nesting</li>
+						<li>Put multiple functions together to get one function</li>
+						<li>Moves right to left</li>
+						<li class="fragment">each step sequentially processing it before handing it to the next</li>
+						<li class="fragment">Encourages factoring (breaking apart) for maintainability and code reuse</li>
+						<li class="fragment">Cleans up nesting</li>
 					</ul>
-					<p>The ability to easily compose functions encourages factoring (breaking apart) functions for maintainability and code reuse. More generally, big systems might be built by composing whole programs.</p>
-					<p>function composition applies to functions that operate on a finite amount of data, each step sequentially processing it before handing it to the next.</p>
-					<p>Though left to right would be easy to read in english</p>
-					<p>In any event, what we really want to do is pass in all of the configuration data first, and pass the value(s) to be operated on last. Because of this, it makes the most sense to define our compose function to read in its arguments and apply them from right to left.</p>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h1>Point Free</h1>
-					<img src="images/free.png" alt="">
-				</section>
-				<section>
-					<h2>Point Free</h2>
-					<pre><code>
-const firstTwoLetter = function(words){
-	return words.map(word => {
-		word.substr(0,2);
-	})
-}
-					</code></pre>
-				</section>
-				<section>
-					<h2>Point free notation</h2>
-					<pre class="fragment"><code data-trim>
-const toUpperCase = str => str.toUpperCase();
-const head =  x => x[0];
-const compose = (f, g)  => x => f(g(x));
-
-//not pointfree because we mention the data: name
-var initials = function(name) {
-  return name.split(' ').map(compose(toUpperCase, head)).join('. ');
-};
-					</code></pre>
-					<pre class="fragment"><code data-trim>
-						//pointfree
-						var initials = compose(join('. '), map(compose(toUpperCase, head)), split(' '));
-
-						initials("that js dude");
-						// 'T. J. D'
-					</code></pre>
-					<br>
-					<p class="danger">Why would you use point free?</p>
-					<p><small> Ref <a href="http://lucasmreis.github.io/blog/pointfree-javascript/">this</a> and <a href="https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch5.html#pointfree">this as well</a></small></p>
 					<aside class="notes">
-						<p> defining functions without ever making direct reference to their arguments.</p>
+						<p>Since you can put together...to compose... you can break apart next</p>
+						<p>The ability to easily compose functions encourages factoring (breaking apart) functions for maintainability and code reuse. More generally, big systems might be built by composing whole programs.</p>
+						<p>function composition applies to functions that operate on a finite amount of data, each step sequentially processing it before handing it to the next.</p>
 					</aside>
 				</section>
-				<!-- <section>
-					<h2>Two parameters pain</h2>
-					<pre class="hljs"><code>
-add x y =
-    x + y
-mult5 value =
-    value * 5
-					</code></pre>
-					<pre><code>
-var mult5AfterAdd10 = mult5(add(10)); // this doesn't work
-						</code></pre>
-					<pre class="hljs fragment"><code>
-var mult5AfterAdd10 = y => mult5(add(10, y)); // not point-free
-						</code></pre>
-						<p class="fragment highlight-red">It's not throwing error</p>
-						<p>Read more, research more about it</p>
-				</section> -->
 			</section>
 			<section>
 				<section>
@@ -1041,7 +1015,7 @@ var mult5AfterAdd10 = y => mult5(add(10, y)); // not point-free
 					<p><small>Ref: <a href="https://en.wikipedia.org/wiki/Haskell_Curry">Haskell Brooks Curry</a></small></p>
 				</section>
 				<section>
-					<h2>Currying</h2>
+					<h3>Currying</h3>
 					<ul>
 						<li class="fragment">Call a function with one parameter at a time</li>
 						<li class="fragment">Returns a function that takes second parameter</li>
@@ -1079,8 +1053,8 @@ currySum3(1)(2)(3); //= 6
 						<p>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-4-18fbe3ea9e49">part4</a></p>
 					</aside>
 				</section>
-				<section>
-					<h2>Curried Function</h2>
+				<!-- <section>
+					<h3>Curried Function</h3>
 					<pre class="fragment"><code data-trim>
 function sum3(x){
 	return function (y){
@@ -1108,27 +1082,33 @@ console.log(third); // 6
 							add will get its second parameter.</p>
 						<p>This version of add is a function that takes one parameter now and then another one later.</p>
 					</aside>
-				</section>
+				</section> -->
 				<section>
 					<h2>Why Curry?</h2>
-					<pre class="hljs javascript"><code>
+					<pre class="hljs javascript"><code data-trim>
 const modulo = divisor => divident => divident % divisor;
 
 modulo (3, 9); //0
 					</code></pre>
-					<pre class="fragment hljs javascript"><code>
+					<pre class="fragment hljs javascript"><code data-trim>
 const isOdd = modulo(2);
 
 isOdd(6); //0
 
 isOdd(5); //1
 					</code></pre>
-					<p><small>Ref: <a href=""></a></small></p>
+					<ul>
+						<li class="fragment">Make reusable generic function</li>
+						<li class="fragment">Build new function by applying args</li>
+						<li class="fragment">Partially applied for higher order function</li>
+						<li class="fragment">Make types "line up" for composition</li>
+					</ul>
+					<p><small>Ref: <a href="https://softwareengineering.stackexchange.com/q/185585">advantages of currying</a></small></p>
 					<aside class="notes">
 						<p>We created functionality by giving functionality</p>
 					</aside>
 				</section>
-				<section>
+				<!--<section>
 					<h2>Promise is currying</h2>
 					<p class="dangser">Is pormise is curry?</p>
 					<pre class="fragment"><code data-trim>
@@ -1139,7 +1119,7 @@ isOdd(5); //1
 					</code></pre>
 					<p><small><a href="https://github.com/learn-javascript-courses/javascript-questions/issues/7">Is Currying Advantageours</a></small></p>
 				</section>
-				<!-- <section>
+				 <section>
 					<h2></h2>
 					<p>Now we can use this version of add to build a working version of mult5AfterAdd10:</p>
 					<pre><code>
@@ -1201,16 +1181,74 @@ const mult5AfterAdd10 = R.compose(R.multiply(5), R.add(10));
 							write less code:</p>
 					</aside>
 				</section> -->
+			</section>
+			<section>
 				<section>
-					<h2>Why currying</h2>
-					<ul>
-						<li class="fragment">make generic function</li>
-						<li class="fragment">Build new function by applying args</li>
-						<li class="fragment">Much more concise definiton</li>
-						<li class="fragment">Make types "line up" for composition</li>
-					</ul>
-					<p>ref: <a href="https://softwareengineering.stackexchange.com/questions/185585/what-is-the-advantage-of-currying">read this</a></p>
+					<h1>Point Free</h1>
+					<img src="images/free.png" alt="">
 				</section>
+				<section>
+					<h2>Point Free Programming</h2>
+					<ul>
+						<li>Also known as <strong>Tacit Programming</strong></li>
+						<li class="fragment">function deifinition does not include arguments</li>
+						<li class="fragment">Uses combinators and function composition instead of variable</li>
+					</ul>
+					<br>
+					<br>
+					<p><small>Ref: <a href="http://randycoulman.com/blog/2016/06/21/thinking-in-ramda-pointfree-style/">Think point free</a></small></p>
+					<aside class="notes">
+						<p>For simpilicty you can thik point is argument. Hence point free is argument free</p>
+						<h2>Why point free</h2>
+						<ul>
+							<li>You focus on how rather than what</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
+					<h2>Point free notation</h2>
+					<pre class="fragment"><code data-trim>
+const toUpperCase = str => str.toUpperCase();
+const head =  x => x[0];
+const compose = (f, g)  => x => f(g(x));
+
+//not pointfree because we mention the data: name
+var initials = function(name) {
+  return name.split(' ').map(compose(toUpperCase, head)).join('. ');
+};
+					</code></pre>
+					<pre class="fragment"><code data-trim>
+						//pointfree
+						var initials = compose(join('. '), map(compose(toUpperCase, head)), split(' '));
+
+						initials("that js dude");
+						// 'T. J. D'
+					</code></pre>
+					<br>
+					<p class="danger">Why would you use point free?</p>
+					<p><small> Ref <a href="http://lucasmreis.github.io/blog/pointfree-javascript/">this</a> and <a href="https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch5.html#pointfree">this as well</a> or <a href="http://lucasmreis.github.io/blog/pointfree-javascript/">this</a>
+					</small></p>
+					<aside class="notes">
+						<p> defining functions without ever making direct reference to their arguments.</p>
+					</aside>
+				</section>
+				<!-- <section>
+					<h2>Two parameters pain</h2>
+					<pre class="hljs"><code>
+add x y =
+    x + y
+mult5 value =
+    value * 5
+					</code></pre>
+					<pre><code>
+var mult5AfterAdd10 = mult5(add(10)); // this doesn't work
+						</code></pre>
+					<pre class="hljs fragment"><code>
+var mult5AfterAdd10 = y => mult5(add(10, y)); // not point-free
+						</code></pre>
+						<p class="fragment highlight-red">It's not throwing error</p>
+						<p>Read more, research more about it</p>
+				</section> -->
 			</section>
 			<section>
 				<section>
@@ -1553,7 +1591,7 @@ A curried function tends to be partially applied but a partially applied functio
 						<li class="fragment">That's not my code</li>
 						<li class="fragment">The guy who left, his code is causing this</li>
 						<li class="fragment">Client PC is outdated</li>
-						<li class="fragment">It's a known issue with JavaScript</li>
+						<li class="fragment">It's a known issue in JavaScript</li>
 						<li class="fragment">Users will hardly notice this</li>
 					</ol>
 				</section>
