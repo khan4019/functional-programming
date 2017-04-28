@@ -46,6 +46,7 @@
 					<h4>What, Why and How</h4>
 					<br>
 					<br>
+					<p class="fragment"><a href="https://goo.gl/pdio1i">https://goo.gl/pdio1i</a></p>
 					<br>
 					<br>
 					<p>
@@ -58,66 +59,29 @@
 				<section>
 					<img src="images/evolution.png">
 				</section>
-			</section>
-			<section>
 				<section>
-					<h1>TODO</h1>
+					<h2>Agenda</h2>
+					<ul>
+						<li class="fragment">Three Basics of Functional Programming</li>
+						<li class="fragment">Five Popular patterns and techniques</li>
+						<li class="fragment">Three higher level Geeky things</li>
+						<li class="fragment">Transform OOP to FP</li>
+						<li class="fragment">...and lots of fun</li>
+					</ul>
 				</section>
-				<section>
+				<!-- <section>
+					<h2>TODO</h2>
 					<ol>
+						<li>remove var</li>
 						<li>Make map, filter, reduce, part slimmer</li>
 						<li>Functor, Monads, Applicatives</li>
 						<li>Take a OOP example and convert it to FP</li>
 						<li>why</li>
 						<li>Free tip</li>
 					</ol>
-				</section>
-				<section>
-					<h2>references</h2>
-					<ul>
-						<li>
-							<a href="http://www.lihaoyi.com/post/WhatsFunctionalProgrammingAllAbout.html">Make a tea making diagram</a>
-						</li>
-						<li>
-							<a href="http://www.braveclojure.com/functional-programming/">Closure: for the brave and true (read it)</a>
-						</li>
-						<li>
-							<a href="http://stackoverflow.com/questions/36504/why-functional-languages">Why Functional Programming</a>
-						</li>
-						<li>
-							<a href="http://www.defmacro.org/ramblings/fp.html">Read this as well</a>
-						</li>
-						<li>
-							<a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/">Good slides: go through it all</a>
-						</li>
-						<li>
-							<a href="https://medium.com/javascript-scene/why-learn-functional-programming-in-javascript-composing-software-ea13afc7a257">Read this and it's next parts</a>
-						</li>
-						<li>
-							<a href="http://jrsinclair.com/articles/2016/gentle-introduction-to-functional-javascript-intro/">might get something from here</a>
-						</li>
-						<li>
-							<a href="https://www.quora.com/Why-are-many-experienced-programmers-upset-at-functional-programming">Why experience developers upset on FP</a>
-						</li>
-						<li><a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">Claims to be practical.. look at the examples</a></li>
-						<li><a href="https://bethallchurch.github.io/JavaScript-and-Functional-Programming/">A good and simple collection</a></li>
-						<li><a href="https://drboolean.gitbooks.io/mostly-adequate-guide/">Looks very good: Adequote function programming</a></li>
-					</ul>
-				</section>
-				<section>
-					<h2>JavaScript resources</h2>
-					<ul>
-						<li><a href="https://github.com/stoeffel/awesome-fp-js">collection of JS librarires</a></li>
-						<li><a href="https://www.youtube.com/watch?v=dkZFtimgAcM">watch this: Douglus Crockford: Monads and Gonads</a></li>
-						<li><a href="http://srirangan.net/2011-12-functional-programming-in-javascript">Some JS code examples</a></li>
-						<li><a href="https://github.com/getify/Functional-Light-JS">Kyle simpson books about functional programming</a></li>
-						<li><a href="https://www.barbarianmeetscoding.com/blog/2016/06/14/functional-programming-in-javascript/">Some example</a></li>
-						<li><a href="http://dealwithjs.io/functional-programming-in-javascript/">Not very interesting</a></li>
-						<li><a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-48">ramada slide</a>
-					</ul>
-				</section>
+				</section> -->
 			</section>
-			<section>
+			<!-- <section>
 				<section>
 					<h2>Bragging time!</h2>
 					<p>I know you don't care</p>
@@ -132,15 +96,60 @@
 				<section>
 					<p>Get the website name</p>
 				</section>
-			</section>
+			</section> -->
 			<section>
-				<h2 class="danger"><strong>WARNING</strong></h2>
-				<ul>
-					<li class="fragment">Everything you know has a obscure name</li>
-					<li class="fragment">One constraint can make life complicated</li>
-					<li class="fragment">There are <strong>harder alternatives</strong> to simple things</li>
-					<li class="fragment">Nerd means living dictionary of <strong>Jargons</strong></li>
-				</ul>
+				<section>
+					<h1>Why</h1>
+				</section>
+				<section>
+					<h2>FP Shines</h2>
+					<ul>
+						<li class="fragment">Cloud/Big Data for data processing, filtering, aggregating</li>
+						<li class="fragment">Easier to figure out what the hell is going on in a larger code base</li>
+						<li class="fragment">Concepts are used in web application</li>
+						<li class="fragment">Easier to read, maintain, test</li>
+						<li class="fragment">Avoid a mess of states or multi threading issues</li>
+						<li class="fragment">Modular the functionality</li>
+					</ul>
+					<br>
+					<br>
+					<p><small>Ref: <a href="http://scalafp.com/book/benefits-of-functional-programming-in-scala.htm"></a> <a href="https://hackernoon.com/why-functional-programming-matters-c647f56a7691">Why FP matters</a></small></p>
+					<aside class="notes">
+						<li>Parallel/concurrent programming is easier</li>
+						<p>You dont have to worry about deadLock, race condition</p>
+						<p>No piece of data is modified twice ...even not in two different threads</p>
+						<p>, where ObjectOrientedProgramming is modular in the dimension of different components.</p>
+						<li class="">Will discuss more as we are going through</li>
+					</aside>
+				</section>
+
+				<!-- <section>
+					<h2>Programming Language</h2>
+						<ul>
+							<li class="fragment">Imperative Language</li>
+							<li class="fragment">Object Oriented Language</li>
+							<li class="fragment">Functional Language</li>
+							<li class="fragment">Multi paradaigmm language</li>
+						</ul>
+						<br>
+						<br>
+					<p><small>Ref: <a href="https://medium.com/functional-javascript/introduction-to-functional-javascript-45a9dca6c64a">programming Paradaigm</a></small></p>
+					<aside class="notes">
+						<p>we have OOP...working good why we need FP?</p>
+						<p>An imperative programming language is one in which program state change is achieved by executing a series of statements, and does flow control primarily using conditional statements, loop statements and function calls. </p>
+					</aside>
+				</section> -->
+			<!-- 	<section>
+					<ul>
+						<li class="fragment">Code works more than it doesn’t.</li>
+						<li class="fragment">Unit tests are easier to write.</li>
+						<li class="fragment">Unit tests break faster allowing me to fix broken code they found faster.</li>
+						<li class="fragment">Easier to figure out what the hell is going on in a larger code base. If something breaks, it’s easier to pull things
+							apart and improve the testing of those parts to prevent it from happening again. Not like usual spaghetti that can
+							occur with mutable state.</li>
+						<li class="fragment">Don’t get bit (as much) by concurrency/parallelism bugs that can arise in server or testing environments.</li>
+					</ul>
+				</section> -->
 			</section>
 			<section>
 				<section>
@@ -155,6 +164,8 @@
 					</ul>
 					<img class="fragment" src="images/speak.jpg">
 					<aside class="notes">
+						<p>He started shower of these words</p>
+						<p>I asked him where can I learn it... he said...my code speaks</p>
 						<p>after 40 minutes of talk during lunch break... my head starts spinning</p>
 					</aside>
 				</section>
@@ -163,20 +174,21 @@
 					<img class="fragment" src="images/manager.gif" alt="">
 					<ul>
 						<li class="fragment">I am the JIRA man</li>
-
 					</ul>
+					<p><small><a href="https://www.quora.com/Why-are-many-experienced-programmers-upset-at-functional-programming">Why experience developers upset on FP</a></small></p>
 					<aside class="notes">
 						<p>Manager Manager not very angry: and starting yelling...don't you know I neve code</p>
-						<p>I am the JIRA professional with ocassional powerpoint slide presenteer</p>
+						<p>I am the JIRA professional with occasional power point slide presenter</p>
 					</aside>
 				</section>
 				<section>
 					<h2>Junior Developer</h2>
-					<img class="fragment" src="images/junior.jpg" alt="">
+					<img class="fragment" style="height:450px;" src="images/junior.jpg" alt="">
 					<aside class="notes">
 						<li>It's a trap door. </li>
 						<li>Once you start functional programming...no one else..understand your code</li>
-						<li>And once no else can understand your code... you have the job security</li>
+						<li>But once you can put a lot of FP code... no one can fire you</li>
+						<li><strong>It's a job security</strong></li>
 					</aside>
 				</section>
 				<section>
@@ -187,29 +199,19 @@
 					<h2>Greatest Mistake</h2>
 					<ul>
 						<li class="fragment">Dizzying number of “functional” characteristics</li>
-						<li class="fragment">Abstract functional techniques</li>
-						<li class="fragment">Composition, pipelining, pure function, side effect</li>
 						<li class="fragment">Lambdas!!!</li>
-						<li class="fragment">Learn Haskell</li>
-					</ul>
-					<br>
-					<br>
-					<p><small>Ref: <a href="https://clojurefun.wordpress.com/2012/08/27/what-defines-a-functional-programming-language/">What is Functional Programming</a></small></p>
-					<aside class="notes">
-						<p>When people talk about functional programming</p>
-					</aside>
-				</section>
-				<section>
-					<h2>What the Func?</h2>
-					<ul>
-						<li class="fragment">Is this only a hype?</li>
-						<li class="fragment">Is it a geeky thing?</li>
+						<li class="fragment"> Learn Haskell</li>
+						<li class="fragment">Is this only a hype or a geeky thing?</li>
 						<li class="fragment">Why it's called functional?</li>
 						<li class="fragment">Is everything else is dysfunctional?</li>
 						<li class="fragment">Why the hell, I  have to ruin my weekend on this?</li>
 					</ul>
 					<br>
+					<br>
+					<p><small>Ref: <a href="https://clojurefun.wordpress.com/2012/08/27/what-defines-a-functional-programming-language/">What is Functional Programming</a></small></p>
 					<aside class="notes">
+						<h2>Greatest Mistake was to google</h2>
+						<p>When people talk about functional programming</p>
 						<h2>Then i realized I have nothing else to do in the weekend...anyway</h2>
 					</aside>
 				</section>
@@ -222,11 +224,15 @@
 				</section>
 				<section>
 					<h2>Learn driving</h2>
-					<img class="fragment" src="images/driving1.png" alt="">
+					<p><img class="fragment" src="images/driving1.png" alt=""></p>
+					<!-- <img style="height:300px" src="images/driving.jpg" alt="" class="fragment"> -->
 					<br>
 					<br>
 					<br>
-					<p><small>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536">So you want to be functional programmer</a></small></p>
+					<p><small>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536">Charles: So you want to be a functional programmer</a></small></p>
+					<aside class="notes">
+						<p>Charles Scalfani</p>
+					</aside>
 				</section>
 				<section>
 					<img src="images/driving2.jpg" alt="">
@@ -243,17 +249,21 @@
 			<section>
 				<section>
 					<h1>Let's Start</h1>
+					<img src="images/start2.jpg" alt="">
 				</section>
 				<section>
-					<h2>One Ground Rule</h2>
+					<h2>Functional Programming</h2>
 					<ul>
 						<li class="fragment">Application evolves around function </li>
-						<li class="fragment">With only one rule: <strong class="danger">No side effect</strong></li>
+						<li class="fragment">With only one ground rule: <strong class="danger">No side effect</strong></li>
 						<li class="fragment">Don’t rely on data outside of the current function</li>
 						<li class="fragment">Don’t change data outside of the current function</li>
 						<li class="fragment">Every other “functional programing” things are derived from this property</li>
 						<li class="fragment">Use this as a guide rope</li>
 					</ul>
+					<br>
+					<br>
+					<p><small>Ref: <a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">Practical Functional Programming</a></small></p>
 					<aside class="notes">
 
 					</aside>
@@ -271,8 +281,8 @@ add(1, 2); // output still is 3
 add(1, 2); // WILL ALWAYS output 3
 					</code></pre>
 					<ul>
-						<li class="fragment">Always produce the same output for same inputs</li>
-						<li class="fragment">Only operate on their input parameters</li>
+						<!-- <li class="fragment">Always produce the same output for same inputs</li>
+						<li class="fragment">Only operate on their input parameters</li> -->
 						<li class="fragment">No side effect</li>
 					</ul>
 				</section>
@@ -320,19 +330,18 @@ openSocket(ipAddress);
 						<li class="fragment">Can't always predict their behavior/output</li>
 						<li class="fragment">All these are <strong>impure function</strong></li>
 						<li class="fragment">They will have <strong>side effect</strong></li>
-						<li class="fragment">Pure functions have no side effects.</li>
 						<li class="fragment">Non FP (c#, java, JS) has tons of these</li>
 						<li class="fragment">Makes a function harder to debug</li>
 					</ul>
 					<aside class="notes">
-						<p>In Imperative Programming Languages such as Javascript, Java, and C#, Side Effects are everywhere. This makes debugging
+						<p>In Imperative Programming Languages such as JavaScript, Java, and C#, Side Effects are everywhere. This makes debugging
 							very difficult because a variable can be changed anywhere in your program. So when you have a bug because a variable
 							is changed to the wrong value at the wrong time, where do you look? Everywhere? That’s not good.</p>
 					</aside>
 				</section>
 				<!-- <section>
 					<h2>Impure function</h2>
-					<p>In Imperative Programming Languages such as Javascript, Java, and C#, Side Effects are everywhere</p>
+					<p>In Imperative Programming Languages such as JavaScript, Java, and C#, Side Effects are everywhere</p>
 					<p class="fragment">This makes debugging very difficult because a variable can be changed anywhere in your program. </p>
 					<p class="fragment">So when you have a bug because a variable is changed to the wrong value at the wrong time, where do you look? Everywhere?
 						That’s not good.</p>
@@ -357,13 +366,12 @@ public int addNumbers(int x, int y) {
 				<section>
 					<h2>Pure Function</h2>
 					<ul>
-						<li class="fragment">Does not change the program's state</li>
-						<li class="fragment">Does not produce an observable side effect</li>
 						<li class="fragment">Output relies solely on input values</li>
-						<li class="fragment">Always return same output for same input</li>
-						<li class="fragment">Indifferent to context</li>
-						<li class="fragment">Highly testable and reusable</li>
 						<li class="fragment">Always produce same output for same inputs.</li>
+						<li class="fragment">Does not produce an observable side effect</li>
+						<li class="fragment">Does not change the program's state</li>
+						<li class="fragment">Highly testable and reusable</li>
+
 					</ul>
 					<aside class="notes">
 						This slide has fragments which are also stepped through in the notes window.
@@ -381,7 +389,7 @@ public int addNumbers(int x, int y) {
 						console.log(myFunc(3)); //13
 						console.log(myFunc(3)); //13
 					</code></pre>
-					<p class="fragment">Pass as paramter</p>
+					<p class="fragment">Pass as parameter</p>
 					<pre class="fragment"><code class="hljs" data-trim>
 						const x = 10;
 						const myFunc = function(x, y){
@@ -393,25 +401,149 @@ public int addNumbers(int x, int y) {
 					</code></pre>
 				</section>
 				<section>
+					<p>Basic Concept-1</p>
+					<h2>Use Pure function</h2>
+				</section>
+				<!-- <section>
 					<h2>Reality</h2>
 					<ul>
 						<li class="fragment">Program will always produce some side effects</li>
-						<li class="fragment">Cannot eliminate Side Effects completey</li>
-						<li class="fragment">You Can only confine them.</li>
-						<li class="fragment">To interface with real world, some parts must be impure.</li>
-						<li class="fragment"> Goal is to minimize the amount of impure code</li>
+						<li class="fragment">Cannot eliminate Side Effects completely</li>
+						<li class="fragment">You can only confine them. minimize them</li>
 						<li class="fragment"> Segregate impure from the rest of the program.</li>
 					</ul>
+					<aside class="notes">
+						<li class="">To interface with real world, some parts must be impure</li>
+					</aside>
+				</section> -->
+			</section>
+			<section>
+				<section>
+					<h1>First Class</h1>
+					<img style="height:450px" src="images/firstClass1.jpg" alt="">
+				</section>
+				<section>
+					<h2>function is first class citizen</h2>
+					<ul>
+						<li class="fragment">Use function as value</li>
+						<li class="fragment">Set function to a variable</li>
+						<li class="fragment">Pass function as parameter</li>
+						<li class="fragment">return function as a value</li>
+					</ul>
+					<pre class="fragment"><code>
+// function expression
+const doubleIt = x => x * 2;
+					</code></pre>
+					<aside class="notes">
+						<p class="danger">So many things are related: first class, higher order, closure... make it simple</p>
+					</aside>
+				</section>
+				<!-- <section>
+					<h2>Higher Order Function</h2>
+					<ul>
+						<li class="fragment">function is a first-class citizen of the language.</li>
+						<li class="fragment">function is just another value.</li>
+						<li class="fragment">Just another value.</li>
+						<li class="fragment">You can pass functions as parameters</li>
+						<li class="fragment">return functions</li>
+						<li class="fragment">Also allows to abstract values and actions </li>
+					</ul>
+					<br>
+					<br>
+					<p><small>ref: <a href="https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99">higher order function</a></small></p>
+					<aside class="notes">
+						<p>In Functional Programming, a function is a first-class citizen of the language</p>
+						<p>Higher Order Functions are functions that accept a function, and/or return a function </p>
+					</aside>
+				</section> -->
+				<section>
+					<h2>Highr order function</h2>
+					<ul>
+						<li>Either take function as argument</li>
+						<li>Or return function</li>
+					</ul>
+					<pre class="fragment hljs javascript"><code>
+function greaterThan(n) {
+  return function(m) {
+    return m > n;
+  };
+}
+					</code></pre>
+					<pre class="fragment hljs javascript"><code data-trim>
+const greaterThan10 = greaterThan(10);
+greaterThan10(11); //true
+greaterThan10(7); //false
+					</code></pre>
+					<pre class="fragment hljs javascript"><code data-trim>
+const greaterThan15 = greaterThan(15);
+greaterThan10(11); //false
+greaterThan10(21); //true
+					</code></pre>
+				</section>
+				<!-- <section>
+					<h2>Closure</h2>
+					<p><small>Impure and mutable version</small></p>
+					<pre class="hljs javascript"><code data-trim>
+function counter(){
+	var count = 0;
+	return function(){
+		return count++;
+	}
+}
+					</code></pre>
+					<pre class="fragment hljs javascript"><code data-trim>
+const myClock = counter();
+myClock(); //0
+myClock(); //1
+myClock(); //2
+myClock(); //3
+				</code></pre>
+				<p class="fragment">Accessing outer scope variable is called <strong>Closure</strong></p>
+				<p><small>ref: <a href="https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99">higher order function</a></small></p>
+				</section> -->
+				<section>
+					<p>Basic Concept-2</p>
+					<h2>Function is First Class</h2>
 				</section>
 			</section>
 			<section>
 				<section>
-					<h1>Immutibility</h1>
+					<h1>Immutability</h1>
 				</section>
 				<section>
 					<img src="images/immutable.png">
 					<aside class="notes">
 						<p>I am programming </p>
+					</aside>
+				</section>
+				<section>
+					<h2>Treat data as Immutable</h2>
+					<ul>
+						<li class="fragment">Immutable is not Mutable</li>
+						<li class="fragment">number, string, boolean are immutable</li>
+						<!-- <li class="fragment">Objects, arrays are mutable</li> -->
+						<li class="fragment">Mutation has side effect</li>
+						<li class="fragment">Less changes means less things to keep track</li>
+						<!-- <li class="fragment">There are libraries to fix this issue <a href="">immutable</a></li> -->
+					</ul>
+					<aside class="notes">
+						<p>string is immutable...you don't feel it as compiler takes care of it</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Global Mutable State</h2>
+					<img src="images/global-mutable-state.png" alt="">
+					<p>Immutability creates simpler and safer code.</p>
+					<br>
+					<br>
+					<p><small>read <a href="https://medium.com/@cscalfani/why-programmers-need-limits-3d96e1a0a6db">Programmer needs limit</a></small></p>
+					<aside class="notes">
+						<p>Did you ever wonder why most solutions to program glitches are fixed by rebooting your computer or restarting the offending application? That’s because of state. The program has corrupted its state.</p>
+						<p>Did you ever wonder why most solutions to program glitches are fixed by rebooting your computer or restarting the offending application? That’s because of state. The program has corrupted its state.</p>
+						<p>One obvious benefit is that if you have access to a value in your program, you only have read access, which means that
+							no one else can change that value. Even you. So no accidental mutations.</p>
+						<p>Also, if your program is multi-threaded, then no other thread can pull the rug out from under you. That value is constant
+							and if another thread wants to change it, it’ll have create a new value from the old one.</p>
 					</aside>
 				</section>
 				<section>
@@ -421,10 +553,10 @@ var x = 1;
 x = x + 1;
 					</code></pre>
 					<ul>
-						<li class="fragment">In math, x can never be equal to x + 1</li>
 						<li class="fragment">It's permitted in Imperative Programming</li>
+						<li class="fragment">In math, x can never be equal to x + 1</li>
 						<li class="fragment">In functional programming, x = x + 1 is illegal</li>
-						<li class="fragment">There are no variables in Functional Programming</li>
+						<li class="fragment">There are <strong class="danger">no variables</strong> in Functional Programming</li>
 						<li class="fragment">Stored values are still called variables because of history but they are constants</li>
 						<li class="fragment">Once x takes on a value, it’s that value for life</li>
 					</ul>
@@ -436,8 +568,9 @@ x = x + 1;
 					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
 						&ldquo;HOW THE HELL AM I SUPPOSED TO DO ANYTHING WITHOUT VARIABLES?!&rdquo;
 					</blockquote>
+					<p class="fragment">Just create a new variable</p>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>Example</h2>
 					<pre class="hljs"><code>
 function addOneTOSum(y , z){
@@ -461,7 +594,7 @@ function addOneTOSum(y , z){
 					<br>
 					<br>
 					<ul>
-						<li class="fragment">Doesn't change value, rather create a new varialbe</li>
+						<li class="fragment">Doesn't change value, rather create a new variable</li>
 						<li class="fragment">If values in record changes, create a new copy</li>
 						<li class="fragment">Leverage Uses data structure underneath it to make it efficient: <span class="danger">Research how</span></li>
 					</ul>
@@ -471,14 +604,14 @@ function addOneTOSum(y , z){
 							Functional programming solves the single-valued change in exactly the same way, by making a copy of it. Oh, yes and
 							by not having loops.</p>
 					</aside>
-				</section>
+				</section>-->
 				<section>
 					<h2>Immutability in JS</h2>
 					<pre class="hljs javascript"><code>
 const a = 1;
 a = 2; // will throw error
 					</code></pre>
-					<pre class="hljs javascript"><code>
+					<pre class="hljs javascript"><code data-trim>
 const a = {
     x: 1,
     y: 2
@@ -489,14 +622,15 @@ a = {};  // will throw error
 a.x = 2; // NO EXCEPTION!
 					</code></pre>
 					<p class="fragment">Avoid Object and array mutation</p>
+					<p class="fragment"><code>Object.freeze</code> only freezes one level down</p>
 					<p><small>Use: <a href="https://facebook.github.io/immutable-js/"> Immutable.js</a></small></p>
 					<aside class="notes">
 						<p>Here a is defined to be a constant and therefore cannot be changed once set. This is why a = 2 throws an exception</p>
-						<p>The problem with const in Javascript is that it doesn’t go far enough. The following example illustrates its limits:</p>
+						<p>The problem with const in JavaScript is that it doesn’t go far enough. The following example illustrates its limits:</p>
 						<p>Notice how a.x = 2 does NOT throw an exception. The only thing that’s immutable with the const keyword is the variable
 							a. Anything that a points to can be mutated.</p>
 						<p>Unfortunately, we can only do so via a library called Immutable.js. This may give us better immutability but sadly,
-							it does so in a way that makes our code look more like Java than Javascript.</p>
+							it does so in a way that makes our code look more like Java than JavaScript.</p>
 					</aside>
 				</section>
 				<section>
@@ -514,7 +648,7 @@ console.log(sum); // prints 55
 						“WHAT NO VARIABLES AND NOW NO LOOPS?! I HATE YOU!!!”
 					</blockquote>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>Looping in JavaScript</h2>
 					<pre class="hljs javasript"><code>
 var sum = 0;
@@ -532,77 +666,46 @@ function sumRange(start, end, sum) {
 console.log(sumRange(1, 10, 0)); // prints 55
 					</code></pre>
 					<aside class="notes">
-						<h2>Two ways to lopping in javascript</h2>
+						<h2>Two ways to lopping in javaScript</h2>
 						<p>Notice how recursion, the functional approach, accomplishes the same as the for loop by calling itself with a new start
 							(start + 1) and a new accumulator (acc + start). It doesn’t modify the old values. Instead it uses new values calculated
 							from the old.</p>
 						<p>You’re probably thinking that for loops are easier to understand. While that’s debatable and more likely an issue of
 							familiarity, non-recursive loops require Mutability, which is bad.</p>
 					</aside>
-				</section>
-				<section>
-					<h2>Treat data as Immutable</h2>
-					<ul>
-						<li class="fragment">Immutable is not Mutatable</li>
-						<li class="fragment">number, string, boolean are immutable</li>
-						<li class="fragment">Objects, arrays are mutable</li>
-					</ul>
-					<aside class="notes">
-						<p>Ask who can tell the definition of immutable will get a prize. and then reveal the first line</p>
-					</aside>
-				</section>
-				<section>
-					<h2>Why you would like to avoid mutation</h2>
-					<ul>
-						<li class="fragment">Mutation has side effect</li>
-						<li class="fragment">Less changes means less things to keep track</li>
-						<li class="fragment"><code>Object.freeze</code></li>
-						<li class="fragment">Object.freeze only freezes one level down</li>
-						<li class="fragment">There are libraries to fix this issue <a href="">immutable</a></li>
-					</ul>
-				</section>
-				<section>
-					<h2>Global Mutable State</h2>
-					<img src="images/global-mutable-state.png" alt="">
-					<p>Immutability creates simpler and safer code.</p>
-					<br>
-					<br>
-					<p><small>read <a href="https://medium.com/@cscalfani/why-programmers-need-limits-3d96e1a0a6db">Programmer needs limit</a></small></p>
-					<aside class="notes">
-						<p>Did you ever wonder why most solutions to program glitches are fixed by rebooting your computer or restarting the offending application? That’s because of state. The program has corrupted its state.</p>
-						<p>Did you ever wonder why most solutions to program glitches are fixed by rebooting your computer or restarting the offending application? That’s because of state. The program has corrupted its state.</p>
-						<p>One obvious benefit is that if you have access to a value in your program, you only have read access, which means that
-							no one else can change that value. Even you. So no accidental mutations.</p>
-						<p>Also, if your program is multi-threaded, then no other thread can pull the rug out from under you. That value is constant
-							and if another thread wants to change it, it’ll have create a new value from the old one.</p>
-					</aside>
-				</section>
+				</section> -->
+
 			</section>
 			<section>
 				<section>
 					<h1>Looping</h1>
+					<img style="height:450px;" src="images/loop2.jpg" alt="">
 				</section>
 				<section>
 					<h2>Iterate over lists</h2>
 					<pre class="hljs javascript"><code>
-let tasks = ['coding', 'drink coffee', 'hide from manager'];
+let tasks = ['write code', 'drink coffee', 'hide from manager'];
 					</code></pre>
-					<pre class="hljs javascript fragment"><code>
-let lengths = [];
-
-for (let i = 0; i < tasks.length; i++){
-  lengths.push(tasks[i].length);
-}
-console.log(lengths); //[6, 12, 17]
-					</code> </pre>
 					<pre class="hljs fragment"><code  data-trim>
-const lengths = tasks.map(task => task.length);
+const lengths = tasks.map(word => word.length);
 
-console.log(lengths); // [6, 12, 17]
+console.log(lengths); // [10, 12, 17]
 					</code> </pre>
+					<pre class="hljs fragment"><code data-trim>
+const getLength = word => word.length;
+
+tasks.map(getLength);
+meals.map(getLength);
+					</code> </pre>
+					<pre class="fragment javascript"><code class="hljs" data-trim>
+const doubleIt = x => x*2;
+
+tasks.map(getLength).map(doubleIt);
+					</code></pre>
 					<br>
 					<p><small><a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">use map</a></small></p>
 					<aside class="notes">
+						<h2>You focus on functionality</h2>
 						<ul>
 							<li>declare far fewer variables</li>
 							<li class="">Map takes a function</li>
@@ -612,35 +715,16 @@ console.log(lengths); // [6, 12, 17]
 							<li class="">inserts each return value into the new collection</li>
 							<li class="">It returns the new collection</li>
 						</ul>
+						<h2>Reuse and chain</h2>
 					</aside>
-				</section>
-				<section>
-					<h2>Reuse and chain</h2>
-					<pre class="hljs"><code>
-const getLength = word => word.length;
-
-const meals = ['jimmy jhons', 'jimmy jhons', 'jimmy jhons'];
-const mealLengths = tasks.map(getLength);
-console.log(mealLengths); // [11, 11, 11]
-					</code> </pre>
-					<pre class="hljs fragment"><code>
-const getLength = word => word.length;
-const doubleIt = x => x*2;
-
-const tasks = ['coding', 'drink coffee', 'hide from manager'];
-
-const lengths = tasks.map(getLength).map(doubleIt);
-
-console.log(lengths); // [12, 24, 34]
-					</code> </pre>
 				</section>
 				<section>
 					<h2>Filter</h2>
 					<pre class="hljs javascript"><code data-trim>
-var numbers = [1, 2, 3, 4];
-var newNumbers = [];
+const numbers = [1, 2, 3, 4];
+let newNumbers = [];
 
-for(var i = 0; i < numbers.length; i++) {
+for(let i = 0; i < numbers.length; i++) {
     if(numbers[i] % 2 !== 0) {
         newNumbers[i] = numbers[i] * 2;
     }
@@ -653,17 +737,16 @@ const numbers = [1, 2, 3, 4];
 const odd = n => n % 2;
 const double = x => x * 2;
 
-var newNumbers = numbers.filter(odd).map(double);
-
-console.log(newNumbers); // [2, 6]
+const newNumbers = numbers.filter(odd).map(double);
 					</code></pre>
-					<p>ref: <a href="http://cryto.net/~joepie91/blog/2015/05/04/functional-programming-in-javascript-map-filter-reduce/">here</a></p>
+					<br>
+					<p><small>Ref: <a href="http://cryto.net/~joepie91/blog/2015/05/04/functional-programming-in-javascript-map-filter-reduce/">map, filter, reduce</a></small></p>
 				</section>
 				<section>
 					<h2>Reduce</h2>
 					<ul>
 						<li class="fragment">Reduce (aka: fold, accumulate)</li>
-						<li class="fragment">takes a reducer function and an initial value</li>
+						<li class="fragment">Takes a reducer function and an initial value</li>
 						<li class="fragment">returns the accumulated value</li>
 					</ul>
 					<br>
@@ -673,7 +756,14 @@ const numbers = [0, 1, 2, 3];
 const sum = numbers.reduce(function(acc, val) {
   return acc + val;
 }, 0);
-// sum is 6
+					</code></pre>
+					<pre class="hljs javascript fragment"><code data-trim>
+const numbers = [0, 1, 2, 3];
+const accumulator = (num, sum) => num + sum;
+
+const sum = numbers.reduce(accumulator, 0);
+
+console.log(sum);
 					</code></pre>
 					<br>
 					<p><small>ref: <a href="https://medium.com/javascript-scene/reduce-composing-software-fe22f0c39a1d">reduce</a></small></p>
@@ -686,16 +776,13 @@ const sum = numbers.reduce(function(acc, val) {
 				</section>
 				<section>
 					<h2>Reduce is very useful</h2>
-					<pre><code>
+					<pre class="hljs javascript"><code>
 var list1 = [[0, 1], [2, 3], [4, 5]];
 var list2 = [0, [1, [2, [3, [4, [5]]]]]];
 
-const flatten = arr => arr.reduce(
-  (acc, val) => acc.concat(
-    Array.isArray(val) ? flatten(val) : val
-  ),
-  []
-);
+const flatten = arr => arr.reduce((acc, val) =>
+	acc.concat(Array.isArray(val) ? flatten(val) : val), []);
+
 flatten(list1); // returns [0, 1, 2, 3, 4, 5]
 flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 					</code></pre>
@@ -706,10 +793,16 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 						<li class="fragment">Structure for looping always same</li>
 						<li class="fragment">Map, reduce, filter take care of the repeating parts</li>
 						<li class="fragment">Reduce typing- reduce chances of error</li>
-						<li class="fragment">the important parts of the iteration - the collection, the operation and the return value - are always in the same
-							places in every map and reduce.</li>
-						<li class="fragment">It’s throwing some of the transformations away. It’s combining the remainder into a single output.</li>
+						<li class="fragment">Focus on the important parts of the iteration: <strong>the operation</strong> </li>
+
 					</ul>
+					<aside class="notes">
+						<li class="">It’s throwing some of the transformations away. It’s combining the remainder into a single output.</li>
+					</aside>
+				</section>
+				<section>
+					<p>Basic Concept-3</p>
+					<h2>Data is Immutable</h2>
 				</section>
 			</section>
 			<section>
@@ -720,84 +813,61 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 					<h2>So far</h2>
 					<ul>
 						<li class="fragment">Functional programming means: a lot functions</li>
+						<li class="fragment">Not just functions but <strong>pure functions</strong></li>
+						<li class="fragment">With only one ground rule: <strong class="danger">No side effect</strong></li>
 						<li class="fragment">Avoid shared state, mutable data, and side-effects</li>
-						<li class="fragment">Build software by composing pure functions</li>
 						<li class="fragment">Immutable: No variable, only constant</li>
 						<li class="fragment">No looping: use map, filter, reduce</li>
+						<li class="fragment">Give repeating tasks to the compiler</li>
 					</ul>
 					<br>
 					<br>
-					<ul>
-						<li class="fragment">more concise, more predictable way of thinking</li>
-					</ul>
+					<!-- <ul>
+						<li class="fragment">Become more concise, more predictable way of thinking</li>
+					</ul> -->
 					<aside class="notes">
+						<p>instead of creating a for-loop with an iterator variable and marching through an array doing something to each cell</p>
 						<h2>So, we learn the basic</h2>
 						<p>Now drive into common patterns in Functional Programming</p>
 					</aside>
 				</section>
 				<section>
-					<h2>Sleep Finder</h2>
+					<h2>Three basic Rules</h2>
+					<ol>
+						<li class="fragment">No Side Effect</li>
+						<li class="fragment">Function is first class citizen</li>
+						<li class="fragment">Data is Immutable</li>
+					</ol>
+				</section>
+				<section>
+					<h2>Find the napper</h2>
+					<img style="height: 400px;" src="images/nap.jpg">
+					<br>
 					<ul>
-						<li>ask a question</li>
+						<li class="fragment">Who was in the image "Fully Lost?"</li>
 					</ul>
+				</section>
+				<section>
+					<img src="images/lost4.jpg" alt="">
 				</section>
 			</section>
 			<section>
+				<h1>Patterns and Techniques</h1>
+				<p>Used in Functional Programming</p>
+			</section>
+			<section>
 				<section>
-					<h1>First Class</h1>
-					<img style="height:500px" src="images/firstClass1.jpg" alt="">
+					<h1>Warning</h1>
 				</section>
 				<section>
-					<h2>function is first class citizen</h2>
+					<h2 class="danger"><strong>WARNING</strong></h2>
 					<ul>
-						<li>pass function</li>
-						<li>return function</li>
-						<li>assign a type</li>
+						<li class="">Everything you know has a obscure name</li>
+						<li class="fragment">There are <strong>harder alternatives</strong> to simple things</li>
+						<li class="fragment">Nerd means living dictionary of <strong>Jargons</strong></li>
 					</ul>
-					<p class="fragment">Also known as: Higher Order Function</p>
-					<p class="danger">So many things here: first class, higher order, closure... make it simple</p>
-					<aside class="notes">
-						<p></p>
-					</aside>
+					<!-- <img class="fragment" src="images/warning.png"></img> -->
 				</section>
-				<section>
-					<h2>Higher Order Function</h2>
-					<ul>
-						<li class="fragment">function is a first-class citizen of the language.</li>
-						<li class="fragment">function is just another value.</li>
-						<li class="fragment">Just another value.</li>
-						<li class="fragment">You can pass functions as parameters</li>
-						<li class="fragment">return functions</li>
-						<li class="fragment">Also allows to abstract values and actions </li>
-					</ul>
-					<br>
-					<br>
-					<p><small>ref: <a href="https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99">higher order function</a></small></p>
-					<aside class="notes">
-						<p>In Functional Programming, a function is a first-class citizen of the language</p>
-						<p>Higher Order Functions are functions that accept a function, and/or return a function </p>
-					</aside>
-				</section>
-				<section>
-					<h2>Higher Order Function</h2>
-					<pre><code>
-function counter(){
-	var count = 0;
-	return function(){
-		return count++;
-	}
-}
-					</code></pre>
-					<pre class="fragment"><code>
-const myClock = counter();
-myClock(); //0
-myClock(); //1
-myClock(); //2
-myClock(); //3
-				</code></pre>
-				<p class="fragment">This is also known as Closure</p>
-				</section>
-				<p></p>
 			</section>
 			<section>
 				<section>
@@ -805,18 +875,20 @@ myClock(); //3
 					<img src="images/composition1.jpeg" alt="">
 				</section>
 				<section>
-					<h2>Back to High school</h2>
-					<pre class="fragment"><code>
-f(x) = 2x + 3
-
+					<p>f(x) = 2x + 3</p>
+					<pre class="fragment"><code data-trim>
 f(7) = 2 * 7 + 3
+     = 14 + 3
+     = 17
 					</code></pre>
 					<p class="fragment">g(x) = x <sup>2</sup> + 1</p>
+					<pre class="fragment"><code data-trim>
+						g(2) = 2 * 2 + 1
+						     = 4 + 1
+						     = 5
+					</code></pre>
 					<p class="fragment">What is the value of f(g(x)) ?</p>
-					<pre class="fragment"><code>
-g(2) = 2 * 2 + 1
-     = 5
-
+					<pre class="fragment"><code data-trim>
 f(g(2)) = f(5)
         = 2 * 5 + 3
         = 10 + 3
@@ -832,64 +904,73 @@ f(g(2)) = f(5)
 						<li>What you saw as f(g(x))</li>
 						<li class="fragment">f ∘ g (read as f of g)</li>
 						<li class="fragment">f after g</li>
-						<li class="fragment">g(x) inside f(x)...inside executes first</li>
 						<li class="fragment">calling f after calling g with x</li>
 						<li class="fragment">or simply: <strong>f composed with g</strong></li>
 					</ul>
+					<p class="fragment">g(x) inside f(x)...inside executes first</p>
 					<br>
 					<br>
 					<p><small>Khan Academy: <a href="https://www.khanacademy.org/math/algebra2/manipulating-functions/funciton-composition/v/function-composition">function composition</a></small></p>
 				</section>
 				<section>
-					<h2>You are using this</h2>
-					<pre><code>
-var add10 = function(x) {
-    return x + 10;
-};
-var mult5 = function(x) {
-    return x * 5;
-};
-					</code></pre>
+					<h2>Wait! it's not new</h2>
 					<pre class="fragment"><code>
-const add10 = x => x + 10;
 const mult5 = x => x * 5;
+const add10 = x => x + 10;
 					</code></pre>
-					<pre class="fragment"><code>
-const mult5AfterAdd10 = x => mult5(add10(value));
+					<pre class="fragment hljs"><code>
+const mult5AfterAdd10 = x => mult5(add10(x));
 					</code></pre>
-					<h4 class="fragment">g(f(x))</h4>
+					<h4 class="fragment">f(g(x))</h4>
+					<aside class="notes">
+						<p>What we’ve done in this case is manually compose these two functions together in a particular order. We created a new function that first assigns the value being passed to a holder variable, then updates the value of that variable by executing the first function, and then the second function, and finally returns the value of that holder.</p>
+					</aside>
 				</section>
 				<section>
 						<h2>Function Composotion</h2>
-					<pre><code class="hljs javascript" data-trim>
-						const add10 = x =>  x + 10;
-
-						const mult5 = x =>  x * 5;
-					</code></pre>
-					<pre class="fragment"><code data-trim>
+					<pre class="fragment1"><code data-trim>
 						var compose = function(f, g) {
 						  return function(x) {
 						    return f(g(x));
 						  };
 						};
-
-						const mult5AfterAdd10 = compose(add10, mult5);
 					</code></pre>
-					<pre class="hljs javascript fragment"><code>
-multmult5AfterAdd10(5); //35
+					<pre class="fragment"><code class="hljs javascript " data-trim>
+const mult5 = x =>  x * 5;
+const add10 = x =>  x + 10;
+
+const mult5AfterAdd10 = compose(add10, mult5);
+mult5AfterAdd10(5); //35
 					</code></pre>
 					<p class="fragment">executes <strong>right to left</strong></p>
 					<p class="fragment"> Direction matters</p>
 					<br>
 					<p><small>ref: <a href="https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch5.html#functional-husbandry">Coding by composing</a></small></p>
 					<aside class="notes">
-						<p>f and g are functions and x is the value being "piped" through them. </p>
+						<p>Though left to right would be easy to read in english</p>
+						<p><strong>Why Right to left:</strong>Pass in all of the configuration first, and pass the value(s) to be operated on last. Because of this, it makes the most sense to define our compose function to read in its arguments and apply them from right to left.</p>
 						<p>The composition of two functions returns a new function. This makes perfect sense: composing two units of some type (in this case function) should yield a new unit of that very type. You don't plug two legos together and get a lincoln log. There is a theory here, some underlying law that we will discover in due time.</p>
 						In our definition of compose, the g will run before the f, creating a right to left flow of data.
 					</aside>
 				</section>
 				<section>
-					<img src="images/composition.png" alt="">
+					<h2>Another Example</h2>
+					<pre><code>
+const split = str => str.split(' ');
+const length = itmes => items.length;
+
+const wordCount = compose(length, split);
+wordCount('There are seven words in this sentense'); //7
+					</code></pre>
+					<ul>
+						<li class="fragment">Partially apply split first</li>
+						<li class="fragment">While performing split we are waiting for length</li>
+						<li class="fragment">split does it works and then pass it to length</li>
+						<!-- <li class="fragment">Curried function is partially applied</li> -->
+					</ul>
+					<aside class="notes">
+						<p>Giving you another example so that you keep it in your head</p>
+					</aside>
 				</section>
 				<section>
 					<h2>Elm example</h2>
@@ -912,76 +993,47 @@ f x = (g << h << s << r << t) x
 					</aside>
 				</section>
 				<section>
-					<h2> Why Composition?</h2>
-					<p class="danger">Complete this thinking</p>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h1>Point Free</h1>
-					<img src="images/free.png" alt="">
-				</section>
-				<section>
-					<h2>Point free notation</h2>
-					<pre class="fragment"><code data-trim>
-const toUpperCase = str => str.toUpperCase();
-const head =  x => x[0];
-const compose = (f, g)  => x => f(g(x));
-
-//not pointfree because we mention the data: name
-var initials = function(name) {
-  return name.split(' ').map(compose(toUpperCase, head)).join('. ');
-};
-					</code></pre>
-					<pre class="fragment"><code data-trim>
-						//pointfree
-						var initials = compose(join('. '), map(compose(toUpperCase, head)), split(' '));
-
-						initials("hunter stockton thompson");
-						// 'H. S. T'
-					</code></pre>
-					<br>
-					<p><small> Ref <a href="http://lucasmreis.github.io/blog/pointfree-javascript/">this</a> and <a href="https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch5.html#pointfree">this as well</a></small></p>
-				</section>
-				<section>
-					<h2>Two parameters pain</h2>
-					<pre class="hljs"><code>
-add x y =
-    x + y
-mult5 value =
-    value * 5
-					</code></pre>
-					<pre><code>
-var mult5AfterAdd10 = mult5(add(10)); // this doesn't work
-						</code></pre>
-					<pre class="hljs fragment"><code>
-var mult5AfterAdd10 = y => mult5(add(10, y)); // not point-free
-						</code></pre>
-						<p class="fragment highlight-red">It's not throwing error</p>
-						<p>Read more, research more about it</p>
+					<h2> Why Composition</h2>
+					<ul>
+						<li>Put multiple functions together to get one function</li>
+						<li>Moves right to left</li>
+						<li class="fragment">each step sequentially processing it before handing it to the next</li>
+						<li class="fragment">Encourages factoring (breaking apart) for maintainability and code reuse</li>
+						<li class="fragment">Cleans up nesting</li>
+					</ul>
+					<aside class="notes">
+						<p>Since you can put together...to compose... you can break apart next</p>
+						<p>The ability to easily compose functions encourages factoring (breaking apart) functions for maintainability and code reuse. More generally, big systems might be built by composing whole programs.</p>
+						<p>function composition applies to functions that operate on a finite amount of data, each step sequentially processing it before handing it to the next.</p>
+					</aside>
 				</section>
 			</section>
 			<section>
 				<section>
 					<h1>Currying</h1>
-					<img src="images/currying.png" alt="">
+					<img style="height: 300px;" src="images/curry.png" alt="">
 					<br>
-					<p><small>ref: <a href="https://en.wikipedia.org/wiki/Haskell_Curry">Haskell Brooks Curry</a></small></p>
+					<p><small>Ref: <a href="https://en.wikipedia.org/wiki/Haskell_Curry">Haskell Brooks Curry</a></small></p>
 				</section>
 				<section>
-					<h2>Currying</h2>
+					<h3>Currying</h3>
 					<ul>
 						<li class="fragment">Call a function with one parameter at a time</li>
 						<li class="fragment">Returns a function that takes second parameter</li>
 						<li class="fragment">arguments are taken by a series of one-argument</li>
-						<pre class="fragment javascript"><code>
+						<pre class="fragment javascript"><code data-trim>
 const sum3 = (x, y, z) => x + y + z;
-
 sum3(1,2,3); //6
 						</code></pre>
-						<pre class="fargment"><code>
+						<pre class="fragment"><code data-trim>
+function sum3(x){
+	return function (y){
+		return function (z){
+			return x + y + z;
+		}
+	}
+}
 const currySum3 = x => y => z => x + y + z;
-
 currySum3(1)(2)(3); //= 6
 						</code></pre>
 					</ul>
@@ -1002,8 +1054,8 @@ currySum3(1)(2)(3); //= 6
 						<p>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-4-18fbe3ea9e49">part4</a></p>
 					</aside>
 				</section>
-				<section>
-					<h2>Curried Function</h2>
+				<!-- <section>
+					<h3>Curried Function</h3>
 					<pre class="fragment"><code data-trim>
 function sum3(x){
 	return function (y){
@@ -1031,11 +1083,33 @@ console.log(third); // 6
 							add will get its second parameter.</p>
 						<p>This version of add is a function that takes one parameter now and then another one later.</p>
 					</aside>
-				</section>
+				</section> -->
 				<section>
-					<h1 class="danger">Is currying not pure function</h1>
+					<h2>Why Curry?</h2>
+					<pre class="hljs javascript"><code data-trim>
+const modulo = divisor => divident => divident % divisor;
+
+modulo (3, 9); //0
+					</code></pre>
+					<pre class="fragment hljs javascript"><code data-trim>
+const isOdd = modulo(2);
+
+isOdd(6); //0
+
+isOdd(5); //1
+					</code></pre>
+					<ul>
+						<li class="fragment">Make reusable generic function</li>
+						<li class="fragment">Build new function by applying args</li>
+						<li class="fragment">Partially applied for higher order function</li>
+						<li class="fragment">Make types "line up" for composition</li>
+					</ul>
+					<p><small>Ref: <a href="https://softwareengineering.stackexchange.com/q/185585">advantages of currying</a></small></p>
+					<aside class="notes">
+						<p>We created functionality by giving functionality</p>
+					</aside>
 				</section>
-				<section>
+				<!--<section>
 					<h2>Promise is currying</h2>
 					<p class="dangser">Is pormise is curry?</p>
 					<pre class="fragment"><code data-trim>
@@ -1046,7 +1120,7 @@ console.log(third); // 6
 					</code></pre>
 					<p><small><a href="https://github.com/learn-javascript-courses/javascript-questions/issues/7">Is Currying Advantageours</a></small></p>
 				</section>
-				<!-- <section>
+				 <section>
 					<h2></h2>
 					<p>Now we can use this version of add to build a working version of mult5AfterAdd10:</p>
 					<pre><code>
@@ -1110,13 +1184,195 @@ const mult5AfterAdd10 = R.compose(R.multiply(5), R.add(10));
 				</section> -->
 			</section>
 			<section>
-				<h2>Recursion</h2>
-				<p>Recursion is heavily used in functional programming as it is the canonical and often the only way to iterate. Functional
-					language implementations will often include tail call optimisation to ensure that heavy recursion does not consume excessive
-					memory.
-				</p>
-				<p>check this slide: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-30">here</a></p>
+				<section>
+					<h1>Point Free</h1>
+					<img src="images/free.png" alt="">
+				</section>
+				<section>
+					<h2>Point Free Programming</h2>
+					<ul>
+						<li>Also known as <strong>Tacit Programming</strong></li>
+						<li class="fragment">function deifinition does not include arguments</li>
+						<li class="fragment">Uses combinators and function composition instead of variable</li>
+					</ul>
+					<br>
+					<br>
+					<p><small>Ref: <a href="http://randycoulman.com/blog/2016/06/21/thinking-in-ramda-pointfree-style/">Think point free</a></small></p>
+					<aside class="notes">
+						<p>For simpilicty you can thik point is argument. Hence point free is argument free</p>
+						<h2>Why point free</h2>
+						<ul>
+							<li>You focus on how rather than what</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
+					<h2>Point free notation</h2>
+					<pre class="fragment"><code data-trim>
+const toUpperCase = str => str.toUpperCase();
+const head =  x => x[0];
+const compose = (f, g)  => x => f(g(x));
+
+//not pointfree because we mention the data: name
+var initials = function(name) {
+  return name.split(' ').map(compose(toUpperCase, head)).join('. ');
+};
+					</code></pre>
+					<pre class="fragment"><code data-trim>
+						//pointfree
+						var initials = compose(join('. '), map(compose(toUpperCase, head)), split(' '));
+
+						initials("that js dude");
+						// 'T. J. D'
+					</code></pre>
+					<br>
+					<p class="danger">Why would you use point free?</p>
+					<p><small> Ref <a href="http://lucasmreis.github.io/blog/pointfree-javascript/">this</a> and <a href="https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch5.html#pointfree">this as well</a> or <a href="http://lucasmreis.github.io/blog/pointfree-javascript/">this</a>
+					</small></p>
+					<aside class="notes">
+						<p> defining functions without ever making direct reference to their arguments.</p>
+					</aside>
+				</section>
+				<!-- <section>
+					<h2>Two parameters pain</h2>
+					<pre class="hljs"><code>
+add x y =
+    x + y
+mult5 value =
+    value * 5
+					</code></pre>
+					<pre><code>
+var mult5AfterAdd10 = mult5(add(10)); // this doesn't work
+						</code></pre>
+					<pre class="hljs fragment"><code>
+var mult5AfterAdd10 = y => mult5(add(10, y)); // not point-free
+						</code></pre>
+						<p class="fragment highlight-red">It's not throwing error</p>
+						<p>Read more, research more about it</p>
+				</section> -->
 			</section>
+			<!-- <section>
+				<section>
+					<h1>Recursion</h1>
+					<p>Put inside tail call opt</p>
+				</section>
+				<section>
+					<h2>Recursion</h2>
+					<p>Recursion is heavily used in functional programming as it is the canonical and often the only way to iterate. Functional
+						language implementations will often include tail call optimization to ensure that heavy recursion does not consume excessive
+						memory.
+					</p>
+					<p>check this slide: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-30">here</a></p>
+					<pre><code data-trim>
+						//1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
+						function fibonacci(num) {
+						  if (num <= 1) return 1;
+						  return fibonacci(num - 1) + fibonacci(num - 2);
+						}
+					</code></pre>
+					<pre class="fragment"><code data-trim>
+					</code></pre>
+					<aside class="notes">
+					<p>There are many reasons that functional programmers prefer recursion, but one very simple one is that recursive functions are often much more elegant than their iterative cousins. It's easier to reason about them.</p>
+					<p>Unfortunately, they often don't perform as well. All the overhead of creating stack contexts for function calls tends to add up. But certain kinds of recursive calls can be easily optimized.</p>
+					</aside>
+				</section>
+				<section>
+					<p><small>Ref: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-34">Tail call formulation</a></small></p>
+				</section>
+			</section> -->
+			<section>
+				<section>
+					<h1>Tail call Optimization</h1>
+					<img style="height:300px;" src="images/tail3.jpg" alt="">
+				</section>
+				<section>
+					<h2>Tail call optimization</h2>
+					<ul>
+						<li>A tail call is a function call that is the last action of a function</li>
+						<li class="fragment">Smart compiler recognizes tail calls and reuses the same call frame</li>
+						<li class="fragment">When calling function will simply return the value that it gets from the called function</li>
+						<li class="fragment">The most common use is tail-recursion</li>
+						<li class="fragment">Optimized to use constant stack space</li>
+						<li class="fragment">Can happen for non-recursive case as well</li>
+					</ul>
+					<!-- <p>if you write recursive functions with tail calls, the limits of the call stack will never be exceeded by them as it will reuse the same frame over and over</p> -->
+					<br>
+					<br>
+					<p><small>Ref: <a href="http://stackoverflow.com/questions/310974/what-is-tail-call-optimization">Tail call optimization</a></small></p>
+					<aside class="notes">
+						<p><strong>tail-recursive</strong> means main recursive calls it makes are in tail positions.</p>
+						<p>Tail-call optimization is where you are able to avoid allocating a new stack frame for a function because the calling function will simply return the value that it gets from the called function. The most common use is tail-recursion, where a recursive function written to take advantage of tail-call optimization can use constant stack space.</p>
+						<p><strong>A tail call is a subroutine call performed as the final action of a procedure</strong></p>
+						<p>A tail call is a function call that is the last action of a function. Tail call optimization is when the language compiler recognizes tail calls and reuses the same call frame for them. This means that if you write recursive functions with tail calls, the limits of the call stack will never be exceeded by them as it will reuse the same frame over and over.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>tail call</h2>
+					<pre><code>
+//Both f() and g() are in tail position
+const a = x => x ? f() : g();
+					</code></pre>
+					<pre class="fragment hljs javascript"><code>
+// g() is in a tail position
+const a = () => f() || g();
+
+const a = () => f() && g();
+					</code></pre>
+					<p><small>Ref: <a href="http://2ality.com/2015/06/tail-call-optimization.html">Tail call optimization ES6</a></small></p>
+				</section>
+				<!-- <section>
+					<pre><code>
+const factorial = function ( n, base ) {
+  if ( n === 0 ) {
+    return base;
+  }
+  base *= n;
+  return factorial( n - 1, base );
+};
+
+console.log(factorial( 10, 1 )); // 3628800
+					</code> </pre>
+				</section>
+				<section>
+					<p><a href="http://2ality.com/2015/06/tail-call-optimization.html">read this</a></p>
+					<p><a href="http://benignbemine.github.io/2015/07/19/es6-tail-calls/">read this</a></p>
+					<p><a href="https://taylodl.wordpress.com/2013/06/07/functional-javascript-tail-call-optimization-and-trampolines/">or this</a></p>
+				</section>
+				<section>
+					<pre><code class="hljs" data-trim contenteditable>
+						'use strict';
+						function fibonacci(len) {
+						  function recur(len, origLen, oldVal, newVal) {
+						    if(len == origLen)
+						      return oldVal + newVal;
+
+						    return recur(len + 1, origLen, newVal, oldVal + newVal);
+						  }
+
+						  return recur(1, len, 0, 1);
+						}
+
+						console.log(fibonacci(27));
+					</code></pre>
+				</section>
+				<section>
+					<p>also look at this slide: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-34">here</a></p>
+				</section>
+				<section>
+					<p><a href="http://wiki.c2.com/?TailCallOptimization">another</a></p>
+				</section> -->
+			</section>
+			<!-- <section>
+				<h1>Trampolines in JavaScript</h1>
+				<a href="http://raganwald.com/2013/03/28/trampolines-in-javascript.html">here</a>
+			</section>
+			<section>
+				<section>
+					<h2>Execution order</h2>
+					<p>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-5-c70adc9cf56a">Not so good here: but you can use it</a></p>
+				</section>
+			</section> -->
 			<section>
 				<section>
 					<h1>Pipelines</h1>
@@ -1133,7 +1389,7 @@ const mult5AfterAdd10 = R.compose(R.multiply(5), R.add(10));
 					</ul>
 					<br>
 					<br>
-					<p><small>ref: <a href="https://martinfowler.com/articles/collection-pipeline/">Martin Fowler: Collection piplelines</a></small></p>
+					<p><small>ref: <a href="https://martinfowler.com/articles/collection-pipeline/">Martin Fowler: Collection pipelines</a></small></p>
 					<aside class="notes">
 						<p>Each operation takes a collection as an input and emits another collection (except the last operation, </p>
 						<p>The individual operations are simple, but you can create complex behavior by stringing together</p>
@@ -1145,10 +1401,9 @@ const mult5AfterAdd10 = R.compose(R.multiply(5), R.add(10));
 				</section>
 				<section>
 					<h2>Pipelines in Unix</h2>
-					<p class="fragment">
+					<p class="">
 						 find all bliki entries that mention "nosql" in the text
 					</p>
-					<p class="danger">change bliki</p>
 					<pre class="fragment hljs unix"><code>
 grep -l 'nosql' bliki/entries
 
@@ -1193,7 +1448,7 @@ const someFormula = (new Pipeline()).pipe(addOne)
                                   .pipe(square)
                                   .pipe(minusTwo);
 					</code></pre>
-					<p><small>Ref: <a href="https://github.com/kamranahmedse/pipeline-js">pipleine JS</a></small></p>
+					<p><small>Ref: <a href="https://github.com/kamranahmedse/pipeline-js">pipeline JS</a></small></p>
 					<aside class="notes">
 						<p>If formula changes...now you can change one place...</p>
 					</aside>
@@ -1216,14 +1471,6 @@ let result = "hello" |> doubleSay |> capitalize |> exclaim;
 //Hello, hello!
 					</code></pre>
 					<p><small>ref: <a href="https://github.com/gilbert/es-pipeline-operator">JS pipeline proposal</a></small></p>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h1>Combinators</h1>
-				</section>
-				<section>
-					<p>ref: <a href="http://scalafp.com/book/functional-programming-is-like-unix-pipelines.html">at the bottom of this</a></p>
 				</section>
 			</section>
 			<section>
@@ -1296,14 +1543,53 @@ var result = add3(7)  // Immediately evaluates to 10
 				</section>
 			</section>
 			<section>
-				<h1>Partial application</h1>
+				<section>
+					<h1>Type annotation</h1>
+				</section>
+				<section>
+					<h2></h2>
+					<p>a type constructor is a generic type definition, which takes another type as a parameter.</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Combinators</h1>
+				</section>
+				<section>
+					<p>a function which builds program fragments from program fragments</p>
+					<p>ref: <a href="http://stackoverflow.com/questions/7533837/explanation-of-combinators-for-the-working-man">or this</a></p>
+					<p>Ref: <a href="https://softwareengineering.stackexchange.com/a/117575">or this</a></p>
+					<p>ref: <a href="http://scalafp.com/book/functional-programming-is-like-unix-pipelines.html">at the bottom of this</a></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Partial application</h1>
+				</section>
+				<section>
+					<h2>Currying and partial application</h2>
+Currying is strict: a curried function always applied 1 parameter at a time. Partial application is not this strict.
+A curried function tends to be partially applied but a partially applied function does not have to be curried.
 				<p>ref: <a href="http://www.datchley.name/currying-vs-partial-application/">here</a></p>
 				or
 				<p><a href="https://smthngsmwhr.wordpress.com/2012/10/22/higher-order-javascript-short-journey-into-the-land-of-functional-programming/#partial_application">this</a></p>
+				</section>
 			</section>
 			<section>
 				<section>
 					<h1>Summary2</h1>
+				</section>
+				<section>
+					<h2>So far</h2>
+					<ul>
+						<li class="fragment">Same thing could have different names</li>
+						<li class="fragment"> concurrency, which is easier to do with functional programming because the compiler is taking care of most of the operations </li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+					</ul>
+					<aside class="notes">
+						<p>Look at you...you have three names as well</p>
+					</aside>
 				</section>
 				<section>
 					<h2>Code reuse</h2>
@@ -1315,14 +1601,36 @@ var result = add3(7)  // Immediately evaluates to 10
 						<li class="fragment">So what we need is a balance between the two, a way to make smaller</li>
 					</ul>
 				</section>
+				<section>
+					<h2>Find the napper</h2>
+					<img src="images/lost3.JPG" alt="">
+					<p class="fragment"></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Give away</h1>
+				</section>
+				<section>
+					<h2>My top 10 excuses</h2>
+					<ol>
+						<li class="fragment">It worked on my machine</li>
+						<li class="fragment">Your browser must be caching the old content</li>
+						<li class="fragment">You must have the wrong version</li>
+						<li class="fragment">It worked a minute ago</li>
+						<li class="fragment">That was only supposed to be a placeholder</li>
+						<li class="fragment">It's not a bug, it's a new feature</li>
+						<li class="fragment">That's not my code</li>
+						<li class="fragment">The guy who left, his code is causing this</li>
+						<li class="fragment">Client PC is outdated</li>
+						<li class="fragment">It's a known issue in JavaScript</li>
+						<li class="fragment">Users will hardly notice this</li>
+					</ol>
+				</section>
 			</section>
 			<section>
 				<section>
 					<h1>Category Theory</h1>
-					<ul>
-
-
-					</ul>
 				</section>
 				<section>
 					<h2>Category Theory</h2>
@@ -1333,17 +1641,16 @@ var result = add3(7)  // Immediately evaluates to 10
 						<li class="fragment">Understanding Category Theory isn't a must to understand FP</li>
 					</ul>
 					<br>
+					<br>
 					<p><small>Ref: <a href="http://nikgrozev.com/2016/03/14/functional-programming-and-category-theory-part-1-categories-and-functors/">Category Theory</a></small></p>
 					<p class="hide"><small><a href="https://cs.stackexchange.com/questions/3028/is-category-theory-useful-for-learning-functional-programming">Is is needed to learn Category theory to understand FP</a></small></p>
 				</section>
 				<section>
-					<h2>Categories</h2>
-					<img src="images/category.jpg" alt="">
+					<h4>Categories</h4>
+					<img style="height:200px;" src="images/category.jpg" alt="">
 					<ul>
 						<li class="fragment"> A category consists of objects and arrows that go between them.</li>
 						<li class="fragment">Arrows are known as morphisms. Morphisms can be thought of as functions.</li>
-						<li class="fragment">For any group of connected objects, a -> b -> c, there must be a composition which goes directly from a -> c.</li>
-						<li class="fragment">All objects in a category have identity arrows.</li>
 					</ul>
 					<p><small>Ref: <a href="https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/">Category Theory for Programmers: Book</a></small></p>
 					<p class="hide"><small>Ref: <a href="https://yogsototh.github.io/Category-Theory-Presentation/">Category THeory & Programming</a></small></p>
@@ -1354,7 +1661,12 @@ var result = add3(7)  // Immediately evaluates to 10
 						<p></p>
 					</aside>
 				</section>
-					<section>
+				<section>
+					<img src="images/composition.png" alt="">
+					<p class="fragment">For any group of connected objects, a -> b -> c, there must be a composition which goes directly from a -> c.</p>
+					<!-- <li class="fragment">All objects in a category have identity arrows.</li> -->
+				</section>
+					<!-- <section>
 						<h2>Functor Laws</h2>
 						<ul>
 							<li class="fragment">Categories have two important properties</li>
@@ -1374,7 +1686,7 @@ var result = add3(7)  // Immediately evaluates to 10
 							<p>If you pass the identity function (x => x) into f.map(), where f is any functor, the result should be equivalent to
 								(have the same meaning as) f:</p>
 						</aside>
-					</section>
+					</section> -->
 			</section>
 			<section>
 				<section>
@@ -1385,7 +1697,6 @@ var result = add3(7)  // Immediately evaluates to 10
 					<ul>
 						<li class="fragment">The term “functor” comes from category theory</li>
 						<li class="fragment">Functor is a mapping between categories</li>
-						<li class="fragment"> A category is a group of things</li>
 					</ul>
 					<br>
 					<br>
@@ -1403,8 +1714,10 @@ var result = add3(7)  // Immediately evaluates to 10
 				<section>
 					<h2 class="">Fun Fun Functor</h2>
 					<ul>
-						<li class="fragment">An object with a .map() method </li>
+						<li class="fragment">An object with a .map() method</li>
+						<li class="fragment">map method takes function as a parameter</li>
 						<li class="fragment">maps from one set of values to another</li>
+						<li class="fragment">Return another functor so that you can map further</li>
 						<li class="fragment">When you see the word functor, you should think “mappable”</li>
 						<li class="fragment">Like array, streams, trees, objects</li>
 					</ul>
@@ -1417,29 +1730,75 @@ var result = add3(7)  // Immediately evaluates to 10
 					</aside>
 				</section>
 				<section>
-					<h2>Add more from this </h2>
-					<p>ref: <a href="https://medium.com/javascript-scene/functors-categories-61e031bac53f">Functors & Categories</a></p>
-					<p>ref: <a href="https://templecoding.com/blog/2016/06/16/functional-javascript-what-is-a-functor/">another good to read</a></p>
+					<h2>Functor has two laws</h2>
+					<ol>
+						<li>Identity</li>
+						<li>Composition</li>
+					</ol>
+					<pre class="fragment"><code>
+const f = [1, 2, 3];
+f.map(x => x); // [1, 2, 3]
+					</code></pre>
+					<pre class="fragment"><code>
+functor.map(x => f(g(x))) ≡ functor.map(g).map(f)
+					</code></pre>
+					<br>
+					<p><small>Ref: <a href="https://medium.com/javascript-scene/functors-categories-61e031bac53f">Functors & Categories</a></small></p>
+					<aside class="notes">
+						<p>There are rules on how .map(f) should behave, so that it can qualifies as a functor.</p>
+					</aside>
 				</section>
 				<section>
-
-					<ul>
-						<li class="fragment">Functors are not function like map</li>
-						<li class="fragment">Functor is an Object that has map method</li>
-						<li class="fragment">For Example Array is a Functor as it has an implementation of map</li>
-						<li class="fragment">Other example are promises, trees, strings, etc.</li>
-					</ul>
-					<br>
-					<br>
-					<p>ref: <a href="http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html">picture explanation of functor</a></p>
+					<img src="images/functor.png" alt="">
 				</section>
 				<section>
+					<h3>Functor</h3>
+					<pre class="hljs javascript"><code>
+const Container = x=> ({
+    map:(f) => Container(f(x)),
+    toString(){return `Container(${x})`}
+});
+				</code></pre>
+				<pre class="fragment hljs javascript"><code>
+const inContainer = Container(5);
+const mapped = inContainer.map(x=>x*2)
+mapped.toString(); //Container(10)
+				</code></pre>
+					<pre class="fragment"><code>
+const transformValue = x=> Container(x)
+		.map(x=>x*2)
+		.map(x=>x*3)
+		.map(x+46)
+		.map(x=> String.fromCharCode(x))
+					</code></pre>
+				</section>
+				<section>
+					<h4>More Functor</h4>
+					<pre class="fragment"><code>
+const tranfromImperateive = x => {
+    const timesTwo = x*2;
+    const timesthree = x*3;
+    const plus46 = timesthree + 46;
+    return String.fromCharCode(x);
+}
+					</code></pre>
+<pre class=" fragment hljs javascript"><code>
+// promise is a functor
+getUsers()
+.map(user => users[0])
+.map(user => user.firstName)
+.map(firstName => firstName.toUpperCase());
+</code></pre>
+					<br>
+					<p><small>ref: <a href="http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html">picture explanation of functor</a></small></p>
+				</section>
+				<!-- <section>
 					<h2>Why Functors</h2>
 					<p>Well, because functors help us solve a lot of problems when writing code in a functional style. We can use functors to manage null or undefined, to handle errors, to make async calls, among other things. They are an important piece of any functionally styled application.</p>
 					<p><small>Ref: <a href="https://templecoding.com/blog/2016/06/16/functional-javascript-what-is-a-functor/"></a></small></p>
-				</section>
+				</section> -->
 			</section>
-			<section>
+			<!-- <section>
 				<section>
 					<h1>maybe</h1>
 				</section>
@@ -1465,9 +1824,40 @@ var result = add3(7)  // Immediately evaluates to 10
 				</section>
 				<section>
 					<h2>But I’ve heard that a Maybe is a Monad</h2>
-
 <p>Well, Maybe could be a Monad as well. It only has to implement its interface and follow its rules. If you know a language like C# or Java, it’s the same as having a class that implements two different interfaces. So yeah, you can have a Maybe value that is a Functor and also a Monad.</p>
 				<p>ref: <a href="http://jrsinclair.com/articles/2016/marvellously-mysterious-javascript-maybe-monad/">maybe monads</a></p>
+				</section>
+			</section> -->
+			<section>
+				<section>
+					<h1>Applicatives</h1>
+				</section>
+				<section>
+					<p>Combine multiple functor into one functor</p>
+					<img src="images/applicative1.png" alt="">
+					<br>
+					<p><small>Ref:<a href="https://buzzdecafe.github.io/code/2014/10/26/functors-and-applicatives">applicatives</a></small></p>
+					<aside class="notes">
+						<p>Applicatives take it to the next level. With an applicative, our values are wrapped in a context, just like Functors:</p>
+						<p> which knows how to apply a function wrapped in a context to a value wrapped in a context:</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Wrapped values</h2>
+					<pre class="hljs javascript"><code data-trim>
+var wrapped2 = [2];
+var wrapped3 = [3];
+
+//Won't work ! The values are wrapped.
+add(wrapped2, wrapped3);
+					</code></pre>
+					<img class="fragment" src="images/applicative.png" alt="">
+					<p><small><a href="https://medium.com/@tzehsiang/javascript-functor-applicative-monads-in-pictures-b567c6415221">applicatives in JS</a></small></p>
+				</section>
+				<section>
+					<img src="images/applicatives.png" alt="">
+					<br>
+					<p><small>Ref: <a href="http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html">applicatives</a></small></p>
 				</section>
 			</section>
 			<section>
@@ -1475,24 +1865,64 @@ var result = add3(7)  // Immediately evaluates to 10
 					<h1>Monads </h1>
 				</section>
 				<section>
-					<blockquote cite="https://www.youtube.com/watch?v=dkZFtimgAcM">
+					<h2>Monads in Two steps</h2>
+					<ol>
+						<li class="fragment">Get a PhD in Computer Science</li>
+						<li class="fragment">Throw it away because you don't need PhD to understand Monad</li>
+					</ol>
+					<blockquote class="fragment" cite="https://www.youtube.com/watch?v=dkZFtimgAcM">
 						The moment you understand what is monads, is the moment you loose the ability to explain it to someone else.
 					</blockquote>
 				</section>
 				<section>
-					<h2>Go Nerd with Monads</h2>
-					<ul>
-						<li class="fragment">The moment you understand what is monads, you loose the ability to explain it to someone else</li>
-					</ul>
-					<p>ref: <a href="http://jrsinclair.com/articles/2016/marvellously-mysterious-javascript-maybe-monad/">May be you can starts with this</a></p>
-					<p>ref: <a href="http://blog.klipse.tech/javascript/2016/08/31/monads-javascript.html">Explain monads by using this</a></p>
-
-					<p>Can ignore things in below</p>
-					<p>ref: <a href="https://blog.jcoglan.com/2011/03/05/translation-from-haskell-to-javascript-of-selected-portions-of-the-best-introduction-to-monads-ive-ever-read/">Monads in JS</a></p>
-					<p>ref: <a href="http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html">monads in Haskel</a></p>
-					<p>ref: <a href="https://www.youtube.com/watch?v=dkZFtimgAcM">Monads</a></p>
+					<h2>Functors, Applicatives</h2>
+					<p class="fragment">Functors apply a function to a wrapped value</p>
+					<img src="images/functor_tiny.png" alt="" class="fragment">
+					<p class="fragment">Applicatives apply a wrapped function to a wrapped value</p>
+					<img src="images/applicative_tiny.png" alt="" class="fragment">
 				</section>
 				<section>
+					<h3>Monads</h2>
+					<p class="fragment">Monads apply a function that <strong>returns a wrapped value to a wrapped value</strong></p>
+					<pre class="fragment hljs javascript"><code>
+const half = x => (x%2===0) ? [x/2] : [];
+					</code></pre>
+					<pre class="fragment"><code data-trim>
+Array.prototype.flatMap = function(lambda) {
+  return [].concat.apply([], this.map(lambda));
+};
+					</code></pre>
+					<pre class="fragment"><code data-trim>
+[3].flatMap(half); //[]
+[4].flatMap(half); //[2]
+[].flatMap(half); //[]
+					</code></pre>
+					<p class="fragment">Simple way: Monad is the container that Applies <strong>flatMap</strong></p>
+					<aside class="notes">
+						<h2>Why can't we use map</h2>
+						<p>You might have the question that why don’t we just use map. I am glad you ask ! This is because half returns a wrapped value. If we use map, we are putting a container inside another container.</p>
+					</aside>
+					<p><small>Ref: <a href="https://medium.com/@tzehsiang/javascript-functor-applicative-monads-in-pictures-b567c6415221">monad in JS</a></small></p>
+				</section>
+				<section>
+					<img style="height: 650px;" src="images/monad.png" alt="">
+				</section>
+				<section>
+					<img style="height:650px;" src="images/monad2.png" alt="">
+				</section>
+				<section>
+					<h2>Monad Resources</h2>
+					<ul>
+						<li><a href="http://jrsinclair.com/articles/2016/marvellously-mysterious-javascript-maybe-monad/">May be you can starts with this</a></li>
+						<li><a href="http://blog.klipse.tech/javascript/2016/08/31/monads-javascript.html">Explain monads by using this</a></li>
+						<li><a href="https://github.com/getify/Functional-Light-JS/blob/master/apB.md">can read this</a></li>
+						<li>Can ignore things in below</li>
+						<li>ref: <a href="https://blog.jcoglan.com/2011/03/05/translation-from-haskell-to-javascript-of-selected-portions-of-the-best-introduction-to-monads-ive-ever-read/">Monads in JS</a></li>
+						<li>ref: <a href="http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html">monads in Haskel</a></li>
+						<li>ref: <a href="https://www.youtube.com/watch?v=dkZFtimgAcM">Monads</a></li>
+					</ul>
+				</section>
+				<!-- <section>
 					<h2>Three Component</h2>
 					<ol>
 						<li class="fragment">
@@ -1506,7 +1936,7 @@ var result = add3(7)  // Immediately evaluates to 10
 type constructor — a feature that creates a monadic type for the underlying type. For example it defines the type Maybe<number> for the underlying type number.
 the unit function that wraps a value of underlying type into a monad. For the Maybe monad it wraps value 2 of the type number into the value Maybe(2) of the type Maybe<number>.
 the bind function that chains the operations on a monadic values.
-					<p>ref: <a href="https://curiosity-driven.org/monads-in-javascript">Read more: Three types of moands</a></p>
+					<p>ref: <a href="https://curiosity-driven.org/monads-in-javascript">Read more: Three types of monads</a></p>
 					<aside class="notes">
 						<p>To be considered a monad the structure has to provide three components:</p>
 
@@ -1622,7 +2052,7 @@ var cube = (x) => {
 					</code></pre>
 					<p>We’ve composed two functions that take a number and return a (number, string) pair, and created another function with the same signature, meaning it can be composed further with other debuggable functions.</p>
 				</section>
-				<!-- <section>
+				<section>
 					<h2>Haskell to the rescue</h2>
 					<p>To simplify things, let’s borrow some Haskell notation. The following type signature says that the function cube accepts a number and returns a tuple containing a number and a string:</p>
 					<pre class="hljs haskell"><code>
@@ -1640,7 +2070,7 @@ cube :: (Number,String) -> (Number,String)
 				<section>
 					<h2>The Writer monad</h2>
 					<p>Far better to let each function just do its job, and provide one tool to coerce the functions into the desired format. We’ll call this tool bind, and its job is to take a Number -> (Number,String) function and return a (Number,String) -> (Number,String) function.</p>
-				</section> -->
+				</section>
 				<section>
 					<p>We’d expect the composition of these functions to return the sine of the cube of x, and a string stating that both cube and sine were called:</p>
 					<pre><code>
@@ -1669,30 +2099,7 @@ cube :: (Number,String) -> (Number,String)
 					<aside class="notes">
 						<p>A simple composition won’t work here because the return type of cube (an array) is not the same as the argument type to sine (a number). A little more glue is required. We could write a function to compose these ‘debuggable’ functions: it would break up the return values of each function and stitch them back together in a meaningful way:</p>
 					</aside>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h1>Applicatives</h1>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h2>Execution order</h2>
-					<p>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-5-c70adc9cf56a">Not so good here: but you can use it</a></p>
-				</section>
-				<section>
-
-				</section>
-			</section>
-			<section>
-				<section>
-					<h1>Type annotation</h1>
-				</section>
-				<section>
-					<h2></h2>
-					<p>a type constructor is a generic type definition, which takes another type as a parameter.</p>
-				</section>
+				</section> -->
 			</section>
 			<section>
 				<section>
@@ -1856,16 +2263,20 @@ console.log(add10(40)); // prints 50
 				</section>
 			</section>
 			<section>
+				<h2>Convert OOP to FP</h2>
+				<p><a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-54">convert in a nice way</a></p>
+			</section>
+			<section>
 				<section>
 					<h1>contrast with OOP</h1>
 				</section>
 				<section>
 					<h2>Point of View</h2>
 					<ul>
-						<li class="fragment">Pomisese less side affect</li>
+						<li class="fragment">Promises less side affect</li>
 						<li class="fragment">Use immutable data</li>
 						<li class="fragment">Use pure function</li>
-						<li class="fragment">Prefers declerative style</li>
+						<li class="fragment">Prefers declarative style</li>
 						<li class="fragment">Write programming in a way to describing</li>
 						<li class="fragment">Implementation detail packaged away</li>
 						<li class="fragment">Promises cleaner, readerable code</li>
@@ -1893,7 +2304,7 @@ console.log(add10(40)); // prints 50
 				<section>
 					<h2>Minimize side effect</h2>
 					<ul>
-						<li class="fragment">Side effect is a change that is not local to the function that cuased it</li>
+						<li class="fragment">Side effect is a change that is not local to the function that caused it</li>
 						<li class="fragment"></li>
 					</ul>
 					<pre class="fragment"><code class="hljs" data-trim>
@@ -1923,28 +2334,6 @@ console.log(add10(40)); // prints 50
 				</section>
 			</section>
 			<section>
-				<section>
-					<h1>Tail call Optimization</h1>
-				</section>
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code class="hljs" data-trim contenteditable>
-						</code></pre>
-
-				</section>
-				<section>
-					<p>also look at this slide: <a href="http://scott.sauyet.com/Javascript/Talk/FunctionalProgramming/#slide-34">here</a></p>
-				</section>
-
-			</section>
-
-			<section>
-				<h2>Method chaining</h2>
-				<ul>
-
-				</ul>
-			</section>
-			<section>
 				<h2>Functional programming perf test</h2>
 				<p>Done in ng conf</p>
 			</section>
@@ -1955,39 +2344,6 @@ console.log(add10(40)); // prints 50
 				<section>
 					<h2>How to date</h2>
 					<img src="images/data.jpg" alt="">
-				</section>
-			</section>
-			<section>
-				<section>
-					<h1>Why</h1>
-					<p>promises that Functional programming does</p>
-					<p class="danger">Move this later</p>
-				</section>
-				<section>
-					<h2>Programming Language</h2>
-						<ul>
-							<li class="fragment">Imperative Language</li>
-							<li class="fragment">Object Oriented Language</li>
-							<li class="fragment">Functional Language</li>
-							<li class="fragment">Multi paradaigmm language</li>
-						</ul>
-						<br>
-						<br>
-					<p><small>Ref: <a href="https://medium.com/functional-javascript/introduction-to-functional-javascript-45a9dca6c64a">programming Paradaigm</a></small></p>
-					<aside class="notes">
-						<p>we have OOP...working good why we need FP?</p>
-					</aside>
-				</section>
-				<section>
-					<ul>
-						<li class="fragment">Code works more than it doesn’t.</li>
-						<li class="fragment">Unit tests are easier to write.</li>
-						<li class="fragment">Unit tests break faster allowing me to fix broken code they found faster.</li>
-						<li class="fragment">Easier to figure out what the hell is going on in a larger code base. If something breaks, it’s easier to pull things
-							apart and improve the testing of those parts to prevent it from happening again. Not like usual spaghetti that can
-							occur with mutable state.</li>
-						<li class="fragment">Don’t get bit (as much) by concurrency/parallelism bugs that can arise in server or testing environments.</li>
-					</ul>
 				</section>
 			</section>
 			<section>
