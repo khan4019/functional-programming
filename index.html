@@ -64,9 +64,9 @@
 					<ul>
 						<li class="fragment">Three Basics of Functional Programming</li>
 						<li class="fragment">Five Popular patterns and techniques</li>
-						<li class="fragment">Three higher level Geeky thing</li>
+						<li class="fragment">Three higher level Geeky things</li>
 						<li class="fragment">Transform OOP to FP</li>
-						<li class="fragment">and we have fun</li>
+						<li class="fragment">...and lots of fun</li>
 					</ul>
 				</section>
 				<!-- <section>
@@ -330,7 +330,6 @@ openSocket(ipAddress);
 						<li class="fragment">Can't always predict their behavior/output</li>
 						<li class="fragment">All these are <strong>impure function</strong></li>
 						<li class="fragment">They will have <strong>side effect</strong></li>
-						<li class="fragment">Pure functions have no side effects.</li>
 						<li class="fragment">Non FP (c#, java, JS) has tons of these</li>
 						<li class="fragment">Makes a function harder to debug</li>
 					</ul>
@@ -367,13 +366,12 @@ public int addNumbers(int x, int y) {
 				<section>
 					<h2>Pure Function</h2>
 					<ul>
-						<li class="fragment">Does not change the program's state</li>
-						<li class="fragment">Does not produce an observable side effect</li>
 						<li class="fragment">Output relies solely on input values</li>
-						<li class="fragment">Always return same output for same input</li>
-						<li class="fragment">Indifferent to context</li>
-						<li class="fragment">Highly testable and reusable</li>
 						<li class="fragment">Always produce same output for same inputs.</li>
+						<li class="fragment">Does not produce an observable side effect</li>
+						<li class="fragment">Does not change the program's state</li>
+						<li class="fragment">Highly testable and reusable</li>
+
 					</ul>
 					<aside class="notes">
 						This slide has fragments which are also stepped through in the notes window.
@@ -402,6 +400,10 @@ public int addNumbers(int x, int y) {
 						console.log(myFunc(x, 3)); //13
 					</code></pre>
 				</section>
+				<section>
+					<p>Basic Concept-1</p>
+					<h2>Use Pure function</h2>
+				</section>
 				<!-- <section>
 					<h2>Reality</h2>
 					<ul>
@@ -423,7 +425,7 @@ public int addNumbers(int x, int y) {
 				<section>
 					<h2>function is first class citizen</h2>
 					<ul>
-						<li>Use function as value</li>
+						<li class="fragment">Use function as value</li>
 						<li class="fragment">Set function to a variable</li>
 						<li class="fragment">Pass function as parameter</li>
 						<li class="fragment">return function as a value</li>
@@ -478,7 +480,7 @@ greaterThan10(11); //false
 greaterThan10(21); //true
 					</code></pre>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>Closure</h2>
 					<p><small>Impure and mutable version</small></p>
 					<pre class="hljs javascript"><code data-trim>
@@ -498,10 +500,11 @@ myClock(); //3
 				</code></pre>
 				<p class="fragment">Accessing outer scope variable is called <strong>Closure</strong></p>
 				<p><small>ref: <a href="https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99">higher order function</a></small></p>
+				</section> -->
+				<section>
+					<p>Basic Concept-2</p>
+					<h2>Function is First Class</h2>
 				</section>
-				<aside class="notes">
-					<p></p>
-				</aside>
 			</section>
 			<section>
 				<section>
@@ -550,8 +553,8 @@ var x = 1;
 x = x + 1;
 					</code></pre>
 					<ul>
-						<li class="fragment">In math, x can never be equal to x + 1</li>
 						<li class="fragment">It's permitted in Imperative Programming</li>
+						<li class="fragment">In math, x can never be equal to x + 1</li>
 						<li class="fragment">In functional programming, x = x + 1 is illegal</li>
 						<li class="fragment">There are <strong class="danger">no variables</strong> in Functional Programming</li>
 						<li class="fragment">Stored values are still called variables because of history but they are constants</li>
@@ -691,11 +694,10 @@ console.log(lengths); // [10, 12, 17]
 					<pre class="hljs fragment"><code data-trim>
 const getLength = word => word.length;
 
-tasks.map(word => word.length);
+tasks.map(getLength);
 meals.map(getLength);
 					</code> </pre>
 					<pre class="fragment javascript"><code class="hljs" data-trim>
-const getLength = word => word.length;
 const doubleIt = x => x*2;
 
 tasks.map(getLength).map(doubleIt);
@@ -798,6 +800,10 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 						<li class="">It’s throwing some of the transformations away. It’s combining the remainder into a single output.</li>
 					</aside>
 				</section>
+				<section>
+					<p>Basic Concept-3</p>
+					<h2>Data is Immutable</h2>
+				</section>
 			</section>
 			<section>
 				<section>
@@ -830,7 +836,7 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 					<ol>
 						<li class="fragment">No Side Effect</li>
 						<li class="fragment">Function is first class citizen</li>
-						<li class="fragment">Immutable Data</li>
+						<li class="fragment">Data is Immutable</li>
 					</ol>
 				</section>
 				<section>
@@ -842,7 +848,7 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 					</ul>
 				</section>
 				<section>
-					<img src="images/lost.jpg" alt="">
+					<img src="images/lost4.jpg" alt="">
 				</section>
 			</section>
 			<section>
@@ -909,33 +915,31 @@ f(g(2)) = f(5)
 				<section>
 					<h2>Wait! it's not new</h2>
 					<pre class="fragment"><code>
-const add10 = x => x + 10;
 const mult5 = x => x * 5;
+const add10 = x => x + 10;
 					</code></pre>
 					<pre class="fragment hljs"><code>
 const mult5AfterAdd10 = x => mult5(add10(x));
 					</code></pre>
-					<h4 class="fragment">g(f(x))</h4>
+					<h4 class="fragment">f(g(x))</h4>
 					<aside class="notes">
 						<p>What we’ve done in this case is manually compose these two functions together in a particular order. We created a new function that first assigns the value being passed to a holder variable, then updates the value of that variable by executing the first function, and then the second function, and finally returns the value of that holder.</p>
 					</aside>
 				</section>
 				<section>
 						<h2>Function Composotion</h2>
-					<pre><code class="hljs javascript" data-trim>
-						const add10 = x =>  x + 10;
-						const mult5 = x =>  x * 5;
-					</code></pre>
-					<pre class="fragment"><code data-trim>
+					<pre class="fragment1"><code data-trim>
 						var compose = function(f, g) {
 						  return function(x) {
 						    return f(g(x));
 						  };
 						};
-
-						const mult5AfterAdd10 = compose(add10, mult5);
 					</code></pre>
-					<pre class="hljs javascript fragment"><code>
+					<pre class="fragment"><code class="hljs javascript " data-trim>
+const mult5 = x =>  x * 5;
+const add10 = x =>  x + 10;
+
+const mult5AfterAdd10 = compose(add10, mult5);
 mult5AfterAdd10(5); //35
 					</code></pre>
 					<p class="fragment">executes <strong>right to left</strong></p>
@@ -962,7 +966,7 @@ wordCount('There are seven words in this sentense'); //7
 						<li class="fragment">Partially apply split first</li>
 						<li class="fragment">While performing split we are waiting for length</li>
 						<li class="fragment">split does it works and then pass it to length</li>
-						<li class="fragment">Curried function is partially applied</li>
+						<!-- <li class="fragment">Curried function is partially applied</li> -->
 					</ul>
 					<aside class="notes">
 						<p>Giving you another example so that you keep it in your head</p>
