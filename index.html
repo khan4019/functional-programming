@@ -884,6 +884,9 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 			<section>
 				<h1>Patterns and Techniques</h1>
 				<p>Used in Functional Programming</p>
+				<aside class="notes">
+					<p>Now I will talk about few populer <strong>patterns and Technniques</strong> used in functional programming</p>
+				</aside>
 			</section>
 			<section>
 				<section>
@@ -907,9 +910,9 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 				<section>
 					<p>f(x) = 2x + 3</p>
 					<pre class="fragment"><code data-trim>
-f(7) = 2 * 7 + 3
-     = 14 + 3
-     = 17
+f(2) = 2 * 2 + 3
+     = 4 + 3
+     = 7
 					</code></pre>
 					<p class="fragment">g(x) = x <sup>2</sup> + 1</p>
 					<pre class="fragment"><code data-trim>
@@ -925,7 +928,8 @@ f(g(2)) = f(5)
         = 13
 					</code></pre>
 					<aside class="notes">
-						<p>I am bringing back to the match class... your night mare</p>
+						<p>f(2)</p>
+						<p>g(2)</p>
 					</aside>
 				</section>
 				<section>
@@ -1012,7 +1016,7 @@ mult5 value =
 mult5AfterAdd10 value =
     (mult5 << add10) value
 					</code></pre>
-					<pre class="hljs elm"><code>
+					<pre class="hljs elm fragment"><code>
 f x = (g << h << s << r << t) x
 					</code></pre>
 					<aside class="notes">
@@ -1056,7 +1060,7 @@ const sum3 = (x, y, z) => x + y + z;
 sum3(1,2,3); //6
 						</code></pre>
 						<pre class="fragment"><code data-trim>
-function sum3(x){
+function currySum3(x){
 	return function (y){
 		return function (z){
 			return x + y + z;
@@ -1244,19 +1248,20 @@ const head =  x => x[0];
 const compose = (f, g)  => x => f(g(x));
 
 //not point free because we mention the data: name
-var initials = function(name) {
+const initials = function(name) {
   return name.split(' ').map(compose(toUpperCase, head)).join('. ');
 };
 					</code></pre>
 					<pre class="fragment"><code data-trim>
-						//point free
-						var initials = compose(join('. '), map(compose(toUpperCase, head)), split(' '));
+//point free
+const initials = compose(join('. '),
+                       map(compose(toUpperCase, head)), split(' '));
 
-						initials("that js dude");
-						// 'T. J. D'
+initials("that js dude");
+// 'T. J. D.'
 					</code></pre>
 					<br>
-					<p class="danger">Why would you use point free?</p>
+					<!-- <p class="danger">Why would you use point free?</p> -->
 					<p><small> Ref <a href="http://lucasmreis.github.io/blog/pointfree-javascript/">this</a> and <a href="https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch5.html#pointfree">this as well</a> or <a href="http://lucasmreis.github.io/blog/pointfree-javascript/">this</a>
 					</small></p>
 					<aside class="notes">
@@ -1322,8 +1327,8 @@ var mult5AfterAdd10 = y => mult5(add(10, y)); // not point-free
 						<li>A tail call is a function call that is the last action of a function</li>
 						<li class="fragment">Smart compiler recognizes tail calls and reuses the same call frame</li>
 						<li class="fragment">When calling function will simply return the value that it gets from the called function</li>
-						<li class="fragment">The most common use is tail-recursion</li>
 						<li class="fragment">Optimized to use constant stack space</li>
+						<li class="fragment">The most common use is tail-recursion</li>
 						<li class="fragment">Can happen for non-recursive case as well</li>
 					</ul>
 					<!-- <p>if you write recursive functions with tail calls, the limits of the call stack will never be exceeded by them as it will reuse the same frame over and over</p> -->
@@ -1385,7 +1390,14 @@ function fib(n){
   return fibIterRecursive(n, 1, 0);
 }
 					</code></pre>
-					<p class="fragment"><strong>In ES6:</strong> if the last thing that happens before the return statement is the invocation of a function which does not need to access any of the current local variables, the interpreter specified by ES6 will optimize that call by reusing the stack frame.</p>
+					<ul>
+						<li class="fragment">return invocation of a function</li>
+						<li class="fragment">that function does not need to access any of the current local variables</li>
+						<li class="fragment">Then ES6 strict mode will optimize that call by reusing the stack frame</li>
+					</ul>
+					<aside class="notes">
+						<p class=""><strong>In ES6:</strong> if the last thing that happens before the return statement is the invocation of a function which does not need to access any of the current local variables, the interpreter specified by ES6 will optimize that call by reusing the stack frame.</p>
+					</aside>
 				</section>
 				<!-- <section>
 					<pre><code>
@@ -1471,7 +1483,7 @@ console.log(factorial( 10, 1 )); // 3628800
 						 find all wiki that mention "nosql" in the text
 					</p>
 					<pre class="fragment hljs unix"><code>
-grep -l 'nosql' wiki/entries
+grep -l 'nosql' wiki
 
 grep -l 'nosql' wiki/* | xargs wc -w
 					</code></pre>
@@ -1481,11 +1493,13 @@ grep -l 'nosql' wiki/* | xargs wc -w | sort -nr
 					<pre class="fragment hljs"><code class="hljs">
 grep -l 'nosql' wiki/* | xargs wc -w | sort -nr | head -4 | tail -3
 					</code></pre>
+					<br>
+					<p><small>ref: <a href="https://martinfowler.com/articles/collection-pipeline/">Martin Fowler: Collection pipelines</a></small></p>
 					<aside class="notes">
 						<li class="">Used in unix...varies in other Programming</li>
 						<ol>
-							<li>I want to find all my wiki entries that mention "nosql" in the text.</li>
-							<li>hen want to find out how many words are in each entry</li>
+							<li>all wiki entries that mention "nosql" in the text.</li>
+							<li>Then want to find out <strong>how many words</strong> are in each entry</li>
 							<li>and perhaps sort them by their word count</li>
 							<li>and then just print the top 3 (removing the total)</li>
 						</ol>
@@ -1585,25 +1599,6 @@ var result = addLazy(1, 2)
 					</aside>
 				</section>
 				<section>
-					<h2>Test setup for RxJS</h2>
-					<pre><code>
-const inputData = Array(1000000).fill(1).map(() => Math.floor(Math.random() * 10000));
-
-function test(label, testFn, input) {
-  const start = Date.now();
-  const result = testFn(input);
-  const end = Date.now();
-  const seconds = parseFloat((end - start) / 1000).toFixed(2);
-  console.log(`${label} took ${seconds}s and had result of ${result}`);
-}
-
-test('Array', testArray, inputData);
-test('RxJS', testRx, inputData);
-					</code></pre>
-					<br>
-					<p><small>Ref: <a href="https://youtu.be/TszoFCFydiM?t=13m41s">RxJS perf test</a></small></p>
-				</section>
-				<section>
 					<pre><code>
 function testArray(input) {
   return input
@@ -1625,6 +1620,25 @@ function testRx(input) {
   return value;
 }
 					</code></pre>
+				</section>
+				<section>
+					<h2>Test setup for RxJS</h2>
+					<pre><code>
+const inputData = Array(1000000).fill(1).map(() => Math.floor(Math.random() * 10000));
+
+function test(label, testFn, input) {
+  const start = Date.now();
+  const result = testFn(input);
+  const end = Date.now();
+  const seconds = parseFloat((end - start) / 1000).toFixed(2);
+  console.log(`${label} took ${seconds}s and had result of ${result}`);
+}
+
+test('Array', testArray, inputData);
+test('RxJS', testRx, inputData);
+					</code></pre>
+					<br>
+					<p><small>Ref: <a href="https://youtu.be/TszoFCFydiM?t=13m41s">RxJS perf test</a></small></p>
 				</section>
 				<section>
 					<p>Array took 0.14s and had result of 12498033630</p>
@@ -1650,13 +1664,13 @@ var add = x => y => x + y
 var add3 = add(3)
 var result = add3(7)  // Immediately evaluates to 10
 					</code></pre>
-				</section>-->
+				</section>
 				<section>
 					<h2>Debug Lazy function</h2>
 					<p><small>Extra: <a href="http://stackoverflow.com/questions/1303794/how-is-debugging-achieved-in-a-lazy-functional-programming-language">Debug lazy function</a></small></p>
-				</section>
+				</section>-->
 			</section>
-			<section>
+			<!-- <section>
 				<section>
 					<h1>Type annotation</h1>
 				</section>
@@ -1664,7 +1678,7 @@ var result = add3(7)  // Immediately evaluates to 10
 					<h2></h2>
 					<p>a type constructor is a generic type definition, which takes another type as a parameter.</p>
 				</section>
-			</section>
+			</section> -->
 			<section>
 				<section>
 					<h1>Combinators</h1>
@@ -1680,9 +1694,18 @@ var result = add3(7)  // Immediately evaluates to 10
 				</section>
 				<section>
 					<h2>Currying and partial application</h2>
-Currying is strict: a curried function always applied 1 parameter at a time. Partial application is not this strict.
-A curried function tends to be partially applied but a partially applied function does not have to be curried.
+					<ul>
+						<li class="fragment">Currying is strict: always takes 1 parameter at a time</li>
+						<li class="fragment">Partial application is not this strict</li>
+						<li class="fragment">You can pass more than one parameter at a time</li>
+					</ul>
+					<br>
+					<br>
 				<p><small>Ref: <a href="http://www.datchley.name/currying-vs-partial-application/">here</a> or <a href="https://smthngsmwhr.wordpress.com/2012/10/22/higher-order-javascript-short-journey-into-the-land-of-functional-programming/#partial_application">this</a></small></p>
+				<aside class="notes">
+					<p>Currying is strict: a curried function always applied 1 parameter at a time. Partial application is not this strict.</p>
+					<p>A curried function tends to be partially applied but a partially applied function does not have to be curried.</p>
+				</aside>
 				</section>
 			</section>
 			<section>
@@ -1696,7 +1719,7 @@ A curried function tends to be partially applied but a partially applied functio
 						<li class="fragment">Curry takes one argument at a time</li>
 						<li class="fragment">Point free...doesn't take arguments</li>
 						<li class="fragment">Partial application takes more than one</li>
-						<li class="fragment">Tail call is Functional magic</li>
+						<li class="fragment">Tail call is a compiler magic</li>
 						<li class="fragment">Lazy evaluation makes things faster</li>
 					</ul>
 					<aside class="notes">
@@ -1705,18 +1728,17 @@ A curried function tends to be partially applied but a partially applied functio
 				</section>
 				<section>
 					<h2>Code reuse</h2>
-					<p>Find a suitable place for this: later</p>
 					<ul>
 						<li class="fragment">Code reuse sounds great but is difficult to achieve.</li>
 						<li class="fragment">Make the code too specific and you can’t reuse it.</li>
-						<li class="fragment">Make it too general and it can be too difficult to use in the first place.</li>
+						<li class="fragment">Make it too general and it can be too difficult to use in the first place</li>
 						<li class="fragment">So what we need is a balance between the two, a way to make smaller</li>
 					</ul>
 				</section>
 				<section>
 					<h2>Find the napper</h2>
-					<img src="images/lost3.JPG" alt="">
-					<p class="fragment"></p>
+					<img style="height:350px;" src="images/lost3.JPG" alt="">
+					<p class="fragment"><small>While cooking curry...how many spices can you put at a time?</small></p>
 				</section>
 			</section>
 			<section>
@@ -1724,7 +1746,7 @@ A curried function tends to be partially applied but a partially applied functio
 					<h1>Give away</h1>
 				</section>
 				<section>
-					<h2>7 Reasons to date a Programmer</h2>
+					<h2>7 ways to Propose</h2>
 					<ol>
 						<li class="fragment">We can Open Any <strong>JARS</strong> for you</li>
 						<li class="fragment">We love to <strong>KISS</strong>(keep it simple, stupid)</li>
@@ -1732,7 +1754,7 @@ A curried function tends to be partially applied but a partially applied functio
 						<li class="fragment">We aren't afraid to <strong>COMMIT</strong></li>
 						<li class="fragment">We are really good at <strong>getting rid of bugs</strong></li>
 						<li class="fragment">We will never have a <strong>NULL</strong> moment</li>
-						<li class="fragment">We can take you to the <strong>CLOUD</strong></li>
+						<li class="fragment">We could take you to the <strong>CLOUD</strong></li>
 					</ol>
 				</section>
 			</section>
@@ -1795,6 +1817,11 @@ A curried function tends to be partially applied but a partially applied functio
 								(have the same meaning as) f:</p>
 						</aside>
 					</section> -->
+					<section>
+						<h4>Mathematicians vs Programmer</h4>
+						<img src="images/translation.png" alt="">
+						<img class="fragment" style="height:200px;" src="images/cat.png" alt="">
+					</section>
 			</section>
 			<section>
 				<section>
@@ -1804,7 +1831,7 @@ A curried function tends to be partially applied but a partially applied functio
 					<h2>Functor in theory</h2>
 					<ul>
 						<li class="fragment">The term “functor” comes from category theory</li>
-						<li class="fragment">Functor is a mapping between categories</li>
+						<!-- <li class="fragment">Functor is a mapping between categories</li> -->
 					</ul>
 					<br>
 					<br>
@@ -1826,7 +1853,7 @@ A curried function tends to be partially applied but a partially applied functio
 						<li class="fragment">map method takes function as a parameter</li>
 						<li class="fragment">maps from one set of values to another</li>
 						<li class="fragment">Return another functor so that you can map further</li>
-						<li class="fragment">When you see the word functor, you should think “mappable”</li>
+						<li class="fragment">Think functor as something <strong>mappable</strong></li>
 						<li class="fragment">Like array, streams, trees, objects</li>
 					</ul>
 					<br>
@@ -1844,8 +1871,8 @@ A curried function tends to be partially applied but a partially applied functio
 						<li>Composition</li>
 					</ol>
 					<pre class="fragment"><code>
-const f = [1, 2, 3];
-f.map(x => x); // [1, 2, 3]
+const functor = [1, 2, 3];
+functor.map(x => x); // [1, 2, 3]
 					</code></pre>
 					<pre class="fragment"><code>
 functor.map(x => f(g(x))) ≡ functor.map(g).map(f)
@@ -1881,24 +1908,24 @@ const transformValue = x=> Container(x)
 					</code></pre>
 				</section>
 				<section>
-					<h4>More Functor</h4>
-					<pre class="fragment"><code>
+					<h2>Promises are Functor</h2>
+					<!-- <pre class="fragment"><code>
 const tranfromImperateive = x => {
     const timesTwo = x*2;
     const timesThree = x*3;
     const plus46 = timesThree + 46;
     return String.fromCharCode(x);
 }
-					</code></pre>
-<pre class=" fragment hljs javascript"><code>
+					</code></pre> -->
+					<pre class=" fragment hljs javascript"><code>
 // promise is a functor
 getUsers()
 .map(user => users[0])
 .map(user => user.firstName)
 .map(firstName => firstName.toUpperCase());
-</code></pre>
+					</code></pre>
 					<br>
-					<p><small>ref: <a href="http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html">picture explanation of functor</a></small></p>
+					<p><small>Ref: <a href="http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html">picture explanation of functor</a></small></p>
 				</section>
 				<!-- <section>
 					<h2>Why Functors</h2>
@@ -1978,6 +2005,7 @@ add(wrapped2, wrapped3);
 						<li class="fragment">Get a PhD in Computer Science</li>
 						<li class="fragment">Throw it away because you don't need PhD to understand Monad</li>
 					</ol>
+					<br><br>
 					<blockquote class="fragment" cite="https://www.youtube.com/watch?v=dkZFtimgAcM">
 						The moment you understand what is monads, is the moment you loose the ability to explain it to someone else.
 					</blockquote>
@@ -2019,15 +2047,14 @@ Array.prototype.flatMap = function(lambda) {
 					<img style="height:650px;" src="images/monad2.png" alt="">
 				</section>
 				<section>
-					<h2>Monad Resources</h2>
+					<h2>Few Types of Monad</h2>
 					<ul>
 						<li><a href="http://jrsinclair.com/articles/2016/marvellously-mysterious-javascript-maybe-monad/">May be you can starts with this</a></li>
 						<li><a href="http://blog.klipse.tech/javascript/2016/08/31/monads-javascript.html">Explain monads by using this</a></li>
 						<li><a href="https://github.com/getify/Functional-Light-JS/blob/master/apB.md">can read this</a></li>
-						<li>Can ignore things in below</li>
-						<li>ref: <a href="https://blog.jcoglan.com/2011/03/05/translation-from-haskell-to-javascript-of-selected-portions-of-the-best-introduction-to-monads-ive-ever-read/">Monads in JS</a></li>
-						<li>ref: <a href="http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html">monads in Haskel</a></li>
-						<li>ref: <a href="https://www.youtube.com/watch?v=dkZFtimgAcM">Monads</a></li>
+						<li><a href="https://blog.jcoglan.com/2011/03/05/translation-from-haskell-to-javascript-of-selected-portions-of-the-best-introduction-to-monads-ive-ever-read/">Monads in JS</a></li>
+						<li><a href="http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html">monads in Haskel</a></li>
+						<li><a href="https://www.youtube.com/watch?v=dkZFtimgAcM">Monads</a></li>
 					</ul>
 				</section>
 				<!-- <section>
@@ -2361,19 +2388,19 @@ validateValueWithFunc('Joe Mama', parseName, 'Name');
 				<section>
 					<h2>OOP and FP are not mutually exclusive</h2>
 					<ul>
-						<li class="fragment">Promises less side affect</li>
+						<li class="fragment">Start with less side affect mind set</li>
 						<li class="fragment">Prefer immutable data</li>
 						<li class="fragment">Use pure function</li>
 						<li class="fragment">Prefers declarative style</li>
-						<li class="fragment">Write programming in a way to describing</li>
-						<li class="fragment">Implementation detail packaged away</li>
-						<li class="fragment">Promises cleaner, readable code</li>
-						<li class="fragment">Easier to reason about</li>
+						<!-- <li class="fragment">Write programming in a way to describing</li> -->
+						<li class="fragment">Put Implementation detail packaged away</li>
+						<li class="fragment">Target cleaner, readable code</li>
+						<!-- <li class="fragment">Easier to reason about</li> -->
 					</ul>
 					<br>
 					<br>
 					<br>
-					
+
 					<aside class="notes">
 						<p><strong>Side effects:</strong> minimize the number of changes to a programmer's state</p>
 					</aside>
@@ -2404,16 +2431,20 @@ validateValueWithFunc('Joe Mama', parseName, 'Name');
 					<h1>Free tip</h1>
 				</section>
 				<section>
-					<h2>My top 7 excuses</h2>
+					<h2>My top 8 excuses</h2>
 					<ol>
 						<li class="fragment">It worked on my machine</li>
-						<li class="fragment">Your browser must be caching the old content</li>
+						<li class="fragment">Your browser might be caching old content... hit <strong>Ctlr + F5</strong></li>
 						<li class="fragment">You must have the wrong version</li>
+						<li class="fragment">Ohh...I forgot to push the changes</li>
 						<li class="fragment">That was only supposed to be a placeholder</li>
-						<li class="fragment">It's not a bug, it's a new feature</li>
+						<li class="fragment">It's not a true bug, it's a new feature</li>
 						<li class="fragment">The guy who left, his code is causing this</li>
-						<li class="fragment">It's a known issue in JavaScript</li>
+						<li class="fragment">It's a <strong>known issue</strong> in JavaScript</li>
 					</ol>
+					<aside class="notes">
+						<p>Hit Cltr +F5</p>
+					</aside>
 				</section>
 			</section>
 			<section>
@@ -2429,6 +2460,7 @@ validateValueWithFunc('Joe Mama', parseName, 'Name');
 					</ul>
 					<br>
 					<br>
+					<p class="fragment danger">It's coming to hunt you</p>
 					<br>
 					<p><small>Ref: <a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0">Functional Programming</a></small></p>
 					<aside class="notes">
@@ -2455,7 +2487,7 @@ validateValueWithFunc('Joe Mama', parseName, 'Name');
 					<li>
 						<a href="http://reactivex.io/learnrx/">Functional Programming in JavaScript</a>
 					</li>
-					<li><a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">a practical introduction to Functional Programming</a></li>
+					<li><a href="https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming">A practical introduction to Functional Programming</a></li>
 					<li><a href="http://kachayev.github.io/talks/uapycon2012/">Functional programming in Python</a>
 					<li><a href="https://www.manning.com/books/functional-programming-in-scala">Functional Programming in Scala</a></li>
 					<li><a href="http://www.vasinov.com/blog/16-months-of-functional-programming/">16 months of functional programming</a></li>
