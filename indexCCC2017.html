@@ -72,7 +72,6 @@
 				<!-- <section>
 					<h2>TODO</h2>
 					<ol>
-                                               <li><a href="http://pragmatists.pl/blog/2017/05/higher-order-functions-in-lodash/">higher order function</a>
 						<li>remove var</li>
 						<li>Make map, filter, reduce, part slimmer</li>
 						<li>Functor, Monads, Applicatives</li>
@@ -798,7 +797,6 @@ console.log(sum);
 					</code></pre>
 					<br>
 					<p><small>ref: <a href="https://medium.com/javascript-scene/reduce-composing-software-fe22f0c39a1d">reduce</a></small></p>
-					<p><small>ref: <a href="http://raganwald.com/2017/04/30/transducers.html">transducer</a></small></p>
 					<aside class="notes">
 						<p>commonly used in functional programming that lets you iterate over a list, applying a function to an accumulated value
 							and the next item in the list, until the iteration is complete and the accumulated value gets returned. Many useful
@@ -832,23 +830,6 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 						<li class="">It’s throwing some of the transformations away. It’s combining the remainder into a single output.</li>
 					</aside>
 				</section>
-				<section>
-					<h2>Understand Immutability</h2>
-					<ul>
-						<li>Think of Immutable data as a value (such as a number)</li>
-						<li>A number never changes. </li>
-						<li class="fragment">The number 7, is always 7</li>
-						<li class="fragment">If you add 1 to 7 you get a new value</li>
-						<li class="fragment">It doesn’t change 7 itself </li>
-					</ul>
-					<br>
-					<p><small>Use: <a href="http://untangled.io/immutable-js-an-introduction-with-examples-written-for-humans/"> Human readable example in Immutable.js</a></small></p>
-					
-					<aside class="notes">
-						<p>We can add an item to our collection, but that doesn’t change the original collection itself. </p>
-					</aside>
-				</section>
-				
 				<section>
 					<p>Basic Concept-3</p>
 					<h2>Data is Immutable</h2>
@@ -1060,7 +1041,6 @@ f x = (g << h << s << r << t) x
 						<p>function composition applies to functions that operate on a finite amount of data, each step sequentially processing it before handing it to the next.</p>
 					</aside>
 				</section>
-				
 			</section>
 			<section>
 				<section>
@@ -1783,10 +1763,6 @@ var result = add3(7)  // Immediately evaluates to 10
 					<h1>Category Theory</h1>
 				</section>
 				<section>
-					<blockquote class="fragment">In theory, both theory and practical are same. But in practical they are not
-					</blockquote>
-				</section>
-				<section>
 					<h2>Category Theory</h2>
 					<ul>
 						<li class="fragment">Mathematical discipline in theoretical computer science</li>
@@ -2428,229 +2404,6 @@ validateValueWithFunc('Joe Mama', parseName, 'Name');
 					<aside class="notes">
 						<p><strong>Side effects:</strong> minimize the number of changes to a programmer's state</p>
 					</aside>
-				</section>
-				<section>
-					<h2>Inheritance</h2>
-					<ul>
-						<li class="fragment">Inertance says what they are</li>
-					</ul>
-					<pre><code>
-Dog
-  .bark()					
-					</code></pre>
-					<pre class="fragment"><code>
-Cat
-  .meow()					
-					</code></pre>
-					<p><small><a href="https://www.youtube.com/watch?v=wfMtDGfHWpA">composition vs inheritance</a></small></p>
-				</section>
-				<section>
-					<h2>Inheritance</h2>
-					<pre><code>
-Dog
-  .poop()
-  .bark()					
-					</code></pre>
-					<pre><code>
-Cat
-  .poop()
-  .meow()					
-					</code></pre>
-					<p><small><a href="https://www.youtube.com/watch?v=wfMtDGfHWpA">composition vs inheritance</a></small></p>
-				</section>
-				<section>
-					<h2>Inheritance</h2>
-					<pre><code>
-Animal
-  .poop()					
-					
-  Dog
-    .bark()					
-	
-  Cat
-    .meow()					
-					</code></pre>
-					<p><small><a href="https://www.youtube.com/watch?v=wfMtDGfHWpA">composition vs inheritance</a></small></p>
-				</section>
-				<section>
-					<h2>Inheritance</h2>
-					<pre><code>
-CleaningRobot
-  .drive()
-  .clean()					
-					</code></pre>
-					<pre><code>
-Animal
-  .poop()					
-  
-  Dog
-    .bark()					
-
-  Cat
-    .meow()					
-					</code></pre>
-					<p><small><a href="https://www.youtube.com/watch?v=wfMtDGfHWpA">composition vs inheritance</a></small></p>
-				</section>
-				<section>
-					<h2>Inheritance</h2>
-					<pre><code>
-MurderRobot
-  .drive()
-  .kill()
-					</code></pre>
-					<pre><code>
-CleaningRobot
-  .drive()
-  .clean()					
-					</code></pre>
-					<pre><code>
-Animal
-  .poop()					
-  
-  Dog
-    .bark()					
-
-  Cat
-    .meow()					
-					</code></pre>
-					<p><small><a href="https://www.youtube.com/watch?v=wfMtDGfHWpA">composition vs inheritance</a></small></p>
-				</section>
-				
-				<section>
-					<pre><code>
-Robot
-  .drive()
-
-  MurderRobot
-    .kill()					
-	
-  CleaningRobo
-    .clean()					
-					</code></pre>
-					<pre><code data-trim>
-Animal
-  .poop()					
-					
-  Dog
-    .bark()					
-	
-  Cat
-    .meow()					
-					</code></pre>
-					<h2 class="fragment">Murder Robot Dog?</h2>
-					<p><small><a href="https://www.youtube.com/watch?v=wfMtDGfHWpA">composition vs inheritance</a></small></p>
-				</section>
-				<section>
-					<h2>Kill, drive, bark & poop</h2>
-					<pre><code data-trim>
-Robot
-  .drive()
-
-  MurderRobot
-    .kill()					
-	
-  CleaningRobo
-    .clean()					
-					</code></pre>
-					<pre><code data-trim>
-Animal
-  .poop()					
-					
-  Dog
-    .bark()					
-	
-  Cat
-    .meow()					
-					</code></pre>
-					<p class="fragment">More higher level object???</p>
-					<aside class="notes">
-						<p>this will give you a lot of funcationality to your object that it might not use</p>
-						<p>something like <strong>Gorilla - Banana Problem</strong></p>
-						<ul>
-							<li>You asked for a banana</li>
-							<li>You get a gorilla holding a banana</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<pre><code data-trim>
-GameObject
-  .bark()
-
-   Robot
-    .drive()
-
-    MurderRobot
-      .kill()					
-		
-    CleaningRobo
-      .clean()					
-		
-      MurderRobotDog
-		
-	
-					</code></pre>
-		<pre><code data-trim>
-  Animal
-    .poop()					
-							
-    Dog
-      .bark()					
-			
-    Cat
-      .meow()		
-		</code></pre>
-				</section>
-				<section>
-					<pre><code data-trim>
-Robot
-  .drive()
-
-  MurderRobot
-    .kill()					
-	
-  CleaningRobo
-	.clean()					
-	
-	MurderRobotDog
-	  .bark()
-					</code></pre>
-					<ul>
-						<li class="fragment">Getting more functionality than needed</li>
-						<li class="fragment">Like <strong>Gorilla - Banana Problem</strong> </li>
-						<li class="fragment">You asked for a banana</li>
-						<li class="fragment">You get a gorilla holding a banana</li>
-						
-					</ul>
-				</section>
-				<section>
-					<h2>Composition</h2>
-					<ul>
-						<li class="fragment">Inertance: Types are designed on what they are</li>
-						<li class="fragment">Composition: Types are designed on what they do</li>
-					</ul>
-					<pre class="fragment"><code>
-dog = pooper + barker
-cat = pooper + meower
-
-cleaningRobot = driver + cleaner
-murderRobot = driver + killer
-
-murderRobotDog = murderRobot + dog
-					</code></pre>
-					<pre class="fragment"><code>
-poopingMurderRobot = murderRobot + pooper			
-					</code></pre>
-				</section>
-				<section>
-					<h2>Composition benefit</h2>
-					<ul>
-						<li class="fragment">On error, you will see a stack trace</li>
-						<li class="fragment">Through every function down to the source of the bug</li>
-						<li class="fragment">In OOP: it could be confusing</li>
-						<li class="fragment">As you don’t always know the state of the rest of the object which led to the bug</li>
-					</ul>
-					<p><small><a href="https://medium.com/@chetcorcos/functional-programming-for-javascript-people-1915d8775504"></a></small></p>
 				</section>
 				<!-- <section>
 					<h2>Minimize side effect</h2>
