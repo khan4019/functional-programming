@@ -230,7 +230,7 @@
 					<br>
 					<br>
 					<br>
-					<p><small>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536">Charles: So you want to be a functional programmer</a></small></p>
+					<p><small>ref: <a href="https://medium.com/@cscalfani/so-you-want-to-be-a-functional-programmer-part-1-1f15e387e536">Charles Scalfani: So you want to be a functional programmer</a></small></p>
 					<aside class="notes">
 						<p>Charles Scalfani</p>
 					</aside>
@@ -257,8 +257,8 @@
 					<ul>
 						<li class="fragment">Application evolves around function </li>
 						<li class="fragment">With only one ground rule: <strong class="danger">No side effect</strong></li>
-						<li class="fragment">Don’t rely on data outside of the current function</li>
-						<li class="fragment">Don’t change data outside of the current function</li>
+						<li class="fragment">Don’t <strong>rely on data outside</strong> of the current function</li>
+						<li class="fragment">Don’t <strong>change data outside</strong> of the current function</li>
 						<li class="fragment">Every other “functional programing” things are derived from this property</li>
 						<li class="fragment">Use this as a guide rope</li>
 					</ul>
@@ -289,18 +289,19 @@ add(1, 2); // WILL ALWAYS output 3
 				</section>
 				<section>
 					<h2>What about this one?</h2>
-					<pre class="hljs java" data-trim><code>
+					<pre class=" hljs"><code>
+function mouseOnLeftSide(mouseX) {
+    return mouseX < window.innerWidth / 2;
+}
+					</code></pre>
+					<pre class=" fargment hljs java" data-trim><code>
 public int addNumbers(int x, int y) {
     int result = x + y;
     Database.write(result);
     return result;
 }
 					</code></pre>
-					<pre class="fragment hljs"><code>
-function mouseOnLeftSide(mouseX) {
-    return mouseX < window.innerWidth / 2;
-}
-					</code></pre>
+					
 					<aside class="notes">
 						<p>Not pure. </p>
 						<p>Chnage the browser width and for same position of mouse the result varies</p>
@@ -331,7 +332,7 @@ openSocket(ipAddress);
 						<li class="fragment">Can't always predict their behavior/output</li>
 						<li class="fragment">All these are <strong>impure function</strong></li>
 						<li class="fragment">They will have <strong>side effect</strong></li>
-						<li class="fragment">Non FP (c#, java, JS) has tons of these</li>
+						<li class="fragment">Non FP (C#, Java, JS) has tons of these</li>
 					</ul>
 					<aside class="notes">
 						<p>In Imperative Programming Languages such as JavaScript, Java, and C#, Side Effects are everywhere. This makes debugging
@@ -342,8 +343,9 @@ openSocket(ipAddress);
 				<section>
 					<h2>Dark side of side effect</h2>
 					<p>When a function produces a side effect you have to know more than just its inputs and output</p>
-					<p>to understand what that function does</p>
+					<br>
 					<ul>
+						<li class="fragment">To understand what that function does</li>
 						<li class="fragment">You have to know the context and the history</li>
 						<li class="fragment">It makes function harder and unpredictable</li>
 						<li class="fragment">Harder to test and harder to debug</li>
@@ -372,6 +374,10 @@ public int addNumbers(int x, int y) {
     return result;
 }
 					</code> </pre>
+					<aside class="notes">
+						<p>If the database <strong style="color:red">throws an error</strong> your function will blow up</p>
+						<p>Though nothing wrong with your core intention or your input</p>
+					</aside>
 				</section>
 				<section>
 					<h2>Pure Function</h2>
@@ -472,7 +478,7 @@ const doubleIt = x => x * 2;
 						<li>Either take function as argument</li>
 						<li>Or return function</li>
 					</ul>
-					<pre><code>
+					<!-- <pre><code>
 function makeAdder(constantValue) {
     return function adder(value) {
         return constantValue + value;
@@ -491,7 +497,7 @@ console.log(add10(40)); // prints 50
 					</aside>
 				</section>
 				<section>
-					<h2>Another Example</h2>
+					<h2>Another Example</h2> -->
 
 					<pre class="fragment hljs javascript"><code>
 function greaterThan(n) {
@@ -569,8 +575,7 @@ myClock(); //3
 					<br>
 					<p><small>read <a href="https://medium.com/@cscalfani/why-programmers-need-limits-3d96e1a0a6db">Programmer needs limit</a></small></p>
 					<aside class="notes">
-						<p>Did you ever wonder why most solutions to program glitches are fixed by rebooting your computer or restarting the offending application? That’s because of state. The program has corrupted its state.</p>
-						<p>Did you ever wonder why most solutions to program glitches are fixed by rebooting your computer or restarting the offending application? That’s because of state. The program has corrupted its state.</p>
+						<p>Did you ever wonder why most solutions to program glitches are fixed by <strong>rebooting your computer</strong> or restarting the offending application? That’s because of state. The program has corrupted its state.</p>
 						<p>One obvious benefit is that if you have access to a value in your program, you only have read access, which means that
 							no one else can change that value. Even you. So no accidental mutations.</p>
 						<p>Also, if your program is multi-threaded, then no other thread can pull the rug out from under you. That value is constant
@@ -806,7 +811,7 @@ console.log(sum);
 						<p>Reduce takes a function and a collection of items. It returns a value that is created by combining the items.</p>
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>Reduce is very useful</h2>
 					<pre class="hljs javascript"><code>
 var list1 = [[0, 1], [2, 3], [4, 5]];
@@ -818,12 +823,12 @@ const flatten = arr => arr.reduce((acc, val) =>
 flatten(list1); // returns [0, 1, 2, 3, 4, 5]
 flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 					</code></pre>
-				</section>
+				</section> -->
 				<section>
 					<h2>Why map, filter, reduce</h2>
 					<ul>
 						<li class="fragment">Structure for looping always same</li>
-						<li class="fragment">Map, reduce, filter take care of the repeating parts</li>
+						<li class="fragment">Map, filter, reduce take care of the repeating parts</li>
 						<li class="fragment">Reduce typing- reduce chances of error</li>
 						<li class="fragment">Focus on the important parts of the iteration: <strong>the operation</strong> </li>
 
@@ -928,12 +933,14 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 				</section>
 				<section>
 					<p>f(x) = 2x + 3</p>
+					<p class="fragment">f(2) = ?</p>
 					<pre class="fragment"><code data-trim>
 f(2) = 2 * 2 + 3
      = 4 + 3
      = 7
 					</code></pre>
 					<p class="fragment">g(x) = x <sup>2</sup> + 1</p>
+					<p class="fragment">g(2) = ?</p>
 					<pre class="fragment"><code data-trim>
 						g(2) = 2 * 2 + 1
 						     = 4 + 1
@@ -1087,6 +1094,7 @@ function currySum3(x){
 		}
 	}
 }
+
 const currySum3 = x => y => z => x + y + z;
 currySum3(1)(2)(3); //= 6
 						</code></pre>
@@ -1200,13 +1208,13 @@ var mult5AfterAdd10 = compose(mult5, add(10));
 					<h2>Currying and Composition</h2>
 					<pre><code>
 const f = a => b => c => d => a + b + c + d
-console.log(f(1)(2)(3)(4)); // prints 10
+f(1)(2)(3)(4); // returns 10
 </code></pre>
 					<pre class="fragment hljs"><code>
 const f = R.curry((a, b, c, d) => a + b + c + d);
-console.log(f(1, 2, 3, 4)); // prints 10
-console.log(f(1, 2)(3, 4)); // also prints 10
-console.log(f(1)(2)(3, 4)); // also prints 10
+f(1, 2, 3, 4); // returns 10
+f(1, 2)(3, 4); // also returns 10
+f(1)(2)(3, 4); // also returns 10
 </code></pre>
 					<br>
 					<br>
@@ -1248,8 +1256,10 @@ const mult5AfterAdd10 = R.compose(R.multiply(5), R.add(10));
 						<li>Also known as <strong>Tacit Programming</strong></li>
 						<li class="fragment">function definition does not include arguments</li>
 						<li class="fragment">Uses combinators and function composition instead of variable</li>
+						<li class="fragment">For simplicity you can think point is argument. </li>
+						<li class="fragment">Hence point free is argument free</li>
 					</ul>
-					<br>
+					<p class="fragment">You use point free: to focus on how rather than what</p>
 					<br>
 					<p><small>Ref: <a href="http://randycoulman.com/blog/2016/06/21/thinking-in-ramda-pointfree-style/">Think point free</a></small></p>
 					<aside class="notes">
@@ -1264,7 +1274,7 @@ const mult5AfterAdd10 = R.compose(R.multiply(5), R.add(10));
 					<h2>Point free notation</h2>
 					<pre class="fragment"><code data-trim>
 const toUpperCase = str => str.toUpperCase();
-const head =  x => x[0];
+const head =  str => str[0];
 const compose = (f, g)  => x => f(g(x));
 
 //not point free because we mention the data: name
@@ -1363,7 +1373,7 @@ var mult5AfterAdd10 = y => mult5(add(10, y)); // not point-free
 					</aside>
 				</section>
 				<section>
-					<h2>tail call</h2>
+					<h2>What is a tail call?</h2>
 					<pre><code>
 //Both f() and g() are in tail position
 const a = x => x ? f() : g();
@@ -1580,8 +1590,8 @@ let result = "hello" |> doubleSay |> capitalize |> exclaim;
 				<section>
 					<h2>Be Lazy</h2>
 					<ul>
-						<li class="fragment">don’t do something until you absolutely have to</li>
-						<li class="fragment">be lazy and procrastinate as long as possible</li>
+						<li class="fragment">Don’t do something until you absolutely have to</li>
+						<li class="fragment">Be lazy and procrastinate as long as possible</li>
 					</ul>
 					<pre class="fragment"><code data-trim>
 						large_list
@@ -1781,9 +1791,7 @@ var result = add3(7)  // Immediately evaluates to 10
 			<section>
 				<section>
 					<h1>Category Theory</h1>
-				</section>
-				<section>
-					<blockquote class="fragment">In theory, both theory and practical are same. But in practical they are not
+					<blockquote class="">In theory, there is no difference between theory and practice. But, in practice, there is.
 					</blockquote>
 				</section>
 				<section>
@@ -1913,22 +1921,22 @@ functor.map(x => f(g(x))) ≡ functor.map(g).map(f)
 				<section>
 					<h3>Functor</h3>
 					<pre class="hljs javascript"><code>
-const Container = x=> ({
+const Container = x => ({
     map:(f) => Container(f(x)),
     toString(){return `Container(${x})`}
 });
 				</code></pre>
 				<pre class="fragment hljs javascript"><code>
 const inContainer = Container(5);
-const mapped = inContainer.map(x=>x*2)
+const mapped = inContainer.map(x => x*2)
 mapped.toString(); //Container(10)
 				</code></pre>
 					<pre class="fragment"><code>
-const transformValue = x=> Container(x)
-		.map(x=>x*2)
-		.map(x=>x*3)
+const transformValue = x => Container(x)
+		.map(x => x*2)
+		.map(x => x*3)
 		.map(x+46)
-		.map(x=> String.fromCharCode(x))
+		.map(x => String.fromCharCode(x))
 					</code></pre>
 				</section>
 				<section>
@@ -1944,9 +1952,9 @@ const tranfromImperateive = x => {
 					<pre class=" fragment hljs javascript"><code>
 // promise is a functor
 getUsers()
-.map(user => users[0])
-.map(user => user.firstName)
-.map(firstName => firstName.toUpperCase());
+  .map(user => users[0])
+  .map(user => user.firstName)
+  .map(firstName => firstName.toUpperCase());
 					</code></pre>
 					<br>
 					<p><small>Ref: <a href="http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html">picture explanation of functor</a></small></p>
@@ -1995,7 +2003,7 @@ getUsers()
 					<p>Combine multiple functor into one functor</p>
 					<img src="images/applicative1.png" alt="">
 					<br>
-					<p><small>Ref:<a href="https://buzzdecafe.github.io/code/2014/10/26/functors-and-applicatives">applicatives</a></small></p>
+					<p><small>Ref: <a href="https://buzzdecafe.github.io/code/2014/10/26/functors-and-applicatives">applicatives</a></small></p>
 					<aside class="notes">
 						<p>Applicatives take it to the next level. With an applicative, our values are wrapped in a context, just like Functors:</p>
 						<p> which knows how to apply a function wrapped in a context to a value wrapped in a context:</p>
@@ -2045,7 +2053,7 @@ add(wrapped2, wrapped3);
 					<h3>Monads</h2>
 					<p class="fragment">Monads apply a function that <strong>returns a wrapped value to a wrapped value</strong></p>
 					<pre class="fragment hljs javascript"><code>
-const half = x => (x%2===0) ? [x/2] : [];
+const half = x => (x%2 === 0) ? [x/2] : [];
 					</code></pre>
 					<pre class="fragment"><code data-trim>
 Array.prototype.flatMap = function(lambda) {
@@ -2075,9 +2083,9 @@ Array.prototype.flatMap = function(lambda) {
 					<ul>
 						<li><a href="http://jrsinclair.com/articles/2016/marvellously-mysterious-javascript-maybe-monad/">May be you can starts with this</a></li>
 						<li><a href="http://blog.klipse.tech/javascript/2016/08/31/monads-javascript.html">Explain monads by using this</a></li>
-						<li><a href="https://github.com/getify/Functional-Light-JS/blob/master/apB.md">can read this</a></li>
+						<li><a href="https://github.com/getify/Functional-Light-JS/blob/master/apB.md">Humble Monads</a></li>
 						<li><a href="https://blog.jcoglan.com/2011/03/05/translation-from-haskell-to-javascript-of-selected-portions-of-the-best-introduction-to-monads-ive-ever-read/">Monads in JS</a></li>
-						<li><a href="http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html">monads in Haskel</a></li>
+						<li><a href="http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html">Monads in Haskel</a></li>
 						<li><a href="https://www.youtube.com/watch?v=dkZFtimgAcM">Monads</a></li>
 					</ul>
 				</section>
@@ -2410,31 +2418,11 @@ validateValueWithFunc('Joe Mama', parseName, 'Name');
 					<h1>Contrast with OOP</h1>
 				</section>
 				<section>
-					<h2>OOP and FP are not mutually exclusive</h2>
-					<ul>
-						<li class="fragment">Start with less side affect mind set</li>
-						<li class="fragment">Prefer immutable data</li>
-						<li class="fragment">Use pure function</li>
-						<li class="fragment">Prefers declarative style</li>
-						<!-- <li class="fragment">Write programming in a way to describing</li> -->
-						<li class="fragment">Put Implementation detail packaged away</li>
-						<li class="fragment">Target cleaner, readable code</li>
-						<!-- <li class="fragment">Easier to reason about</li> -->
-					</ul>
-					<br>
-					<br>
-					<br>
-
-					<aside class="notes">
-						<p><strong>Side effects:</strong> minimize the number of changes to a programmer's state</p>
-					</aside>
-				</section>
-				<section>
 					<h2>Inheritance</h2>
 					<ul>
 						<li class="fragment">Inertance says what they are</li>
 					</ul>
-					<pre><code>
+					<pre class="fragment"><code>
 Dog
   .bark()					
 					</code></pre>
@@ -2651,6 +2639,26 @@ poopingMurderRobot = murderRobot + pooper
 						<li class="fragment">As you don’t always know the state of the rest of the object which led to the bug</li>
 					</ul>
 					<p><small><a href="https://medium.com/@chetcorcos/functional-programming-for-javascript-people-1915d8775504"></a></small></p>
+				</section>
+				<section>
+					<h2>OOP and FP are not mutually exclusive</h2>
+					<ul>
+						<li class="fragment">Start with less side affect mind set</li>
+						<li class="fragment">Prefer immutable data</li>
+						<li class="fragment">Use pure function</li>
+						<li class="fragment">Prefers declarative style</li>
+						<!-- <li class="fragment">Write programming in a way to describing</li> -->
+						<li class="fragment">Put Implementation detail packaged away</li>
+						<li class="fragment">Target cleaner, readable code</li>
+						<!-- <li class="fragment">Easier to reason about</li> -->
+					</ul>
+					<br>
+					<br>
+					<br>
+
+					<aside class="notes">
+						<p><strong>Side effects:</strong> minimize the number of changes to a programmer's state</p>
+					</aside>
 				</section>
 				<!-- <section>
 					<h2>Minimize side effect</h2>
