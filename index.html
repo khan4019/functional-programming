@@ -155,6 +155,9 @@
 			<section>
 				<section>
 					<h1>What</h1>
+					<aside class="notes">
+						<h2>This was suppose to be a simple question</h2>
+					</aside>
 				</section>
 				<section>
 					<h2>Ask the geeky guy</h2>
@@ -194,7 +197,10 @@
 				</section>
 				<section>
 					<h4>Every major idea starts with Google search</h4>
-					<img style="height: 600px;" src="images/day.jpg">
+					<img class="fragment" style="height: 600px;" src="images/day.jpg">
+					<aside class="notes">
+						<h2>Greatest Mistake was to google</h2>
+					</aside>
 				</section>
 				<section>
 					<h2>What the func?</h2>
@@ -211,7 +217,6 @@
 					<br>
 					<p><small>Ref: <a href="https://clojurefun.wordpress.com/2012/08/27/what-defines-a-functional-programming-language/">What is Functional Programming</a></small></p>
 					<aside class="notes">
-						<h2>Greatest Mistake was to google</h2>
 						<p>When people talk about functional programming</p>
 						<h2>Then i realized I have nothing else to do in the weekend...anyway</h2>
 					</aside>
@@ -245,6 +250,10 @@
 				</section>
 				<section>
 					<img style="height:500px;" src="images/driving3.png" alt="">
+					<aside class="notes">
+						<h4>Now you will be driving space craft</h4>
+						<p>No back gear</p>
+					</aside>
 				</section>
 			</section>
 			<section>
@@ -294,7 +303,7 @@ function mouseOnLeftSide(mouseX) {
     return mouseX < window.innerWidth / 2;
 }
 					</code></pre>
-					<pre class=" fargment hljs java" data-trim><code>
+					<pre class="fragment hljs java" data-trim><code>
 public int addNumbers(int x, int y) {
     int result = x + y;
     Database.write(result);
@@ -397,23 +406,23 @@ public int addNumbers(int x, int y) {
 					<h2>Convert Impure to pure</h2>
 					<p class="fragment">Make global variable local</p>
 					<pre class="fragment"><code class="hljs" data-trim>
-						const myFunc = function(y){
-							const x = 10;
-							return x + y;
-						}
+const myFunc = function(y){
+  const x = 10;
+  return x + y;
+}
 
-						console.log(myFunc(3)); //13
-						console.log(myFunc(3)); //13
+console.log(myFunc(3)); //13
+console.log(myFunc(3)); //13
 					</code></pre>
 					<p class="fragment">Pass as parameter</p>
 					<pre class="fragment"><code class="hljs" data-trim>
-						const x = 10;
-						const myFunc = function(x, y){
-							return x + y;
-						}
+const x = 10;
+const myFunc = function(x, y){
+  return x + y;
+}
 
-						console.log(myFunc(x, 3)); //13
-						console.log(myFunc(x, 3)); //13
+console.log(myFunc(x, 3)); //13
+console.log(myFunc(x, 3)); //13
 					</code></pre>
 				</section>
 				<section>
@@ -513,8 +522,8 @@ greaterThan10(7); //false
 					</code></pre>
 					<pre class="fragment hljs javascript"><code data-trim>
 const greaterThan15 = greaterThan(15);
-greaterThan10(11); //false
-greaterThan10(21); //true
+greaterThan15(11); //false
+greaterThan15(21); //true
 					</code></pre>
 				</section>
 				<!-- <section>
@@ -557,6 +566,7 @@ myClock(); //3
 					<h2>Treat data as Immutable</h2>
 					<ul>
 						<li class="fragment">Immutable is not Mutable</li>
+						<li class="fragment">Not changeable</li>
 						<li class="fragment">number, string, boolean are immutable</li>
 						<!-- <li class="fragment">Objects, arrays are mutable</li> -->
 						<li class="fragment">Mutation has side effect</li>
@@ -640,7 +650,7 @@ function addOneTOSum(y , z){
 							Functional programming solves the single-valued change in exactly the same way, by making a copy of it. Oh, yes and
 							by not having loops.</p>
 					</aside>
-				</section>-->
+				</section>
 				<section>
 					<h2>Immutability in JS</h2>
 					<pre class="hljs javascript"><code>
@@ -668,7 +678,7 @@ a.x = 2; // NO EXCEPTION!
 						<p>Unfortunately, we can only do so via a library called Immutable.js. This may give us better immutability but sadly,
 							it does so in a way that makes our code look more like Java than JavaScript.</p>
 					</aside>
-				</section>
+				</section>-->
 				<section>
 					<h2>Hold on</h2>
 					<p class="danger fragment">Loop needs variable</p>
@@ -676,7 +686,7 @@ a.x = 2; // NO EXCEPTION!
 					<pre class="hljs fragment"><code>
 var sum = 0;
 for (var i = 1; i <= 10; ++i){
-	sum += i;
+  sum += i;
 }
 console.log(sum); // prints 55
 					</code></pre>
@@ -710,9 +720,6 @@ console.log(sumRange(1, 10, 0)); // prints 55
 							familiarity, non-recursive loops require Mutability, which is bad.</p>
 					</aside>
 				</section> -->
-
-			</section>
-			<section>
 				<section>
 					<h1>Looping</h1>
 					<img style="height:450px;" src="images/loop2.jpg" alt="">
@@ -771,12 +778,15 @@ console.log(newNumbers); // [2, 6]
 					<pre class="hljs fragment"><code data-trim>
 const numbers = [1, 2, 3, 4];
 const odd = n => n % 2;
-const double = x => x * 2;
+const doubleIt = x => x * 2;
 
-const newNumbers = numbers.filter(odd).map(double);
+const newNumbers = numbers.filter(odd).map(doubleIt);
 					</code></pre>
 					<br>
 					<p><small>Ref: <a href="http://cryto.net/~joepie91/blog/2015/05/04/functional-programming-in-javascript-map-filter-reduce/">map, filter, reduce</a></small></p>
+					<aside class="notes">
+						<h2>Taking odd numbers and then double</h2>
+					</aside>
 				</section>
 				<section>
 					<h2>Reduce</h2>
@@ -843,9 +853,10 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 						<li>Think of Immutable data as a value (such as a number)</li>
 						<li>A number never changes. </li>
 						<li class="fragment">The number 7, is always 7</li>
-						<li class="fragment">If you add 1 to 7 you get a new value</li>
+						<li class="fragment">If you add 1 to 7 you get a new value: 8</li>
 						<li class="fragment">It doesn’t change 7 itself </li>
 					</ul>
+					<br>
 					<br>
 					<p><small>Use: <a href="http://untangled.io/immutable-js-an-introduction-with-examples-written-for-humans/"> Human readable example in Immutable.js</a></small></p>
 					
@@ -946,7 +957,7 @@ f(2) = 2 * 2 + 3
 						     = 4 + 1
 						     = 5
 					</code></pre>
-					<p class="fragment">What is the value of f(g(x)) ?</p>
+					<p class="fragment">What is the value of f(g(x)) or f(g(2))?</p>
 					<pre class="fragment"><code data-trim>
 f(g(2)) = f(5)
         = 2 * 5 + 3
@@ -1013,7 +1024,7 @@ mult5AfterAdd10(5); //35
 						In our definition of compose, the g will run before the f, creating a right to left flow of data.
 					</aside>
 				</section>
-				<section>
+				<!--<section>
 					<h2>Another Example</h2>
 					<pre><code>
 const split = str => str.split(' ');
@@ -1026,12 +1037,12 @@ wordCount('There are seven words in this sentence'); //7
 						<li class="fragment">Partially apply split first</li>
 						<li class="fragment">While performing split we are waiting for length</li>
 						<li class="fragment">split does it works and then pass it to length</li>
-						<!-- <li class="fragment">Curried function is partially applied</li> -->
+						<li class="fragment">Curried function is partially applied</li>
 					</ul>
 					<aside class="notes">
 						<p>Giving you another example so that you keep it in your head</p>
 					</aside>
-				</section>
+				</section> -->
 				<section>
 					<h2>Elm example</h2>
 					<pre class="hljs elm"><code>
@@ -1075,6 +1086,9 @@ f x = (g << h << s << r << t) x
 					<img style="height: 300px;" src="images/curry.png" alt="">
 					<br>
 					<p><small>Ref: <a href="https://en.wikipedia.org/wiki/Haskell_Curry">Haskell Brooks Curry</a></small></p>
+					<aside class="notes">
+						<h3>Number two of our</h3>
+					</aside>
 				</section>
 				<section>
 					<h3>Currying</h3>
@@ -1088,11 +1102,11 @@ sum3(1,2,3); //6
 						</code></pre>
 						<pre class="fragment"><code data-trim>
 function currySum3(x){
-	return function (y){
-		return function (z){
-			return x + y + z;
-		}
-	}
+  return function (y){
+    return function (z){
+      return x + y + z;
+    }
+  }
 }
 
 const currySum3 = x => y => z => x + y + z;
@@ -1249,6 +1263,9 @@ const mult5AfterAdd10 = R.compose(R.multiply(5), R.add(10));
 				<section>
 					<h1>Point Free</h1>
 					<img src="images/free.png" alt="">
+					<aside class="notes">
+						<h3>Third concept</h3>
+					</aside>
 				</section>
 				<section>
 					<h2>Point Free Programming</h2>
@@ -1282,13 +1299,15 @@ const initials = function(name) {
   return name.split(' ').map(compose(toUpperCase, head)).join('. ');
 };
 					</code></pre>
+					<pre class="fragment"><code>
+initials("that js dude");
+// 'T. J. D.'					
+					</code></pre>
 					<pre class="fragment"><code data-trim>
 //point free
 const initials = compose(join('. '),
-                       map(compose(toUpperCase, head)), split(' '));
+                    map(compose(toUpperCase, head)), split(' '));
 
-initials("that js dude");
-// 'T. J. D.'
 					</code></pre>
 					<br>
 					<!-- <p class="danger">Why would you use point free?</p> -->
@@ -1350,6 +1369,9 @@ var mult5AfterAdd10 = y => mult5(add(10, y)); // not point-free
 				<section>
 					<h1>Tail call Optimization</h1>
 					<img style="height:300px;" src="images/tail3.jpg" alt="">
+					<aside class="notes">
+						<h3>Number four of moderate level concept</h3>
+					</aside>
 				</section>
 				<section>
 					<h2>Tail call optimization</h2>
@@ -1485,6 +1507,9 @@ console.log(factorial( 10, 1 )); // 3628800
 				<section>
 					<h1>Pipelines</h1>
 					<img src="images/pipeline.JPG" alt="">
+					<aside class="notes">
+						<h3>Fift thing</h3>
+					</aside>
 				</section>
 				<section>
 					<h2>Collection Pipelines</h2>
@@ -1582,7 +1607,7 @@ let result = "hello" |> doubleSay |> capitalize |> exclaim;
 					<p><small>ref: <a href="https://github.com/gilbert/es-pipeline-operator">JS pipeline proposal</a></small></p>
 				</section>
 			</section>
-			<section>
+			<!--<section>
 				<section>
 					<h2>Lazy Evaluation</h2>
 					<img src="images/lazy1.jpg" alt="">
@@ -1674,7 +1699,7 @@ test('RxJS', testRx, inputData);
 					<p>Array took 0.14s and had result of 12498033630</p>
 					<p class="fragment">RxJS took 0.08s and had result of 12498033630</p>
 				</section>
-				<!--<section>
+				<section>
 					<h2>lazy async</h2>
 					<pre class="hljs javascript"><code>
 // Not lazy
@@ -1698,8 +1723,8 @@ var result = add3(7)  // Immediately evaluates to 10
 				<section>
 					<h2>Debug Lazy function</h2>
 					<p><small>Extra: <a href="http://stackoverflow.com/questions/1303794/how-is-debugging-achieved-in-a-lazy-functional-programming-language">Debug lazy function</a></small></p>
-				</section>-->
-			</section>
+				</section>
+			</section>-->
 			<!-- <section>
 				<section>
 					<h1>Type annotation</h1>
@@ -1709,7 +1734,7 @@ var result = add3(7)  // Immediately evaluates to 10
 					<p>a type constructor is a generic type definition, which takes another type as a parameter.</p>
 				</section>
 			</section> -->
-			<section>
+			<!-- <section>
 				<section>
 					<h1>Combinators</h1>
 				</section>
@@ -1717,7 +1742,7 @@ var result = add3(7)  // Immediately evaluates to 10
 					<p>a function which builds program fragments from program fragments</p>
 					<p><small>Ref: <a href="http://stackoverflow.com/questions/7533837/explanation-of-combinators-for-the-working-man">this</a> or <a href="https://softwareengineering.stackexchange.com/a/117575">this</a>or <a href="http://scalafp.com/book/functional-programming-is-like-unix-pipelines.html">at the bottom of this</a></small></p>
 				</section>
-			</section>
+			</section> -->
 			<section>
 				<section>
 					<h1>Partial application</h1>
@@ -1750,7 +1775,7 @@ var result = add3(7)  // Immediately evaluates to 10
 						<li class="fragment">Point free...doesn't take arguments</li>
 						<li class="fragment">Partial application takes one or more</li>
 						<li class="fragment">Tail call is a compiler magic</li>
-						<li class="fragment">Lazy evaluation makes things faster</li>
+						<!-- <li class="fragment">Lazy evaluation makes things faster</li> -->
 					</ul>
 					<aside class="notes">
 						<p>Look at you...you have three names as well</p>
@@ -1768,7 +1793,10 @@ var result = add3(7)  // Immediately evaluates to 10
 				<section>
 					<h2>Find the napper</h2>
 					<img style="height:350px;" src="images/lost3.JPG" alt="">
-					<p class="fragment"><small>While cooking curry...how many spices can you put at a time?</small></p>
+					<p class="fragment"><small>While cooking curry...how many people were adding spices?</small></p>
+					<aside class="notes">
+						<p>5</p>
+					</aside>
 				</section>
 			</section>
 			<section>
@@ -1935,7 +1963,7 @@ mapped.toString(); //Container(10)
 const transformValue = x => Container(x)
 		.map(x => x*2)
 		.map(x => x*3)
-		.map(x+46)
+		.map(x => x+46)
 		.map(x => String.fromCharCode(x))
 					</code></pre>
 				</section>
@@ -1952,7 +1980,6 @@ const tranfromImperateive = x => {
 					<pre class=" fragment hljs javascript"><code>
 // promise is a functor
 getUsers()
-  .map(user => users[0])
   .map(user => user.firstName)
   .map(firstName => firstName.toUpperCase());
 					</code></pre>
@@ -2081,12 +2108,13 @@ Array.prototype.flatMap = function(lambda) {
 				<section>
 					<h2>Few Types of Monad</h2>
 					<ul>
-						<li><a href="http://jrsinclair.com/articles/2016/marvellously-mysterious-javascript-maybe-monad/">May be you can starts with this</a></li>
-						<li><a href="http://blog.klipse.tech/javascript/2016/08/31/monads-javascript.html">Explain monads by using this</a></li>
+						<li><a href="http://jrsinclair.com/articles/2016/marvellously-mysterious-javascript-maybe-monad/">Maybe moand</a></li>
 						<li><a href="https://github.com/getify/Functional-Light-JS/blob/master/apB.md">Humble Monads</a></li>
 						<li><a href="https://blog.jcoglan.com/2011/03/05/translation-from-haskell-to-javascript-of-selected-portions-of-the-best-introduction-to-monads-ive-ever-read/">Monads in JS</a></li>
 						<li><a href="http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html">Monads in Haskel</a></li>
 						<li><a href="https://www.youtube.com/watch?v=dkZFtimgAcM">Monads</a></li>
+						<li><a href="http://blog.klipse.tech/javascript/2016/08/31/monads-javascript.html">Explain monads by using this</a></li>
+						
 					</ul>
 				</section>
 				<!-- <section>
@@ -2270,9 +2298,20 @@ cube :: (Number,String) -> (Number,String)
 			</section>
 			<section>
 				<section>
-					<h2>Write declaratively, not imperatively</h2>
+					<h1>Summary 3</h1>
+				</section>
+				<section>
+					<ul>
+						<li>functor means mappable</li>
+						<li class="fragment">wrapped value to wrapped value</li>
+					</ul>
 				</section>
 			</section>
+			<!-- <section>
+				<section>
+					<h2>Write declaratively, not imperatively</h2>
+				</section>
+			</section> -->
 			<!-- <section>
 				<section>
 					<h1>Mix all you learned a heading!</h1>
@@ -2512,7 +2551,7 @@ Robot
   MurderRobot
     .kill()					
 	
-  CleaningRobo
+  CleaningRobot
     .clean()					
 					</code></pre>
 					<pre><code data-trim>
@@ -2537,7 +2576,7 @@ Robot
   MurderRobot
     .kill()					
 	
-  CleaningRobo
+  CleaningRobot
     .clean()					
 					</code></pre>
 					<pre><code data-trim>
@@ -2571,14 +2610,14 @@ GameObject
     MurderRobot
       .kill()					
 		
-    CleaningRobo
+    CleaningRobot
       .clean()					
 		
       MurderRobotDog
 		
 	
 					</code></pre>
-		<pre><code data-trim>
+		<pre><code>
   Animal
     .poop()					
 							
@@ -2588,6 +2627,10 @@ GameObject
     Cat
       .meow()		
 		</code></pre>
+					<aside class="notes">
+						<p>Now cleaning robot gets <strong>bark</strong> which it doesnt need</p>
+						<p>We get much more than we need</p>
+					</aside>
 				</section>
 				<section>
 					<pre><code data-trim>
@@ -2597,7 +2640,7 @@ Robot
   MurderRobot
     .kill()					
 	
-  CleaningRobo
+  CleaningRobot
 	.clean()					
 	
 	MurderRobotDog
@@ -2736,9 +2779,10 @@ poopingMurderRobot = murderRobot + pooper
 					<li class="fragment"><a href="http://queue.acm.org/detail.cfm?id=2611829">Mostly functional programming does not work</a></li>
 				</ul>
 			</section> -->
-			<section>
+			<!-- <section>
 				<h2>Need more: still hungry</h2>
 				<ul>
+					<li><a href="https://www.youtube.com/watch?v=FGQAP0GxlW8">Why Functional Programming Matters - John Hughes, Mary Sheeran</a></li>
 					<li>
 						<a href="http://reactivex.io/learnrx/">Functional Programming in JavaScript</a>
 					</li>
@@ -2750,19 +2794,62 @@ poopingMurderRobot = murderRobot + pooper
 						<a href="http://osteele.com/sources/javascript/functional/">Functional JavaScript</a>
 					</li>
 				</ul>
+			</section> -->
+			<section>
+				<section>
+					<h1>About this dude</h1>
+				</section>
+				<section>
+					<img src="./images/dude.jpeg" alt="">
+					<ul>
+						<li style="color:purple"><strong>@jsdude005</strong></li>
+						<li>Organizer Chicago JavaScript meetup</li>
+						<li>Organize Chicago front end developers group</li>
+						<li>This is my fifth year in that conference</li>
+						<li>Giving talk all over the places</li>
+						<li>Run Marathon, sky diving, tough mudder</li>
+					</ul>
+				</section>
+				<section>
+					<p><strong>Take advantages</strong></p>
+					<ul>
+						<li>Website: www.thatJSDude.com</li>
+						<li>Worskhop on React, Angular, JS, Interview process</li>
+						<li>One to one training on career or any front end thing</li>
+						<li>Interview preparation, Resume, interview preparation </li>
+					</ul>
+					<img style="height:350px;" src="./images/meetup.jpeg" alt="">
+				</section>
+				<section>
+					<p><strong>React workshop</strong></p>
+					<ul>
+						<li>Build realistic website: <a href="https://ema-john.firebaseapp.com/">ema-john</a> </li>
+						<li>100% money back gurantee</li>
+						<li>20$ off if you sign up today</li>
+						<li>August 19 on minneapolis.</li>
+						<li>Just email: <strong style="color:purple">khan4019@gmail.com</strong></li>
+					</ul>
+					<img style="height:300px" src="./images/workshop1.JPG" alt="">
+					<aside class="notes">
+						<p>November 11 online</p>
+					</aside>
+				</section>
 			</section>
 			<section>
-				<h1  style="text-align: left;">THANK YOU</h1>
+				<h2>khan4019@gmail.com</h2><br>
 				<br>
+				<h4><a href="https://goo.gl/pdio1i">https://goo.gl/pdio1i</a></h4>
 				<br>
-				<h2><a href="https://goo.gl/pdio1i">https://goo.gl/pdio1i</a></h2>
-				<br>
+				
 				<p>
 					<a href="http://thatjsdude.com">ThatJSDude.com</a> / <a href="http://twitter.com/jsdude005">@jsdude005</a>
 				</p>
 				<p>
 					<small><a href="http://www.youtube.com/c/ThatJSDude">youtube.com/c/ThatJSDude </a></small>
 				</p>
+				<br>
+				<br>
+				<p><small>ohh, thanks for being here!</small></p>
 			</section>
 		</div>
 
