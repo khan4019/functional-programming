@@ -173,7 +173,7 @@
 						<p>after 40 minutes of talk during lunch break... my head starts spinning</p>
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>Ask my Manager</h2>
 					<img class="fragment" src="images/manager.gif" alt="">
 					<ul>
@@ -201,7 +201,7 @@
 					<aside class="notes">
 						<h2>Greatest Mistake was to google</h2>
 					</aside>
-				</section>
+				</section> -->
 				<section>
 					<h2>What the func?</h2>
 					<ul>
@@ -298,18 +298,18 @@ add(1, 2); // WILL ALWAYS output 3
 				</section>
 				<section>
 					<h2>What about this one?</h2>
-					<pre class=" hljs"><code>
+					<pre class=" hljs"><code data-trim>
 function mouseOnLeftSide(mouseX) {
     return mouseX < window.innerWidth / 2;
 }
 					</code></pre>
-					<pre class="fragment hljs java" data-trim><code>
+					<!-- <pre class="fragment hljs java" data-trim><code>
 public int addNumbers(int x, int y) {
     int result = x + y;
     Database.write(result);
     return result;
 }
-					</code></pre>
+					</code></pre> -->
 					
 					<aside class="notes">
 						<p>Not pure. </p>
@@ -327,10 +327,8 @@ public int addNumbers(int x, int y) {
 							<li class="">function relies on window.innerWidth</li>
 						</ul>
 					</aside>
-				</section>
-				<section>
-					<h2>Few more</h2>
-					<pre class="hljs fragment"><code>
+					<p class="fragment"><small>Few more... impure function</small></p>
+					<pre class="hljs fragment"><code data-trim>
 writeFile(fileName);
 updateDatabaseTable(sqlCmd);
 sendAjaxRequest(ajaxRequest);
@@ -339,7 +337,6 @@ openSocket(ipAddress);
 					<ul>
 						<li class="fragment">Rely on things outside of input parameter</li>
 						<li class="fragment">Can't always predict their behavior/output</li>
-						<li class="fragment">All these are <strong>impure function</strong></li>
 						<li class="fragment">They will have <strong>side effect</strong></li>
 						<li class="fragment">Non FP (C#, Java, JS) has tons of these</li>
 					</ul>
@@ -366,7 +363,7 @@ openSocket(ipAddress);
 					<p class="fragment">This makes debugging very difficult because a variable can be changed anywhere in your program. </p>
 					<p class="fragment">So when you have a bug because a variable is changed to the wrong value at the wrong time, where do you look? Everywhere?
 						That’s not good.</p>
-				</section> -->
+				</section> 
 				<section>
 					<h2>Two Types of functions</h2>
 					<pre class="hljs javascript" ><code>
@@ -387,7 +384,7 @@ public int addNumbers(int x, int y) {
 						<p>If the database <strong style="color:red">throws an error</strong> your function will blow up</p>
 						<p>Though nothing wrong with your core intention or your input</p>
 					</aside>
-				</section>
+				</section> -->
 				<section>
 					<h2>Pure Function</h2>
 					<ul>
@@ -556,12 +553,12 @@ myClock(); //3
 				<section>
 					<h1>Immutability</h1>
 				</section>
-				<section>
+				<!-- <section>
 					<img src="images/immutable.png">
 					<aside class="notes">
 						<p>I am programming </p>
 					</aside>
-				</section>
+				</section> -->
 				<section>
 					<h2>Treat data as Immutable</h2>
 					<ul>
@@ -719,21 +716,17 @@ console.log(sumRange(1, 10, 0)); // prints 55
 						<p>You’re probably thinking that for loops are easier to understand. While that’s debatable and more likely an issue of
 							familiarity, non-recursive loops require Mutability, which is bad.</p>
 					</aside>
-				</section> -->
+				</section> 
 				<section>
 					<h1>Looping</h1>
 					<img style="height:450px;" src="images/loop2.jpg" alt="">
-				</section>
+				</section>-->
 				<section>
 					<h2>Iterate over lists</h2>
-					<pre class="hljs javascript"><code>
+					<pre class="hljs javascript"><code data-trim>
 let tasks = ['write code', 'drink coffee', 'hide from manager'];
-					</code></pre>
-					<pre class="hljs fragment"><code  data-trim>
 const lengths = tasks.map(word => word.length);
-
-console.log(lengths); // [10, 12, 17]
-					</code> </pre>
+console.log(lengths); // [10, 12, 17]</code> </pre>
 					<pre class="hljs fragment"><code data-trim>
 const getLength = word => word.length;
 
@@ -788,7 +781,7 @@ const newNumbers = numbers.filter(odd).map(doubleIt);
 						<h2>Taking odd numbers and then double</h2>
 					</aside>
 				</section>
-				<section>
+				<!--  <section>
 					<h2>Reduce</h2>
 					<ul>
 						<li class="fragment">Reduce (aka: fold, accumulate)</li>
@@ -821,7 +814,7 @@ console.log(sum);
 						<p>Reduce takes a function and a collection of items. It returns a value that is created by combining the items.</p>
 					</aside>
 				</section>
-				<!-- <section>
+				<section>
 					<h2>Reduce is very useful</h2>
 					<pre class="hljs javascript"><code>
 var list1 = [[0, 1], [2, 3], [4, 5]];
@@ -883,7 +876,7 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 						<li class="fragment">Avoid shared state, mutable data, and side-effects</li>
 						<li class="fragment">Immutable: No variable, only constant</li>
 						<li class="fragment">No looping: use map, filter, reduce</li>
-						<li class="fragment">Give repeating tasks to the compiler</li>
+						<!-- <li class="fragment">Give repeating tasks to the compiler</li> -->
 					</ul>
 					<br>
 					<br>
@@ -1296,7 +1289,7 @@ const compose = (f, g)  => x => f(g(x));
 
 //not point free because we mention the data: name
 const initials = function(name) {
-  return name.split(' ').map(compose(toUpperCase, head)).join('. ');
+ return name.split(' ').map(compose(toUpperCase,head)).join('. ');
 };
 					</code></pre>
 					<pre class="fragment"><code>
@@ -1799,7 +1792,7 @@ var result = add3(7)  // Immediately evaluates to 10
 					</aside>
 				</section>
 			</section>
-			<section>
+			<!-- <section>
 				<section>
 					<h1>Give away</h1>
 				</section>
@@ -1815,7 +1808,7 @@ var result = add3(7)  // Immediately evaluates to 10
 						<li class="fragment">We could take you to the <strong>CLOUD</strong></li>
 					</ol>
 				</section>
-			</section>
+			</section> -->
 			<section>
 				<section>
 					<h1>Category Theory</h1>
@@ -2811,7 +2804,7 @@ poopingMurderRobot = murderRobot + pooper
 						<li>Run Marathon, sky diving, tough mudder</li>
 					</ul>
 				</section>
-				<section>
+				<!-- <section>
 					<p><strong>Take advantages</strong></p>
 					<ul>
 						<li>Website: <strong style="color:purple">www.thatJSDude.com</strong></li>
@@ -2834,14 +2827,14 @@ poopingMurderRobot = murderRobot + pooper
 					<aside class="notes">
 						<p>November 11 online</p>
 					</aside>
-				</section>
+				</section> -->
 			</section>
 			<section>
 				<h2>khan4019@gmail.com</h2><br>
 				<br>
-				<p class="fragment"><a href="https://goo.gl/pdio1i">Slides twitted one hour ago <strong style="color:purple">@jsdude005</strong></a></p>
+				<!-- <p class="fragment"><a href="https://goo.gl/pdio1i">Slides twitted one hour ago <strong style="color:purple">@jsdude005</strong></a></p> -->
 					
-				<h4 class="hide"><a href="https://goo.gl/pdio1i">https://goo.gl/pdio1i</a></h4>
+				<h4 class="hide1"><a href="https://khan4019.github.io/functional-programming">khan4019.github.io/functional-programming</a></h4>
 				<br>
 				
 				<p>
