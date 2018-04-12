@@ -46,21 +46,22 @@
 					<h4>What, Why and How</h4>
 					<br>
 					<br>
-					<p class="fragment"><a href="https://goo.gl/pdio1i">Just twitted the slides <strong style="color:purple">@jsdude005</strong></a></p>
+					<p class="fragment"><a href="https://goo.gl/pdio1i">Just twitted the slides <strong style="color:purple">@JSDude005</strong></a></p>
 					<br>
 					<br>
 					<p>
-						<a href="http://thatjsdude.com">ThatJSDude.com</a> / <a href="http://twitter.com/jsdude005">@jsdude005</a>
+						<a href="http://thatjsdude.com">ThatJSDude.com</a> 
+						<!-- / <a href="http://twitter.com/jsdude005">@JSDude005</a> -->
 					</p>
 					<p>
-						<small><a href="http://www.youtube.com/c/ThatJSDude">youtube.com/c/ThatJSDude </a></small>
+						<small><a href="http://www.youtube.com/c/ThatJSDude">youtube.com/ThatJSDude </a></small>
 					</p>
 				</section>
 				<section>
 					<img src="images/evolution.png">
 				</section>
 				<section>
-					<h2>Agenda</h2>
+					<h2>We will talk about</h2>
 					<ul>
 						<li class="fragment">Three Basics of Functional Programming</li>
 						<li class="fragment">Five Popular patterns and techniques</li>
@@ -111,7 +112,7 @@
 						<li class="fragment">Concepts are used in web application</li>
 						<li class="fragment">Easier to read, maintain, test</li>
 						<li class="fragment">Avoid a mess of states or multi threading issues</li>
-						<li class="fragment">Modular the functionality</li>
+						<!-- <li class="fragment">Modular the functionality</li> -->
 					</ul>
 					<br>
 					<br>
@@ -212,7 +213,7 @@
 						<li class="fragment">Is this only a hype or a geeky thing?</li>
 						<li class="fragment">Why it's called functional?</li>
 						<li class="fragment">Is everything else is dysfunctional?</li>
-						<li class="fragment">Why the hell, I  have to ruin my weekend on this?</li>
+						<!-- <li class="fragment">Why the hell, I  have to ruin my weekend on this?</li> -->
 					</ul>
 					<br>
 					<br>
@@ -222,8 +223,6 @@
 						<h2>Then i realized I have nothing else to do in the weekend...anyway</h2>
 					</aside>
 				</section>
-			</section>
-			<section>
 				<section>
 					<h1>Fully lost!</h1>
 					<img src="images/lost.jpg" alt="">
@@ -416,10 +415,17 @@ const myFunc = function(x, y){
 console.log(myFunc(x, 3)); //13
 console.log(myFunc(x, 3)); //13
 					</code></pre>
+					<aside class="notes">
+						<p>You can't make everything pure function if you need to load data from server</p>
+						<h2>Goal here is to maximize the number of pure function</h2>
+					</aside>
 				</section>
 				<section>
 					<p>Basic Concept-1</p>
 					<h2>Use Pure function</h2>
+					<aside class="notes">
+						<h2>Use Pure function, as much as possible</h2>
+					</aside>
 				</section>
 				<!-- <section>
 					<h2>Reality</h2>
@@ -670,23 +676,8 @@ a.x = 2; // NO EXCEPTION!
 						<p>Unfortunately, we can only do so via a library called Immutable.js. This may give us better immutability but sadly,
 							it does so in a way that makes our code look more like Java than JavaScript.</p>
 					</aside>
-				</section>-->
-				<section>
-					<h2>Hold on</h2>
-					<p class="danger fragment">Loop needs variable</p>
-					<p class="fragment">for, while, do while, etc.</p>
-					<pre class="hljs fragment"><code>
-var sum = 0;
-for (var i = 1; i <= 10; ++i){
-  sum += i;
-}
-console.log(sum); // prints 55
-					</code></pre>
-					<blockquote class="fragment">
-						“WHAT NO VARIABLES AND NOW NO LOOPS?! I HATE YOU!!!”
-					</blockquote>
 				</section>
-				<!-- <section>
+				<section>
 					<h2>Looping in JavaScript</h2>
 					<pre class="hljs javasript"><code>
 var sum = 0;
@@ -716,6 +707,21 @@ console.log(sumRange(1, 10, 0)); // prints 55
 					<h1>Looping</h1>
 					<img style="height:450px;" src="images/loop2.jpg" alt="">
 				</section>-->
+				<section>
+						<h2>Hold on</h2>
+						<p class="danger fragment">Loop needs variable</p>
+						<p class="fragment">for, while, do while, etc.</p>
+						<pre class="hljs fragment"><code>
+	var sum = 0;
+	for (var i = 1; i <= 10; ++i){
+	  sum += i;
+	}
+	console.log(sum); // prints 55
+						</code></pre>
+						<blockquote class="fragment">
+							“WHAT NO VARIABLES AND NOW NO LOOPS?! I HATE YOU!!!”
+						</blockquote>
+					</section>
 				<section>
 					<h2>Iterate over lists</h2>
 					<pre class="hljs javascript"><code data-trim>
@@ -1026,7 +1032,7 @@ wordCount('There are seven words in this sentence'); //7
 					<aside class="notes">
 						<p>Giving you another example so that you keep it in your head</p>
 					</aside>
-				</section> -->
+				</section>
 				<section>
 					<h2>Elm example</h2>
 					<pre class="hljs elm"><code>
@@ -1046,7 +1052,7 @@ f x = (g << h << s << r << t) x
 								<p>Here x is passed to function t whose result is passed to r whose result is passed to s and so on. If you did something
 									similar in JavaScript it would look like g(h(s(r(t(x))))), a parenthetical nightmare</p>
 					</aside>
-				</section>
+				</section> -->
 				<section>
 					<h2> Why Composition</h2>
 					<ul>
@@ -1812,7 +1818,7 @@ var result = add3(7)  // Immediately evaluates to 10
 						<li class="fragment">Mathematical discipline in theoretical computer science</li>
 						<li class="fragment">It has a wide range of applications</li>
 						<li class="fragment">Concepts like Category, Functor, Monad, and others</li>
-						<li class="fragment">Understanding Category Theory isn't a must to understand FP</li>
+						<li class="fragment">Understanding Category Theory isn't a must to use FP</li>
 					</ul>
 					<br>
 					<br>
@@ -1826,8 +1832,11 @@ var result = add3(7)  // Immediately evaluates to 10
 						<li class="fragment"> A category consists of objects and arrows that go between them.</li>
 						<li class="fragment">Arrows are known as morphisms. Morphisms can be thought of as functions.</li>
 					</ul>
+					<p class="fragment"><small>For any group of connected objects, a -> b -> c, there must be a composition which goes directly from a -> c</small></p>
 					<p><small>Ref: <a href="https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/">Category Theory for Programmers: Book</a></small></p>
+
 					<p class="hide"><small>Ref: <a href="https://yogsototh.github.io/Category-Theory-Presentation/">Category THeory & Programming</a></small></p>
+					
 					<aside class="notes">
 						<p>In a category, if there is an arrow going from A to B and an arrow going from B to C then there must also be a direct arrow from A to C that is their composition. This diagram is not a full category because it’s missing identity morphisms (see later).</p>
 						<p>arrows, which are also called morphisms, as functions</p>
@@ -1835,12 +1844,12 @@ var result = add3(7)  // Immediately evaluates to 10
 						<p></p>
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<img src="images/composition.png" alt="">
 					<p class="fragment">For any group of connected objects, a -> b -> c, there must be a composition which goes directly from a -> c.</p>
-					<!-- <li class="fragment">All objects in a category have identity arrows.</li> -->
+					 <li class="fragment">All objects in a category have identity arrows.</li> 
 				</section>
-					<!-- <section>
+					 <section>
 						<h2>Functor Laws</h2>
 						<ul>
 							<li class="fragment">Categories have two important properties</li>
@@ -1951,16 +1960,16 @@ const transformValue = x => Container(x)
 		.map(x => String.fromCharCode(x))
 					</code></pre>
 				</section>
-				<section>
+				<!--<section>
 					<h2>Promises are Functor</h2>
-					<!-- <pre class="fragment"><code>
+					 <pre class="fragment"><code>
 const tranfromImperateive = x => {
     const timesTwo = x*2;
     const timesThree = x*3;
     const plus46 = timesThree + 46;
     return String.fromCharCode(x);
 }
-					</code></pre> -->
+					</code></pre> 
 					<pre class=" fragment hljs javascript"><code>
 // promise is a functor
 getUsers()
@@ -1970,7 +1979,7 @@ getUsers()
 					<br>
 					<p><small>Ref: <a href="http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html">picture explanation of functor</a></small></p>
 				</section>
-				<!-- <section>
+				<section>
 					<h2>Why Functors</h2>
 					<p>Well, because functors help us solve a lot of problems when writing code in a functional style. We can use functors to manage null or undefined, to handle errors, to make async calls, among other things. They are an important piece of any functionally styled application.</p>
 					<p><small>Ref: <a href="https://templecoding.com/blog/2016/06/16/functional-javascript-what-is-a-functor/"></a></small></p>
@@ -2008,11 +2017,12 @@ getUsers()
 			</section> -->
 			<section>
 				<section>
-					<h1>Applicatives</h1>
+					<h1>Applicative Functor</h1>
 				</section>
 				<section>
 					<p>Combine multiple functor into one functor</p>
 					<img src="images/applicative1.png" alt="">
+					<br>
 					<br>
 					<p><small>Ref: <a href="https://buzzdecafe.github.io/code/2014/10/26/functors-and-applicatives">applicatives</a></small></p>
 					<aside class="notes">
@@ -2837,7 +2847,7 @@ killerDog = dog + killer
 				</p>
 				<br>
 				<br>
-				<p><small>ohh, see you next time!</small></p>
+				<!-- <p><small>ohh, see you next time!</small></p> -->
 			</section>
 		</div>
 
