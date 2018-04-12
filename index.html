@@ -65,6 +65,7 @@
 						<li class="fragment">Three Basics of Functional Programming</li>
 						<li class="fragment">Five Popular patterns and techniques</li>
 						<li class="fragment">Three higher level Geeky things</li>
+						<li class="fragment">Compare OOP with FP</li>
 						<li class="fragment">Transform OOP to FP</li>
 						<li class="fragment">...and lots of fun</li>
 					</ul>
@@ -280,7 +281,7 @@
 				</section>
 				<section>
 					<h2>This is a function</h2>
-					<pre class="hljs javascript"><code>
+					<pre class="hljs javascript"><code data-trim>
 function add(x, y){
   return x + y;
 }
@@ -293,8 +294,16 @@ add(1, 2); // WILL ALWAYS output 3
 					<ul>
 						<!-- <li class="fragment">Always produce the same output for same inputs</li>
 						<li class="fragment">Only operate on their input parameters</li> -->
-						<li class="fragment">No side effect</li>
+						
+						<li class="fragment">Output relies solely on input values</li>
+						<li class="fragment">Always produce same output for same inputs.</li>
+						<li class="fragment">Does not produce an observable side effect</li>
+						<li class="fragment">Does not change the program's state</li>
+						<li class="fragment">Highly testable and reusable</li>
 					</ul>
+					<aside class="notes">
+						This slide has fragments which are also stepped through in the notes window.
+					</aside>
 				</section>
 				<section>
 					<h2>What about this one?</h2>
@@ -385,20 +394,6 @@ public int addNumbers(int x, int y) {
 						<p>Though nothing wrong with your core intention or your input</p>
 					</aside>
 				</section> -->
-				<section>
-					<h2>Pure Function</h2>
-					<ul>
-						<li class="fragment">Output relies solely on input values</li>
-						<li class="fragment">Always produce same output for same inputs.</li>
-						<li class="fragment">Does not produce an observable side effect</li>
-						<li class="fragment">Does not change the program's state</li>
-						<li class="fragment">Highly testable and reusable</li>
-
-					</ul>
-					<aside class="notes">
-						This slide has fragments which are also stepped through in the notes window.
-					</aside>
-				</section>
 				<section>
 					<h2>Convert Impure to pure</h2>
 					<p class="fragment">Make global variable local</p>
@@ -901,25 +896,21 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 					<h2>Find the napper</h2>
 					<img style="height: 400px;" src="images/nap.jpg">
 					<br>
-					<ul>
-						<li class="fragment">Who was in the image "Fully Lost?"</li>
-					</ul>
 				</section>
 				<section>
+					<p>Who was in the image "Fully Lost?"</p>
 					<img src="images/lost4.jpg" alt="">
 				</section>
 			</section>
 			<section>
-				<h1>Patterns and Techniques</h1>
-				<p>Used in Functional Programming</p>
-				<aside class="notes">
-					<p>Now I will talk about few populer <strong>patterns and Technniques</strong> used in functional programming</p>
-				</aside>
-			</section>
-			<section>
-				<section>
-					<h1>Warning</h1>
-				</section>
+					<section>
+							<h1>Patterns and Techniques</h1>
+							<p>Used in Functional Programming</p>
+							<aside class="notes">
+								<p>Now I will talk about few populer <strong>patterns and Technniques</strong> used in functional programming</p>
+							</aside>
+						</section>
+						
 				<section>
 					<h2 class="danger"><strong>WARNING</strong></h2>
 					<ul>
@@ -937,11 +928,11 @@ flatten(list2); // returns [0, 1, 2, 3, 4, 5]
 				</section>
 				<section>
 					<p>f(x) = 2x + 3</p>
-					<p class="fragment">f(2) = ?</p>
+					<p class="fragment">f(5) = ?</p>
 					<pre class="fragment"><code data-trim>
-f(2) = 2 * 2 + 3
-     = 4 + 3
-     = 7
+f(5) = 2 * 5 + 3
+     = 10 + 3
+     = 13
 					</code></pre>
 					<p class="fragment">g(x) = x <sup>2</sup> + 1</p>
 					<p class="fragment">g(2) = ?</p>
@@ -974,7 +965,7 @@ f(g(2)) = f(5)
 					<p class="fragment">g(x) inside f(x)...inside executes first</p>
 					<br>
 					<br>
-					<p><small>Khan Academy: <a href="https://www.khanacademy.org/math/algebra2/manipulating-functions/funciton-composition/v/function-composition">function composition</a></small></p>
+					<p><small> <a href="https://www.khanacademy.org/math/algebra2/manipulating-functions/funciton-composition/v/function-composition">function composition</a></small></p>
 				</section>
 				<section>
 					<h2>Wait! it's not new</h2>
@@ -1003,8 +994,8 @@ const mult5AfterAdd10 = x => mult5(add10(x));
 const mult5 = x =>  x * 5;
 const add10 = x =>  x + 10;
 
-const mult5AfterAdd10 = compose(add10, mult5);
-mult5AfterAdd10(5); //35
+const mult5AfterAdd10 = compose(mult5, add10);
+mult5AfterAdd10(5); //75
 					</code></pre>
 					<p class="fragment">executes <strong>right to left</strong></p>
 					<p class="fragment"> Direction matters</p>
@@ -1158,7 +1149,7 @@ console.log(third); // 6
 					<pre class="hljs javascript"><code data-trim>
 const modulo = divisor => dividend => dividend % divisor;
 
-modulo (3, 9); //0
+modulo (3)(9); //0
 					</code></pre>
 					<pre class="fragment hljs javascript"><code data-trim>
 const isOdd = modulo(2);
@@ -1284,8 +1275,8 @@ const mult5AfterAdd10 = R.compose(R.multiply(5), R.add(10));
 					<h2>Point free notation</h2>
 					<pre class="fragment"><code data-trim>
 const toUpperCase = str => str.toUpperCase();
-const head =  str => str[0];
-const compose = (f, g)  => x => f(g(x));
+const head = str => str[0];
+const compose = (f, g) => x => f(g(x));
 
 //not point free because we mention the data: name
 const initials = function(name) {
@@ -1869,12 +1860,12 @@ var result = add3(7)  // Immediately evaluates to 10
 							<p>If you pass the identity function (x => x) into f.map(), where f is any functor, the result should be equivalent to
 								(have the same meaning as) f:</p>
 						</aside>
-					</section> -->
+					</section>
 					<section>
 						<h4>Mathematicians vs Programmer</h4>
 						<img src="images/translation.png" alt="">
 						<img class="fragment" style="height:200px;" src="images/cat.png" alt="">
-					</section>
+					</section> -->
 			</section>
 			<section>
 				<section>
@@ -2083,7 +2074,7 @@ Array.prototype.flatMap = function(lambda) {
 					<pre class="fragment"><code data-trim>
 [3].flatMap(half); //[]
 [4].flatMap(half); //[2]
-[].flatMap(half); //[]
+[1,2,3,4,5,6,7,8].flatMap(half); //[1, 2, 3, 4]
 					</code></pre>
 					<p class="fragment">Simple way: Monad is the container that Applies <strong>flatMap</strong></p>
 					<aside class="notes">
@@ -2297,6 +2288,7 @@ cube :: (Number,String) -> (Number,String)
 					<ul>
 						<li>functor means mappable</li>
 						<li class="fragment">wrapped value to wrapped value</li>
+						<li class="fragment">Monad is the container that Applies flatMap</li>
 					</ul>
 				</section>
 			</section>
@@ -2513,17 +2505,17 @@ Animal
 				</section>
 				<section>
 					<h2>Inheritance</h2>
-					<pre><code>
+					<pre><code data-trim>
 MurderRobot
   .drive()
   .kill()
 					</code></pre>
-					<pre><code>
+					<pre><code data-trim>
 CleaningRobot
   .drive()
   .clean()					
 					</code></pre>
-					<pre><code>
+					<pre><code data-trim>
 Animal
   .poop()					
   
@@ -2561,7 +2553,7 @@ Animal
 					<p><small><a href="https://www.youtube.com/watch?v=wfMtDGfHWpA">composition vs inheritance</a></small></p>
 				</section>
 				<section>
-					<h2>Kill, drive, bark & poop</h2>
+					<h2>Kill, drive & bark</h2>
 					<pre><code data-trim>
 Robot
   .drive()
@@ -2582,7 +2574,7 @@ Animal
   Cat
     .meow()					
 					</code></pre>
-					<p class="fragment">More higher level object???</p>
+					<p class="fragment">Higher level object???</p>
 					<aside class="notes">
 						<p>this will give you a lot of funcationality to your object that it might not use</p>
 						<p>something like <strong>Gorilla - Banana Problem</strong></p>
@@ -2653,7 +2645,7 @@ Robot
 						<li class="fragment">Inertance: Types are designed on what they are</li>
 						<li class="fragment">Composition: Types are designed on what they do</li>
 					</ul>
-					<pre class="fragment"><code>
+					<pre class="fragment hljs es6 javascript"><code>
 dog = pooper + barker
 cat = pooper + meower
 
@@ -2663,7 +2655,7 @@ murderRobot = driver + killer
 murderRobotDog = murderRobot + dog
 					</code></pre>
 					<pre class="fragment"><code>
-poopingMurderRobot = murderRobot + pooper			
+killerDog = dog + killer			
 					</code></pre>
 				</section>
 				<section>
@@ -2743,15 +2735,15 @@ poopingMurderRobot = murderRobot + pooper
 					<h1>Final Summary</h1>
 				</section>
 				<section>
-					<h2>Functiona Programming</h2>
-					<p class="fragment">Depending on whom you have asked: Functional programming</p>
+					<h2>Functional Programming</h2>
+					<!-- <p class="fragment">Depending on whom you have asked: Functional programming</p>
 					<ul>
 						<li class="fragment">The <strong>mustachioed hipster</strong> of programming.</li>
 						<li class="fragment">Or <strong>undigestible scientific theory</strong> for programming</li>
-					</ul>
+					</ul> -->
 					<br>
 					<br>
-					<p class="fragment danger">It's coming to hunt you</p>
+					<p class="fragment">Write <span class="danger">pure function</span>as much as possible</p>
 					<br>
 					<p><small>Ref: <a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0">Functional Programming</a></small></p>
 					<aside class="notes">
@@ -2830,11 +2822,11 @@ poopingMurderRobot = murderRobot + pooper
 				</section> -->
 			</section>
 			<section>
-				<h2>khan4019@gmail.com</h2><br>
+				<h2>Thank you!!!</h2><br>
 				<br>
 				<!-- <p class="fragment"><a href="https://goo.gl/pdio1i">Slides twitted one hour ago <strong style="color:purple">@jsdude005</strong></a></p> -->
 					
-				<h4 class="hide1"><a href="https://khan4019.github.io/functional-programming">khan4019.github.io/functional-programming</a></h4>
+				<h4 class="hide1">Slides: <a href="https://khan4019.github.io/functional-programming">khan4019.github.io/functional-programming</a></h4>
 				<br>
 				
 				<p>
@@ -2845,7 +2837,7 @@ poopingMurderRobot = murderRobot + pooper
 				</p>
 				<br>
 				<br>
-				<p><small>ohh, thanks for being here!</small></p>
+				<p><small>ohh, see you next time!</small></p>
 			</section>
 		</div>
 
